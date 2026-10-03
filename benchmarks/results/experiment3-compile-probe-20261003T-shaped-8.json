@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-3-compiled-decode",
+  "stage": "bounded-feasibility-probe",
+  "started_at_utc": "2026-10-03T22:27:19.975054+00:00",
+  "completed_at_utc": "2026-10-03T22:27:22.542240+00:00",
+  "model": {
+    "id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
+    "local_path": "models/Llama-3.2-1B-Instruct-4bit"
+  },
+  "environment": {
+    "python": "3.14.4",
+    "macos": "15.6.1",
+    "architecture": "arm64",
+    "mlx": "0.32.2",
+    "mlx_lm": "0.31.3"
+  },
+  "settings": {
+    "prompt_profile_tokens": 512,
+    "decode_tokens": 8,
+    "prefill_step_size": 2048,
+    "sampling": "greedy",
+    "compiled_scope": "single-token model, log-softmax, and argmax",
+    "compile_mode": "shaped",
+    "compile_shapeless": false,
+    "bounded_probe_only": true
+  },
+  "eager": {
+    "token_ids": [
+      791,
+      6875,
+      34350,
+      520,
+      220,
+      21,
+      304,
+      279
+    ],
+    "latencies_seconds": [
+      0.0481822910005576,
+      0.007080875002429821,
+      0.006869500000902917,
+      0.00720129199908115,
+      0.0062180829991120845,
+      0.006331500000669621,
+      0.0066590410060598515,
+      0.006503416996565647
+    ],
+    "first_token_seconds": 0.0481822910005576,
+    "median_subsequent_token_seconds": 0.0066590410060598515,
+    "subsequent_tokens_per_second": 150.1717738470121,
+    "cache_bytes": 17104896,
+    "cache_tokens": 522,
+    "mlx_peak_memory_bytes": 721892634,
+    "process_peak_rss_bytes": 1182629888
+  },
+  "compiled": {
+    "token_ids": [
+      791,
+      6875,
+      34350,
+      520,
+      220,
+      21,
+      304,
+      279
+    ],
+    "latencies_seconds": [
+      0.8183882919984171,
+      0.011033750000933651,
+      0.010553083004197106,
+      0.010340167005779222,
+      0.010599166998872533,
+      0.009432124999875668,
+      0.009944791003363207,
+      0.010945041998638771
+    ],
+    "first_token_seconds_including_compile": 0.8183882919984171,
+    "median_subsequent_token_seconds": 0.010553083004197106,
+    "subsequent_tokens_per_second": 94.75903862428508,
+    "python_trace_calls": 8,
+    "cache_bytes": 17104896,
+    "cache_tokens": 522,
+    "mlx_peak_memory_bytes": 798704828,
+    "process_peak_rss_bytes": 1182629888
+  },
+  "comparison": {
+    "exact_token_match": true,
+    "first_different_token_index": null,
+    "steady_decode_speedup_fraction": -0.3689956761060763,
+    "peak_mlx_memory_increase_fraction": 0.106403903270746,
+    "cache_token_count_match": true,
+    "bounded_feasibility_pass": false
+  },
+  "error": null,
+  "actual_prompt_tokens": 515
+}
