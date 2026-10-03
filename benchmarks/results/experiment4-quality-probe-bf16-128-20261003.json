@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "title": "Apple Silicon Inference Engineering: Benchmarking and Optimizing Llama 3.2 1B with MLX LM",
+  "started_at_utc": "2026-10-03T23:28:12.381267+00:00",
+  "model": {
+    "id": "mlx-community/Llama-3.2-1B-Instruct-bf16@863c846a9ac6fad4e49e1743d52984dff262e953",
+    "local_path": "models/Llama-3.2-1B-Instruct-bf16-exp4",
+    "weights_bytes": 2471645521,
+    "weight_files": [
+      {
+        "name": "model.safetensors",
+        "bytes": 2471645521,
+        "sha256": "f5dc593b89368a9a44a8fc3b2dacd7a3d65e43acb4ffbd98a1a40fac9c2bd6da"
+      }
+    ],
+    "config_sha256": "8d40f9098d80a1510565233591a58ccf4dadba6a94934c1a514bf95201621efa"
+  },
+  "environment": {
+    "python": "3.14.4",
+    "mlx_lm": "0.31.3",
+    "mlx": "0.32.2",
+    "transformers": "5.17.0",
+    "macos": "15.6.1",
+    "architecture": "arm64",
+    "cpu_count": 10,
+    "total_memory_bytes": 17179869184,
+    "gpu_utilization_percent": null,
+    "gpu_utilization_note": "Not exposed by MLX LM; use Activity Monitor for a visual check."
+  },
+  "settings": {
+    "chat_template": "tokenizer.apply_chat_template(add_generation_prompt=True)",
+    "sampling": "greedy (temperature 0)",
+    "max_new_tokens": 128,
+    "prefill_step_size": 2048,
+    "concurrency": 1,
+    "prompt_cache": "disabled; fresh cache for each request",
+    "warm_runs_per_prompt": 1,
+    "warmup_runs_per_prompt": 1,
+    "input_token_targets": [
+      512
+    ],
+    "prompt_types": {
+      "qa": "Answer this question using the notes: What time does the library close on weekdays?",
+      "rewrite": "Make this notice friendlier: Return items by the receipt due date.",
+      "context_question": "Using the notes, when can visitors use the meeting room for quiet study?",
+      "extraction": "From the notes, extract the library's weekday opening and closing times and its available services as compact JSON.",
+      "summarization": "Summarize the notes in three concise bullets."
+    }
+  },
+  "model_load_seconds": 1.4427672500023618,
+  "cold_process_to_first_token_seconds": 5.112486584002909,
+  "cases": [
+    {
+      "target_prompt_tokens": 512,
+      "prompts": [
+        {
+          "prompt_type": "qa",
+          "target_prompt_tokens": 512,
+          "actual_prompt_tokens": 512,
+          "fixture_tokenization_seconds": 0.16470458399999188,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt.\n\nAnswer this question using the notes: What time does the library close on weekdays?"
+            }
+          ],
+          "cold_first_inference": {
+            "prompt_tokens": 512,
+            "generated_tokens": 10,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.5353033749997849,
+            "decode_seconds": 0.14955904099770123,
+            "request_seconds": 0.6848624159974861,
+            "process_to_first_token_seconds": 5.112486584002909,
+            "prefill_tokens_per_second": 1566.2661368557572,
+            "decode_tokens_per_second": 77.64954817756754,
+            "mlx_active_memory_gb": 2.471893,
+            "mlx_peak_memory_gb": 2.777031344,
+            "process_peak_rss_gb": 2.791079936,
+            "generated_text": "The library closes at 6 on weekdays.",
+            "generated_text_sha256": "0e1f485f4c4ff0740b789acacb382dff7858a052ad65d15956fae0ee823a150f"
+          },
+          "warmup": {
+            "prompt_tokens": 512,
+            "generated_tokens": 10,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.42356066700449446,
+            "decode_seconds": 0.14881687500019325,
+            "request_seconds": 0.5723775420046877,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1616.0695797943545,
+            "decode_tokens_per_second": 77.27691602981862,
+            "mlx_active_memory_gb": 2.471893,
+            "mlx_peak_memory_gb": 2.777030768,
+            "process_peak_rss_gb": 2.791079936,
+            "generated_text": "The library closes at 6 on weekdays.",
+            "generated_text_sha256": "0e1f485f4c4ff0740b789acacb382dff7858a052ad65d15956fae0ee823a150f"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 512,
+              "generated_tokens": 10,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 0.3978670419965056,
+              "decode_seconds": 0.15140675000293413,
+              "request_seconds": 0.5492737919994397,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 1749.260931298668,
+              "decode_tokens_per_second": 77.85286955056715,
+              "mlx_active_memory_gb": 2.471893,
+              "mlx_peak_memory_gb": 2.777030768,
+              "process_peak_rss_gb": 2.791079936,
+              "generated_text": "The library closes at 6 on weekdays.",
+              "generated_text_sha256": "0e1f485f4c4ff0740b789acacb382dff7858a052ad65d15956fae0ee823a150f"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.3978670419965056,
+              "p95_nearest_rank": 0.3978670419965056
+            },
+            "prefill_tokens_per_second": {
+              "median": 1749.260931298668,
+              "p95_nearest_rank": 1749.260931298668
+            },
+            "decode_tokens_per_second": {
+              "median": 77.85286955056715,
+              "p95_nearest_rank": 77.85286955056715
+            },
+            "request_seconds": {
+              "median": 0.5492737919994397,
+              "p95_nearest_rank": 0.5492737919994397
+            },
+            "mlx_peak_memory_gb": {
+              "median": 2.777030768,
+              "p95_nearest_rank": 2.777030768
+            },
+            "process_peak_rss_gb": {
+              "median": 2.791079936,
+              "p95_nearest_rank": 2.791079936
+            }
+          }
+        },
+        {
+          "prompt_type": "rewrite",
+          "target_prompt_tokens": 512,
+          "actual_prompt_tokens": 510,
+          "fixture_tokenization_seconds": 0.16488825000124052,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt.\n\nMake this notice friendlier: Return items by the receipt due date."
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 510,
+            "generated_tokens": 128,
+            "finish_reason": "length",
+            "time_to_first_token_seconds": 0.3825084589989274,
+            "decode_seconds": 1.856108874999336,
+            "request_seconds": 2.2386173339982633,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1786.368956190889,
+            "decode_tokens_per_second": 69.70116781457175,
+            "mlx_active_memory_gb": 2.471893,
+            "mlx_peak_memory_gb": 2.77650648,
+            "process_peak_rss_gb": 2.791079936,
+            "generated_text": "Here's a friendlier version of the notice:\n\n\"Welcome to our library!\n\nWe're excited to have you visit us, and we're here to help you make the most of your time with us. Here are some important details to keep in mind:\n\n* We're open from 9am to 6pm, Monday through Friday, and 10am to 6pm on weekends.\n* Our meeting room is available for quiet study when no event is scheduled.\n* Our local history collection is staffed by a small team who are happy to help with questions and research.\n* Community members can suggest new titles through our paper request form",
+            "generated_text_sha256": "fe4e1f3b39e3dd2ce71d2f7cb964430a96101b5036434554eed955bb65323a72"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 510,
+              "generated_tokens": 128,
+              "finish_reason": "length",
+              "time_to_first_token_seconds": 0.40766083400376374,
+              "decode_seconds": 1.8383826659992337,
+              "request_seconds": 2.2460435000029975,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 1754.6042613725645,
+              "decode_tokens_per_second": 70.27299500471653,
+              "mlx_active_memory_gb": 2.471893,
+              "mlx_peak_memory_gb": 2.77650648,
+              "process_peak_rss_gb": 2.791079936,
+              "generated_text": "Here's a friendlier version of the notice:\n\n\"Welcome to our library!\n\nWe're excited to have you visit us, and we're here to help you make the most of your time with us. Here are some important details to keep in mind:\n\n* We're open from 9am to 6pm, Monday through Friday, and 10am to 6pm on weekends.\n* Our meeting room is available for quiet study when no event is scheduled.\n* Our local history collection is staffed by a small team who are happy to help with questions and research.\n* Community members can suggest new titles through our paper request form",
+              "generated_text_sha256": "fe4e1f3b39e3dd2ce71d2f7cb964430a96101b5036434554eed955bb65323a72"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.40766083400376374,
+              "p95_nearest_rank": 0.40766083400376374
+            },
+            "prefill_tokens_per_second": {
+              "median": 1754.6042613725645,
+              "p95_nearest_rank": 1754.6042613725645
+            },
+            "decode_tokens_per_second": {
+              "median": 70.27299500471653,
+              "p95_nearest_rank": 70.27299500471653
+            },
+            "request_seconds": {
+              "median": 2.2460435000029975,
+              "p95_nearest_rank": 2.2460435000029975
+            },
+            "mlx_peak_memory_gb": {
+              "median": 2.77650648,
+              "p95_nearest_rank": 2.77650648
+            },
+            "process_peak_rss_gb": {
+              "median": 2.791079936,
+              "p95_nearest_rank": 2.791079936
+            }
+          }
+        },
+        {
+          "prompt_type": "context_question",
+          "target_prompt_tokens": 512,
+          "actual_prompt_tokens": 511,
+          "fixture_tokenization_seconds": 0.17061787500279024,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt.\n\nUsing the notes, when can visitors use the meeting room for quiet study?"
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 511,
+            "generated_tokens": 15,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.37132595800358104,
+            "decode_seconds": 0.2180997089963057,
+            "request_seconds": 0.5894256669998867,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1822.9806127601184,
+            "decode_tokens_per_second": 74.05976499638045,
+            "mlx_active_memory_gb": 2.471893,
+            "mlx_peak_memory_gb": 2.776768624,
+            "process_peak_rss_gb": 2.791079936,
+            "generated_text": "The meeting room is available for quiet study when no event is scheduled.",
+            "generated_text_sha256": "ceaf4ddc1f328085655211ca2d439548248a7a5e6ea52337c9091b8663aa9b35"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 511,
+              "generated_tokens": 15,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 0.3932862080037012,
+              "decode_seconds": 0.22120279199589277,
+              "request_seconds": 0.6144889999995939,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 1767.9522289108331,
+              "decode_tokens_per_second": 74.6400483668155,
+              "mlx_active_memory_gb": 2.471893,
+              "mlx_peak_memory_gb": 2.776768624,
+              "process_peak_rss_gb": 2.791079936,
+              "generated_text": "The meeting room is available for quiet study when no event is scheduled.",
+              "generated_text_sha256": "ceaf4ddc1f328085655211ca2d439548248a7a5e6ea52337c9091b8663aa9b35"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.3932862080037012,
+              "p95_nearest_rank": 0.3932862080037012
+            },
+            "prefill_tokens_per_second": {
+              "median": 1767.9522289108331,
+              "p95_nearest_rank": 1767.9522289108331
+            },
+            "decode_tokens_per_second": {
+              "median": 74.6400483668155,
+              "p95_nearest_rank": 74.6400483668155
+            },
+            "request_seconds": {
+              "median": 0.6144889999995939,
+              "p95_nearest_rank": 0.6144889999995939
+            },
+            "mlx_peak_memory_gb": {
+              "median": 2.776768624,
+              "p95_nearest_rank": 2.776768624
+            },
+            "process_peak_rss_gb": {
+              "median": 2.791079936,
+              "p95_nearest_rank": 2.791079936
+            }
+          }
+        },
+        {
+          "prompt_type": "extraction",
+          "target_prompt_tokens": 512,
+          "actual_prompt_tokens": 512,
+          "fixture_tokenization_seconds": 0.17483458300557686,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Staff help visitors.\n\nFrom the notes, extract the library's weekday opening and closing times and its available services as compact JSON."
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 512,
+            "generated_tokens": 67,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.3885870000012801,
+            "decode_seconds": 0.9662839169977815,
+            "request_seconds": 1.3548709169990616,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1774.159127695504,
+            "decode_tokens_per_second": 70.54143266995163,
+            "mlx_active_memory_gb": 2.471893,
+            "mlx_peak_memory_gb": 2.777030768,
+            "process_peak_rss_gb": 2.791079936,
+            "generated_text": "{\n  \"weekdayOpening\": \"9\",\n  \"weekdayClosing\": \"6\",\n  \"availableServices\": [\n    \"books\",\n    \"study tables\",\n    \"reading groups\",\n    \"local history collection\",\n    \"questions\",\n    \"meeting room\",\n    \"monthly newsletter\",\n    \"suggestion form\"\n  ]\n}",
+            "generated_text_sha256": "23951e8f0a023b1dc1d11b5aa8e1ef1b16870ed4463b173c986ae7ec084e96fe"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 512,
+              "generated_tokens": 67,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 0.3970378339945455,
+              "decode_seconds": 0.9701792910054792,
+              "request_seconds": 1.3672171250000247,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 1776.42027811684,
+              "decode_tokens_per_second": 70.45560061534229,
+              "mlx_active_memory_gb": 2.471893,
+              "mlx_peak_memory_gb": 2.777030768,
+              "process_peak_rss_gb": 2.791079936,
+              "generated_text": "{\n  \"weekdayOpening\": \"9\",\n  \"weekdayClosing\": \"6\",\n  \"availableServices\": [\n    \"books\",\n    \"study tables\",\n    \"reading groups\",\n    \"local history collection\",\n    \"questions\",\n    \"meeting room\",\n    \"monthly newsletter\",\n    \"suggestion form\"\n  ]\n}",
+              "generated_text_sha256": "23951e8f0a023b1dc1d11b5aa8e1ef1b16870ed4463b173c986ae7ec084e96fe"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.3970378339945455,
+              "p95_nearest_rank": 0.3970378339945455
+            },
+            "prefill_tokens_per_second": {
+              "median": 1776.42027811684,
+              "p95_nearest_rank": 1776.42027811684
+            },
+            "decode_tokens_per_second": {
+              "median": 70.45560061534229,
+              "p95_nearest_rank": 70.45560061534229
+            },
+            "request_seconds": {
+              "median": 1.3672171250000247,
+              "p95_nearest_rank": 1.3672171250000247
+            },
+            "mlx_peak_memory_gb": {
+              "median": 2.777030768,
+              "p95_nearest_rank": 2.777030768
+            },
+            "process_peak_rss_gb": {
+              "median": 2.791079936,
+              "p95_nearest_rank": 2.791079936
+            }
+          }
+        },
+        {
+          "prompt_type": "summarization",
+          "target_prompt_tokens": 512,
+          "actual_prompt_tokens": 510,
+          "fixture_tokenization_seconds": 0.18345241700444603,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors.\n\nSummarize the notes in three concise bullets."
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 510,
+            "generated_tokens": 79,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.3777430840054876,
+            "decode_seconds": 1.1434809579950524,
+            "request_seconds": 1.52122404200054,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1805.421044339983,
+            "decode_tokens_per_second": 70.47867589335513,
+            "mlx_active_memory_gb": 2.471893,
+            "mlx_peak_memory_gb": 2.77650648,
+            "process_peak_rss_gb": 2.791079936,
+            "generated_text": "• The public library is open from 9am to 6pm, Monday through Friday, and 10am to 6pm on weekends.\n• The library offers various services, including borrowing books, using study tables, attending reading groups, and meeting in the meeting room.\n• The library posts schedule changes, updates, and new title suggestions on its website and at the front desk.",
+            "generated_text_sha256": "97c178ae1f94563c713704c01c4ca259b080052370fc361eeda19c86dfc4da72"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 510,
+              "generated_tokens": 79,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 0.38895183299609926,
+              "decode_seconds": 1.139062375004869,
+              "request_seconds": 1.5280142080009682,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 1794.7321991726687,
+              "decode_tokens_per_second": 70.46868780447268,
+              "mlx_active_memory_gb": 2.471893,
+              "mlx_peak_memory_gb": 2.77650648,
+              "process_peak_rss_gb": 2.791079936,
+              "generated_text": "• The public library is open from 9am to 6pm, Monday through Friday, and 10am to 6pm on weekends.\n• The library offers various services, including borrowing books, using study tables, attending reading groups, and meeting in the meeting room.\n• The library posts schedule changes, updates, and new title suggestions on its website and at the front desk.",
+              "generated_text_sha256": "97c178ae1f94563c713704c01c4ca259b080052370fc361eeda19c86dfc4da72"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.38895183299609926,
+              "p95_nearest_rank": 0.38895183299609926
+            },
+            "prefill_tokens_per_second": {
+              "median": 1794.7321991726687,
+              "p95_nearest_rank": 1794.7321991726687
+            },
+            "decode_tokens_per_second": {
+              "median": 70.46868780447268,
+              "p95_nearest_rank": 70.46868780447268
+            },
+            "request_seconds": {
+              "median": 1.5280142080009682,
+              "p95_nearest_rank": 1.5280142080009682
+            },
+            "mlx_peak_memory_gb": {
+              "median": 2.77650648,
+              "p95_nearest_rank": 2.77650648
+            },
+            "process_peak_rss_gb": {
+              "median": 2.791079936,
+              "p95_nearest_rank": 2.791079936
+            }
+          }
+        }
+      ],
+      "overall_summary_across_prompt_types": {
+        "run_count": 5,
+        "time_to_first_token_seconds": {
+          "median": 0.3970378339945455,
+          "p95_nearest_rank": 0.40766083400376374
+        },
+        "prefill_tokens_per_second": {
+          "median": 1767.9522289108331,
+          "p95_nearest_rank": 1794.7321991726687
+        },
+        "decode_tokens_per_second": {
+          "median": 70.46868780447268,
+          "p95_nearest_rank": 77.85286955056715
+        },
+        "request_seconds": {
+          "median": 1.3672171250000247,
+          "p95_nearest_rank": 2.2460435000029975
+        },
+        "mlx_peak_memory_gb": {
+          "median": 2.776768624,
+          "p95_nearest_rank": 2.777030768
+        },
+        "process_peak_rss_gb": {
+          "median": 2.791079936,
+          "p95_nearest_rank": 2.791079936
+        }
+      }
+    }
+  ],
+  "completed_at_utc": "2026-10-03T23:28:29.854544+00:00",
+  "process_elapsed_seconds": 18.555179625000164
+}

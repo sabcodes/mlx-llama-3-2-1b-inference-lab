@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "title": "Apple Silicon Inference Engineering: Benchmarking and Optimizing Llama 3.2 1B with MLX LM",
+  "started_at_utc": "2026-10-03T23:24:28.021420+00:00",
+  "model": {
+    "id": "local/llama-3.2-1b-instruct-affine4-g64-from-bf16@863c846a",
+    "local_path": "models/Llama-3.2-1B-Instruct-affine4-g64-exp4",
+    "weights_bytes": 695284180,
+    "weight_files": [
+      {
+        "name": "model.safetensors",
+        "bytes": 695284180,
+        "sha256": "69dedb12a33e97738dc79622fb4bb79d55b5ea7557f9e2181b18c9791a84f877"
+      }
+    ],
+    "config_sha256": "44606383117cdb27a71cd6e47bd3c0c61dbe0aab2c42c7c9402d1cc7264f1160"
+  },
+  "environment": {
+    "python": "3.14.4",
+    "mlx_lm": "0.31.3",
+    "mlx": "0.32.2",
+    "transformers": "5.17.0",
+    "macos": "15.6.1",
+    "architecture": "arm64",
+    "cpu_count": 10,
+    "total_memory_bytes": 17179869184,
+    "gpu_utilization_percent": null,
+    "gpu_utilization_note": "Not exposed by MLX LM; use Activity Monitor for a visual check."
+  },
+  "settings": {
+    "chat_template": "tokenizer.apply_chat_template(add_generation_prompt=True)",
+    "sampling": "greedy (temperature 0)",
+    "max_new_tokens": 32,
+    "prefill_step_size": 2048,
+    "concurrency": 1,
+    "prompt_cache": "disabled; fresh cache for each request",
+    "warm_runs_per_prompt": 1,
+    "warmup_runs_per_prompt": 1,
+    "input_token_targets": [
+      64
+    ],
+    "prompt_types": {
+      "qa": "Answer this question using the notes: What time does the library close on weekdays?",
+      "rewrite": "Make this notice friendlier: Return items by the receipt due date.",
+      "context_question": "Using the notes, when can visitors use the meeting room for quiet study?",
+      "extraction": "From the notes, extract the library's weekday opening and closing times and its available services as compact JSON.",
+      "summarization": "Summarize the notes in three concise bullets."
+    }
+  },
+  "model_load_seconds": 1.4809099999984028,
+  "cold_process_to_first_token_seconds": 3.437466375005897,
+  "cases": [
+    {
+      "target_prompt_tokens": 64,
+      "prompts": [
+        {
+          "prompt_type": "qa",
+          "target_prompt_tokens": 64,
+          "actual_prompt_tokens": 62,
+          "fixture_tokenization_seconds": 0.02269233299739426,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "Staff help visitors. Staff help visitors.\n\nAnswer this question using the notes: What time does the library close on weekdays?"
+            }
+          ],
+          "cold_first_inference": {
+            "prompt_tokens": 62,
+            "generated_tokens": 22,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.3901740420042188,
+            "decode_seconds": 0.10898804199678125,
+            "request_seconds": 0.49916208400100004,
+            "process_to_first_token_seconds": 3.437466375005897,
+            "prefill_tokens_per_second": 227.90992934795682,
+            "decode_tokens_per_second": 217.30764733857004,
+            "mlx_active_memory_gb": 0.695506952,
+            "mlx_peak_memory_gb": 0.840991028,
+            "process_peak_rss_gb": 1.255276544,
+            "generated_text": "I don't have any notes. This conversation has just started. Would you like to provide the information?",
+            "generated_text_sha256": "1f6f8c3a1a7f6259904af23786c9df642aa528d21bbc1a1e061b286d50ecfed9"
+          },
+          "warmup": {
+            "prompt_tokens": 62,
+            "generated_tokens": 22,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.16614412500348408,
+            "decode_seconds": 0.1256574159997399,
+            "request_seconds": 0.291801541003224,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 728.3142893265806,
+            "decode_tokens_per_second": 188.5521682315693,
+            "mlx_active_memory_gb": 0.695506952,
+            "mlx_peak_memory_gb": 0.84157894,
+            "process_peak_rss_gb": 1.255276544,
+            "generated_text": "I don't have any notes. This conversation has just started. Would you like to provide the information?",
+            "generated_text_sha256": "1f6f8c3a1a7f6259904af23786c9df642aa528d21bbc1a1e061b286d50ecfed9"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 62,
+              "generated_tokens": 22,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 0.14463433399942005,
+              "decode_seconds": 0.10968329099705443,
+              "request_seconds": 0.2543176249964745,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 1050.3134000246557,
+              "decode_tokens_per_second": 216.52974917183698,
+              "mlx_active_memory_gb": 0.695506952,
+              "mlx_peak_memory_gb": 0.83273976,
+              "process_peak_rss_gb": 1.255276544,
+              "generated_text": "I don't have any notes. This conversation has just started. Would you like to provide the information?",
+              "generated_text_sha256": "1f6f8c3a1a7f6259904af23786c9df642aa528d21bbc1a1e061b286d50ecfed9"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.14463433399942005,
+              "p95_nearest_rank": 0.14463433399942005
+            },
+            "prefill_tokens_per_second": {
+              "median": 1050.3134000246557,
+              "p95_nearest_rank": 1050.3134000246557
+            },
+            "decode_tokens_per_second": {
+              "median": 216.52974917183698,
+              "p95_nearest_rank": 216.52974917183698
+            },
+            "request_seconds": {
+              "median": 0.2543176249964745,
+              "p95_nearest_rank": 0.2543176249964745
+            },
+            "mlx_peak_memory_gb": {
+              "median": 0.83273976,
+              "p95_nearest_rank": 0.83273976
+            },
+            "process_peak_rss_gb": {
+              "median": 1.255276544,
+              "p95_nearest_rank": 1.255276544
+            }
+          }
+        },
+        {
+          "prompt_type": "rewrite",
+          "target_prompt_tokens": 64,
+          "actual_prompt_tokens": 64,
+          "fixture_tokenization_seconds": 0.010421041006338783,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "Staff help visitors. Staff help visitors. Staff help visitors.\n\nMake this notice friendlier: Return items by the receipt due date."
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 64,
+            "generated_tokens": 32,
+            "finish_reason": "length",
+            "time_to_first_token_seconds": 0.14087999999901513,
+            "decode_seconds": 0.16054370799975004,
+            "request_seconds": 0.30142370799876517,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1119.9163562376705,
+            "decode_tokens_per_second": 210.08386121733434,
+            "mlx_active_memory_gb": 0.695506952,
+            "mlx_peak_memory_gb": 0.836016568,
+            "process_peak_rss_gb": 1.255276544,
+            "generated_text": "Here's a revised version:\n\n\"Help a friend out! Return items by the receipt due date to ensure a smooth shopping experience.\n\nWe appreciate your help in keeping",
+            "generated_text_sha256": "d349d4a260aa17db070455d54ed5a511e19fd766f2859de480eb4fee54d27d3b"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 64,
+              "generated_tokens": 32,
+              "finish_reason": "length",
+              "time_to_first_token_seconds": 0.1727208750016871,
+              "decode_seconds": 0.16702325000369456,
+              "request_seconds": 0.33974412500538165,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 764.4441818149318,
+              "decode_tokens_per_second": 201.3360534642743,
+              "mlx_active_memory_gb": 0.695506952,
+              "mlx_peak_memory_gb": 0.845085124,
+              "process_peak_rss_gb": 1.255276544,
+              "generated_text": "Here's a revised version:\n\n\"Help a friend out! Return items by the receipt due date to ensure a smooth shopping experience.\n\nWe appreciate your help in keeping",
+              "generated_text_sha256": "d349d4a260aa17db070455d54ed5a511e19fd766f2859de480eb4fee54d27d3b"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.1727208750016871,
+              "p95_nearest_rank": 0.1727208750016871
+            },
+            "prefill_tokens_per_second": {
+              "median": 764.4441818149318,
+              "p95_nearest_rank": 764.4441818149318
+            },
+            "decode_tokens_per_second": {
+              "median": 201.3360534642743,
+              "p95_nearest_rank": 201.3360534642743
+            },
+            "request_seconds": {
+              "median": 0.33974412500538165,
+              "p95_nearest_rank": 0.33974412500538165
+            },
+            "mlx_peak_memory_gb": {
+              "median": 0.845085124,
+              "p95_nearest_rank": 0.845085124
+            },
+            "process_peak_rss_gb": {
+              "median": 1.255276544,
+              "p95_nearest_rank": 1.255276544
+            }
+          }
+        },
+        {
+          "prompt_type": "context_question",
+          "target_prompt_tokens": 64,
+          "actual_prompt_tokens": 61,
+          "fixture_tokenization_seconds": 0.00993154200114077,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "Staff help visitors. Staff help visitors.\n\nUsing the notes, when can visitors use the meeting room for quiet study?"
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 61,
+            "generated_tokens": 30,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.15043341599812265,
+            "decode_seconds": 0.150391834002221,
+            "request_seconds": 0.30082525000034366,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1077.9734226145456,
+            "decode_tokens_per_second": 211.10221745933654,
+            "mlx_active_memory_gb": 0.695506952,
+            "mlx_peak_memory_gb": 0.83049516,
+            "process_peak_rss_gb": 1.255276544,
+            "generated_text": "I don't have any notes. This conversation just started. If you'd like to share the notes, I can help you with the information.",
+            "generated_text_sha256": "f349b98221c6e4a82f25dfef1b2894381f9d35f177d0f8e00a09ae547c2d0bac"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 61,
+              "generated_tokens": 30,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 0.15739495900197653,
+              "decode_seconds": 0.15078799999901094,
+              "request_seconds": 0.30818295900098747,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 874.3158997185669,
+              "decode_tokens_per_second": 210.8653651060857,
+              "mlx_active_memory_gb": 0.695506952,
+              "mlx_peak_memory_gb": 0.839121348,
+              "process_peak_rss_gb": 1.255276544,
+              "generated_text": "I don't have any notes. This conversation just started. If you'd like to share the notes, I can help you with the information.",
+              "generated_text_sha256": "f349b98221c6e4a82f25dfef1b2894381f9d35f177d0f8e00a09ae547c2d0bac"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.15739495900197653,
+              "p95_nearest_rank": 0.15739495900197653
+            },
+            "prefill_tokens_per_second": {
+              "median": 874.3158997185669,
+              "p95_nearest_rank": 874.3158997185669
+            },
+            "decode_tokens_per_second": {
+              "median": 210.8653651060857,
+              "p95_nearest_rank": 210.8653651060857
+            },
+            "request_seconds": {
+              "median": 0.30818295900098747,
+              "p95_nearest_rank": 0.30818295900098747
+            },
+            "mlx_peak_memory_gb": {
+              "median": 0.839121348,
+              "p95_nearest_rank": 0.839121348
+            },
+            "process_peak_rss_gb": {
+              "median": 1.255276544,
+              "p95_nearest_rank": 1.255276544
+            }
+          }
+        },
+        {
+          "prompt_type": "extraction",
+          "target_prompt_tokens": 64,
+          "actual_prompt_tokens": 62,
+          "fixture_tokenization_seconds": 0.006056749996787403,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "Notes: \n\nFrom the notes, extract the library's weekday opening and closing times and its available services as compact JSON."
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 62,
+            "generated_tokens": 32,
+            "finish_reason": "length",
+            "time_to_first_token_seconds": 0.1586667080046027,
+            "decode_seconds": 0.16088725000008708,
+            "request_seconds": 0.3195539580046898,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 896.5761910411378,
+            "decode_tokens_per_second": 209.88010598914198,
+            "mlx_active_memory_gb": 0.695506952,
+            "mlx_peak_memory_gb": 0.841578948,
+            "process_peak_rss_gb": 1.255276544,
+            "generated_text": "Unfortunately, I don't have any notes to extract from. This conversation just started. If you provide the library's details, I can help you with the requested",
+            "generated_text_sha256": "8a449e97d0983aa2bfff720e6b0902525fc67969362c47ac5f7d9238cd1e52c3"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 62,
+              "generated_tokens": 32,
+              "finish_reason": "length",
+              "time_to_first_token_seconds": 0.1566509580006823,
+              "decode_seconds": 0.15997433300071862,
+              "request_seconds": 0.3166252910014009,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 895.940279205763,
+              "decode_tokens_per_second": 211.25238049237677,
+              "mlx_active_memory_gb": 0.695506952,
+              "mlx_peak_memory_gb": 0.841578948,
+              "process_peak_rss_gb": 1.255276544,
+              "generated_text": "Unfortunately, I don't have any notes to extract from. This conversation just started. If you provide the library's details, I can help you with the requested",
+              "generated_text_sha256": "8a449e97d0983aa2bfff720e6b0902525fc67969362c47ac5f7d9238cd1e52c3"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.1566509580006823,
+              "p95_nearest_rank": 0.1566509580006823
+            },
+            "prefill_tokens_per_second": {
+              "median": 895.940279205763,
+              "p95_nearest_rank": 895.940279205763
+            },
+            "decode_tokens_per_second": {
+              "median": 211.25238049237677,
+              "p95_nearest_rank": 211.25238049237677
+            },
+            "request_seconds": {
+              "median": 0.3166252910014009,
+              "p95_nearest_rank": 0.3166252910014009
+            },
+            "mlx_peak_memory_gb": {
+              "median": 0.841578948,
+              "p95_nearest_rank": 0.841578948
+            },
+            "process_peak_rss_gb": {
+              "median": 1.255276544,
+              "p95_nearest_rank": 1.255276544
+            }
+          }
+        },
+        {
+          "prompt_type": "summarization",
+          "target_prompt_tokens": 64,
+          "actual_prompt_tokens": 64,
+          "fixture_tokenization_seconds": 0.00558229200396454,
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "Notes: Visitors can borrow books, use study tables, and attend reading groups.\n\nSummarize the notes in three concise bullets."
+            }
+          ],
+          "cold_first_inference": null,
+          "warmup": {
+            "prompt_tokens": 64,
+            "generated_tokens": 31,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 0.15206829200178618,
+            "decode_seconds": 0.15554470799543196,
+            "request_seconds": 0.30761299999721814,
+            "process_to_first_token_seconds": null,
+            "prefill_tokens_per_second": 1041.1194689151882,
+            "decode_tokens_per_second": 210.74714015130687,
+            "mlx_active_memory_gb": 0.695506952,
+            "mlx_peak_memory_gb": 0.836016568,
+            "process_peak_rss_gb": 1.255276544,
+            "generated_text": "Here are three concise bullets summarizing the notes:\n\n• Visitors can borrow books.\n• They can use study tables.\n• They can attend reading groups.",
+            "generated_text_sha256": "b03d8ca38bf4423794e16e5235b0793d3d2d80680fa0665d2e38bd1656b464f7"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 64,
+              "generated_tokens": 31,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 0.15696875000139698,
+              "decode_seconds": 0.1549502499983646,
+              "request_seconds": 0.3119189999997616,
+              "process_to_first_token_seconds": null,
+              "prefill_tokens_per_second": 955.7231389794026,
+              "decode_tokens_per_second": 211.56438211119107,
+              "mlx_active_memory_gb": 0.695506952,
+              "mlx_peak_memory_gb": 0.845085124,
+              "process_peak_rss_gb": 1.255276544,
+              "generated_text": "Here are three concise bullets summarizing the notes:\n\n• Visitors can borrow books.\n• They can use study tables.\n• They can attend reading groups.",
+              "generated_text_sha256": "b03d8ca38bf4423794e16e5235b0793d3d2d80680fa0665d2e38bd1656b464f7"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 0.15696875000139698,
+              "p95_nearest_rank": 0.15696875000139698
+            },
+            "prefill_tokens_per_second": {
+              "median": 955.7231389794026,
+              "p95_nearest_rank": 955.7231389794026
+            },
+            "decode_tokens_per_second": {
+              "median": 211.56438211119107,
+              "p95_nearest_rank": 211.56438211119107
+            },
+            "request_seconds": {
+              "median": 0.3119189999997616,
+              "p95_nearest_rank": 0.3119189999997616
+            },
+            "mlx_peak_memory_gb": {
+              "median": 0.845085124,
+              "p95_nearest_rank": 0.845085124
+            },
+            "process_peak_rss_gb": {
+              "median": 1.255276544,
+              "p95_nearest_rank": 1.255276544
+            }
+          }
+        }
+      ],
+      "overall_summary_across_prompt_types": {
+        "run_count": 5,
+        "time_to_first_token_seconds": {
+          "median": 0.15696875000139698,
+          "p95_nearest_rank": 0.1727208750016871
+        },
+        "prefill_tokens_per_second": {
+          "median": 895.940279205763,
+          "p95_nearest_rank": 1050.3134000246557
+        },
+        "decode_tokens_per_second": {
+          "median": 211.25238049237677,
+          "p95_nearest_rank": 216.52974917183698
+        },
+        "request_seconds": {
+          "median": 0.3119189999997616,
+          "p95_nearest_rank": 0.33974412500538165
+        },
+        "mlx_peak_memory_gb": {
+          "median": 0.841578948,
+          "p95_nearest_rank": 0.845085124
+        },
+        "process_peak_rss_gb": {
+          "median": 1.255276544,
+          "p95_nearest_rank": 1.255276544
+        }
+      }
+    }
+  ],
+  "completed_at_utc": "2026-10-03T23:24:33.556445+00:00",
+  "process_elapsed_seconds": 6.641027500001655
+}

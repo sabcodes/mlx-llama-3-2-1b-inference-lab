@@ -19,7 +19,8 @@ from pathlib import Path
 
 SCRIPT_START = time.perf_counter()
 ROOT = Path(__file__).resolve().parents[1]
-MODEL_PATH = ROOT / "models" / "Llama-3.2-1B-Instruct-4bit"
+DEFAULT_MODEL_PATH = ROOT / "models" / "Llama-3.2-1B-Instruct-4bit"
+DEFAULT_MODEL_ID = "mlx-community/Llama-3.2-1B-Instruct-4bit"
 DEFAULT_TARGETS = (64, 512, 2048, 4096)
 SYSTEM_PROMPT = "Be concise."
 CONTEXT_SENTENCES = (
@@ -52,6 +53,22 @@ def package_version(name: str) -> str | None:
         return importlib.metadata.version(name)
     except importlib.metadata.PackageNotFoundError:
         return None
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def project_relative_path(path: Path) -> str:
+    """Return a portable path and refuse to persist paths outside the project."""
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError as error:
+        raise ValueError(f"Model path must be inside the project: {path}") from error
 
 
 def render_prompt(tokenizer, body: str, request: str) -> tuple[list[int], list[dict[str, str]]]:
@@ -191,11 +208,33 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=128)
     parser.add_argument("--prefill-step-size", type=int, default=2048)
     parser.add_argument("--targets", type=int, nargs="+", default=DEFAULT_TARGETS)
+    parser.add_argument(
+        "--model-path",
+        type=Path,
+        default=DEFAULT_MODEL_PATH,
+        help="Local MLX model directory (must be inside this project)",
+    )
+    parser.add_argument(
+        "--model-id",
+        help="Source/model identifier recorded in the result; defaults to the directory name",
+    )
     args = parser.parse_args()
     if args.warm_runs < 1 or args.max_new_tokens < 1 or args.prefill_step_size < 1:
         parser.error("--warm-runs, --max-new-tokens, and --prefill-step-size must be positive")
-    if not MODEL_PATH.is_dir():
-        raise FileNotFoundError(f"Local model directory not found: {MODEL_PATH}")
+    model_path = args.model_path
+    if not model_path.is_absolute():
+        model_path = ROOT / model_path
+    model_path = model_path.resolve()
+    model_relative_path = project_relative_path(model_path)
+    if not model_path.is_dir():
+        raise FileNotFoundError(f"Local model directory not found: {model_path}")
+    weight_paths = sorted(model_path.glob("*.safetensors"))
+    if not weight_paths:
+        raise FileNotFoundError(f"No safetensors weights found in: {model_path}")
+    model_id = args.model_id or (
+        DEFAULT_MODEL_ID if model_path == DEFAULT_MODEL_PATH.resolve() else model_path.name
+    )
+    config_path = model_path / "config.json"
 
     from mlx_lm import load, stream_generate
     from mlx_lm.sample_utils import make_sampler
@@ -209,9 +248,18 @@ def main() -> None:
         "title": "Apple Silicon Inference Engineering: Benchmarking and Optimizing Llama 3.2 1B with MLX LM",
         "started_at_utc": started_at.isoformat(),
         "model": {
-            "id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
-            "local_path": MODEL_PATH.relative_to(ROOT).as_posix(),
-            "weights_bytes": (MODEL_PATH / "model.safetensors").stat().st_size,
+            "id": model_id,
+            "local_path": model_relative_path,
+            "weights_bytes": sum(path.stat().st_size for path in weight_paths),
+            "weight_files": [
+                {
+                    "name": path.name,
+                    "bytes": path.stat().st_size,
+                    "sha256": file_sha256(path),
+                }
+                for path in weight_paths
+            ],
+            "config_sha256": file_sha256(config_path) if config_path.is_file() else None,
         },
         "environment": {
             "python": sys.version.split()[0],
@@ -242,9 +290,9 @@ def main() -> None:
         "cases": [],
     }
 
-    print(f"Loading {MODEL_PATH}", flush=True)
+    print(f"Loading {model_path}", flush=True)
     load_started = time.perf_counter()
-    model, tokenizer = load(str(MODEL_PATH))
+    model, tokenizer = load(str(model_path))
     result["model_load_seconds"] = time.perf_counter() - load_started
     sampler = make_sampler(temp=0.0)
     cases_by_length = {target: {"target_prompt_tokens": target, "prompts": []} for target in args.targets}
