@@ -1,2 +1,6 @@
 /.venv/
 /models/
+/benchmarks/results/*.partial.json
+/benchmarks/results/experiment2-control-telemetry-20261003.txt
+/benchmarks/results/experiment2-control-telemetry-20261003-retry1.txt
+/benchmarks/results/experiment2-control-telemetry-20261003-retry1.json

@@ -1,0 +1,741 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-2-kv-prefix-reuse",
+  "protocol_version": "1.0",
+  "git_revision": "34df7301b6482f58bb2277d28fc42b52f3af3561",
+  "runner_sha256": "83e6d8f3da41d8a377c14759e8e9e77f10801f331e05ae3c4489f68a899140ba",
+  "arm": "control_full_recompute",
+  "started_at_utc": "2026-09-25T16:49:44.229310+00:00",
+  "completed_at_utc": "2026-09-25T16:49:47.693136+00:00",
+  "model": {
+    "id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
+    "local_path": "models/Llama-3.2-1B-Instruct-4bit",
+    "weights_bytes": 695283921
+  },
+  "environment": {
+    "python": "3.14.4",
+    "mlx_lm": "0.31.3",
+    "mlx": "0.32.2",
+    "transformers": "5.17.0",
+    "macos": "15.6.1",
+    "architecture": "arm64",
+    "cpu_count": 10,
+    "total_memory_bytes": 17179869184
+  },
+  "settings": {
+    "prefill_step_size": 2048,
+    "sampling": "greedy (temperature 0)",
+    "max_new_tokens": 128,
+    "concurrency": 1,
+    "warmups_per_fixture": 1,
+    "measured_repetitions_per_fixture": 1,
+    "measurement_mode": "timing_only",
+    "cache_scope": "fresh per turn",
+    "cache_reset_per_session": true,
+    "telemetry": "off",
+    "smoke_validation_only": true
+  },
+  "fixture_set": {
+    "id": "experiment2-multiturn-v1",
+    "sha256": "e4f23a077ef0f0cb8168cb3c5c657cc916fa5f8a8c9fd7dd82b8877572ddf597",
+    "fixtures": [
+      {
+        "id": "library",
+        "profile_tokens": 512,
+        "title": "Public library services",
+        "system_prompt_sha256": "341c91b84a7b843f03f46a2f3dd41ce8e6c9a141c059474aa476c389ac0fb831",
+        "first_turn_prompt_tokens": 515,
+        "turns": [
+          {
+            "user": "What time does the library close on weekdays? Reply briefly.",
+            "expected_fact": "six"
+          },
+          {
+            "user": "Where is the due date for borrowed items printed?",
+            "expected_fact": "receipt"
+          },
+          {
+            "user": "When can I use the quiet study room?",
+            "expected_fact": "event"
+          },
+          {
+            "user": "Where should I check for a schedule change?",
+            "expected_fact": "website"
+          }
+        ]
+      }
+    ]
+  },
+  "baseline_json": null,
+  "telemetry_log": null,
+  "sessions": [
+    {
+      "fixture_id": "library",
+      "profile_tokens": 512,
+      "repetition": 1,
+      "warmup": true,
+      "reset_before_session": true,
+      "cache_reset_verified": false,
+      "valid_for_paired_analysis": null,
+      "turns": [
+        {
+          "turn_index": 1,
+          "user_prompt": "What time does the library close on weekdays? Reply briefly.",
+          "expected_fact": "six",
+          "fact_check_passed": false,
+          "input_tokens": 515,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 515,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 1690.6258609804713,
+          "decode_tokens_per_second": 226.09553551643822,
+          "render_seconds": 0.001172709045931697,
+          "cache_lookup_seconds": 2.3333122953772545e-05,
+          "generation_time_to_first_token_seconds": 0.42566900001838803,
+          "time_to_first_token_seconds": 0.42687666695564985,
+          "request_seconds": 0.48207895806990564,
+          "turn_end_to_end_seconds": 0.48328662500716746,
+          "generation_tokens": 11,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1130145616,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            791,
+            6875,
+            34350,
+            520,
+            220,
+            21,
+            9012,
+            389,
+            73095,
+            13,
+            128009
+          ],
+          "output_text": "The library closes at 6 pm on weekdays.",
+          "output_sha256": "b72c139e870efbdf282c7368473316c9fc2d0e51ad33e4affe8cc417dca33c22",
+          "output_equivalent_to_control": null
+        },
+        {
+          "turn_index": 2,
+          "user_prompt": "Where is the due date for borrowed items printed?",
+          "expected_fact": "receipt",
+          "fact_check_passed": true,
+          "input_tokens": 545,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 545,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 2081.9442419089282,
+          "decode_tokens_per_second": 218.03976444053328,
+          "render_seconds": 0.001012332970276475,
+          "cache_lookup_seconds": 3.070896491408348e-05,
+          "generation_time_to_first_token_seconds": 0.32537504099309444,
+          "time_to_first_token_seconds": 0.32641879096627235,
+          "request_seconds": 0.40283400006592274,
+          "turn_end_to_end_seconds": 0.40387775003910065,
+          "generation_tokens": 15,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1170221216,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            791,
+            4245,
+            2457,
+            369,
+            46664,
+            3673,
+            374,
+            17124,
+            389,
+            279,
+            20792,
+            596,
+            23383,
+            13,
+            128009
+          ],
+          "output_text": "The due date for borrowed items is printed on the visitor's receipt.",
+          "output_sha256": "14522f066b912d1b66f6b7b219d8a29754475943b25c3d62cd9a350422002ca5",
+          "output_equivalent_to_control": null
+        },
+        {
+          "turn_index": 3,
+          "user_prompt": "When can I use the quiet study room?",
+          "expected_fact": "event",
+          "fact_check_passed": true,
+          "input_tokens": 578,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 578,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 2003.6343297494916,
+          "decode_tokens_per_second": 219.07327828407145,
+          "render_seconds": 0.0015804590657353401,
+          "cache_lookup_seconds": 4.7457870095968246e-05,
+          "generation_time_to_first_token_seconds": 0.3759837499819696,
+          "time_to_first_token_seconds": 0.37761237495578825,
+          "request_seconds": 0.44344887509942055,
+          "turn_end_to_end_seconds": 0.4450775000732392,
+          "generation_tokens": 13,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1271507128,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            791,
+            11594,
+            4007,
+            3130,
+            374,
+            2561,
+            994,
+            912,
+            1567,
+            374,
+            13847,
+            13,
+            128009
+          ],
+          "output_text": "The quiet study room is available when no event is scheduled.",
+          "output_sha256": "6c470736d0f0fb791b8b8ef690e50bd600bc27ae05035aa4fe44a068ac73a5f9",
+          "output_equivalent_to_control": null
+        },
+        {
+          "turn_index": 4,
+          "user_prompt": "Where should I check for a schedule change?",
+          "expected_fact": "website",
+          "fact_check_passed": true,
+          "input_tokens": 609,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 609,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 2138.1718970997863,
+          "decode_tokens_per_second": 217.80771740963613,
+          "render_seconds": 0.001138125080615282,
+          "cache_lookup_seconds": 4.924996756017208e-05,
+          "generation_time_to_first_token_seconds": 0.3534647498745471,
+          "time_to_first_token_seconds": 0.3546525000128895,
+          "request_seconds": 0.43047641683369875,
+          "turn_end_to_end_seconds": 0.43166416697204113,
+          "generation_tokens": 15,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1299065016,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            33310,
+            4442,
+            527,
+            8621,
+            520,
+            279,
+            4156,
+            18496,
+            323,
+            389,
+            279,
+            6875,
+            3997,
+            13,
+            128009
+          ],
+          "output_text": "Schedule changes are posted at the front desk and on the library website.",
+          "output_sha256": "33eaaca7ff07b3959684e589fd8f0ce359d3402e62b4712e63fcd30f8f7a4223",
+          "output_equivalent_to_control": null
+        }
+      ],
+      "session_seconds": 1.767477875109762,
+      "session_max_mlx_peak_memory_bytes": 1299065016,
+      "session_max_cache_bytes": 0
+    },
+    {
+      "fixture_id": "library",
+      "profile_tokens": 512,
+      "repetition": 1,
+      "warmup": false,
+      "reset_before_session": true,
+      "cache_reset_verified": false,
+      "valid_for_paired_analysis": null,
+      "turns": [
+        {
+          "turn_index": 1,
+          "user_prompt": "What time does the library close on weekdays? Reply briefly.",
+          "expected_fact": "six",
+          "fact_check_passed": false,
+          "input_tokens": 515,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 515,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 1960.8235073055391,
+          "decode_tokens_per_second": 217.8586284605495,
+          "render_seconds": 0.0010645841248333454,
+          "cache_lookup_seconds": 7.95791856944561e-06,
+          "generation_time_to_first_token_seconds": 0.3441381671000272,
+          "time_to_first_token_seconds": 0.34521116712130606,
+          "request_seconds": 0.40276308404281735,
+          "turn_end_to_end_seconds": 0.4038360840640962,
+          "generation_tokens": 11,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1210853560,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            791,
+            6875,
+            34350,
+            520,
+            220,
+            21,
+            9012,
+            389,
+            73095,
+            13,
+            128009
+          ],
+          "output_text": "The library closes at 6 pm on weekdays.",
+          "output_sha256": "b72c139e870efbdf282c7368473316c9fc2d0e51ad33e4affe8cc417dca33c22",
+          "output_equivalent_to_control": null
+        },
+        {
+          "turn_index": 2,
+          "user_prompt": "Where is the due date for borrowed items printed?",
+          "expected_fact": "receipt",
+          "fact_check_passed": true,
+          "input_tokens": 545,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 545,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 2126.343142616758,
+          "decode_tokens_per_second": 217.91661892956924,
+          "render_seconds": 0.0010385410860180855,
+          "cache_lookup_seconds": 2.950010821223259e-05,
+          "generation_time_to_first_token_seconds": 0.327918458962813,
+          "time_to_first_token_seconds": 0.3289868750143796,
+          "request_seconds": 0.40481325006112456,
+          "turn_end_to_end_seconds": 0.40588166611269116,
+          "generation_tokens": 15,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1238182072,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            791,
+            4245,
+            2457,
+            369,
+            46664,
+            3673,
+            374,
+            17124,
+            389,
+            279,
+            20792,
+            596,
+            23383,
+            13,
+            128009
+          ],
+          "output_text": "The due date for borrowed items is printed on the visitor's receipt.",
+          "output_sha256": "14522f066b912d1b66f6b7b219d8a29754475943b25c3d62cd9a350422002ca5",
+          "output_equivalent_to_control": null
+        },
+        {
+          "turn_index": 3,
+          "user_prompt": "When can I use the quiet study room?",
+          "expected_fact": "event",
+          "fact_check_passed": true,
+          "input_tokens": 578,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 578,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 2022.459915507668,
+          "decode_tokens_per_second": 221.68474841984144,
+          "render_seconds": 0.0011375420726835728,
+          "cache_lookup_seconds": 3.041583113372326e-05,
+          "generation_time_to_first_token_seconds": 0.3501095420215279,
+          "time_to_first_token_seconds": 0.3512778340373188,
+          "request_seconds": 0.4170145420357585,
+          "turn_end_to_end_seconds": 0.41818283405154943,
+          "generation_tokens": 13,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1271507128,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            791,
+            11594,
+            4007,
+            3130,
+            374,
+            2561,
+            994,
+            912,
+            1567,
+            374,
+            13847,
+            13,
+            128009
+          ],
+          "output_text": "The quiet study room is available when no event is scheduled.",
+          "output_sha256": "6c470736d0f0fb791b8b8ef690e50bd600bc27ae05035aa4fe44a068ac73a5f9",
+          "output_equivalent_to_control": null
+        },
+        {
+          "turn_index": 4,
+          "user_prompt": "Where should I check for a schedule change?",
+          "expected_fact": "website",
+          "fact_check_passed": true,
+          "input_tokens": 609,
+          "cached_prefix_tokens": 0,
+          "suffix_tokens_processed": 609,
+          "cache_status": "fresh",
+          "cache_bytes": 25165824,
+          "prompt_tps_suffix_basis": 2112.3063029564655,
+          "decode_tokens_per_second": 216.01265808609014,
+          "render_seconds": 0.0012924580369144678,
+          "cache_lookup_seconds": 3.3207936212420464e-05,
+          "generation_time_to_first_token_seconds": 0.3527112090960145,
+          "time_to_first_token_seconds": 0.3540373749565333,
+          "request_seconds": 0.43077841703779995,
+          "turn_end_to_end_seconds": 0.43210458289831877,
+          "generation_tokens": 15,
+          "finish_reason": "stop",
+          "mlx_active_memory_bytes": 720672776,
+          "mlx_peak_memory_bytes": 1299065016,
+          "process_peak_rss_bytes": 1011777536,
+          "generated_token_ids": [
+            33310,
+            4442,
+            527,
+            8621,
+            520,
+            279,
+            4156,
+            18496,
+            323,
+            389,
+            279,
+            6875,
+            3997,
+            13,
+            128009
+          ],
+          "output_text": "Schedule changes are posted at the front desk and on the library website.",
+          "output_sha256": "33eaaca7ff07b3959684e589fd8f0ce359d3402e62b4712e63fcd30f8f7a4223",
+          "output_equivalent_to_control": null
+        }
+      ],
+      "session_seconds": 1.6649599159136415,
+      "session_max_mlx_peak_memory_bytes": 1299065016,
+      "session_max_cache_bytes": 0
+    }
+  ],
+  "summary": {
+    "measured_session_count": 1,
+    "measured_turn_count": 4,
+    "valid_paired_sessions": 1,
+    "per_fixture_turn": {
+      "library:turn-1": {
+        "input_tokens": {
+          "count": 1,
+          "median": 515,
+          "p95_nearest_rank": 515
+        },
+        "cached_prefix_tokens": {
+          "count": 1,
+          "median": 0,
+          "p95_nearest_rank": 0
+        },
+        "suffix_tokens_processed": {
+          "count": 1,
+          "median": 515,
+          "p95_nearest_rank": 515
+        },
+        "prompt_tps_suffix_basis": {
+          "count": 1,
+          "median": 1960.8235073055391,
+          "p95_nearest_rank": 1960.8235073055391
+        },
+        "render_seconds": {
+          "count": 1,
+          "median": 0.0010645841248333454,
+          "p95_nearest_rank": 0.0010645841248333454
+        },
+        "cache_lookup_seconds": {
+          "count": 1,
+          "median": 7.95791856944561e-06,
+          "p95_nearest_rank": 7.95791856944561e-06
+        },
+        "generation_time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.3441381671000272,
+          "p95_nearest_rank": 0.3441381671000272
+        },
+        "time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.34521116712130606,
+          "p95_nearest_rank": 0.34521116712130606
+        },
+        "request_seconds": {
+          "count": 1,
+          "median": 0.40276308404281735,
+          "p95_nearest_rank": 0.40276308404281735
+        },
+        "turn_end_to_end_seconds": {
+          "count": 1,
+          "median": 0.4038360840640962,
+          "p95_nearest_rank": 0.4038360840640962
+        },
+        "decode_tokens_per_second": {
+          "count": 1,
+          "median": 217.8586284605495,
+          "p95_nearest_rank": 217.8586284605495
+        },
+        "mlx_active_memory_bytes": {
+          "count": 1,
+          "median": 720672776,
+          "p95_nearest_rank": 720672776
+        },
+        "mlx_peak_memory_bytes": {
+          "count": 1,
+          "median": 1210853560,
+          "p95_nearest_rank": 1210853560
+        },
+        "cache_bytes": {
+          "count": 1,
+          "median": 25165824,
+          "p95_nearest_rank": 25165824
+        },
+        "fact_check_pass_rate": 0.0
+      },
+      "library:turn-2": {
+        "input_tokens": {
+          "count": 1,
+          "median": 545,
+          "p95_nearest_rank": 545
+        },
+        "cached_prefix_tokens": {
+          "count": 1,
+          "median": 0,
+          "p95_nearest_rank": 0
+        },
+        "suffix_tokens_processed": {
+          "count": 1,
+          "median": 545,
+          "p95_nearest_rank": 545
+        },
+        "prompt_tps_suffix_basis": {
+          "count": 1,
+          "median": 2126.343142616758,
+          "p95_nearest_rank": 2126.343142616758
+        },
+        "render_seconds": {
+          "count": 1,
+          "median": 0.0010385410860180855,
+          "p95_nearest_rank": 0.0010385410860180855
+        },
+        "cache_lookup_seconds": {
+          "count": 1,
+          "median": 2.950010821223259e-05,
+          "p95_nearest_rank": 2.950010821223259e-05
+        },
+        "generation_time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.327918458962813,
+          "p95_nearest_rank": 0.327918458962813
+        },
+        "time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.3289868750143796,
+          "p95_nearest_rank": 0.3289868750143796
+        },
+        "request_seconds": {
+          "count": 1,
+          "median": 0.40481325006112456,
+          "p95_nearest_rank": 0.40481325006112456
+        },
+        "turn_end_to_end_seconds": {
+          "count": 1,
+          "median": 0.40588166611269116,
+          "p95_nearest_rank": 0.40588166611269116
+        },
+        "decode_tokens_per_second": {
+          "count": 1,
+          "median": 217.91661892956924,
+          "p95_nearest_rank": 217.91661892956924
+        },
+        "mlx_active_memory_bytes": {
+          "count": 1,
+          "median": 720672776,
+          "p95_nearest_rank": 720672776
+        },
+        "mlx_peak_memory_bytes": {
+          "count": 1,
+          "median": 1238182072,
+          "p95_nearest_rank": 1238182072
+        },
+        "cache_bytes": {
+          "count": 1,
+          "median": 25165824,
+          "p95_nearest_rank": 25165824
+        },
+        "fact_check_pass_rate": 1.0
+      },
+      "library:turn-3": {
+        "input_tokens": {
+          "count": 1,
+          "median": 578,
+          "p95_nearest_rank": 578
+        },
+        "cached_prefix_tokens": {
+          "count": 1,
+          "median": 0,
+          "p95_nearest_rank": 0
+        },
+        "suffix_tokens_processed": {
+          "count": 1,
+          "median": 578,
+          "p95_nearest_rank": 578
+        },
+        "prompt_tps_suffix_basis": {
+          "count": 1,
+          "median": 2022.459915507668,
+          "p95_nearest_rank": 2022.459915507668
+        },
+        "render_seconds": {
+          "count": 1,
+          "median": 0.0011375420726835728,
+          "p95_nearest_rank": 0.0011375420726835728
+        },
+        "cache_lookup_seconds": {
+          "count": 1,
+          "median": 3.041583113372326e-05,
+          "p95_nearest_rank": 3.041583113372326e-05
+        },
+        "generation_time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.3501095420215279,
+          "p95_nearest_rank": 0.3501095420215279
+        },
+        "time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.3512778340373188,
+          "p95_nearest_rank": 0.3512778340373188
+        },
+        "request_seconds": {
+          "count": 1,
+          "median": 0.4170145420357585,
+          "p95_nearest_rank": 0.4170145420357585
+        },
+        "turn_end_to_end_seconds": {
+          "count": 1,
+          "median": 0.41818283405154943,
+          "p95_nearest_rank": 0.41818283405154943
+        },
+        "decode_tokens_per_second": {
+          "count": 1,
+          "median": 221.68474841984144,
+          "p95_nearest_rank": 221.68474841984144
+        },
+        "mlx_active_memory_bytes": {
+          "count": 1,
+          "median": 720672776,
+          "p95_nearest_rank": 720672776
+        },
+        "mlx_peak_memory_bytes": {
+          "count": 1,
+          "median": 1271507128,
+          "p95_nearest_rank": 1271507128
+        },
+        "cache_bytes": {
+          "count": 1,
+          "median": 25165824,
+          "p95_nearest_rank": 25165824
+        },
+        "fact_check_pass_rate": 1.0
+      },
+      "library:turn-4": {
+        "input_tokens": {
+          "count": 1,
+          "median": 609,
+          "p95_nearest_rank": 609
+        },
+        "cached_prefix_tokens": {
+          "count": 1,
+          "median": 0,
+          "p95_nearest_rank": 0
+        },
+        "suffix_tokens_processed": {
+          "count": 1,
+          "median": 609,
+          "p95_nearest_rank": 609
+        },
+        "prompt_tps_suffix_basis": {
+          "count": 1,
+          "median": 2112.3063029564655,
+          "p95_nearest_rank": 2112.3063029564655
+        },
+        "render_seconds": {
+          "count": 1,
+          "median": 0.0012924580369144678,
+          "p95_nearest_rank": 0.0012924580369144678
+        },
+        "cache_lookup_seconds": {
+          "count": 1,
+          "median": 3.3207936212420464e-05,
+          "p95_nearest_rank": 3.3207936212420464e-05
+        },
+        "generation_time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.3527112090960145,
+          "p95_nearest_rank": 0.3527112090960145
+        },
+        "time_to_first_token_seconds": {
+          "count": 1,
+          "median": 0.3540373749565333,
+          "p95_nearest_rank": 0.3540373749565333
+        },
+        "request_seconds": {
+          "count": 1,
+          "median": 0.43077841703779995,
+          "p95_nearest_rank": 0.43077841703779995
+        },
+        "turn_end_to_end_seconds": {
+          "count": 1,
+          "median": 0.43210458289831877,
+          "p95_nearest_rank": 0.43210458289831877
+        },
+        "decode_tokens_per_second": {
+          "count": 1,
+          "median": 216.01265808609014,
+          "p95_nearest_rank": 216.01265808609014
+        },
+        "mlx_active_memory_bytes": {
+          "count": 1,
+          "median": 720672776,
+          "p95_nearest_rank": 720672776
+        },
+        "mlx_peak_memory_bytes": {
+          "count": 1,
+          "median": 1299065016,
+          "p95_nearest_rank": 1299065016
+        },
+        "cache_bytes": {
+          "count": 1,
+          "median": 25165824,
+          "p95_nearest_rank": 25165824
+        },
+        "fact_check_pass_rate": 1.0
+      }
+    }
+  },
+  "model_load_seconds": 1.2102556668687612
+}

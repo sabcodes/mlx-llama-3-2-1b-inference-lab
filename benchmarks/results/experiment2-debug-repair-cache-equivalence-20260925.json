@@ -1,0 +1,33 @@
+{
+  "fixture_id": "repair-workshop",
+  "model_id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
+  "prefill_step_size": 2048,
+  "prior_prompt_tokens": 2056,
+  "prior_generated_tokens": 73,
+  "reused_prefix_tokens": 2129,
+  "second_turn_suffix_tokens": 19,
+  "saved_divergence_index": 53,
+  "candidate_token_ids": [
+    4819,
+    4754
+  ],
+  "fresh_matches_saved_control": true,
+  "segmented_matches_saved_reuse": true,
+  "fresh_matches_segmented": false,
+  "fresh_output_sha256": "28cfe7818c449b9519f930c8ac3b7ecfcd5425d9a7eae4d55728a2f1b876dd07",
+  "segmented_output_sha256": "56b037499bff1034310e6ae54209e35a5ae82caa1ec85f5ab969b70e35acfbfb",
+  "fresh_at_divergence": {
+    "token": 4819,
+    "candidate_logprobs": {
+      "4819": -1.0,
+      "4754": -1.015625
+    }
+  },
+  "segmented_at_divergence": {
+    "token": 4754,
+    "candidate_logprobs": {
+      "4819": -1.015625,
+      "4754": -1.015625
+    }
+  }
+}

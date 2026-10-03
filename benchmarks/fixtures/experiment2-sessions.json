@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "fixture_set_id": "experiment2-multiturn-v1",
+  "context_length_profiles": [512, 2048],
+  "scenarios": [
+    {
+      "id": "library",
+      "profile_tokens": 512,
+      "title": "Public library services",
+      "notes": [
+        "The library opens at nine each weekday and closes at six in the evening.",
+        "Borrowed items are due on the date printed on the visitor's receipt.",
+        "The quiet study room is available when no event is scheduled.",
+        "Visitors can suggest titles on a paper request form at the front desk.",
+        "Schedule changes are posted at the front desk and on the library website.",
+        "Reading groups meet once each month in the community room."
+      ],
+      "turns": [
+        {"user": "What time does the library close on weekdays? Reply briefly.", "expected_fact": "six"},
+        {"user": "Where is the due date for borrowed items printed?", "expected_fact": "receipt"},
+        {"user": "When can I use the quiet study room?", "expected_fact": "event"},
+        {"user": "Where should I check for a schedule change?", "expected_fact": "website"}
+      ]
+    },
+    {
+      "id": "museum",
+      "profile_tokens": 512,
+      "title": "Local history museum",
+      "notes": [
+        "The local history museum is closed on Mondays and open from ten to five on other days.",
+        "The harbor gallery contains maps, photographs, and recorded interviews.",
+        "A guided harbor-gallery tour starts at eleven thirty on Saturdays.",
+        "Visitors may take notes but should not use flash photography near original photographs.",
+        "The research desk accepts appointment requests by email at least two days ahead.",
+        "Admission is free for children under twelve when accompanied by an adult."
+      ],
+      "turns": [
+        {"user": "What day is the museum closed?", "expected_fact": "Monday"},
+        {"user": "What time does the Saturday harbor-gallery tour start?", "expected_fact": "eleven thirty"},
+        {"user": "What kind of photography is not allowed near original photographs?", "expected_fact": "flash"},
+        {"user": "How far ahead should I request a research-desk appointment?", "expected_fact": "two days"}
+      ]
+    },
+    {
+      "id": "garden",
+      "profile_tokens": 512,
+      "title": "Community garden",
+      "notes": [
+        "The community garden has twelve raised beds shared by neighborhood members.",
+        "Members water the beds early in the morning on Tuesday, Thursday, and Saturday.",
+        "The west-side rain barrel is reserved for seedlings during dry weather.",
+        "Compost is collected in the covered bin beside the tool shed.",
+        "The tool shed is unlocked by the rotating volunteer whose name is on the weekly board.",
+        "The monthly work party begins at nine on the first Sunday."
+      ],
+      "turns": [
+        {"user": "On which days are the beds watered?", "expected_fact": "Tuesday"},
+        {"user": "What is the west-side rain barrel reserved for?", "expected_fact": "seedlings"},
+        {"user": "Where is compost collected?", "expected_fact": "covered bin"},
+        {"user": "When does the monthly work party begin?", "expected_fact": "first Sunday"}
+      ]
+    },
+    {
+      "id": "repair-workshop",
+      "profile_tokens": 2048,
+      "title": "Neighborhood repair workshop",
+      "notes": [
+        "The neighborhood repair workshop accepts small household appliances, bicycles, and clothing for repair sessions.",
+        "Open repair hours are Wednesday evenings from six to eight and Saturday mornings from nine to noon.",
+        "A visitor should bring any replacement part they already own and the appliance's power cable.",
+        "The workshop cannot accept gas appliances, devices with swollen batteries, or items that are wet.",
+        "Bicycle repairs are handled at the outdoor bench; clothing repairs are handled in the sewing room.",
+        "Volunteers inspect an item first and explain any safety concern before beginning work.",
+        "The workshop asks visitors to book a slot online because walk-in capacity is limited.",
+        "A booking confirmation lists the assigned volunteer and the expected session length.",
+        "Basic hand tools are available, but specialty parts and materials are not included.",
+        "Visitors under sixteen must attend with an adult during all repair sessions.",
+        "The workshop entrance is on Cedar Street beside the community center loading bay.",
+        "A repair that cannot be completed during the visit may be continued at the next open session."
+      ],
+      "turns": [
+        {"user": "What should I bring if I already have a replacement part?", "expected_fact": "replacement part"},
+        {"user": "Can I bring a device with a swollen battery?", "expected_fact": "swollen batteries"},
+        {"user": "Where are bicycle repairs handled?", "expected_fact": "outdoor bench"},
+        {"user": "How do I reserve a visit?", "expected_fact": "online"}
+      ]
+    },
+    {
+      "id": "coastal-station",
+      "profile_tokens": 2048,
+      "title": "Coastal weather station field guide",
+      "notes": [
+        "The coastal weather station records air temperature, rainfall, wind direction, and tide level.",
+        "A volunteer reads the manual rain gauge at seven each morning and records the result in millimeters.",
+        "The anemometer is mounted on the north mast, while the wind vane is mounted above the instrument shed.",
+        "Wind direction is reported as a compass heading averaged over a ten-minute observation period.",
+        "The tide staff is fixed to the east pier and is read against the local chart datum.",
+        "Storm observations are taken from inside the instrument shed; volunteers must not climb the mast during high winds.",
+        "The thermometer screen is shaded and ventilated so direct sunlight does not warm the sensor.",
+        "Rain-gauge readings are marked invalid if leaves, salt spray, or ice obstruct the funnel.",
+        "The data notebook records the observer's initials and the exact local observation time.",
+        "If a sensor appears damaged, the volunteer logs the issue and contacts the station coordinator.",
+        "The station's monthly summary reports the highest wind speed and total rainfall.",
+        "A backup battery is stored in the dry cabinet and is checked on the first day of each month."
+      ],
+      "turns": [
+        {"user": "At what time is the manual rain gauge read?", "expected_fact": "seven"},
+        {"user": "Where is the anemometer mounted?", "expected_fact": "north mast"},
+        {"user": "Where should volunteers take storm observations?", "expected_fact": "instrument shed"},
+        {"user": "What should I do if a sensor looks damaged?", "expected_fact": "coordinator"}
+      ]
+    }
+  ]
+}
