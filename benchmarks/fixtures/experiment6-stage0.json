@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "description": "Exact-token correctness fixtures for Experiment 6 speculative decoding.",
+  "baseline_cases": [
+    {"id": "baseline_qa", "prompt_type": "qa", "target_prompt_tokens": 512, "max_tokens": 128},
+    {"id": "baseline_rewrite", "prompt_type": "rewrite", "target_prompt_tokens": 512, "max_tokens": 128},
+    {"id": "baseline_context_question", "prompt_type": "context_question", "target_prompt_tokens": 512, "max_tokens": 128},
+    {"id": "baseline_extraction", "prompt_type": "extraction", "target_prompt_tokens": 512, "max_tokens": 128},
+    {"id": "baseline_summarization", "prompt_type": "summarization", "target_prompt_tokens": 512, "max_tokens": 128}
+  ],
+  "long_cases": [
+    {
+      "id": "long_numbered_explanation",
+      "system": "Follow the requested structure and continue until the response is complete.",
+      "user": "Explain how a public library works using a numbered sequence of detailed steps. Include opening, borrowing, study spaces, events, returns, and closing procedures.",
+      "max_tokens": 256,
+      "suppress_eos": true
+    },
+    {
+      "id": "long_grounded_rewrite",
+      "system": "Rewrite only the supplied facts and continue until every requested section is complete.",
+      "user": "Facts: The library opens at 9 and closes at 6 on weekdays. Visitors borrow books, use study tables, attend reading groups, and request new titles. The meeting room is available when no event is scheduled. Write a detailed visitor guide with sections for hours, services, study space, programs, requests, and returns.",
+      "max_tokens": 256,
+      "suppress_eos": true
+    }
+  ]
+}
