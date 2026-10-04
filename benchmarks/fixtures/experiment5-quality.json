@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "description": "Long-context quality fixtures for KV-cache quantization.",
+  "cases": [
+    {
+      "id": "early_key_recall",
+      "system": "Use only the supplied notes and follow the output instruction exactly.",
+      "facts": [{"position": 0.02, "text": "The archive access key is COBALT-417."}],
+      "question": "What is the archive access key? Respond with only the key.",
+      "max_tokens": 16,
+      "checks": {"exact_normalized": "COBALT-417"}
+    },
+    {
+      "id": "distributed_two_step_lookup",
+      "system": "Use only the supplied notes and follow the output instruction exactly.",
+      "facts": [
+        {"position": 0.05, "text": "Red cards are due Friday."},
+        {"position": 0.50, "text": "Blue cards are due Tuesday."},
+        {"position": 0.95, "text": "Mira has a blue card."}
+      ],
+      "question": "On what day is Mira's card due? Respond with only the day.",
+      "max_tokens": 16,
+      "checks": {"exact_normalized": "TUESDAY"}
+    },
+    {
+      "id": "late_conditional_fact",
+      "system": "Answer only from the supplied notes. Be concise.",
+      "facts": [{"position": 0.98, "text": "The meeting room is available for quiet study when no event is scheduled."}],
+      "question": "When is the meeting room available for quiet study?",
+      "max_tokens": 32,
+      "checks": {"required_phrase_groups": [["no event", "not scheduled"]]}
+    },
+    {
+      "id": "distributed_structured_extraction",
+      "system": "Use only the supplied notes. Return only valid JSON with no Markdown fence.",
+      "facts": [
+        {"position": 0.05, "text": "Record alpha has value 17."},
+        {"position": 0.50, "text": "Record beta has value orchid."},
+        {"position": 0.95, "text": "Record gamma has value Tuesday."}
+      ],
+      "question": "Return one JSON object with keys alpha, beta, and gamma and their values.",
+      "max_tokens": 64,
+      "checks": {
+        "valid_json": true,
+        "json_required_strings": ["alpha", "17", "beta", "orchid", "gamma", "Tuesday"]
+      }
+    },
+    {
+      "id": "distributed_grounded_summary",
+      "system": "Use only the supplied notes and follow the requested format.",
+      "facts": [
+        {"position": 0.05, "text": "The library opens at 9 and closes at 6 on weekdays."},
+        {"position": 0.50, "text": "Visitors may borrow books and use study tables."},
+        {"position": 0.95, "text": "The meeting room is available when no event is scheduled."}
+      ],
+      "question": "Summarize the three important facts in exactly three bullet points.",
+      "max_tokens": 96,
+      "checks": {
+        "bullet_count": 3,
+        "required_phrase_groups": [["9", "nine"], ["6", "six"], ["borrow", "books"], ["study tables"], ["meeting room"], ["no event", "not scheduled"]],
+        "forbidden_phrases": ["weekend", "seven days", "7 days", "24/7", "every day"]
+      }
+    }
+  ]
+}

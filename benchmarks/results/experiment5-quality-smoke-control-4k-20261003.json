@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-5-kv-cache-quantization-quality",
+  "created_at_utc": "2026-10-04T04:21:39.586453+00:00",
+  "arm": "control",
+  "model": {
+    "id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
+    "local_path": "models/Llama-3.2-1B-Instruct-4bit"
+  },
+  "fixture": {
+    "path": "benchmarks/fixtures/experiment5-quality.json",
+    "sha256": "efd42ea0a1a032709ac80603e0a141b11c96ef0f226760a8bc0ff3da4bbeddb1"
+  },
+  "settings": {
+    "kv_bits": null,
+    "kv_group_size": null,
+    "quantization_timing": null,
+    "prefill_step_size": 2048,
+    "sampling": "greedy"
+  },
+  "lengths": [
+    {
+      "target_prompt_tokens": 4096,
+      "cases": [
+        {
+          "id": "early_key_recall",
+          "actual_prompt_tokens": 4094,
+          "token_ids_sha256": "1a048f26b6524e22a973dfcfc3f3f19080621a32021d9d6d8c0627a2c88e567a",
+          "evaluation": {
+            "passed": true,
+            "checks": [
+              {
+                "check": "exact_normalized",
+                "expected": "COBALT-417",
+                "actual": "COBALT-417",
+                "passed": true
+              }
+            ]
+          },
+          "run": {
+            "prompt_tokens": 4094,
+            "generated_tokens": 6,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 2.142687166997348,
+            "decode_seconds": 0.047443916999327485,
+            "request_seconds": 2.1901310839966754,
+            "prefill_tokens_per_second": 1984.3222460514605,
+            "decode_tokens_per_second": 160.68325951593067,
+            "cached_tokens": 4100,
+            "cache_layer_count": 16,
+            "quantized_cache_layers": 0,
+            "quantized_cache_layer_fraction": 0.0,
+            "quantized_kv_start_effective": null,
+            "cache_types": [
+              "KVCache"
+            ],
+            "logical_kv_cache_bytes": 134348800,
+            "allocated_kv_cache_bytes": 142606336,
+            "kv_bytes_per_cached_token": 32768.0,
+            "mlx_active_memory_gb": 0.838113288,
+            "mlx_peak_memory_gb": 1.634244688,
+            "process_peak_rss_gb": 1.18202368,
+            "generated_text": "COBALT-417",
+            "generated_text_sha256": "dbc3d2fe128d799cc2f9b1cf8f3591c735abd4b32d629da318b65c4a8898fe83"
+          }
+        },
+        {
+          "id": "distributed_two_step_lookup",
+          "actual_prompt_tokens": 4096,
+          "token_ids_sha256": "88cb1e760de613699cc9e0b65f86753f8e370d1d14bed408e2fcdc681ba212df",
+          "evaluation": {
+            "passed": true,
+            "checks": [
+              {
+                "check": "exact_normalized",
+                "expected": "TUESDAY",
+                "actual": "TUESDAY",
+                "passed": true
+              }
+            ]
+          },
+          "run": {
+            "prompt_tokens": 4096,
+            "generated_tokens": 2,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 2.101067832998524,
+            "decode_seconds": 0.014394750003702939,
+            "request_seconds": 2.115462583002227,
+            "prefill_tokens_per_second": 2015.6447862398072,
+            "decode_tokens_per_second": 392.06714853733064,
+            "cached_tokens": 4098,
+            "cache_layer_count": 16,
+            "quantized_cache_layers": 0,
+            "quantized_cache_layer_fraction": 0.0,
+            "quantized_kv_start_effective": null,
+            "cache_types": [
+              "KVCache"
+            ],
+            "logical_kv_cache_bytes": 134283264,
+            "allocated_kv_cache_bytes": 142606336,
+            "kv_bytes_per_cached_token": 32768.0,
+            "mlx_active_memory_gb": 0.838113288,
+            "mlx_peak_memory_gb": 1.634637912,
+            "process_peak_rss_gb": 1.18202368,
+            "generated_text": "Tuesday",
+            "generated_text_sha256": "7d8af1de1262f150187d5938bf649d6c35726970685f916d1ec6392a801b9762"
+          }
+        },
+        {
+          "id": "late_conditional_fact",
+          "actual_prompt_tokens": 4092,
+          "token_ids_sha256": "66eb30ec107fa63e8e9f79d1b862bf0468ead5e5de6a6c7a0e3132f4f9eee6b7",
+          "evaluation": {
+            "passed": true,
+            "checks": [
+              {
+                "check": "required_phrase_group",
+                "expected": [
+                  "no event",
+                  "not scheduled"
+                ],
+                "passed": true
+              }
+            ]
+          },
+          "run": {
+            "prompt_tokens": 4092,
+            "generated_tokens": 15,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 2.100569791997259,
+            "decode_seconds": 0.11236812500283122,
+            "request_seconds": 2.2129379170000902,
+            "prefill_tokens_per_second": 2013.708341188633,
+            "decode_tokens_per_second": 146.80922481517894,
+            "cached_tokens": 4107,
+            "cache_layer_count": 16,
+            "quantized_cache_layers": 0,
+            "quantized_cache_layer_fraction": 0.0,
+            "quantized_kv_start_effective": null,
+            "cache_types": [
+              "KVCache"
+            ],
+            "logical_kv_cache_bytes": 134578176,
+            "allocated_kv_cache_bytes": 142606336,
+            "kv_bytes_per_cached_token": 32768.0,
+            "mlx_active_memory_gb": 0.838113288,
+            "mlx_peak_memory_gb": 1.633212488,
+            "process_peak_rss_gb": 1.18202368,
+            "generated_text": "The meeting room is available for quiet study when no event is scheduled.",
+            "generated_text_sha256": "ceaf4ddc1f328085655211ca2d439548248a7a5e6ea52337c9091b8663aa9b35"
+          }
+        },
+        {
+          "id": "distributed_structured_extraction",
+          "actual_prompt_tokens": 4092,
+          "token_ids_sha256": "bb191ef311ea8216ccb38eeb034582762852d78b3752a4ac1ba804648fe9990a",
+          "evaluation": {
+            "passed": false,
+            "checks": [
+              {
+                "check": "valid_json",
+                "passed": false,
+                "error": "Unterminated string starting at: line 4 column 14 (char 48)"
+              },
+              {
+                "check": "json_required_string",
+                "expected": "alpha",
+                "passed": false
+              },
+              {
+                "check": "json_required_string",
+                "expected": "17",
+                "passed": false
+              },
+              {
+                "check": "json_required_string",
+                "expected": "beta",
+                "passed": false
+              },
+              {
+                "check": "json_required_string",
+                "expected": "orchid",
+                "passed": false
+              },
+              {
+                "check": "json_required_string",
+                "expected": "gamma",
+                "passed": false
+              },
+              {
+                "check": "json_required_string",
+                "expected": "Tuesday",
+                "passed": false
+              }
+            ]
+          },
+          "run": {
+            "prompt_tokens": 4092,
+            "generated_tokens": 64,
+            "finish_reason": "length",
+            "time_to_first_token_seconds": 2.10567112499848,
+            "decode_seconds": 0.47106095799972536,
+            "request_seconds": 2.5767320829982054,
+            "prefill_tokens_per_second": 2012.9623401430185,
+            "decode_tokens_per_second": 138.82367731196527,
+            "cached_tokens": 4156,
+            "cache_layer_count": 16,
+            "quantized_cache_layers": 0,
+            "quantized_cache_layer_fraction": 0.0,
+            "quantized_kv_start_effective": null,
+            "cache_types": [
+              "KVCache"
+            ],
+            "logical_kv_cache_bytes": 136183808,
+            "allocated_kv_cache_bytes": 142606336,
+            "kv_bytes_per_cached_token": 32768.0,
+            "mlx_active_memory_gb": 0.838113288,
+            "mlx_peak_memory_gb": 1.633212488,
+            "process_peak_rss_gb": 1.18202368,
+            "generated_text": "{\n    \"alpha\": 17,\n    \"beta\": 32,\n    \"gamma\": \"Record gamma has value Tuesday. Staff replace notice-board items each month. A blue binder lists ordinary supply requests. The north desk holds pencils and blank paper. A green folder contains routine maintenance notes. The afternoon meeting begins after",
+            "generated_text_sha256": "8f8c953a0bc80d86d31b1d23b90d457d4c91a4de519cf26177896a6e34fb28ee"
+          }
+        },
+        {
+          "id": "distributed_grounded_summary",
+          "actual_prompt_tokens": 4090,
+          "token_ids_sha256": "538f74d4f99b641b89ae364dcbaa1415876fa91882c5ea4487ca440672f8b132",
+          "evaluation": {
+            "passed": false,
+            "checks": [
+              {
+                "check": "required_phrase_group",
+                "expected": [
+                  "9",
+                  "nine"
+                ],
+                "passed": false
+              },
+              {
+                "check": "required_phrase_group",
+                "expected": [
+                  "6",
+                  "six"
+                ],
+                "passed": false
+              },
+              {
+                "check": "required_phrase_group",
+                "expected": [
+                  "borrow",
+                  "books"
+                ],
+                "passed": false
+              },
+              {
+                "check": "required_phrase_group",
+                "expected": [
+                  "study tables"
+                ],
+                "passed": false
+              },
+              {
+                "check": "required_phrase_group",
+                "expected": [
+                  "meeting room"
+                ],
+                "passed": true
+              },
+              {
+                "check": "required_phrase_group",
+                "expected": [
+                  "no event",
+                  "not scheduled"
+                ],
+                "passed": true
+              },
+              {
+                "check": "forbidden_phrase",
+                "expected_absent": "weekend",
+                "passed": true
+              },
+              {
+                "check": "forbidden_phrase",
+                "expected_absent": "seven days",
+                "passed": true
+              },
+              {
+                "check": "forbidden_phrase",
+                "expected_absent": "7 days",
+                "passed": true
+              },
+              {
+                "check": "forbidden_phrase",
+                "expected_absent": "24/7",
+                "passed": true
+              },
+              {
+                "check": "forbidden_phrase",
+                "expected_absent": "every day",
+                "passed": true
+              },
+              {
+                "check": "bullet_count",
+                "expected": 3,
+                "actual": 3,
+                "passed": true
+              }
+            ]
+          },
+          "run": {
+            "prompt_tokens": 4090,
+            "generated_tokens": 96,
+            "finish_reason": "length",
+            "time_to_first_token_seconds": 2.10303825000301,
+            "decode_seconds": 0.7032055419986136,
+            "request_seconds": 2.8062437920016237,
+            "prefill_tokens_per_second": 2014.8749339102153,
+            "decode_tokens_per_second": 138.5160542506955,
+            "cached_tokens": 4186,
+            "cache_layer_count": 16,
+            "quantized_cache_layers": 0,
+            "quantized_cache_layer_fraction": 0.0,
+            "quantized_kv_start_effective": null,
+            "cache_types": [
+              "KVCache"
+            ],
+            "logical_kv_cache_bytes": 137166848,
+            "allocated_kv_cache_bytes": 142606336,
+            "kv_bytes_per_cached_token": 32768.0,
+            "mlx_active_memory_gb": 0.838113288,
+            "mlx_peak_memory_gb": 1.632852032,
+            "process_peak_rss_gb": 1.18202368,
+            "generated_text": "Here are three important facts summarized in exactly three bullet points:\n\n• The north desk holds pencils and blank paper, and is located in the meeting room. It is a common space for staff to work and collaborate.\n\n• The storage room has four labeled shelves, and is used for storing supplies and equipment. It is also a common space for staff to store their belongings.\n\n• The meeting room is available when no event is scheduled, and is used for staff to work and collaborate. It",
+            "generated_text_sha256": "e59f7b73b5de8f88f9fc479480120a0aff7e8409d7548dd42f97b19351ddc87e"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "passed_checks": 11,
+    "total_checks": 22,
+    "required_fact_score": 0.5,
+    "passed_cases": 3,
+    "total_cases": 5
+  },
+  "completed_at_utc": "2026-10-04T04:21:51.878716+00:00"
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-5-kv-cache-quantization",
+  "started_at_utc": "2026-10-04T04:02:50.270123+00:00",
+  "arm": "control",
+  "model": {
+    "id": "mlx-community/Llama-3.2-1B-Instruct-4bit",
+    "local_path": "models/Llama-3.2-1B-Instruct-4bit",
+    "weights_bytes": 695283921,
+    "weight_files": [
+      {
+        "name": "model.safetensors",
+        "sha256": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd"
+      }
+    ]
+  },
+  "environment": {
+    "python": "3.14.4",
+    "mlx_lm": "0.31.3",
+    "mlx": "0.32.2"
+  },
+  "settings": {
+    "kv_bits": null,
+    "kv_group_size": null,
+    "quantized_kv_start": null,
+    "prefill_step_size": 2048,
+    "sampling": "greedy",
+    "max_new_tokens": 16,
+    "concurrency": 1,
+    "fresh_cache_per_request": true,
+    "warmup_runs_per_prompt": 1,
+    "measured_runs_per_prompt": 1,
+    "targets": [
+      4096
+    ],
+    "prompt_types": [
+      "qa"
+    ]
+  },
+  "model_load_seconds": 1.0886035000003176,
+  "cases": [
+    {
+      "target_prompt_tokens": 4096,
+      "prompts": [
+        {
+          "prompt_type": "qa",
+          "target_prompt_tokens": 4096,
+          "actual_prompt_tokens": 4096,
+          "token_ids_sha256": "2ae2ea4ad3650af54f8f2379d7c1ffbe420c1161b0ec776814f72e37d6e3e62a",
+          "messages": [
+            {
+              "role": "system",
+              "content": "Be concise."
+            },
+            {
+              "role": "user",
+              "content": "A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. Hours change sometimes. Books are available. Groups meet monthly. Updates appear online. A public library opens at nine each weekday and closes at six. Visitors can borrow books, use study tables, and attend reading groups. A small staff maintains the local history collection and answers questions. The library posts schedule changes at the front desk and on its website. Community members can suggest new titles through a paper request form. The meeting room is available for quiet study when no event is scheduled. The monthly newsletter lists upcoming programs and recent service updates. The library asks visitors to return borrowed items by the date on each receipt. Staff help visitors. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. The library asks visitors to return borrowed items by the date on each receipt. A public library opens at nine each weekday and closes at six.\n\nAnswer this question using the notes: What time does the library close on weekdays?"
+            }
+          ],
+          "warmup": {
+            "prompt_tokens": 4096,
+            "generated_tokens": 16,
+            "finish_reason": "stop",
+            "time_to_first_token_seconds": 2.41979383299622,
+            "decode_seconds": 0.15536879200226394,
+            "request_seconds": 2.575162624998484,
+            "prefill_tokens_per_second": 1824.627605969796,
+            "decode_tokens_per_second": 115.12644571397847,
+            "cached_tokens": 4112,
+            "cache_layer_count": 16,
+            "quantized_cache_layers": 0,
+            "quantized_cache_layer_fraction": 0.0,
+            "cache_types": [
+              "KVCache"
+            ],
+            "logical_kv_cache_bytes": 134742016,
+            "allocated_kv_cache_bytes": 142606336,
+            "kv_bytes_per_cached_token": 32768.0,
+            "mlx_active_memory_gb": 0.838113288,
+            "mlx_peak_memory_gb": 1.634605144,
+            "process_peak_rss_gb": 1.177075712,
+            "generated_text": "The library is open from 9 AM to 6 PM on weekdays.",
+            "generated_text_sha256": "a9a26261d06db232e609a6f9409d5e2680e803984898e2aac16fd1542678b619"
+          },
+          "runs": [
+            {
+              "prompt_tokens": 4096,
+              "generated_tokens": 16,
+              "finish_reason": "stop",
+              "time_to_first_token_seconds": 2.3520228339984897,
+              "decode_seconds": 0.13283970799966482,
+              "request_seconds": 2.4848625419981545,
+              "prefill_tokens_per_second": 1812.1312255954274,
+              "decode_tokens_per_second": 131.81087163682417,
+              "cached_tokens": 4112,
+              "cache_layer_count": 16,
+              "quantized_cache_layers": 0,
+              "quantized_cache_layer_fraction": 0.0,
+              "cache_types": [
+                "KVCache"
+              ],
+              "logical_kv_cache_bytes": 134742016,
+              "allocated_kv_cache_bytes": 142606336,
+              "kv_bytes_per_cached_token": 32768.0,
+              "mlx_active_memory_gb": 0.838113288,
+              "mlx_peak_memory_gb": 1.634605144,
+              "process_peak_rss_gb": 1.177075712,
+              "generated_text": "The library is open from 9 AM to 6 PM on weekdays.",
+              "generated_text_sha256": "a9a26261d06db232e609a6f9409d5e2680e803984898e2aac16fd1542678b619"
+            }
+          ],
+          "summary": {
+            "run_count": 1,
+            "time_to_first_token_seconds": {
+              "median": 2.3520228339984897,
+              "p95_nearest_rank": 2.3520228339984897
+            },
+            "prefill_tokens_per_second": {
+              "median": 1812.1312255954274,
+              "p95_nearest_rank": 1812.1312255954274
+            },
+            "decode_tokens_per_second": {
+              "median": 131.81087163682417,
+              "p95_nearest_rank": 131.81087163682417
+            },
+            "request_seconds": {
+              "median": 2.4848625419981545,
+              "p95_nearest_rank": 2.4848625419981545
+            },
+            "logical_kv_cache_bytes": {
+              "median": 134742016,
+              "p95_nearest_rank": 134742016
+            },
+            "allocated_kv_cache_bytes": {
+              "median": 142606336,
+              "p95_nearest_rank": 142606336
+            },
+            "kv_bytes_per_cached_token": {
+              "median": 32768.0,
+              "p95_nearest_rank": 32768.0
+            },
+            "mlx_active_memory_gb": {
+              "median": 0.838113288,
+              "p95_nearest_rank": 0.838113288
+            },
+            "mlx_peak_memory_gb": {
+              "median": 1.634605144,
+              "p95_nearest_rank": 1.634605144
+            },
+            "process_peak_rss_gb": {
+              "median": 1.177075712,
+              "p95_nearest_rank": 1.177075712
+            }
+          }
+        }
+      ],
+      "overall_summary_across_prompt_types": {
+        "run_count": 1,
+        "time_to_first_token_seconds": {
+          "median": 2.3520228339984897,
+          "p95_nearest_rank": 2.3520228339984897
+        },
+        "prefill_tokens_per_second": {
+          "median": 1812.1312255954274,
+          "p95_nearest_rank": 1812.1312255954274
+        },
+        "decode_tokens_per_second": {
+          "median": 131.81087163682417,
+          "p95_nearest_rank": 131.81087163682417
+        },
+        "request_seconds": {
+          "median": 2.4848625419981545,
+          "p95_nearest_rank": 2.4848625419981545
+        },
+        "logical_kv_cache_bytes": {
+          "median": 134742016,
+          "p95_nearest_rank": 134742016
+        },
+        "allocated_kv_cache_bytes": {
+          "median": 142606336,
+          "p95_nearest_rank": 142606336
+        },
+        "kv_bytes_per_cached_token": {
+          "median": 32768.0,
+          "p95_nearest_rank": 32768.0
+        },
+        "mlx_active_memory_gb": {
+          "median": 0.838113288,
+          "p95_nearest_rank": 0.838113288
+        },
+        "mlx_peak_memory_gb": {
+          "median": 1.634605144,
+          "p95_nearest_rank": 1.634605144
+        },
+        "process_peak_rss_gb": {
+          "median": 1.177075712,
+          "p95_nearest_rank": 1.177075712
+        }
+      }
+    }
+  ],
+  "completed_at_utc": "2026-10-04T04:03:03.184324+00:00"
+}
