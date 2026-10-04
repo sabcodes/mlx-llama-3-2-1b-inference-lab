@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-4-weight-quantization-quality-gate",
+  "created_at_utc": "2026-10-04T03:23:38.572428+00:00",
+  "model": {
+    "id": "local/nvfp4",
+    "local_path": "models/Llama-3.2-1B-Instruct-nvfp4-exp4"
+  },
+  "fixture": {
+    "path": "benchmarks/fixtures/experiment4-quality.json",
+    "sha256": "c6be7099d6a2652ec4ef28bf2d4fc7f09c3cb1dd4d1eb5d6496c945d791f1915",
+    "case_count": 10
+  },
+  "settings": {
+    "sampling": "greedy",
+    "prefill_step_size": 2048,
+    "concurrency": 1
+  },
+  "summary": {
+    "passed_cases": 8,
+    "failed_cases": 2,
+    "pass_rate": 0.8,
+    "passed": false
+  },
+  "cases": [
+    {
+      "id": "weekday_closing_fact",
+      "prompt_tokens": 72,
+      "generated_tokens": 9,
+      "finish_reason": "stop",
+      "output": "It closes at 6 on weekdays.",
+      "output_sha256": "0b2b13bfe0f1d1121274a44611043a57cd7eecc7651ba81af560297809a91b2b",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "6",
+              "six"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "weekday",
+              "weekdays"
+            ],
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "unknown",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "not provided",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "meeting_room_condition",
+      "prompt_tokens": 72,
+      "generated_tokens": 13,
+      "finish_reason": "stop",
+      "output": "It is available for quiet study when no event is scheduled.",
+      "output_sha256": "80d6fc36e313d644cecc550295ed8e17ea9304cde8652371d865e6c399e797a5",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "no event",
+              "not scheduled"
+            ],
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "meaning_preserving_rewrite",
+      "prompt_tokens": 69,
+      "generated_tokens": 16,
+      "finish_reason": "stop",
+      "output": "Don't forget to return your borrowed items by the date they're due.",
+      "output_sha256": "aace12bed62bd38eeadae9c468347d91ebe12f5e62dbe84f8c288c12762b6a95",
+      "evaluation": {
+        "passed": false,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "return"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "receipt"
+            ],
+            "passed": false
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "due date",
+              "date printed"
+            ],
+            "passed": false
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "weekend",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "opening hours",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "7 days",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "24/7",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "structured_extraction",
+      "prompt_tokens": 91,
+      "generated_tokens": 36,
+      "finish_reason": "stop",
+      "output": "{\"weekday_opening\": \"9\", \"weekday_closing\": \"6\", \"services\": \"Borrowing books, using study tables, and attending reading groups.\"}",
+      "output_sha256": "338708f61e607ec94b05d6c4202156e5061dba9e3841d84f5aaa9f69e7607cc2",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "valid_json",
+            "passed": true,
+            "error": null
+          },
+          {
+            "check": "json_required_string",
+            "expected": "9",
+            "passed": true
+          },
+          {
+            "check": "json_required_string",
+            "expected": "6",
+            "passed": true
+          },
+          {
+            "check": "json_required_string",
+            "expected": "books",
+            "passed": true
+          },
+          {
+            "check": "json_required_string",
+            "expected": "study tables",
+            "passed": true
+          },
+          {
+            "check": "json_required_string",
+            "expected": "reading groups",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "grounded_three_bullet_summary",
+      "prompt_tokens": 94,
+      "generated_tokens": 53,
+      "finish_reason": "stop",
+      "output": "Here are three bullet points summarizing the facts:\n\n• The library is open from 9am to 6pm, Monday through Friday.\n• Visitors can borrow books and use study tables.\n• The meeting room is available for use when no event is scheduled.",
+      "output_sha256": "c128b05caeb15ddfcebfae16c0a22f5b20ce29a06d0c8be7ebbd66ba7db3a612",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "9",
+              "nine"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "6",
+              "six"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "borrow",
+              "books"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "meeting room"
+            ],
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "weekend",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "seven days",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "7 days",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "24/7",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "every day",
+            "passed": true
+          },
+          {
+            "check": "bullet_count",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "explicit_negation",
+      "prompt_tokens": 68,
+      "generated_tokens": 3,
+      "finish_reason": "stop",
+      "output": "CLOSED",
+      "output_sha256": "f6deab2b121b0bb37c2e6b43bc9cd58c5422e9e638321f421515378e2856595b",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "CLOSED",
+            "actual": "CLOSED",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "two_step_lookup",
+      "prompt_tokens": 73,
+      "generated_tokens": 2,
+      "finish_reason": "stop",
+      "output": "Tuesday",
+      "output_sha256": "7d8af1de1262f150187d5938bf649d6c35726970685f916d1ec6392a801b9762",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "TUESDAY",
+            "actual": "TUESDAY",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "literal_instruction",
+      "prompt_tokens": 53,
+      "generated_tokens": 2,
+      "finish_reason": "stop",
+      "output": "Yes",
+      "output_sha256": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e",
+      "evaluation": {
+        "passed": false,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "CEDAR",
+            "actual": "YES",
+            "passed": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "unknown_when_absent",
+      "prompt_tokens": 76,
+      "generated_tokens": 2,
+      "finish_reason": "stop",
+      "output": "UNKNOWN",
+      "output_sha256": "23759997b3c59884dc4c0ff5320d6301b0e7f63bf0f6483a7b54d7d43bc5ccd1",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "UNKNOWN",
+            "actual": "UNKNOWN",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_context_key_recall",
+      "prompt_tokens": 1302,
+      "generated_tokens": 6,
+      "finish_reason": "stop",
+      "output": "ORCHID-731",
+      "output_sha256": "8b9af2e5b8b4cfddb87d171997b95c471f8d68a68e30fb5177abeb3332372edd",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "ORCHID-731",
+            "actual": "ORCHID-731",
+            "passed": true
+          }
+        ]
+      }
+    }
+  ]
+}

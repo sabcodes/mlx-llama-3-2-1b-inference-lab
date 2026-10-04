@@ -2,6 +2,10 @@
 
 Date: 2026-10-03
 
+> Historical checkpoint: Experiment 4 is now complete. The final decision is
+> recorded in `benchmarks/results/experiment4-weight-quantization-analysis.md`.
+> The existing affine 4-bit/group-64 model remains selected.
+
 ## What has started
 
 Experiment 4 is comparing post-training weight representations for the same
@@ -76,4 +80,5 @@ used to claim a performance win.
 4. Run the full fixed suite and a confirmation rerun only on candidates that
    show a plausible speed/size benefit.
 
-No Experiment 4 winner has been selected yet.
+At this checkpoint no Experiment 4 winner had been selected yet. The later
+quality gate and performance screen rejected every alternative.

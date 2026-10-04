@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "description": "Deterministic practical-quality gate for Experiment 4 weight formats.",
+  "cases": [
+    {
+      "id": "weekday_closing_fact",
+      "system": "Answer only from the supplied facts. Be concise.",
+      "user": "Facts: The library opens at 9 on weekdays and closes at 6. Question: What time does it close on weekdays?",
+      "max_tokens": 32,
+      "checks": {
+        "required_phrase_groups": [["6", "six"], ["weekday", "weekdays"]],
+        "forbidden_phrases": ["unknown", "not provided"]
+      }
+    },
+    {
+      "id": "meeting_room_condition",
+      "system": "Answer only from the supplied facts. Be concise.",
+      "user": "Facts: The meeting room is available for quiet study when no event is scheduled. Question: When is it available for quiet study?",
+      "max_tokens": 32,
+      "checks": {
+        "required_phrase_groups": [["no event", "not scheduled"]]
+      }
+    },
+    {
+      "id": "meaning_preserving_rewrite",
+      "system": "Follow the instruction without adding new facts.",
+      "user": "Rewrite this notice in a friendlier tone while preserving its meaning: Return borrowed items by the due date printed on the receipt.",
+      "max_tokens": 64,
+      "checks": {
+        "required_phrase_groups": [["return"], ["receipt"], ["due date", "date printed"]],
+        "forbidden_phrases": ["weekend", "opening hours", "7 days", "24/7"]
+      }
+    },
+    {
+      "id": "structured_extraction",
+      "system": "Return only valid JSON with no Markdown fence.",
+      "user": "Facts: On weekdays the library opens at 9 and closes at 6. Services are borrowing books, using study tables, and attending reading groups. Return an object with keys weekday_opening, weekday_closing, and services.",
+      "max_tokens": 96,
+      "checks": {
+        "valid_json": true,
+        "json_required_strings": ["9", "6", "books", "study tables", "reading groups"]
+      }
+    },
+    {
+      "id": "grounded_three_bullet_summary",
+      "system": "Use only the supplied facts and follow the requested format.",
+      "user": "Facts: The library opens at 9 and closes at 6 on weekdays. Visitors may borrow books and use study tables. The meeting room is available when no event is scheduled. Summarize these facts in exactly three bullet points.",
+      "max_tokens": 96,
+      "checks": {
+        "bullet_count": 3,
+        "required_phrase_groups": [["9", "nine"], ["6", "six"], ["borrow", "books"], ["meeting room"]],
+        "forbidden_phrases": ["weekend", "seven days", "7 days", "24/7", "every day"]
+      }
+    },
+    {
+      "id": "explicit_negation",
+      "system": "Follow the response-format instruction exactly.",
+      "user": "The office is open Monday through Friday and closed Saturday and Sunday. Is it open on Sunday? Respond with exactly OPEN or CLOSED.",
+      "max_tokens": 8,
+      "checks": {
+        "exact_normalized": "CLOSED"
+      }
+    },
+    {
+      "id": "two_step_lookup",
+      "system": "Follow the response-format instruction exactly.",
+      "user": "Blue cards are due Tuesday. Red cards are due Friday. Mira has a blue card. Respond with only the day Mira's card is due.",
+      "max_tokens": 8,
+      "checks": {
+        "exact_normalized": "TUESDAY"
+      }
+    },
+    {
+      "id": "literal_instruction",
+      "system": "Follow the user's output instruction exactly.",
+      "user": "Respond with exactly the single word CEDAR.",
+      "max_tokens": 8,
+      "checks": {
+        "exact_normalized": "CEDAR"
+      }
+    },
+    {
+      "id": "unknown_when_absent",
+      "system": "Use only the supplied facts. Follow the response-format instruction exactly.",
+      "user": "Facts: The parcel is square and weighs two kilograms. What color is it? Respond with exactly UNKNOWN if the facts do not say.",
+      "max_tokens": 8,
+      "checks": {
+        "exact_normalized": "UNKNOWN"
+      }
+    },
+    {
+      "id": "long_context_key_recall",
+      "system": "Use only the supplied notes. Follow the response-format instruction exactly.",
+      "user": "The launch key is ORCHID-731. {{DISTRACTORS}} What is the launch key? Respond with only the key.",
+      "max_tokens": 16,
+      "checks": {
+        "exact_normalized": "ORCHID-731"
+      }
+    }
+  ]
+}

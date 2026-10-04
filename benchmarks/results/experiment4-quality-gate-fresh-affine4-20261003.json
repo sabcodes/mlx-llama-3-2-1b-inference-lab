@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-4-weight-quantization-quality-gate",
+  "created_at_utc": "2026-10-04T03:23:17.811948+00:00",
+  "model": {
+    "id": "local/affine4-g64-fresh",
+    "local_path": "models/Llama-3.2-1B-Instruct-affine4-g64-exp4"
+  },
+  "fixture": {
+    "path": "benchmarks/fixtures/experiment4-quality.json",
+    "sha256": "c6be7099d6a2652ec4ef28bf2d4fc7f09c3cb1dd4d1eb5d6496c945d791f1915",
+    "case_count": 10
+  },
+  "settings": {
+    "sampling": "greedy",
+    "prefill_step_size": 2048,
+    "concurrency": 1
+  },
+  "summary": {
+    "passed_cases": 5,
+    "failed_cases": 5,
+    "pass_rate": 0.5,
+    "passed": false
+  },
+  "cases": [
+    {
+      "id": "weekday_closing_fact",
+      "prompt_tokens": 72,
+      "generated_tokens": 10,
+      "finish_reason": "stop",
+      "output": "The library closes at 6 on weekdays.",
+      "output_sha256": "0e1f485f4c4ff0740b789acacb382dff7858a052ad65d15956fae0ee823a150f",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "6",
+              "six"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "weekday",
+              "weekdays"
+            ],
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "unknown",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "not provided",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "meeting_room_condition",
+      "prompt_tokens": 72,
+      "generated_tokens": 20,
+      "finish_reason": "stop",
+      "output": "It's available for quiet study from 9 AM to 5 PM, Monday through Friday.",
+      "output_sha256": "775457365b185e8fbfc946754b238f65c4446ca1fafdc779277abaa34d40fc7a",
+      "evaluation": {
+        "passed": false,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "no event",
+              "not scheduled"
+            ],
+            "passed": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "meaning_preserving_rewrite",
+      "prompt_tokens": 69,
+      "generated_tokens": 52,
+      "finish_reason": "stop",
+      "output": "\"Hey friends! \n\nWe'd love it if you could return any borrowed items by the due date printed on the receipt. This will help us keep track of what we have and make sure we're not missing out on anything. Thanks for your help!\"",
+      "output_sha256": "f4c37985533768fbde50cac20320b17cd179bf471d3ce25dfc18b6407821963c",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "return"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "receipt"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "due date",
+              "date printed"
+            ],
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "weekend",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "opening hours",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "7 days",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "24/7",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "structured_extraction",
+      "prompt_tokens": 91,
+      "generated_tokens": 96,
+      "finish_reason": "length",
+      "output": "```json\n{\n  \"weekday_opening\": {\n    \"Monday\": 9,\n    \"Tuesday\": 9,\n    \"Wednesday\": 9,\n    \"Thursday\": 9,\n    \"Friday\": 9\n  },\n  \"weekday_closing\": {\n    \"Monday\": 18,\n    \"Tuesday\": 18,\n    \"Wednesday\": 18,\n    \"Thursday\": 18,\n    \"Friday\": 18\n  },\n  \"services\":",
+      "output_sha256": "efb209787307b0892b9d38451e36ea494f571e03656e9a788994f6b58c997d33",
+      "evaluation": {
+        "passed": false,
+        "checks": [
+          {
+            "check": "valid_json",
+            "passed": false,
+            "error": "Expecting value: line 1 column 1 (char 0)"
+          },
+          {
+            "check": "json_required_string",
+            "expected": "9",
+            "passed": false
+          },
+          {
+            "check": "json_required_string",
+            "expected": "6",
+            "passed": false
+          },
+          {
+            "check": "json_required_string",
+            "expected": "books",
+            "passed": false
+          },
+          {
+            "check": "json_required_string",
+            "expected": "study tables",
+            "passed": false
+          },
+          {
+            "check": "json_required_string",
+            "expected": "reading groups",
+            "passed": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "grounded_three_bullet_summary",
+      "prompt_tokens": 94,
+      "generated_tokens": 55,
+      "finish_reason": "stop",
+      "output": "Here are three bullet points summarizing the facts:\n\n• The library is open from 9:00 AM to 6:00 PM on weekdays.\n• Visitors can borrow books and use study tables.\n• The meeting room is available for use when no event is scheduled.",
+      "output_sha256": "13b6e861118b5a5578a8af5ab3b6557ed56d7b60bd3705ee9359b0620d197f56",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "9",
+              "nine"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "6",
+              "six"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "borrow",
+              "books"
+            ],
+            "passed": true
+          },
+          {
+            "check": "required_phrase_group",
+            "expected": [
+              "meeting room"
+            ],
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "weekend",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "seven days",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "7 days",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "24/7",
+            "passed": true
+          },
+          {
+            "check": "forbidden_phrase",
+            "expected_absent": "every day",
+            "passed": true
+          },
+          {
+            "check": "bullet_count",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "explicit_negation",
+      "prompt_tokens": 68,
+      "generated_tokens": 2,
+      "finish_reason": "stop",
+      "output": "OPEN",
+      "output_sha256": "6e10953f3e4ca159285c03a116d60c5086727c958dc25b31c39848ffea1dcdfe",
+      "evaluation": {
+        "passed": false,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "CLOSED",
+            "actual": "OPEN",
+            "passed": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "two_step_lookup",
+      "prompt_tokens": 73,
+      "generated_tokens": 2,
+      "finish_reason": "stop",
+      "output": "Tuesday",
+      "output_sha256": "7d8af1de1262f150187d5938bf649d6c35726970685f916d1ec6392a801b9762",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "TUESDAY",
+            "actual": "TUESDAY",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "literal_instruction",
+      "prompt_tokens": 53,
+      "generated_tokens": 2,
+      "finish_reason": "stop",
+      "output": "No",
+      "output_sha256": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d",
+      "evaluation": {
+        "passed": false,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "CEDAR",
+            "actual": "NO",
+            "passed": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "unknown_when_absent",
+      "prompt_tokens": 76,
+      "generated_tokens": 8,
+      "finish_reason": "length",
+      "output": "I cannot provide a color for a parcel",
+      "output_sha256": "d0fef085b6484129d856f44d09247911adaf0ea6950b578f225b541765131227",
+      "evaluation": {
+        "passed": false,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "UNKNOWN",
+            "actual": "I CANNOT PROVIDE A COLOR FOR A PARCEL",
+            "passed": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_context_key_recall",
+      "prompt_tokens": 1302,
+      "generated_tokens": 6,
+      "finish_reason": "stop",
+      "output": "ORCHID-731",
+      "output_sha256": "8b9af2e5b8b4cfddb87d171997b95c471f8d68a68e30fb5177abeb3332372edd",
+      "evaluation": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "exact_normalized",
+            "expected": "ORCHID-731",
+            "actual": "ORCHID-731",
+            "passed": true
+          }
+        ]
+      }
+    }
+  ]
+}

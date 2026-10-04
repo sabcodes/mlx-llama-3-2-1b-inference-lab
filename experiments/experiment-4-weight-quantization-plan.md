@@ -95,14 +95,18 @@ the answer. The practical gate is:
 - [x] Convert the fresh affine-4 control and initial candidates from that source.
 - [x] Run load/generation and 512-token quality probes for each artifact.
 - [x] Reject clearly incorrect candidates (`mixed_3_6` failed the context fact check).
-- [ ] Run a short screening benchmark on survivors.
-- [ ] Run the full fixed suite on candidates that show a plausible benefit.
-- [ ] Compare quality first, then latency/throughput, memory, and disk size.
-- [ ] Re-run the leading candidate to check that the result reproduces.
-- [ ] Write the decision, limitations, and raw-result paths.
+- [x] Run a short screening benchmark on survivors.
+- [x] Apply the full-suite gate (no candidate showed a plausible benefit, so no
+  candidate advanced to a full ten-repeat run).
+- [x] Compare quality first, then latency/throughput, memory, and disk size.
+- [x] Apply the confirmation-rerun gate (not applicable because there was no
+  qualifying candidate).
+- [x] Write the decision, limitations, and raw-result paths.
 - [ ] Scan staged files for secrets/private paths before committing and pushing.
 
 ## Predeclared decision rule
+
+The user approved this rule as a whole on 2026-10-03.
 
 A candidate is a practical winner only when it passes the quality gate and
 does at least one of the following against the fresh affine-4 control:
