@@ -91,7 +91,7 @@ failure in a pooled average.
 
 - 8-bit must reduce direct KV-cache bytes by at least 40%.
 - 4-bit must reduce direct KV-cache bytes by at least 65%.
-- Whole-application MLX peak memory must decrease by at least 10%; report the
+- Whole-application MLX peak memory must decrease by at least 20%; report the
   absolute MiB saved as well.
 
 ### Latency gates at every tested length
@@ -114,7 +114,10 @@ Any selected winner must reproduce in a second full capture.
 
 - [x] Implement direct cache-byte and quantized-layer measurement.
 - [x] Validate cache offsets/types with one short smoke capture per arm.
-- [x] Run fixed long-context quality fixtures for viable arms.
+- [x] Run the implemented fixed long-context quality fixtures for viable arms.
+- [ ] Complete the planned multi-turn-like history-recall fixture. It was not
+  implemented in Experiment 5 and is now a documented coverage gap rather than
+  being treated as completed evidence.
 - [x] Apply the three-repeat screen gate (no candidate advanced because every
   arm had already failed a hard quality or peak-memory gate).
 - [x] Apply the full-capture gate (no candidate qualified).

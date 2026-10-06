@@ -7,12 +7,13 @@ Date: 2026-10-03
 Do not enable KV-cache quantization by default for the current Llama 3.2 1B
 interactive-chat configuration. No tested arm satisfied all approved gates.
 
-Post-prefill 8-bit quantization is a technically useful **research-only**
-result: it preserves the control's tested long-context capabilities, reduces
-retained cache and active memory, and appears to improve decode throughput.
-However, it cannot reduce whole-request peak memory because that peak occurs
-during the unquantized prompt-prefill phase. It therefore fails the approved
-requirement of at least 10% lower MLX peak memory at 16K.
+Post-prefill 8-bit quantization is technically informative but is **rejected
+under the approved gates**. It reduces retained cache and active memory and
+showed exploratory decode-throughput gains. However, it introduced a new
+required-format failure at 8K and cannot reduce whole-request peak memory
+because that peak occurs during the unquantized prompt-prefill phase. It
+therefore fails both the independent quality rule and the approved requirement
+of at least 20% lower MLX peak memory at 16K.
 
 ## Controlled setup
 
@@ -82,23 +83,39 @@ unquantized prefill has already reached that peak before conversion.
 Five deterministic quality fixtures placed required facts near the beginning,
 middle, and end of 4K/8K/16K contexts. They covered exact recall, distributed
 two-step lookup, a late conditional fact, structured extraction, and grounded
-summary. Candidate quality was evaluated relative to the unquantized control,
+summary. The planned multi-turn-like history-recall fixture was not
+implemented, so coverage was incomplete for the stated interactive-chat use
+case. Candidate quality was evaluated relative to the unquantized control,
 because the 1B control itself cannot satisfy every difficult structured task.
 
 - At 4K, control and post-prefill 8-bit both passed 11 of 22 checks and produced
   byte-identical output on every fixture.
 - At 4K, post-prefill 4-bit passed only 9 of 22 checks: 81.8% of control, below
   the approved 95% threshold. It was rejected.
-- Across 8K and 16K, control passed 32 of 44 checks and post-prefill 8-bit passed
-  31 of 44, or 96.9% of control.
-- Post-prefill 8-bit introduced no new critical case failure and preserved all
-  focused fact-retrieval passes at every context length.
+- Across 8K and 16K, control passed 32 of 44 evaluator checks and
+  post-prefill 8-bit passed 31 of 44, or 96.9% of control. The historical JSON
+  calls this aggregate `required_fact_score`, but it also includes formatting
+  and forbidden-phrase checks; it is an aggregate-check score, not a pure
+  required-fact score.
+- At 8K, the control's grounded-summary response produced the required three
+  bullets and passed `bullet_count`; post-prefill 8-bit produced two bullets
+  and failed it. This is a new required-format failure and independently fails
+  the approved quality gate even though the pooled 31/32 ratio exceeds 95%.
+- Post-prefill 8-bit preserved the focused fact-retrieval passes, but that does
+  not override the separate required-format rule.
+
+The structured-extraction evaluator was also weaker than intended: it checked
+for required strings in serialized JSON rather than exact keys and values.
+That limitation does not create the observed bullet-format failure, but it
+means the quality coverage should not be described as exhaustive.
 
 ## Bounded 8-bit performance screen
 
 The five quality tasks at each length also supplied a bounded, single-run
 screen. These are medians across different deterministic tasks, not a repeated
-full benchmark and not confirmation-quality speed claims.
+full benchmark and not confirmation-quality speed claims. There was no timing
+warmup or repetition. At 8K, one candidate response generated 72 tokens while
+its control generated 96, so that pair was not identical decode work.
 
 | Context | TTFT change | Decode tok/s change | Direct KV bytes | Active MLX memory | Peak MLX memory |
 |---:|---:|---:|---:|---:|---:|
@@ -116,13 +133,13 @@ hard whole-request peak-memory gate.
 |---|---|---|---|---|---|
 | 8-bit immediate | Pass | Not advanced | Fail | Fail badly | Reject |
 | 4-bit immediate | Pass | Not advanced | Fail | Fail badly | Reject |
-| 8-bit post-prefill | Pass | Pass | Pass in bounded screen | Fail: 0% reduction | Research-only |
+| 8-bit post-prefill | Pass | Fail: new 8K format loss | Exploratory only | Fail: 0% reduction | Reject |
 | 4-bit post-prefill | Pass | Fail | Pass in smoke | Fail: 0% reduction | Reject |
 
-No candidate advanced to the three-repeat or ten-repeat performance captures,
-because a repeated run cannot change the structural fact that post-prefill
-quantization happens after the request's memory peak. No deployment setting was
-changed.
+No candidate advanced to the three-repeat or ten-repeat performance captures.
+The post-prefill 8-bit arm had already failed two independent hard gates, and a
+repeated run cannot change the structural fact that quantization happens after
+the request's memory peak. No deployment setting was changed.
 
 ## Raw evidence
 
@@ -143,12 +160,17 @@ changed.
 
 ## What we learned
 
-KV-cache quantization is effective at reducing retained long-context state, and
-8-bit quantization can preserve the tested capabilities. Placement matters:
-quantizing during chunked prefill is harmful on this setup, while quantizing at
-the prompt boundary avoids that penalty and may speed decode.
+KV-cache quantization is effective at reducing retained long-context state.
+The 8-bit arm preserved the focused fact-retrieval checks but did not preserve
+all required formatting. Placement matters: quantizing during chunked prefill
+is harmful on this setup, while quantizing at the prompt boundary avoids that
+penalty and showed an exploratory decode-speed signal that was not confirmed
+with repeated identical work.
 
 For this 1B model on a 16 GB Mac, retained KV memory is not the current limiting
 resource. A future experiment could explicitly target **decode-phase active
 memory and throughput** rather than whole-request peak memory, but that would be
 a new success rule and should not be retroactively substituted here.
+
+The post-experiment review and correction rationale are recorded in
+`experiment5-review-corrections.md`.
