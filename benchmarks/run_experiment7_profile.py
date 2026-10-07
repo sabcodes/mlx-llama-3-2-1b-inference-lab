@@ -27,6 +27,7 @@ from run_baseline import (
 
 DEFAULT_TARGETS = (64, 512, 2048, 4096)
 DEFAULT_OUTPUT = ROOT / "benchmarks" / "results" / "experiment7-phase-profile-20261004.json"
+PROFILE_CHAT_TEMPLATE_DATE = "04 Oct 2026"
 
 
 def nearest_rank_p95(values: list[float]) -> float:
@@ -189,10 +190,12 @@ def run_timing(args) -> None:
             "python": sys.version.split()[0],
             "mlx": package_version("mlx"),
             "mlx_lm": package_version("mlx-lm"),
+            "transformers": package_version("transformers"),
             "metal_device": mx.device_info(),
         },
         "settings": {
             "sampling": "greedy",
+            "chat_template_date": args.chat_template_date,
             "eos_suppressed": True,
             "concurrency": 1,
             "fresh_cache_per_request": True,
@@ -215,7 +218,9 @@ def run_timing(args) -> None:
 
     for target in args.targets:
         fixture_started = time.perf_counter()
-        fixture = make_fixture(tokenizer, target, "summarization")
+        fixture = make_fixture(
+            tokenizer, target, "summarization", args.chat_template_date
+        )
         fixture_seconds = time.perf_counter() - fixture_started
         fixture_bytes = json.dumps(
             fixture["token_ids"], separators=(",", ":")
@@ -317,7 +322,9 @@ def run_capture(args) -> None:
     model_path = args.model_path.resolve()
     project_relative_path(model_path)
     model, tokenizer = load(str(model_path))
-    fixture = make_fixture(tokenizer, args.capture_target, "summarization")
+    fixture = make_fixture(
+        tokenizer, args.capture_target, "summarization", args.chat_template_date
+    )
     sampler = make_sampler(temp=0.0)
     logits_processors = make_logits_processors(
         logit_bias={token: -1e9 for token in tokenizer.eos_token_ids}
@@ -385,10 +392,12 @@ def run_capture(args) -> None:
         "environment": {
             "mlx": package_version("mlx"),
             "mlx_lm": package_version("mlx-lm"),
+            "transformers": package_version("transformers"),
             "metal_device": mx.device_info(),
         },
         "settings": {
             "actual_prompt_tokens": fixture["actual_prompt_tokens"],
+            "chat_template_date": args.chat_template_date,
             "prefill_step_size": args.prefill_step_size,
             "captured_decode_steps": (
                 0 if args.capture_phase == "prefill" else args.capture_decode_tokens
@@ -419,6 +428,7 @@ def parse_args():
     parser.add_argument("--repeats", type=int, default=10)
     parser.add_argument("--max-tokens", type=int, default=128)
     parser.add_argument("--prefill-step-size", type=int, default=2048)
+    parser.add_argument("--chat-template-date", default=PROFILE_CHAT_TEMPLATE_DATE)
     parser.add_argument("--capture-phase", choices=("prefill", "decode"), default="decode")
     parser.add_argument("--capture-target", type=int, default=2048)
     parser.add_argument("--capture-decode-tokens", type=int, default=16)

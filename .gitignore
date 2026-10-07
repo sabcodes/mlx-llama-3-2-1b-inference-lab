@@ -1,8 +1,12 @@
 /.venv/
 /models/
+/.playwright-cli/
+__pycache__/
 /benchmarks/results/*.partial.json
 /benchmarks/results/experiment2-control-telemetry-20261003.txt
 /benchmarks/results/experiment2-control-telemetry-20261003-retry1.txt
 /benchmarks/results/experiment2-control-telemetry-20261003-retry1.json
 /benchmarks/results/experiment3-compile-probe-20261003T-stage-a.json
 /benchmarks/results/*.gputrace
+/benchmarks/results/*.trace
+/benchmarks/results/experiment7-m4pro-metal-system-probe-*.json

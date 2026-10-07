@@ -12,6 +12,9 @@ runtime decisions; the repository does not yet contain a production chat
 server that deploys them. Other tested changes were rejected or retained only
 as diagnostic evidence.
 
+Experiment 7 was repeated on an M4 Pro with 24 GB. Its Xcode Metal replay
+identifies the dominant GPU shader families.
+
 Start with [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) for the current decisions,
 known limitations, experiment map, and next work.
 
@@ -37,7 +40,7 @@ The baseline protocol is documented in
 | 4: weight quantization | Keep published affine 4-bit/group-64. |
 | 5: KV-cache quantization | Reject all tested arms under the approved gates. |
 | 6: speculative decoding | Reject the full-1B Mixed-3/6 draft pairing. |
-| 7: runtime profiling | Phase split measured; custom Metal work is not yet justified. |
+| 7: runtime profiling | M4 phase split and GPU shader ranking measured; a custom kernel still needs a faster tested candidate. |
 
 ## Local setup
 
@@ -59,6 +62,6 @@ Never overwrite a prior result. Keep primary timing runs separate from
 ## Data and privacy policy
 
 Model artifacts, virtual environments, incomplete captures, and raw Metal GPU
-traces remain local. Raw `.gputrace` directories are large and may contain
-machine-local metadata. Committed telemetry logs have process-name and PID
-tables removed.
+traces remain local. Raw `.gputrace` and Instruments `.trace` directories are
+large and may contain machine-local metadata. Committed telemetry logs have
+process-name and PID tables removed.

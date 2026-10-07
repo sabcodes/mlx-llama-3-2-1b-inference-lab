@@ -1,6 +1,6 @@
 # Project context and current status
 
-Last updated: 2026-10-05
+Last updated: 2026-10-06
 
 ## Objective
 
@@ -12,6 +12,9 @@ systems by measuring and optimizing one concrete local deployment:
 - `mlx-community/Llama-3.2-1B-Instruct-4bit`
 - MLX 0.32.2 and MLX-LM 0.31.3
 - single-user, concurrency-one interactive chat
+
+Experiment 7 has also been repeated on an M4 Pro with 24 GiB unified memory.
+That is a new hardware profile, not a replacement for the M2 Pro baseline.
 
 The project optimizes inference behavior after training. It does not perform
 pretraining, post-training, fine-tuning, or weight updates.
@@ -27,7 +30,7 @@ pretraining, post-training, fine-tuning, or weight updates.
 - Explicit compiled decode: disabled.
 - KV-cache quantization: disabled.
 - Speculative decoding with the Mixed-3/6 full-1B draft: disabled.
-- Custom Metal kernels: none; profiling has not yet justified one.
+- Custom Metal kernels: none; a faster replacement has not yet been demonstrated.
 
 These are benchmark-backed selections. The repository does not yet contain a
 production chat server or application that integrates them as a deployment.
@@ -144,17 +147,21 @@ Evidence: `benchmarks/results/experiment6-speculative-decoding-analysis.md`.
 
 ### Experiment 7: runtime profiling
 
-The phase-level profile is complete. With forced 128-token output, decode used
-83.3% of request time at a 64-token prompt and 66.3% at 510 tokens. TTFT used
-57.4% at 2,047 tokens and 69.3% at 4,096 tokens. Decode throughput also fell
-from 216.2 to 135.6 tokens/s as prompt history grew.
+The original M2 Pro phase profile found decode dominant for short prompts and
+TTFT dominant for long prompts. A fresh M4 Pro run repeated the 1B experiment
+with matching model-file and prompt-token hashes. On M4 Pro, decode used 85.2%
+of request time at 64 tokens and 67.6% at 510; TTFT used 58.0% at 2,047 and
+70.8% at 4,096. Median request times ranged from 0.546 to 2.374 seconds.
 
-Focused prefill and decode Metal traces were recorded, but this Mac has Command
-Line Tools rather than full Xcode Metal Debugger. No GPU operation family has
-therefore been assigned a trustworthy time share, and a custom Metal kernel is
-not justified by current evidence.
+Xcode 26.0.1 Metal Debugger replay identified MLX's affine 4-bit matrix
+operations as the largest profiled shader costs at a 2,047-token prompt:
+90.93% matrix-matrix cost in prefill and 75.65% matrix-vector cost in decode.
+These are replay shader shares, not end-to-end latency shares. A targeted
+matrix-path comparison is now warranted; writing a custom kernel still needs
+a concrete mechanism and full-request evidence.
 
-Evidence: `benchmarks/results/experiment7-runtime-profile-analysis.md`.
+Evidence: `benchmarks/results/experiment7-runtime-profile-analysis.md` (M2)
+and `benchmarks/results/experiment7-m4pro-runtime-profile-analysis.md` (M4).
 
 ## Known evidence limitations
 
@@ -167,22 +174,27 @@ Evidence: `benchmarks/results/experiment7-runtime-profile-analysis.md`.
 - Experiment 1 timing was telemetry-instrumented and ordered.
 - Experiment 5 quality coverage and evaluator limitations are documented in
   its correction addendum.
-- Experiment 7 identifies request phases but not dominant Metal kernels.
+- Experiment 7's GPU cost percentages are from one focused Xcode replay per
+  phase at a 2,047-token prompt; they do not establish a clean wall-time share
+  or generalize automatically to other lengths or models.
 - Thermal pressure from `powermetrics` is categorical and was not useful as an
   internal-temperature measurement.
 
 ## Next research choices
 
-1. Install/use full Xcode Metal Debugger to inspect the local Experiment 7
-   traces, then pursue a custom kernel only if one operation family leaves a
-   plausible path to at least a 10% end-to-end improvement.
-2. If speculative decoding is revisited, begin with a purpose-built 100–300M
-   tokenizer-compatible draft or self-speculative mechanism; repeat exact-token
-   correctness before timing.
+1. Compare the measured 4-bit matrix bottleneck using existing MLX/runtime
+   paths before considering a custom kernel; require exact output and at least
+   a 10% full-request improvement for a default-setting claim.
+2. A proposed Experiment 8 would test 3B target / 1B draft speculation on M4
+   Pro as a new deployment question. It needs a fresh 3B target-only baseline
+   and a corrected cross-model correctness gate. No arm has been run yet.
 3. Extend the practical chat suite with actual multi-turn history cases and
    mechanically separate fact, format, contradiction, and structure gates.
 4. Confirm any future winner with the full diverse benchmark and an independent
    repeat capture.
+
+See `research/experiment-8-and-followups-review.md` for the Experiment 8 design
+and other candidate methods.
 
 ## Repository and privacy boundaries
 
@@ -194,8 +206,8 @@ The following remain local and ignored:
 - `.venv/`;
 - `models/`, including converted alternatives;
 - partial or superseded captures listed in `.gitignore`;
-- raw `.gputrace` directories, which are large and may contain local machine
-  metadata.
+- raw `.gputrace` and Instruments `.trace` directories, which are large and
+  may contain local machine metadata.
 
 Before every push, stage only intended files and run the local staged-content
 security/privacy gate. Never commit credentials, administrator prompts,

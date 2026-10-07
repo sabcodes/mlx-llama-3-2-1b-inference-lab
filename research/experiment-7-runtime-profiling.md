@@ -2,6 +2,10 @@
 
 Date: 2026-10-04
 
+This is the original M2 Pro plan. The later M4 Pro rerun and Xcode shader
+ranking are recorded in
+[`experiment7-m4pro-runtime-profile-analysis.md`](../benchmarks/results/experiment7-m4pro-runtime-profile-analysis.md).
+
 ## Question
 
 Where does this Mac spend inference time for Llama 3.2 1B 4-bit, and is there
