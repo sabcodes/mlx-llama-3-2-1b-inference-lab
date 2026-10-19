@@ -100,3 +100,13 @@ replay remains a follow-up, not a completed measurement.
 A local timing attempt on 2026-10-19 produced no benchmark result and was stopped
 when the model was found offloaded by iCloud. No confirmation claim derives from
 that attempt. Experiment 8 remains design-only and is outside execution scope.
+
+## Explicit hardware boundary, user clarification 2026-10-19
+
+Arno's dataset is from an Apple M4 Pro with 24 GB unified memory; the
+local dataset is from an Apple M2 Pro with 16 GB unified memory. Keep these as
+separate hardware cohorts. Do not pool their latency, throughput or memory,
+interpret a cross-machine difference as an optimization gain, or treat M4
+shader rankings as M2 measurements. M2 phase profiling is complete; its
+operation-level GPU attribution remains pending. Completion of the combined
+review does not complete that local measurement.

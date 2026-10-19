@@ -64,8 +64,12 @@ machine-local metadata. Committed telemetry logs have process-name and PID
 tables removed.
 
 Experiment 7's [review and provenance](benchmarks/results/experiment7-review-20261019.md)
-incorporate [Arno's M4 evidence](benchmarks/results/experiment7-m4pro-runtime-profile-analysis.md)
+incorporate [Arno's M4 Pro / 24 GB evidence](benchmarks/results/experiment7-m4pro-runtime-profile-analysis.md)
 and a fixed chat-template date for repeatable prompts. GPU percentages are
 reported replay shader-cost shares, not request-time savings. The
 [Experiment 8 document](research/experiment-8-and-followups-review.md) is a
 proposal; no Experiment 8 measurements have been run.
+
+Arno’s M4 Pro / 24 GB results and the local M2 Pro / 16 GB results are separate
+hardware datasets. M2 GPU operation attribution remains pending; M4 profiling
+does not complete or replace it.

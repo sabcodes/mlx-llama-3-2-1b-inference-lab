@@ -151,6 +151,14 @@ Evidence: `benchmarks/results/experiment6-speculative-decoding-analysis.md`.
 
 ### Experiment 7: runtime profiling
 
+Arno's dataset is from an Apple M4 Pro with 24 GB unified memory; the
+local dataset is from an Apple M2 Pro with 16 GB unified memory. Keep these as
+separate hardware cohorts. Do not pool their latency, throughput or memory,
+interpret a cross-machine difference as an optimization gain, or treat M4
+shader rankings as M2 measurements. M2 phase profiling is complete; its
+operation-level GPU attribution remains pending. Completion of the combined
+review does not complete that local measurement.
+
 Diagnostic complete after reviewing Arno's `ArnoFeatures` commit
 `1de18115d4f5323c07e4cac850feea1065ef3dee` on 2026-10-19. The original M2
 phase profile and pinned M4 profile agree: decode dominates short prompts;

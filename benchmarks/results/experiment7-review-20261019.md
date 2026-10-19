@@ -3,6 +3,16 @@
 Date: 2026-10-19
 Status: diagnostic complete with reported M4 GPU evidence; no custom-kernel win.
 
+## Hardware scope
+
+Arno's dataset is from an Apple M4 Pro with 24 GB unified memory; the
+local dataset is from an Apple M2 Pro with 16 GB unified memory. Keep these as
+separate hardware cohorts. Do not pool their latency, throughput or memory,
+interpret a cross-machine difference as an optimization gain, or treat M4
+shader rankings as M2 measurements. M2 phase profiling is complete; its
+operation-level GPU attribution remains pending. Completion of the combined
+review does not complete that local measurement.
+
 ## Outcome
 
 The M2 and M4 profiles agree on the request-phase crossover: short prompts are
@@ -35,7 +45,7 @@ phase-share calculations, and throughput denominators. All checks passed.
 
 Only the original M2 and **pinned** M4 records form the matched-input comparison:
 
-| Actual prompt tokens | M2 median request | M2 dominant phase/share | M4 median request | M4 dominant phase/share |
+| Actual prompt tokens | M2 Pro 16 GB median request | M2 dominant phase/share | M4 Pro 24 GB median request | M4 dominant phase/share |
 |---:|---:|---|---:|---|
 | 64 | 0.707 s | Decode 83.3% | 0.546 s | Decode 85.2% |
 | 510 | 0.947 s | Decode 66.3% | 0.735 s | Decode 67.6% |

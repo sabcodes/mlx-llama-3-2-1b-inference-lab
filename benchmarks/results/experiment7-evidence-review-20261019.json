@@ -61,7 +61,9 @@
           "decode_share": 0.30667794708647683,
           "dominant_phase": "ttft"
         }
-      ]
+      ],
+      "unified_memory_bytes": 17179869184,
+      "hardware_cohort": "local-m2pro-16gb"
     },
     {
       "path": "benchmarks/results/experiment7-m4pro-phase-profile-pinned-20261006.json",
@@ -118,7 +120,9 @@
           "decode_share": 0.2917053538567915,
           "dominant_phase": "ttft"
         }
-      ]
+      ],
+      "unified_memory_bytes": 25769803776,
+      "hardware_cohort": "arno-m4pro-24gb"
     },
     {
       "path": "benchmarks/results/experiment7-m4pro-phase-profile-20261006T054000Z.json",
@@ -175,7 +179,9 @@
           "decode_share": 0.29295983193590946,
           "dominant_phase": "ttft"
         }
-      ]
+      ],
+      "unified_memory_bytes": 25769803776,
+      "hardware_cohort": "arno-m4pro-24gb"
     }
   ],
   "cross_device_comparison": [
@@ -260,5 +266,19 @@
     "The October 19 local confirmation was interrupted before any timing result because the existing model was an iCloud dataless placeholder.",
     "No optimization or custom-kernel speedup was measured; Experiment 8 is a design proposal with no arms run."
   ],
-  "result": "pass_with_documented_provenance_limits"
+  "result": "pass_with_documented_provenance_limits",
+  "hardware_scope": {
+    "local": {
+      "device": "Apple M2 Pro",
+      "unified_memory_gb_label": 16,
+      "gpu_operation_attribution": "pending"
+    },
+    "arno": {
+      "device": "Apple M4 Pro",
+      "unified_memory_gb_label": 24,
+      "gpu_operation_attribution": "reported Xcode replay"
+    },
+    "pooling_permitted": false,
+    "cross_machine_differences_are_optimization_gains": false
+  }
 }

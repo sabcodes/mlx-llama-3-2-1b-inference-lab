@@ -103,3 +103,9 @@ update follows the already-verified substantive publication.
 No local M2 GPU replay, independent M4 replay, new local timing result, kernel
 speedup or Experiment 8 execution is claimed. Those boundaries remain explicit
 in the specification amendment and review.
+
+## Hardware clarification follow-up, 2026-10-19
+
+- [x] Record Arno’s M4 Pro / 24 GB and local M2 Pro / 16 GB as separate
+  cohorts in the review, project context, README, specification, structured
+  audit and Obsidian. M2 GPU operation attribution remains pending.
