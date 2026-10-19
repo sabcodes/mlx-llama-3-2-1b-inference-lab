@@ -16,7 +16,7 @@ Original protocol: `research/experiment-7-runtime-profiling.md`.
   specification. No new local replay or absolute GPU duration is claimed.
 - [x] 6. Record measured results, limitations, and the exact completion state in
   repository documents and Obsidian; preserve a resume task if tooling blocks 5.
-- [ ] 7. Review intended changes, run the staged-content gate, commit and push,
+- [x] 7. Review intended changes, run the staged-content gate, commit and push,
   then verify the remote commit and Obsidian read-back.
 
 Steps 3 and 4 can proceed while the tooling prerequisite for step 5 is pending.
@@ -67,7 +67,7 @@ Replace the remaining execution sequence with:
   phase crossover repeats across M2/M4; M4 replay reports quantized matrix work
   as the largest shader cost; no custom-kernel win is established. M2 GPU replay
   and independent M4 replay remain unperformed local replications.
-- [ ] E. Run focused date-fix checks and the staged-content gate, commit and
+- [x] E. Run focused date-fix checks and the staged-content gate, commit and
   push intended files, verify remote state and Obsidian read-back.
 
 This amendment replaces the local rerun and local Xcode replay dependency for
@@ -87,3 +87,19 @@ explicit source, tool, denominator, hardware, and missing raw replay data.
 - Obsidian experiment, project, decisions, task, daily, board, evidence/research
   maps, index and operation log were updated and read back through the CLI.
   No unresolved links were reported. Publication remains the final checkpoint.
+
+## Publication checkpoint: passed
+
+The substantive update was committed and pushed as
+`260062d79710e45bc4f956048a2440143f991cc6`; remote `main` was checked and
+matched that commit. The staged-content gate reported no findings across the
+19 intended files. Arno's source commit is credited in the review and commit.
+
+Obsidian CLI read-back confirmed the reviewed results, task, project, decision
+register, board, daily note, evidence/research maps and index; no unresolved
+links were found. The publication task is complete. This final plan-status
+update follows the already-verified substantive publication.
+
+No local M2 GPU replay, independent M4 replay, new local timing result, kernel
+speedup or Experiment 8 execution is claimed. Those boundaries remain explicit
+in the specification amendment and review.

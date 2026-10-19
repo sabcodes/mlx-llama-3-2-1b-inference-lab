@@ -1,7 +1,8 @@
 # Experiment 7 specification: runtime profiling completion
 
 Date: 2026-10-19
-Status: in progress; phase profiling complete, GPU attribution requires tooling.
+Status: diagnostic review complete under the cross-machine amendment below.
+Original local M2 GPU attribution remains unperformed.
 
 ## Objective and scope
 
