@@ -1,6 +1,13 @@
 # Project context and current status
 
-Last updated: 2026-10-05
+Last updated: 2026-10-19
+
+## Experiment paper title
+
+Experimental inference optimization for Llama on Apple Silicon, using MLX and Metal profiling
+
+User-selected title, recorded 2026-10-19. Use this exact wording as the title
+for the paper describing this project’s experiments.
 
 ## Objective
 
@@ -144,17 +151,27 @@ Evidence: `benchmarks/results/experiment6-speculative-decoding-analysis.md`.
 
 ### Experiment 7: runtime profiling
 
-The phase-level profile is complete. With forced 128-token output, decode used
-83.3% of request time at a 64-token prompt and 66.3% at 510 tokens. TTFT used
-57.4% at 2,047 tokens and 69.3% at 4,096 tokens. Decode throughput also fell
-from 216.2 to 135.6 tokens/s as prompt history grew.
+Diagnostic complete after reviewing Arno's `ArnoFeatures` commit
+`1de18115d4f5323c07e4cac850feea1065ef3dee` on 2026-10-19. The original M2
+phase profile and pinned M4 profile agree: decode dominates short prompts;
+TTFT dominates long prompts. All four prompt hashes match, while the 510-token
+output differs across devices despite stable outputs within each device.
 
-Focused prefill and decode Metal traces were recorded, but this Mac has Command
-Line Tools rather than full Xcode Metal Debugger. No GPU operation family has
-therefore been assigned a trustworthy time share, and a custom Metal kernel is
-not justified by current evidence.
+Arno's Xcode 26.0.1 replay reports affine 4-bit matrix work as the largest M4
+shader costs at a 2,047-token prompt: 90.93% matrix-matrix in prefill and 75.65%
+matrix-vector in decode. These are manually transcribed replay shader-cost
+shares, not clean request-time shares or M2 measurements. Independent replay,
+absolute GPU durations, and a model-file hash manifest remain unavailable.
 
-Evidence: `benchmarks/results/experiment7-runtime-profile-analysis.md`.
+A focused matrix-path comparison is supported; custom Metal kernels remain
+unselected until a concrete candidate preserves correctness and demonstrates
+full-request improvement. No new local timing result was produced on October
+19: the confirmation was stopped when the existing model was found offloaded
+by iCloud. A local M2 GPU replay remains a follow-up.
+
+Evidence: `benchmarks/results/experiment7-review-20261019.md`,
+`benchmarks/results/experiment7-evidence-review-20261019.json`, and the original
+M2/M4 analysis files. Specification and execution plan are in `experiments/`.
 
 ## Known evidence limitations
 
@@ -167,18 +184,23 @@ Evidence: `benchmarks/results/experiment7-runtime-profile-analysis.md`.
 - Experiment 1 timing was telemetry-instrumented and ordered.
 - Experiment 5 quality coverage and evaluator limitations are documented in
   its correction addendum.
-- Experiment 7 identifies request phases but not dominant Metal kernels.
+- Experiment 7 GPU ranking is reported M4 replay shader-cost evidence at one
+  prompt length; no local independent replay or clean operation wall-time share
+  is available. M2 GPU operation attribution remains unmeasured.
 - Thermal pressure from `powermetrics` is categorical and was not useful as an
   internal-temperature measurement.
 
 ## Next research choices
 
-1. Install/use full Xcode Metal Debugger to inspect the local Experiment 7
-   traces, then pursue a custom kernel only if one operation family leaves a
-   plausible path to at least a 10% end-to-end improvement.
-2. If speculative decoding is revisited, begin with a purpose-built 100–300M
-   tokenizer-compatible draft or self-speculative mechanism; repeat exact-token
-   correctness before timing.
+1. Compare the reported 4-bit matrix bottleneck using existing MLX/runtime
+   paths; require a concrete mechanism and a measured 10% full-request gain
+   before selecting a custom-kernel implementation. Independently replay M2
+   traces when compatible full Xcode is available.
+2. Experiment 8 is a design-only M4 3B-target/1B-draft proposal in
+   `research/experiment-8-and-followups-review.md`; no arms have run. It needs
+   a fresh 3B baseline and corrected cross-model correctness checks. For the
+   selected M2/1B deployment, revisit speculation only with a genuinely smaller
+   compatible draft or a self-speculative mechanism.
 3. Extend the practical chat suite with actual multi-turn history cases and
    mechanically separate fact, format, contradiction, and structure gates.
 4. Confirm any future winner with the full diverse benchmark and an independent

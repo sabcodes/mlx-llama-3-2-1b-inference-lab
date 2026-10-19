@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-evidence-review",
+  "reviewed_at_utc": "2026-10-19T08:26:31.989000+00:00",
+  "source_branch": "ArnoFeatures",
+  "source_commit": "1de18115d4f5323c07e4cac850feea1065ef3dee",
+  "source_author_github": "axrno",
+  "profiles": [
+    {
+      "path": "benchmarks/results/experiment7-phase-profile-20261004.json",
+      "sha256": "90be08c0155e114807e8a486043446d81ff020d5f1f3fab498ebb0140f50e77e",
+      "device": "Apple M2 Pro",
+      "completed_at_utc": "2026-10-04T19:42:36.221201+00:00",
+      "measured_runs": 40,
+      "summary_recomputation": "pass",
+      "timing_identities": "pass",
+      "fixed_output_lengths": "pass",
+      "within_case_output_hash_stability": "pass",
+      "cases": [
+        {
+          "prompt_tokens": 64,
+          "prompt_hash": "3bfe3a3745c801f7aad4add1236645b35b8e413dc16112b03b63f1a42b4a3498",
+          "output_hash": "dbf1678f93afaa319505325a206739289db604721920d0cd0a6c9c94e5b8131a",
+          "ttft_seconds": 0.11758272899896838,
+          "decode_seconds": 0.5874171249961364,
+          "request_seconds": 0.7067218334996141,
+          "ttft_share": 0.16684399289621077,
+          "decode_share": 0.8331560071037892,
+          "dominant_phase": "decode"
+        },
+        {
+          "prompt_tokens": 510,
+          "prompt_hash": "f99aa504fc495bae4e5250b91f9063ee3639c169879fc6e4ed597f4aefe107c3",
+          "output_hash": "3af4f780d7c92e3aeff94469384ddb96d2fedebaa757eeb11c0557c2ea74d347",
+          "ttft_seconds": 0.318681729499076,
+          "decode_seconds": 0.6296538960014004,
+          "request_seconds": 0.9467979789988021,
+          "ttft_share": 0.3368182118420703,
+          "decode_share": 0.6631817881579297,
+          "dominant_phase": "decode"
+        },
+        {
+          "prompt_tokens": 2047,
+          "prompt_hash": "3b5ced7d78e300764339378f4769c0bc8bb25d050cfd8a7f0e1d77ae977a5a56",
+          "output_hash": "57adb9401e384308c61e6a5ac3d4f2ada687ce0a7e07cd198017ca453027059d",
+          "ttft_seconds": 1.0345213124965085,
+          "decode_seconds": 0.7667573130020173,
+          "request_seconds": 1.8009839375008596,
+          "ttft_share": 0.5744192592214343,
+          "decode_share": 0.4255807407785656,
+          "dominant_phase": "ttft"
+        },
+        {
+          "prompt_tokens": 4096,
+          "prompt_hash": "129c220d8078f55aa8433c8aa0dac95b341811b292d753846a12cd23607c2841",
+          "output_hash": "f52b720971262ad8a62e6a0b1de1bd7e7544e107436b83c9b2f3174fcd4dac61",
+          "ttft_seconds": 2.1183591455046553,
+          "decode_seconds": 0.9365176454957691,
+          "request_seconds": 3.056122812500689,
+          "ttft_share": 0.6933220529135231,
+          "decode_share": 0.30667794708647683,
+          "dominant_phase": "ttft"
+        }
+      ]
+    },
+    {
+      "path": "benchmarks/results/experiment7-m4pro-phase-profile-pinned-20261006.json",
+      "sha256": "ddbf7a2f0e3e8592d4fa1179acac9c4a0198da1e95ca14c536b9c2cbcb4409e5",
+      "device": "Apple M4 Pro",
+      "completed_at_utc": "2026-10-06T05:50:42.515941+00:00",
+      "measured_runs": 40,
+      "summary_recomputation": "pass",
+      "timing_identities": "pass",
+      "fixed_output_lengths": "pass",
+      "within_case_output_hash_stability": "pass",
+      "cases": [
+        {
+          "prompt_tokens": 64,
+          "prompt_hash": "3bfe3a3745c801f7aad4add1236645b35b8e413dc16112b03b63f1a42b4a3498",
+          "output_hash": "dbf1678f93afaa319505325a206739289db604721920d0cd0a6c9c94e5b8131a",
+          "ttft_seconds": 0.08102370798587799,
+          "decode_seconds": 0.46594927087426186,
+          "request_seconds": 0.5457356873666868,
+          "ttft_share": 0.14814528391531545,
+          "decode_share": 0.8518547160846845,
+          "dominant_phase": "decode"
+        },
+        {
+          "prompt_tokens": 510,
+          "prompt_hash": "f99aa504fc495bae4e5250b91f9063ee3639c169879fc6e4ed597f4aefe107c3",
+          "output_hash": "7893b68a1e00d3fadff80da966679de1d731030c723686e946b712304293cc80",
+          "ttft_seconds": 0.23706970852799714,
+          "decode_seconds": 0.4955621875124052,
+          "request_seconds": 0.7354196454398334,
+          "ttft_share": 0.324077771133651,
+          "decode_share": 0.675922228866349,
+          "dominant_phase": "decode"
+        },
+        {
+          "prompt_tokens": 2047,
+          "prompt_hash": "3b5ced7d78e300764339378f4769c0bc8bb25d050cfd8a7f0e1d77ae977a5a56",
+          "output_hash": "57adb9401e384308c61e6a5ac3d4f2ada687ce0a7e07cd198017ca453027059d",
+          "ttft_seconds": 0.8215930835576728,
+          "decode_seconds": 0.5930276459548622,
+          "request_seconds": 1.4103672499768436,
+          "ttft_share": 0.580295078510819,
+          "decode_share": 0.41970492148918104,
+          "dominant_phase": "ttft"
+        },
+        {
+          "prompt_tokens": 4096,
+          "prompt_hash": "129c220d8078f55aa8433c8aa0dac95b341811b292d753846a12cd23607c2841",
+          "output_hash": "f52b720971262ad8a62e6a0b1de1bd7e7544e107436b83c9b2f3174fcd4dac61",
+          "ttft_seconds": 1.6761980421142653,
+          "decode_seconds": 0.6930435620015487,
+          "request_seconds": 2.3740532915107906,
+          "ttft_share": 0.7082946461432085,
+          "decode_share": 0.2917053538567915,
+          "dominant_phase": "ttft"
+        }
+      ]
+    },
+    {
+      "path": "benchmarks/results/experiment7-m4pro-phase-profile-20261006T054000Z.json",
+      "sha256": "c56c37fc01e9dc45e5e595736e1ebbf025786efa509589d7599ed2fa2402f148",
+      "device": "Apple M4 Pro",
+      "completed_at_utc": "2026-10-06T05:41:06.591495+00:00",
+      "measured_runs": 40,
+      "summary_recomputation": "pass",
+      "timing_identities": "pass",
+      "fixed_output_lengths": "pass",
+      "within_case_output_hash_stability": "pass",
+      "cases": [
+        {
+          "prompt_tokens": 64,
+          "prompt_hash": "cd7dfccdabc6759dc025c2d6ce4d155bbd06d28bb009f024df11dc0798af4f91",
+          "output_hash": "a6b282491de63234a7f51b161b0cc1b76c7cb373f068943bbf628d6436801339",
+          "ttft_seconds": 0.08077089604921639,
+          "decode_seconds": 0.4580885205650702,
+          "request_seconds": 0.5404976251302287,
+          "ttft_share": 0.15006484783697488,
+          "decode_share": 0.8499351521630252,
+          "dominant_phase": "decode"
+        },
+        {
+          "prompt_tokens": 510,
+          "prompt_hash": "de39ee38a0cf1aeaa62799675c5721fa8c3eba19fd40113c640770036854337b",
+          "output_hash": "3af4f780d7c92e3aeff94469384ddb96d2fedebaa757eeb11c0557c2ea74d347",
+          "ttft_seconds": 0.2441788751166314,
+          "decode_seconds": 0.49086164543405175,
+          "request_seconds": 0.7368952494580299,
+          "ttft_share": 0.3311294527122244,
+          "decode_share": 0.6688705472877756,
+          "dominant_phase": "decode"
+        },
+        {
+          "prompt_tokens": 2047,
+          "prompt_hash": "850d4639a7e551cd4052c7262f0f7e37ac97450acbe50d26705e9444800bcbf4",
+          "output_hash": "1c16e9bcab123d7c3c6b3ba64826d116a7c7c8fe0cc7815f5e4c7f49e2a9022c",
+          "ttft_seconds": 0.8261922289384529,
+          "decode_seconds": 0.5972156665520743,
+          "request_seconds": 1.4250346045009792,
+          "ttft_share": 0.5796303525701407,
+          "decode_share": 0.42036964742985927,
+          "dominant_phase": "ttft"
+        },
+        {
+          "prompt_tokens": 4096,
+          "prompt_hash": "79da5b45041ba0295bb478ac011d3a0d11a67cca2aebd7fc356455ead60106eb",
+          "output_hash": "f52b720971262ad8a62e6a0b1de1bd7e7544e107436b83c9b2f3174fcd4dac61",
+          "ttft_seconds": 1.6648720416706055,
+          "decode_seconds": 0.6910084586124867,
+          "request_seconds": 2.3572351251496,
+          "ttft_share": 0.7070401680640905,
+          "decode_share": 0.29295983193590946,
+          "dominant_phase": "ttft"
+        }
+      ]
+    }
+  ],
+  "cross_device_comparison": [
+    {
+      "prompt_tokens": 64,
+      "pinned_m4_prompt_matches_m2": true,
+      "pinned_m4_output_matches_m2": true,
+      "initial_unpinned_m4_prompt_matches_m2": false
+    },
+    {
+      "prompt_tokens": 510,
+      "pinned_m4_prompt_matches_m2": true,
+      "pinned_m4_output_matches_m2": false,
+      "initial_unpinned_m4_prompt_matches_m2": false
+    },
+    {
+      "prompt_tokens": 2047,
+      "pinned_m4_prompt_matches_m2": true,
+      "pinned_m4_output_matches_m2": true,
+      "initial_unpinned_m4_prompt_matches_m2": false
+    },
+    {
+      "prompt_tokens": 4096,
+      "pinned_m4_prompt_matches_m2": true,
+      "pinned_m4_output_matches_m2": true,
+      "initial_unpinned_m4_prompt_matches_m2": false
+    }
+  ],
+  "local_m2_trace_inventory": [
+    {
+      "phase": "prefill",
+      "path": "benchmarks/results/experiment7-prefill-20261004.gputrace",
+      "file_count": 392,
+      "logical_bytes": 976304257,
+      "metadata_size_matches": true,
+      "content_integrity": "not verified; size check does not establish replayability"
+    },
+    {
+      "phase": "decode",
+      "path": "benchmarks/results/experiment7-decode-20261004.gputrace",
+      "file_count": 528,
+      "logical_bytes": 1166696898,
+      "metadata_size_matches": true,
+      "content_integrity": "not verified; size check does not establish replayability"
+    }
+  ],
+  "reported_m4_gpu_profile": {
+    "device": "Apple M4 Pro",
+    "method": "Manually transcribed from Xcode 26.0.1 Metal Debugger, Profile after replay, Performance > Shaders > Cost",
+    "prompt_tokens": 2047,
+    "independently_replayed": false,
+    "absolute_gpu_durations_available": false,
+    "raw_m4_traces_available_locally": false,
+    "phases": [
+      {
+        "phase": "prefill",
+        "listed_shader_cost_percent": 99.07,
+        "unlisted_shader_cost_percent": 0.93,
+        "largest_shader": {
+          "name": "affine_qmm_t_float16_t_gs_64_b_4_alN_true_batch_0",
+          "cost": 90.93
+        },
+        "capture_metadata_consistent": true
+      },
+      {
+        "phase": "decode",
+        "listed_shader_cost_percent": 98.65,
+        "unlisted_shader_cost_percent": 1.35,
+        "largest_shader": {
+          "name": "affine_qmv_fast_float16_t_gs_64_b_4_batch_0",
+          "cost": 75.65
+        },
+        "capture_metadata_consistent": true
+      }
+    ]
+  },
+  "limitations": [
+    "M4 Xcode percentages are manually transcribed replay shader-cost shares, not clean request-time shares; no independent replay or absolute duration validation was performed.",
+    "Model weight bytes agree, but the source analysis claim of matching weight/config/tokenizer SHA-256 hashes cannot be independently verified from the committed phase/capture JSON; no model-file hash manifest is present.",
+    "The original M2 traces have matching saved sizes; their content integrity and replayability were not verified.",
+    "The unpinned M4 file has different prompt hashes and is diagnostic only.",
+    "The October 19 local confirmation was interrupted before any timing result because the existing model was an iCloud dataless placeholder.",
+    "No optimization or custom-kernel speedup was measured; Experiment 8 is a design proposal with no arms run."
+  ],
+  "result": "pass_with_documented_provenance_limits"
+}

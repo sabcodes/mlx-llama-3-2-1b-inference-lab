@@ -6,3 +6,8 @@
 /benchmarks/results/experiment2-control-telemetry-20261003-retry1.json
 /benchmarks/results/experiment3-compile-probe-20261003T-stage-a.json
 /benchmarks/results/*.gputrace
+.DS_Store
+**/.DS_Store
+/Inference Engineering Brain/
+__pycache__/
+/benchmarks/results/*.trace

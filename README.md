@@ -37,7 +37,7 @@ The baseline protocol is documented in
 | 4: weight quantization | Keep published affine 4-bit/group-64. |
 | 5: KV-cache quantization | Reject all tested arms under the approved gates. |
 | 6: speculative decoding | Reject the full-1B Mixed-3/6 draft pairing. |
-| 7: runtime profiling | Phase split measured; custom Metal work is not yet justified. |
+| 7: runtime profiling | M2/M4 phase split validated; M4 replay reports quantized matrix work dominant. No custom-kernel win established. |
 
 ## Local setup
 
@@ -62,3 +62,10 @@ Model artifacts, virtual environments, incomplete captures, and raw Metal GPU
 traces remain local. Raw `.gputrace` directories are large and may contain
 machine-local metadata. Committed telemetry logs have process-name and PID
 tables removed.
+
+Experiment 7's [review and provenance](benchmarks/results/experiment7-review-20261019.md)
+incorporate [Arno's M4 evidence](benchmarks/results/experiment7-m4pro-runtime-profile-analysis.md)
+and a fixed chat-template date for repeatable prompts. GPU percentages are
+reported replay shader-cost shares, not request-time savings. The
+[Experiment 8 document](research/experiment-8-and-followups-review.md) is a
+proposal; no Experiment 8 measurements have been run.

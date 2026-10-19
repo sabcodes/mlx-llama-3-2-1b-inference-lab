@@ -71,37 +71,46 @@ def project_relative_path(path: Path) -> str:
         raise ValueError(f"Model path must be inside the project: {path}") from error
 
 
-def render_prompt(tokenizer, body: str, request: str) -> tuple[list[int], list[dict[str, str]]]:
+def render_prompt(
+    tokenizer, body: str, request: str, date_string: str | None = None
+) -> tuple[list[int], list[dict[str, str]]]:
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": f"{body}\n\n{request}" if body else request},
     ]
-    tokens = tokenizer.apply_chat_template(
-        messages, tokenize=True, add_generation_prompt=True
-    )
+    template_kwargs = {"tokenize": True, "add_generation_prompt": True}
+    if date_string is not None:
+        template_kwargs["date_string"] = date_string
+    tokens = tokenizer.apply_chat_template(messages, **template_kwargs)
     return list(tokens), messages
 
 
-def make_fixture(tokenizer, target: int, prompt_type: str) -> dict:
+def make_fixture(
+    tokenizer, target: int, prompt_type: str, date_string: str | None = None
+) -> dict:
     """Build a deterministic task-specific prompt close to the requested size."""
     request = PROMPT_TYPES[prompt_type]
-    empty_tokens, _ = render_prompt(tokenizer, "", request)
+    empty_tokens, _ = render_prompt(tokenizer, "", request, date_string)
     if len(empty_tokens) >= target:
         raise ValueError(f"Target {target} is shorter than the chat-template overhead")
 
     probe = " ".join(CONTEXT_SENTENCES * 12)
-    probe_tokens, _ = render_prompt(tokenizer, probe, request)
+    probe_tokens, _ = render_prompt(tokenizer, probe, request, date_string)
     per_sentence = max(1.0, (len(probe_tokens) - len(empty_tokens)) / 96)
     count = max(0, int((target - len(empty_tokens)) / per_sentence) - 2)
     body_parts = [CONTEXT_SENTENCES[i % len(CONTEXT_SENTENCES)] for i in range(count)]
-    tokens, messages = render_prompt(tokenizer, "Notes: " + " ".join(body_parts), request)
+    tokens, messages = render_prompt(
+        tokenizer, "Notes: " + " ".join(body_parts), request, date_string
+    )
 
     while len(tokens) < target:
         current_body = " ".join(body_parts)
         candidates = []
         for sentence in CONTEXT_SENTENCES:
             candidate_body = f"{current_body} {sentence}" if current_body else f"Notes: {sentence}"
-            candidate_tokens, candidate_messages = render_prompt(tokenizer, candidate_body, request)
+            candidate_tokens, candidate_messages = render_prompt(
+                tokenizer, candidate_body, request, date_string
+            )
             candidates.append((len(candidate_tokens), candidate_tokens, candidate_messages, sentence))
         under_target = [candidate for candidate in candidates if candidate[0] <= target]
         if not under_target:

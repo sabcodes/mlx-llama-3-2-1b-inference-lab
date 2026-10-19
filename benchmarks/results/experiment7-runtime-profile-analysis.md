@@ -105,3 +105,11 @@ context-dependent decode path for short interactive chats.
 - Decode capture metadata: `experiment7-decode-capture-20261004.json`.
 - Raw local-only traces: `experiment7-prefill-20261004.gputrace` and
   `experiment7-decode-20261004.gputrace`.
+
+## Follow-up review, 2026-10-19
+
+This file preserves the original M2 findings. The later
+[review and completion record](experiment7-review-20261019.md) validates these
+measurements and incorporates Arno's separately measured M4 phase profile and
+reported Xcode shader-cost ranking. Local M2 operation attribution remains
+unmeasured; M4 replay shares must not be transferred to this machine.

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-xcode-gpu-operation-profile",
+  "method": "Manually transcribed from Xcode 26.0.1 Metal Debugger, Profile after replay, Performance > Shaders > Cost",
+  "device": "Apple M4 Pro",
+  "prompt_tokens": 2047,
+  "prefill": {
+    "trace_path": "benchmarks/results/experiment7-m4pro-prefill-20261006.gputrace",
+    "dispatch_calls": 925,
+    "shader_cost_percent": [
+      { "name": "affine_qmm_t_float16_t_gs_64_b_4_alN_true_batch_0", "cost": 90.93 },
+      { "name": "steel_attention_float16_bq32_bk32_bd64_wm4_wn1_maskfloat16", "cost": 6.82 },
+      { "name": "Cf2ISigmoidADf2IBroadcastACEf2IBroadcastCAFf2IMultiplyDEGf2IBroadcastFBHf2IBroadcastBFIf2OMultiplyGH_VV_f2f2_11160318154034397263_contiguous", "cost": 0.71 },
+      { "name": "affine_qmv_fast_float16_t_gs_64_b_4_batch_0", "cost": 0.61 }
+    ]
+  },
+  "decode": {
+    "trace_path": "benchmarks/results/experiment7-m4pro-decode-20261006.gputrace",
+    "dispatch_calls": 5292,
+    "shader_cost_percent": [
+      { "name": "affine_qmv_fast_float16_t_gs_64_b_4_batch_0", "cost": 75.65 },
+      { "name": "sdpa_vector_2pass_1_float16_t_64_64", "cost": 11.74 },
+      { "name": "vn_copyfloat16float16", "cost": 8.50 },
+      { "name": "sdpa_vector_2pass_2_float16_t_64", "cost": 1.87 },
+      { "name": "rmsfloat16", "cost": 0.89 }
+    ]
+  },
+  "limitations": [
+    "Percentages are Xcode replay shader-cost shares, not clean request wall-time shares.",
+    "Each phase has one focused trace; capture boundaries are approximate because MLX-LM pipelines generation.",
+    "Metal capture and replay add overhead and may use a different GPU performance state from clean timing.",
+    "Raw gputrace directories remain gitignored and local to this Mac."
+  ]
+}

@@ -99,3 +99,11 @@ MTL_CAPTURE_ENABLED=1 .venv/bin/python benchmarks/run_experiment7_profile.py \
 - [MLX Metal Python API](https://ml-explore.github.io/mlx/build/html/python/metal.html)
 - [Apple: Capturing a Metal workload programmatically](https://developer.apple.com/documentation/xcode/capturing-a-metal-workload-programmatically)
 - [Apple Metal tools overview](https://developer.apple.com/metal/)
+
+## Completion follow-up, 2026-10-19
+
+The [completion specification](../experiments/experiment-7-runtime-profiling-spec.md)
+and [execution plan](../experiments/experiment-7-runtime-profiling-plan.md)
+record the user-directed review of Arno's M4 work. See the
+[review](../benchmarks/results/experiment7-review-20261019.md) for validated phase
+results, reported replay evidence, provenance limits, and Experiment 8 status.
