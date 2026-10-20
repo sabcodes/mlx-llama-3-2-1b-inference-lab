@@ -284,7 +284,7 @@ updates, and record the final conclusion with Obsidian synchronization.
 - [x] Run separate short Instruments recordings; preserve target-only sample-duration
   metrics, overlap unions, exact boundaries and source/model/tool provenance.
 - [x] Validate saved evidence and record a scoped M2 conclusion without inferred speedups.
-- [ ] Update repository context, Obsidian and GitHub after the staged-content gate.
+- [x] Update repository context, Obsidian and GitHub after the staged-content gate.
 
 Recordings remain under benchmarks/results/. Existing captures are preserved.
 Based on the saved 137 MB pilot, three short phase/KV recordings are expected
@@ -344,3 +344,14 @@ under the new contract; publication and Obsidian completion receipt remain.
 Accepted three recordings: 119,452,563 logical bytes. Including the excluded
 initial set: 234,726,512 bytes; observed combined peak: 254,133,611 bytes. No
 storage ceiling was exceeded. Raw data and initial/intermediate JSON stay local.
+
+### Final publication and Obsidian completion: passed
+
+Published the 25 intended source/evidence/documentation files at
+`cc104a459e41625812256fbf5da3bc1663f695dc`; remote main was verified equal.
+The staged-content security gate had zero findings. Obsidian experiment,
+project, decision, task, board, evidence map, index, daily and operation notes
+were updated and read back; no unresolved links were found. The M2 task is
+completed and its board card is Done. No required diagnostic work remains
+under the explicit October 20 contract. Metric limits, isolated-input scope,
+original unreplayed captures and absence of an optimization win are retained.
