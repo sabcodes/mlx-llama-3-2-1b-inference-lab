@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-cli-capability-check",
+  "checked_at_utc": "2026-10-19T22:30:48.233832+00:00",
+  "xcode_version": "27.1",
+  "xcode_build": "27A9275",
+  "first_launch_status": "pass",
+  "available_template": "Metal System Trace",
+  "available_instrument": "Metal GPU Counters",
+  "gputrace_export_probe": {
+    "exit_code": 11,
+    "error": "Cannot import files of type 'com.apple.gputools.gputrace'"
+  },
+  "metal_capture_cli_found": false,
+  "metal_replay_cli_found": false,
+  "new_recording_started": false,
+  "existing_m2_traces": "local; no dataless files detected",
+  "environment_download": "in progress; no inference started after user requested waiting"
+}

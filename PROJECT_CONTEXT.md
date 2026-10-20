@@ -173,13 +173,27 @@ absolute GPU durations, and a model-file hash manifest remain unavailable.
 
 A focused matrix-path comparison is supported; custom Metal kernels remain
 unselected until a concrete candidate preserves correctness and demonstrates
-full-request improvement. No new local timing result was produced on October
-19: the confirmation was stopped when the existing model was found offloaded
-by iCloud. A local M2 GPU replay remains a follow-up.
+full-request improvement. A later clean M2 confirmation on October 19 completed
+40 measurements after Finder downloads finished; all four prompt/output hashes
+match the original M2 capture. The same phase crossover repeats. Median request
+times are 0.868/1.131/2.197/3.776 s at 64/510/2,047/4,096 tokens. The new OS and
+unrecorded original power state prevent causal cross-date speed claims; this run
+records AC power at both boundaries.
+
+The final five-second CLI pilot saved successfully: 14,988 target shader rows,
+4.045616334 s summed Sample Duration and 4.037414018 s union coverage. Quantized
+matrix/dequantization accounts for 89.67% of that sum; attention accounts for
+8.26%. This is a mixed prefill/decode sample-duration metric with an incomplete
+third request, not an exact dispatch or clean request fraction. Independent
+phase-specific GPU attribution and separate KV-update costs remain pending.
+No new capture was required to resume the interrupted chat.
 
 Evidence: `benchmarks/results/experiment7-review-20261019.md`,
 `benchmarks/results/experiment7-evidence-review-20261019.json`, and the original
-M2/M4 analysis files. Specification and execution plan are in `experiments/`.
+M2/M4 analysis files. New local evidence:
+`benchmarks/results/experiment7-m2pro-confirmation-analysis-20261019.md` and
+adjacent confirmation/pilot JSON. Specification and execution plan are in
+`experiments/`.
 
 ## Known evidence limitations
 
@@ -194,7 +208,8 @@ M2/M4 analysis files. Specification and execution plan are in `experiments/`.
   its correction addendum.
 - Experiment 7 GPU ranking is reported M4 replay shader-cost evidence at one
   prompt length; no local independent replay or clean operation wall-time share
-  is available. M2 GPU operation attribution remains unmeasured.
+  is available. The bounded M2 sample-duration ranking is available separately;
+  original phase-specific GPU attribution remains pending.
 - Thermal pressure from `powermetrics` is categorical and was not useful as an
   internal-temperature measurement.
 
@@ -203,7 +218,7 @@ M2/M4 analysis files. Specification and execution plan are in `experiments/`.
 1. Compare the reported 4-bit matrix bottleneck using existing MLX/runtime
    paths; require a concrete mechanism and a measured 10% full-request gain
    before selecting a custom-kernel implementation. Independently replay M2
-   traces when compatible full Xcode is available.
+   traces with an authorized supported reader; Xcode 27.1 CLI rejects `.gputrace`.
 2. Experiment 8 is a design-only M4 3B-target/1B-draft proposal in
    `research/experiment-8-and-followups-review.md`; no arms have run. It needs
    a fresh 3B baseline and corrected cross-model correctness checks. For the

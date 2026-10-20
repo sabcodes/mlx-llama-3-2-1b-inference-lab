@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-confirmation-validation",
+  "profile_path": "benchmarks/results/experiment7-m2pro-phase-confirmation-20261019-r2.json",
+  "result": "pass",
+  "measured_requests": 40,
+  "warmups": 4,
+  "summaries_recomputed": true,
+  "all_prompt_hashes_match_original_m2": true,
+  "within_case_output_hashes_stable": true,
+  "cases": [
+    {
+      "prompt_tokens": 64,
+      "prompt_matches_original_m2": true,
+      "output_matches_original_m2": true,
+      "request_median_seconds": 0.8679948749995674,
+      "request_p95_seconds": 0.9594750840042252,
+      "ttft_median_seconds": 0.14796941650274675,
+      "decode_median_seconds": 0.7011789584976214,
+      "ttft_share_median": 0.17496478325216214,
+      "decode_share_median": 0.8250352167478379,
+      "decode_tps_median": 181.13796599344016,
+      "mlx_peak_memory_gb_median": 0.8358855199999999
+    },
+    {
+      "prompt_tokens": 510,
+      "prompt_matches_original_m2": true,
+      "output_matches_original_m2": true,
+      "request_median_seconds": 1.13084133349912,
+      "request_p95_seconds": 1.208178458000475,
+      "ttft_median_seconds": 0.4220898124985979,
+      "decode_median_seconds": 0.7081798120016174,
+      "ttft_share_median": 0.3722464338285342,
+      "decode_share_median": 0.6277535661714659,
+      "decode_tps_median": 179.33472792029553,
+      "mlx_peak_memory_gb_median": 1.229070536
+    },
+    {
+      "prompt_tokens": 2047,
+      "prompt_matches_original_m2": true,
+      "output_matches_original_m2": true,
+      "request_median_seconds": 2.196717354505381,
+      "request_p95_seconds": 2.2554680419998476,
+      "ttft_median_seconds": 1.3805170835003082,
+      "decode_median_seconds": 0.8160160209990863,
+      "ttft_share_median": 0.6284451957960074,
+      "decode_share_median": 0.37155480420399256,
+      "decode_tps_median": 155.63420724334568,
+      "mlx_peak_memory_gb_median": 1.542109292
+    },
+    {
+      "prompt_tokens": 4096,
+      "prompt_matches_original_m2": true,
+      "output_matches_original_m2": true,
+      "request_median_seconds": 3.776238291498885,
+      "request_p95_seconds": 3.8630879999982426,
+      "ttft_median_seconds": 2.7898092704963346,
+      "decode_median_seconds": 0.9856053955008974,
+      "ttft_share_median": 0.7395264775283503,
+      "decode_share_median": 0.2604735224716497,
+      "decode_tps_median": 128.85618560514882,
+      "mlx_peak_memory_gb_median": 1.634637936
+    }
+  ],
+  "limitations": [
+    "Current macOS differs from original M2 capture; timing shifts are not optimization-arm speedups.",
+    "No M4 timing or replay shader-cost data is included in these M2 measurements."
+  ]
+}

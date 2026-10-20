@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-cli-pilot-validation",
+  "trace_readable": true,
+  "schemas": [
+    {
+      "schema": "metal-shader-profiler-shader-list",
+      "total_rows": 2226,
+      "python_target_rows": 0,
+      "target_operation_labels": {}
+    },
+    {
+      "schema": "metal-shader-profiler-intervals",
+      "total_rows": 27,
+      "python_target_rows": 0,
+      "target_operation_labels": {}
+    },
+    {
+      "schema": "gpu-shader-profiler-interval",
+      "total_rows": 0,
+      "python_target_rows": 0,
+      "target_operation_labels": {}
+    },
+    {
+      "schema": "metal-gpu-intervals",
+      "total_rows": 4316,
+      "python_target_rows": 0,
+      "target_operation_labels": {}
+    }
+  ],
+  "operation_attribution_usable": false,
+  "note": "Only rows belonging to the Python target are eligible; unrelated GPU work is excluded.",
+  "raw_recording_retained": true,
+  "regenerable_raw_probe_xml_retained": false
+}

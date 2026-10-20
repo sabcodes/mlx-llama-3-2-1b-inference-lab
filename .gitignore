@@ -11,3 +11,5 @@
 /Inference Engineering Brain/
 __pycache__/
 /benchmarks/results/*.trace
+/benchmarks/results/experiment7-m2pro-cli-pilot-*.xml
+/benchmarks/results/experiment7-m2pro-cli-pilot-*.log

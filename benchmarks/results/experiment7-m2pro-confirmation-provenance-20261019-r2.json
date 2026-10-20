@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-confirmation",
+  "started_at_utc": "2026-10-19T22:35:33.948416+00:00",
+  "git_revision": "9f69d9ccf6a218dd74ee4589c459be5d4c229f14",
+  "command": [
+    ".venv/bin/python",
+    "-B",
+    "benchmarks/run_experiment7_profile.py",
+    "--mode",
+    "timing",
+    "--output",
+    "benchmarks/results/experiment7-m2pro-phase-confirmation-20261019-r2.json"
+  ],
+  "os": {
+    "macos": "27.0.1",
+    "kernel": "27.0.0",
+    "architecture": "arm64"
+  },
+  "xcode": "Xcode 27.1\nBuild version 27A9275",
+  "xcode_first_launch_status": "pass",
+  "power_source_at_start": "Now drawing from 'AC Power'",
+  "powermetrics_running": false,
+  "xctrace_running": false,
+  "metal_capture_enabled": false,
+  "model_loading": "offline",
+  "environment_dataless_files_before_run": 0,
+  "files": [
+    {
+      "path": "models/Llama-3.2-1B-Instruct-4bit/model.safetensors",
+      "bytes": 695283921,
+      "sha256": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd"
+    },
+    {
+      "path": "models/Llama-3.2-1B-Instruct-4bit/config.json",
+      "bytes": 1121,
+      "sha256": "73bfb89e5a43c76ada2d7a9609862139578a71cfbb43e30bf5d4571026dd3741"
+    },
+    {
+      "path": "models/Llama-3.2-1B-Instruct-4bit/tokenizer.json",
+      "bytes": 17209920,
+      "sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b"
+    },
+    {
+      "path": "models/Llama-3.2-1B-Instruct-4bit/tokenizer_config.json",
+      "bytes": 54558,
+      "sha256": "022d5ae3df4737998ab97d8f31ac2bcb4c06dd8ebe5a8aba2b4aceef1e5ea7d3"
+    },
+    {
+      "path": "models/Llama-3.2-1B-Instruct-4bit/special_tokens_map.json",
+      "bytes": 296,
+      "sha256": "6f38c73729248f6c127296386e3cdde96e254636cc58b4169d3fd32328d9a8ec"
+    },
+    {
+      "path": "benchmarks/run_baseline.py",
+      "bytes": 15436,
+      "sha256": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352"
+    },
+    {
+      "path": "benchmarks/run_experiment7_profile.py",
+      "bytes": 17738,
+      "sha256": "4587feb3010957a05e0be5192d1348292dae355f7ae9921fdbe7058c03cc7a86"
+    }
+  ],
+  "limitations": [
+    "OS changed since original M2 measurements; timing differences are not optimization-arm gains.",
+    "Original M2 capture did not record power source."
+  ],
+  "completed_at_utc": "2026-10-19T22:37:16.473162+00:00",
+  "runner_exit_code": 0,
+  "power_source_at_end": "Now drawing from 'AC Power'"
+}

@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-cli-pilot-attribution",
+  "trace_name": "experiment7-m2pro-cli-pilot-complete-20261019.trace",
+  "trace_logical_bytes": 137245510,
+  "trace_readable": true,
+  "tool": "27.1 (27A9275)",
+  "recording_duration_seconds": 5.996984,
+  "shader_xml_sha256": "371d19d6f02d45663fbcc42c5ed9e5eb2d87419661aaccfe291bbd70ca76fedc",
+  "toc_xml_sha256": "59e8c018fc79053b607b36fedb839aa4ec8f026612bc29b10c49627b7629352f",
+  "metric": "metal-shader-profiler-intervals Sample Duration; raw integer nanoseconds",
+  "denominator": "Sum of Sample Duration over all rows for the attached Python target",
+  "overlap_treatment": "Sum retains overlapping samples; union coverage is also reported. Family unions are not additive.",
+  "phase_specific_attribution_complete": false,
+  "limitations": [
+    "Mixed prefill/decode window, not separate phase captures; third request extends beyond the recording.",
+    "Sample-duration shares are not exact dispatch durations, clean request-time shares, or M4 replay shader costs.",
+    "Copy/indexing labels do not identify KV updates independently; KV update cost remains unknown.",
+    "Unobserved work and unsampled intervals remain unknown, not zero."
+  ],
+  "total_rows": 15154,
+  "target_rows": 14988,
+  "excluded_rows": 166,
+  "target_depth_counts": {
+    "0": 6989,
+    "1": 6199,
+    "2": 1637,
+    "3": 148,
+    "4": 14,
+    "6": 1
+  },
+  "first_target_sample_ns": 1219007791,
+  "last_target_sample_end_ns": 5850979625,
+  "summed_sample_duration_ns": 4045616334,
+  "union_sample_coverage_ns": 4037414018,
+  "families": {
+    "attention": {
+      "rows": 4607,
+      "summed_sample_duration_ns": 334022040,
+      "share_of_summed_target_sample_duration": 0.0825639438897915,
+      "union_sample_coverage_ns": 334019290
+    },
+    "copy_and_indexing_unassigned": {
+      "rows": 3077,
+      "summed_sample_duration_ns": 41681671,
+      "share_of_summed_target_sample_duration": 0.010302922363077447,
+      "union_sample_coverage_ns": 41633547
+    },
+    "elementwise_sampling_and_other": {
+      "rows": 1836,
+      "summed_sample_duration_ns": 39005673,
+      "share_of_summed_target_sample_duration": 0.009641466164794261,
+      "union_sample_coverage_ns": 38346039
+    },
+    "normalization": {
+      "rows": 311,
+      "summed_sample_duration_ns": 3114724,
+      "share_of_summed_target_sample_duration": 0.0007699009848816771,
+      "union_sample_coverage_ns": 3114724
+    },
+    "quantized_matrix_and_dequantization": {
+      "rows": 5157,
+      "summed_sample_duration_ns": 3627792226,
+      "share_of_summed_target_sample_duration": 0.8967217665974551,
+      "union_sample_coverage_ns": 3627792223
+    }
+  },
+  "shaders": {
+    "Cf2ISigmoidADf2IBroadcastACEf2IBroadcastCAFf2IMultiplyDEGf2IBroadcastFBHf2IBroadcastBFIf2OMultiplyGH_VV_f2f2_11160318154034397263_contiguous (27)": {
+      "rows": 131,
+      "summed_sample_duration_ns": 20476181
+    },
+    "affine_dequantize_float16_t_gs_64_b_4 (10)": {
+      "rows": 34,
+      "summed_sample_duration_ns": 125324
+    },
+    "affine_qmm_t_float16_t_gs_64_b_4_alN_true_batch_0 (26)": {
+      "rows": 225,
+      "summed_sample_duration_ns": 2582767393
+    },
+    "affine_qmv_fast_float16_t_gs_64_b_4_batch_0 (28)": {
+      "rows": 4898,
+      "summed_sample_duration_ns": 1044899509
+    },
+    "argmax_float16 (39)": {
+      "rows": 292,
+      "summed_sample_duration_ns": 2145936
+    },
+    "gather_frontfloat16_uint32_int_2 (40)": {
+      "rows": 27,
+      "summed_sample_duration_ns": 5067
+    },
+    "gather_frontuint32_int32_int_1 (8)": {
+      "rows": 1,
+      "summed_sample_duration_ns": 1
+    },
+    "gather_frontuint32_uint32_int_1 (41)": {
+      "rows": 21,
+      "summed_sample_duration_ns": 21
+    },
+    "gg2_copyfloat16float16 (23)": {
+      "rows": 569,
+      "summed_sample_duration_ns": 921854
+    },
+    "gg3_copyfloat16float16 (22)": {
+      "rows": 28,
+      "summed_sample_duration_ns": 706172
+    },
+    "looped_logsumexp_float16 (37)": {
+      "rows": 81,
+      "summed_sample_duration_ns": 1645075
+    },
+    "rmsfloat16 (12)": {
+      "rows": 311,
+      "summed_sample_duration_ns": 3114724
+    },
+    "rope_freqs_float16_ (21)": {
+      "rows": 76,
+      "summed_sample_duration_ns": 3400094
+    },
+    "rope_single_freqs_float16_ (29)": {
+      "rows": 302,
+      "summed_sample_duration_ns": 83297
+    },
+    "scatterfloat16int64_sum_2_updc_true_nwork1_int (36)": {
+      "rows": 5,
+      "summed_sample_duration_ns": 5
+    },
+    "sdpa_vector_2pass_1_float16_t_64_64_nomask_qnt_nc_nosinks_64 (43)": {
+      "rows": 4067,
+      "summed_sample_duration_ns": 129810732
+    },
+    "sdpa_vector_2pass_2_float16_t_64 (44)": {
+      "rows": 308,
+      "summed_sample_duration_ns": 489724
+    },
+    "sn_copyfloat16float16 (20)": {
+      "rows": 12,
+      "summed_sample_duration_ns": 68172
+    },
+    "steel_attention_float16_bq32_bk32_bd64_wm4_wn1_maskfloat16_align_Q_n_align_K_n_has_mask_n_do_causal_t_has_sinks_n (24)": {
+      "rows": 232,
+      "summed_sample_duration_ns": 203721584
+    },
+    "sv_Dividefloat32 (5)": {
+      "rows": 2,
+      "summed_sample_duration_ns": 2
+    },
+    "sv_Powerfloat32 (3)": {
+      "rows": 1,
+      "summed_sample_duration_ns": 26041
+    },
+    "v_Selectfloat32 (14)": {
+      "rows": 6,
+      "summed_sample_duration_ns": 29461
+    },
+    "v_copyfloat32float16 (33)": {
+      "rows": 8,
+      "summed_sample_duration_ns": 8
+    },
+    "v_copyint32int64 (34)": {
+      "rows": 3,
+      "summed_sample_duration_ns": 3
+    },
+    "v_copyuint32int64 (35)": {
+      "rows": 17,
+      "summed_sample_duration_ns": 17
+    },
+    "vn_copyfloat16float16 (42)": {
+      "rows": 2386,
+      "summed_sample_duration_ns": 39980351
+    },
+    "vs_Dividefloat32 (2)": {
+      "rows": 29,
+      "summed_sample_duration_ns": 510598
+    },
+    "vs_Greaterfloat32 (11)": {
+      "rows": 29,
+      "summed_sample_duration_ns": 127562
+    },
+    "vs_Lessfloat32 (15)": {
+      "rows": 9,
+      "summed_sample_duration_ns": 252749
+    },
+    "vsn_Subtractfloat16 (38)": {
+      "rows": 172,
+      "summed_sample_duration_ns": 2191291
+    },
+    "vv_Addfloat16 (31)": {
+      "rows": 571,
+      "summed_sample_duration_ns": 571
+    },
+    "vv_Addfloat32 (13)": {
+      "rows": 3,
+      "summed_sample_duration_ns": 3
+    },
+    "vvn_Addfloat16 (25)": {
+      "rows": 132,
+      "summed_sample_duration_ns": 8116812
+    }
+  }
+}

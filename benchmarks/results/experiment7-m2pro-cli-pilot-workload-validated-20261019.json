@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "classification": "instrumented diagnostic; not clean benchmark timing",
+  "source_partial_path": "benchmarks/results/experiment7-m2pro-cli-pilot-workload-complete-20261019.partial.json",
+  "worker_exit_code": 0,
+  "recording_exit_code": 0,
+  "actual_prompt_tokens": 2047,
+  "worker_sha256": "58038932285c041dee1ef3440ae5ea3bb755b74a62381e97845dfb3300646136",
+  "all_output_hashes_match_clean_m2": true,
+  "all_three_requests_fully_within_recording": false,
+  "runs": [
+    {
+      "seconds": 2.3261740419984562,
+      "generated_tokens": 128,
+      "output_token_ids_sha256": "57adb9401e384308c61e6a5ac3d4f2ada687ce0a7e07cd198017ca453027059d"
+    },
+    {
+      "seconds": 2.232028292004543,
+      "generated_tokens": 128,
+      "output_token_ids_sha256": "57adb9401e384308c61e6a5ac3d4f2ada687ce0a7e07cd198017ca453027059d"
+    },
+    {
+      "seconds": 2.196114040998509,
+      "generated_tokens": 128,
+      "output_token_ids_sha256": "57adb9401e384308c61e6a5ac3d4f2ada687ce0a7e07cd198017ca453027059d"
+    }
+  ]
+}

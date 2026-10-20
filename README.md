@@ -37,7 +37,7 @@ The baseline protocol is documented in
 | 4: weight quantization | Keep published affine 4-bit/group-64. |
 | 5: KV-cache quantization | Reject all tested arms under the approved gates. |
 | 6: speculative decoding | Reject the full-1B Mixed-3/6 draft pairing. |
-| 7: runtime profiling | M2/M4 phase split validated; M4 replay reports quantized matrix work dominant. No custom-kernel win established. |
+| 7: runtime profiling | M2 phase confirmation and bounded CLI shader ranking validated; quantized matrix work dominates the sampled M2 metric. Separate-phase M2 attribution remains pending. No custom-kernel win established. |
 
 ## Local setup
 
@@ -71,5 +71,11 @@ reported replay shader-cost shares, not request-time savings. The
 proposal; no Experiment 8 measurements have been run.
 
 Arno’s M4 Pro / 24 GB results and the local M2 Pro / 16 GB results are separate
-hardware datasets. M2 GPU operation attribution remains pending; M4 profiling
-does not complete or replace it.
+hardware datasets. Original separate-phase M2 GPU attribution remains pending;
+M4 profiling does not complete or replace it.
+
+The [M2 confirmation and CLI pilot](benchmarks/results/experiment7-m2pro-confirmation-analysis-20261019.md)
+validate 40 new clean measurements and a separately instrumented sample-duration
+ranking (89.67% quantized matrix/dequantization). That percentage is a share of
+summed target shader samples, with overlap disclosed; it is not request-time
+savings or a substitute for separate prefill/decode attribution.

@@ -110,3 +110,16 @@ interpret a cross-machine difference as an optimization gain, or treat M4
 shader rankings as M2 measurements. M2 phase profiling is complete; its
 operation-level GPU attribution remains pending. Completion of the combined
 review does not complete that local measurement.
+
+## Local CLI feasibility-pilot outcome, 2026-10-19
+
+Following the user's Xcode setup, Finder downloads, CLI direction and expanded
+pilot-storage authorization, clean confirmation completed 40 measured M2 runs
+with original prompt/output identity. A final warmed-worker Instruments pilot
+was saved before chat interruption and validated on resume. Its metric is
+summed target shader Sample Duration, with union coverage and overlap disclosed;
+it supports a bounded mixed-workload M2 matrix ranking only. The pilot's three
+worker outputs match clean M2, but its third request exceeds the recording
+window. It does not meet the original separate-phase GPU attribution gate.
+Retain that gate and KV attribution as pending. Publish the completed pilot and
+clean confirmation without silently declaring original local replay complete.
