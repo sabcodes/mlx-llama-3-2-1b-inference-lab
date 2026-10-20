@@ -1,8 +1,9 @@
 # Experiment 7 specification: runtime profiling completion
 
 Date: 2026-10-19
-Status: diagnostic review complete under the cross-machine amendment below.
-Original local M2 GPU attribution remains unperformed.
+Status: diagnostic complete on 2026-10-20 under the CLI evidence contract below.
+Separate M2 phase and isolated KV attribution are validated; original saved
+.gputrace captures remain unreplayed.
 
 ## Objective and scope
 
@@ -123,3 +124,49 @@ worker outputs match clean M2, but its third request exceeds the recording
 window. It does not meet the original separate-phase GPU attribution gate.
 Retain that gate and KV attribution as pending. Publish the completed pilot and
 clean confirmation without silently declaring original local replay complete.
+
+## Separate M2 CLI diagnostic contract, 2026-10-20
+
+The user authorized completion of the remaining M2 phase and KV measurements
+and approved three short project-local recordings (expected 400-600 MB,
+1 GB additional retained ceiling, 2 GB observed working-output emergency stop;
+Xcode cache growth remains unknown). This supersedes the pilot-only execution
+boundary for these three recordings, without changing the clean benchmark.
+
+Accept equivalent new CLI evidence in place of unavailable original .gputrace
+replay when: each phase has an explicit synchronized boundary; work completes
+before recording stops; worker/source/trace provenance is retained; output token
+hashes match the clean M2 reference; target-only Sample Duration is reported
+with its denominator and overlap union; and Mach-clock conversion places the
+entire measured window inside the recorded interval. Do not describe these
+sampled durations as exact dispatch time or clean request fractions.
+
+Prefill includes all 2,047 prompt tokens and first-output sampling, stopping
+before the generator's first decode lookahead model call. Decode excludes
+prefill, primes four yielded outputs and one evaluated lookahead, then records
+32 new single-token model calls. Neither diagnostic changes the generator's
+arithmetic. Both finish 128 outputs and must match the unchanged generator.
+
+KV isolation uses the actual pinned KVCache.update_and_fetch implementation,
+16 layers, 8 KV heads, head dimension 64, fp16 inputs, and evaluated synthetic
+keys/values. Cover initial allocation with 2,046 input tokens, ordinary append
+at offset 2,051/capacity 2,304, and growth at offset/capacity 2,048, five trials
+each. Setup and numerical checks stay outside the recorded windows. Report
+synchronized update/evaluation wall time and sampled GPU metrics separately;
+these isolated costs are not estimates of the cache share in normal inference.
+
+The diagnostic can close with validated per-phase operation rankings,
+source-attributed isolated KV costs, and an explicit kernel decision. No kernel
+implementation or optimization speedup is required or implied. Retain original
+unreplayed captures and disclose remaining metric/generalization limits.
+
+## Acceptance result, 2026-10-20
+
+The corrected separate-phase recordings pass synchronized boundaries, full
+GPU-execution containment, output identity and provenance checks. Isolated KV
+allocation/append/growth numerical checks and GPU Active interval attribution
+pass. Ordinary append has execution intervals but no shader samples; preserve
+that distinction. The diagnostic closes under this contract with no custom
+kernel selected and no measured speedup. Exact dispatch costs, in-model KV
+fractions, additional prompt lengths and independent old-capture replay are
+limitations/future replications, not silently completed measurements.

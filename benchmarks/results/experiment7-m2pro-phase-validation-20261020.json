@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2-phase-and-kv-validation",
+  "result": "pass",
+  "diagnostic_complete": true,
+  "original_gputraces_replayed": false,
+  "custom_kernel_speedup_established": false,
+  "cases": [
+    {
+      "phase": "prefill",
+      "attribution_path": "benchmarks/results/experiment7-m2pro-phase-prefill-20261020-r2-attribution.json",
+      "output_identity_or_kv_numerics": "pass",
+      "source_hashes": "pass",
+      "complete_window_containment": "pass"
+    },
+    {
+      "phase": "decode",
+      "attribution_path": "benchmarks/results/experiment7-m2pro-phase-decode-20261020-r2-attribution.json",
+      "output_identity_or_kv_numerics": "pass",
+      "source_hashes": "pass",
+      "complete_window_containment": "pass"
+    },
+    {
+      "phase": "kv",
+      "attribution_path": "benchmarks/results/experiment7-m2pro-phase-kv-20261020-r2-attribution.json",
+      "output_identity_or_kv_numerics": "pass",
+      "source_hashes": "pass",
+      "complete_window_containment": "pass"
+    }
+  ],
+  "accepted_recording_bytes": 119452563,
+  "all_new_recording_bytes_including_excluded": 234726512,
+  "observed_peak_combined_new_recording_bytes": 254133611,
+  "budget_passed": true,
+  "excluded_initial_attempts": [
+    "20261020 prefill: no shader samples",
+    "20261020 decode: default-stream synchronization allowed execution beyond end boundary",
+    "20261020 kv: source isolation was numerically valid, retained only as an excluded initial attempt for a consistent corrected set"
+  ],
+  "limitations": [
+    "Sampled shader shares do not estimate clean request fractions.",
+    "KV execution unions measure source-isolated synthetic geometry, not in-model request cost.",
+    "Tiny/unsampled shader families cannot be ranked precisely."
+  ]
+}

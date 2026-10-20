@@ -13,3 +13,10 @@ __pycache__/
 /benchmarks/results/*.trace
 /benchmarks/results/experiment7-m2pro-cli-pilot-*.xml
 /benchmarks/results/experiment7-m2pro-cli-pilot-*.log
+
+# Experiment 7 rejected/intermediate diagnostics remain local; final r2 attribution is published.
+/benchmarks/results/experiment7-m2pro-phase-*-20261020-workload.json
+/benchmarks/results/experiment7-m2pro-phase-*-20261020-provenance.json
+/benchmarks/results/experiment7-m2pro-phase-*-20261020-gpu.json
+/benchmarks/results/experiment7-m2pro-phase-manifest-20261020.json
+/benchmarks/results/experiment7-m2pro-phase-*-20261020-r2-gpu.json

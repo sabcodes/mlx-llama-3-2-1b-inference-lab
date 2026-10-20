@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-phase-and-kv-manifest",
+  "versions": {
+    "mlx": "0.32.2",
+    "mlx-lm": "0.31.3",
+    "transformers": "5.17.0"
+  },
+  "files": [
+    {
+      "path": "models/Llama-3.2-1B-Instruct-4bit/model.safetensors",
+      "bytes": 695283921,
+      "sha256": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd"
+    },
+    {
+      "path": "models/Llama-3.2-1B-Instruct-4bit/config.json",
+      "bytes": 1121,
+      "sha256": "73bfb89e5a43c76ada2d7a9609862139578a71cfbb43e30bf5d4571026dd3741"
+    },
+    {
+      "path": "benchmarks/run_baseline.py",
+      "bytes": 15436,
+      "sha256": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352"
+    },
+    {
+      "path": "benchmarks/run_experiment7_profile.py",
+      "bytes": 17738,
+      "sha256": "4587feb3010957a05e0be5192d1348292dae355f7ae9921fdbe7058c03cc7a86"
+    },
+    {
+      "path": "benchmarks/run_experiment7_phase_worker.py",
+      "bytes": 10406,
+      "sha256": "6fec778b4784d35ddc04e2ac552eba9be41887b128f15fa0be23b5d3ab114176"
+    },
+    {
+      "path": "benchmarks/record_experiment7_phases.py",
+      "bytes": 6644,
+      "sha256": "8869988c3811bbcb67381afffafa3b08cc5fb30bce23aa52cb8c7b5134e6cc05"
+    },
+    {
+      "path": "benchmarks/analyze_experiment7_trace.py",
+      "bytes": 12021,
+      "sha256": "3a518ed2dd09e69a62d063d57333ce97a20eec8f1df026725344d99734f2448a"
+    },
+    {
+      "path": ".venv/lib/python3.14/site-packages/mlx_lm/generate.py",
+      "bytes": 73689,
+      "sha256": "270778ad53eaca55a8533d82e6752660fe5d2605c4aa0879b48a50a91f69345f"
+    },
+    {
+      "path": ".venv/lib/python3.14/site-packages/mlx_lm/models/cache.py",
+      "bytes": 58442,
+      "sha256": "819ed95dcbf755652363cfdb15a639890447abb534a06dcefd52c7fff5055750"
+    },
+    {
+      "path": ".venv/lib/python3.14/site-packages/mlx_lm/models/llama.py",
+      "bytes": 9212,
+      "sha256": "8b46ac7f11c7134c1d83f12ec6e05b3d64a30f18aa7468798437b2e413f80cdb"
+    }
+  ],
+  "model_hashes_match_clean_confirmation": true,
+  "os": "27.0.1",
+  "power_source_at_evidence_validation": "Now drawing from 'Battery Power'",
+  "privacy": "Model/environment files remain local; only hashes and relative source paths are published."
+}

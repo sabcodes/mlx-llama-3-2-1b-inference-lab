@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2-phase-diagnostic",
+  "phase": "kv",
+  "classification": "instrumented diagnostic; not clean latency",
+  "started_at_utc": "2026-10-20T07:17:31.177199+00:00",
+  "actual_prompt_tokens": 2047,
+  "chat_template_date": "04 Oct 2026",
+  "prompt_token_ids_sha256": "3b5ced7d78e300764339378f4769c0bc8bb25d050cfd8a7f0e1d77ae977a5a56",
+  "windows": [
+    {
+      "name": "initial_allocation",
+      "start_mach_absolute": 1645424215038,
+      "trials": [
+        {
+          "synchronized_update_seconds": 0.019020042003830895
+        },
+        {
+          "synchronized_update_seconds": 0.006737290997989476
+        },
+        {
+          "synchronized_update_seconds": 0.006787958001950756
+        },
+        {
+          "synchronized_update_seconds": 0.006818791996920481
+        },
+        {
+          "synchronized_update_seconds": 0.007533083000453189
+        }
+      ],
+      "layers_per_trial": 16,
+      "offset_before": 0,
+      "capacity_before": 0,
+      "input_shape": [
+        1,
+        8,
+        2046,
+        64
+      ],
+      "input_dtype": "float16",
+      "synthetic_inputs_evaluated_before_recording": true,
+      "end_mach_absolute": 1645425357523
+    },
+    {
+      "name": "ordinary_append",
+      "start_mach_absolute": 1645425357636,
+      "trials": [
+        {
+          "synchronized_update_seconds": 0.003303124991361983
+        },
+        {
+          "synchronized_update_seconds": 0.002764124990790151
+        },
+        {
+          "synchronized_update_seconds": 0.003741167005500756
+        },
+        {
+          "synchronized_update_seconds": 0.0039267079991986975
+        },
+        {
+          "synchronized_update_seconds": 0.0039510829956270754
+        }
+      ],
+      "layers_per_trial": 16,
+      "offset_before": 2051,
+      "capacity_before": 2304,
+      "input_shape": [
+        1,
+        8,
+        1,
+        64
+      ],
+      "input_dtype": "float16",
+      "synthetic_inputs_evaluated_before_recording": true,
+      "end_mach_absolute": 1645425782923
+    },
+    {
+      "name": "growth_at_2048",
+      "start_mach_absolute": 1645425783013,
+      "trials": [
+        {
+          "synchronized_update_seconds": 0.013504666989319958
+        },
+        {
+          "synchronized_update_seconds": 0.010526207988732494
+        },
+        {
+          "synchronized_update_seconds": 0.007055875001242384
+        },
+        {
+          "synchronized_update_seconds": 0.03344933400512673
+        },
+        {
+          "synchronized_update_seconds": 0.01904816599562764
+        }
+      ],
+      "layers_per_trial": 16,
+      "offset_before": 2048,
+      "capacity_before": 2048,
+      "input_shape": [
+        1,
+        8,
+        1,
+        64
+      ],
+      "input_dtype": "float16",
+      "synthetic_inputs_evaluated_before_recording": true,
+      "end_mach_absolute": 1645427789779
+    }
+  ],
+  "mlx_peak_memory_bytes": 1865459808,
+  "kv_numerical_checks_passed": true,
+  "kv_source_path": "mlx_lm/models/cache.py:KVCache.update_and_fetch",
+  "limitations": [
+    "Evaluated synthetic inputs use actual model/cache geometry; projection, RoPE and attention are excluded.",
+    "Synchronized isolated costs do not estimate a fraction of ordinary request latency."
+  ],
+  "completed_at_utc": "2026-10-20T07:17:44.151079+00:00"
+}

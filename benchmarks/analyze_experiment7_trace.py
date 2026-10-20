@@ -46,26 +46,36 @@ def family(name):
     return "elementwise_sampling_and_other"
 
 
-def summarize(xml, pid):
+def summarize(xml, pid, window=None):
     all_rows = rows(xml)
     target = [r for r in all_rows if r["process"].findtext("pid") == pid]
+    trace_target_count = len(target)
+    selected = []
     groups = defaultdict(list)
     labels = defaultdict(list)
     for r in target:
         start, duration = int(r["start"].text), int(r["duration"].text)
         assert start >= 0 and duration >= 0
+        stop = start + duration
+        if window is not None:
+            start, stop = max(start, window[0]), min(stop, window[1])
+            if stop <= start:
+                continue
+        selected.append(r)
         name = r["name"].text
-        groups[family(name)].append((start, start + duration))
-        labels[name].append((start, start + duration))
+        groups[family(name)].append((start, stop))
+        labels[name].append((start, stop))
     intervals = [i for group in groups.values() for i in group]
     summed = sum(b - a for a, b in intervals)
-    assert summed > 0, "No target shader durations; attribution is unavailable"
+
     return {
-        "total_rows": len(all_rows), "target_rows": len(target),
-        "excluded_rows": len(all_rows) - len(target),
-        "target_depth_counts": dict(Counter(r["event-depth"].text for r in target)),
-        "first_target_sample_ns": min(a for a, b in intervals),
-        "last_target_sample_end_ns": max(b for a, b in intervals),
+        "total_rows": len(all_rows), "target_rows": len(selected),
+        "trace_target_rows": trace_target_count, "attribution_usable": summed > 0,
+        "one_nanosecond_rows": sum(int(r["duration"].text) == 1 for r in selected),
+        "excluded_rows": len(all_rows) - len(selected),
+        "target_depth_counts": dict(Counter(r["event-depth"].text for r in selected)),
+        "first_target_sample_ns": min((a for a, b in intervals), default=None),
+        "last_target_sample_end_ns": max((b for a, b in intervals), default=None),
         "summed_sample_duration_ns": summed,
         "union_sample_coverage_ns": union_ns(intervals),
         "families": {k: {"rows": len(v),
@@ -101,7 +111,11 @@ def self_test():
     assert result["target_rows"] == 2 and result["excluded_rows"] == 1
     assert result["summed_sample_duration_ns"] == 20
     assert result["union_sample_coverage_ns"] == 15
-    print("Reference resolution, target isolation, overlap union, and label classification checks passed.")
+    clipped = summarize(xml, "42", (7, 12))
+    assert clipped["summed_sample_duration_ns"] == 8
+    assert clipped["union_sample_coverage_ns"] == 5
+    assert summarize(xml, "42", (20, 30))["attribution_usable"] is False
+    print("Reference resolution, target isolation, overlap union, window clipping, and label classification checks passed.")
 
 
 def main():
@@ -109,6 +123,7 @@ def main():
     parser.add_argument("--trace", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--workload", type=Path, help="Completed phase worker JSON with Mach-clock windows")
     args = parser.parse_args()
     if args.self_test:
         self_test()
@@ -148,6 +163,48 @@ def main():
         ],
         **summarize(xml, process.get("pid")),
     }
+    if args.workload:
+        workload = json.loads(args.workload.read_text())
+        assert workload.get("completed_at_utc"), "Incomplete worker result"
+        clock = rows(export("--xpath", '/trace-toc/run[@number="1"]/data/table[@schema="time-info"]'))
+        assert len(clock) == 1 and int(clock[0]["update-time"].text) == 0
+        epoch = int(clock[0]["mabs-epoch"].text)
+        numerator, denominator = [int(e.text) for e in clock[0]["timebase-info"]]
+        result["workload_phase"] = workload["phase"]
+        result["clock_conversion"] = "(mach_absolute_time - run_epoch) * timebase_numerator / timebase_denominator; integer ns"
+        execution_xml = export("--xpath", '/trace-toc/run[@number="1"]/data/table[@schema="metal-gpu-intervals"]')
+        execution_rows = [r for r in rows(execution_xml)
+                          if r["process"].findtext("pid") == process.get("pid") and r["state"].text == "Active"]
+        execution = [(int(r["start"].text), int(r["start"].text)+int(r["duration"].text)) for r in execution_rows]
+        result["gpu_execution_xml_sha256"] = hashlib.sha256(execution_xml).hexdigest()
+        result["phase_windows"] = []
+        for window in workload["windows"]:
+            lower = (window["start_mach_absolute"] - epoch) * numerator // denominator
+            upper = (window["end_mach_absolute"] - epoch) * numerator // denominator
+            assert 0 <= lower < upper <= result["recording_duration_seconds"]*1e9, "Recording did not contain the complete phase"
+            result["phase_windows"].append({"name": window["name"], "start_ns": lower, "end_ns": upper,
+                                             "boundary_clipping": "Clip each sampled interval to the synchronized worker window",
+                                             **summarize(xml, process.get("pid"), (lower, upper))})
+            clipped = [(max(a, lower), min(b, upper)) for a, b in execution if b > lower and a < upper]
+            result["phase_windows"][-1]["active_gpu_execution"] = {
+                "metric": "metal-gpu-intervals Active intervals, all channels, target process only",
+                "interval_count": len(clipped), "union_ns": union_ns(clipped),
+                "summed_duration_ns": sum(b-a for a, b in clipped),
+                "scope": "Source-isolated KV windows attribute this execution to KV update/evaluation; ordinary phase intervals have no operation-family labels."}
+        result["gpu_execution_contained_in_worker_span"] = bool(execution) and (
+            min(a for a,b in execution) >= result["phase_windows"][0]["start_ns"] and
+            max(b for a,b in execution) <= result["phase_windows"][-1]["end_ns"])
+        assert result["gpu_execution_contained_in_worker_span"], "GPU execution crossed a synchronized boundary"
+        result["kv_source_attribution_complete"] = workload["phase"] == "kv" and workload.get("kv_numerical_checks_passed", False) and all(w["active_gpu_execution"]["interval_count"] for w in result["phase_windows"])
+        result["phase_specific_attribution_complete"] = workload["phase"] in ("prefill", "decode") and all(w["attribution_usable"] for w in result["phase_windows"])
+        result["original_saved_gputraces_replayed"] = False
+        result["limitations"] = [
+            "Sample Duration is an instrumented timeline metric, not exact dispatch time or clean request share.",
+            "Clock-aligned windows use synchronized worker boundaries; overlapping samples are retained in sums and unions reported separately.",
+            "The isolated KV probe evaluates synthetic inputs with real model/cache geometry; its cost is not the cache fraction of normal inference.",
+            "Original .gputrace files were not replayed; these are new explicitly bounded CLI diagnostics.",
+            "One-nanosecond timeline entries are retained verbatim; they do not establish precise physical kernel costs. Missing shader samples remain unmeasured even where execution intervals exist.",
+        ]
     output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({k: result[k] for k in ("target_rows", "summed_sample_duration_ns", "union_sample_coverage_ns", "families")}, indent=2))
 

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-cli-pilot-attribution",
+  "trace_name": "experiment7-m2pro-phase-kv-20261020-r2.trace",
+  "trace_logical_bytes": 31118677,
+  "trace_readable": true,
+  "tool": "27.1 (27A9275)",
+  "recording_duration_seconds": 5.733376,
+  "shader_xml_sha256": "ccb8750502c55caebbb25c995a3c47504f0152379e48557de71e79e36b43a019",
+  "toc_xml_sha256": "7c2d55c60483f3cb55cd80c198046a0bdf6650e6405a4eca0e173df356b447aa",
+  "metric": "metal-shader-profiler-intervals Sample Duration; raw integer nanoseconds",
+  "denominator": "Sum of Sample Duration over all rows for the attached Python target",
+  "overlap_treatment": "Sum retains overlapping samples; union coverage is also reported. Family unions are not additive.",
+  "phase_specific_attribution_complete": false,
+  "limitations": [
+    "Sample Duration is an instrumented timeline metric, not exact dispatch time or clean request share.",
+    "Clock-aligned windows use synchronized worker boundaries; overlapping samples are retained in sums and unions reported separately.",
+    "The isolated KV probe evaluates synthetic inputs with real model/cache geometry; its cost is not the cache fraction of normal inference.",
+    "Original .gputrace files were not replayed; these are new explicitly bounded CLI diagnostics.",
+    "One-nanosecond timeline entries are retained verbatim; they do not establish precise physical kernel costs. Missing shader samples remain unmeasured even where execution intervals exist."
+  ],
+  "total_rows": 36,
+  "target_rows": 36,
+  "trace_target_rows": 36,
+  "attribution_usable": true,
+  "one_nanosecond_rows": 1,
+  "excluded_rows": 0,
+  "target_depth_counts": {
+    "0": 28,
+    "1": 8
+  },
+  "first_target_sample_ns": 3321675583,
+  "last_target_sample_end_ns": 3450130875,
+  "summed_sample_duration_ns": 7307834,
+  "union_sample_coverage_ns": 7307833,
+  "families": {
+    "copy_and_indexing_unassigned": {
+      "rows": 36,
+      "summed_sample_duration_ns": 7307834,
+      "share_of_summed_target_sample_duration": 1.0,
+      "union_sample_coverage_ns": 7307833
+    }
+  },
+  "shaders": {
+    "gg2_copyfloat16float16 (23)": {
+      "rows": 27,
+      "summed_sample_duration_ns": 6176376
+    },
+    "sn_copyfloat16float16 (20)": {
+      "rows": 9,
+      "summed_sample_duration_ns": 1131458
+    }
+  },
+  "workload_phase": "kv",
+  "clock_conversion": "(mach_absolute_time - run_epoch) * timebase_numerator / timebase_denominator; integer ns",
+  "gpu_execution_xml_sha256": "3c86eb032d7f068187355959baa3ce865ce7e8f13f110b5d16f15f72413ab78b",
+  "phase_windows": [
+    {
+      "name": "initial_allocation",
+      "start_ns": 3302376291,
+      "end_ns": 3349979833,
+      "boundary_clipping": "Clip each sampled interval to the synchronized worker window",
+      "total_rows": 36,
+      "target_rows": 22,
+      "trace_target_rows": 36,
+      "attribution_usable": true,
+      "one_nanosecond_rows": 1,
+      "excluded_rows": 14,
+      "target_depth_counts": {
+        "0": 14,
+        "1": 8
+      },
+      "first_target_sample_ns": 3321675583,
+      "last_target_sample_end_ns": 3349742291,
+      "summed_sample_duration_ns": 2862334,
+      "union_sample_coverage_ns": 2862333,
+      "families": {
+        "copy_and_indexing_unassigned": {
+          "rows": 22,
+          "summed_sample_duration_ns": 2862334,
+          "share_of_summed_target_sample_duration": 1.0,
+          "union_sample_coverage_ns": 2862333
+        }
+      },
+      "shaders": {
+        "gg2_copyfloat16float16 (23)": {
+          "rows": 13,
+          "summed_sample_duration_ns": 1730876
+        },
+        "sn_copyfloat16float16 (20)": {
+          "rows": 9,
+          "summed_sample_duration_ns": 1131458
+        }
+      },
+      "active_gpu_execution": {
+        "metric": "metal-gpu-intervals Active intervals, all channels, target process only",
+        "interval_count": 10,
+        "union_ns": 4949041,
+        "summed_duration_ns": 4949041,
+        "scope": "Source-isolated KV windows attribute this execution to KV update/evaluation; ordinary phase intervals have no operation-family labels."
+      }
+    },
+    {
+      "name": "ordinary_append",
+      "start_ns": 3349984541,
+      "end_ns": 3367704833,
+      "boundary_clipping": "Clip each sampled interval to the synchronized worker window",
+      "total_rows": 36,
+      "target_rows": 0,
+      "trace_target_rows": 36,
+      "attribution_usable": false,
+      "one_nanosecond_rows": 0,
+      "excluded_rows": 36,
+      "target_depth_counts": {},
+      "first_target_sample_ns": null,
+      "last_target_sample_end_ns": null,
+      "summed_sample_duration_ns": 0,
+      "union_sample_coverage_ns": 0,
+      "families": {},
+      "shaders": {},
+      "active_gpu_execution": {
+        "metric": "metal-gpu-intervals Active intervals, all channels, target process only",
+        "interval_count": 5,
+        "union_ns": 54209,
+        "summed_duration_ns": 54209,
+        "scope": "Source-isolated KV windows attribute this execution to KV update/evaluation; ordinary phase intervals have no operation-family labels."
+      }
+    },
+    {
+      "name": "growth_at_2048",
+      "start_ns": 3367708583,
+      "end_ns": 3451323833,
+      "boundary_clipping": "Clip each sampled interval to the synchronized worker window",
+      "total_rows": 36,
+      "target_rows": 14,
+      "trace_target_rows": 36,
+      "attribution_usable": true,
+      "one_nanosecond_rows": 0,
+      "excluded_rows": 22,
+      "target_depth_counts": {
+        "0": 14
+      },
+      "first_target_sample_ns": 3372155125,
+      "last_target_sample_end_ns": 3450130875,
+      "summed_sample_duration_ns": 4445500,
+      "union_sample_coverage_ns": 4445500,
+      "families": {
+        "copy_and_indexing_unassigned": {
+          "rows": 14,
+          "summed_sample_duration_ns": 4445500,
+          "share_of_summed_target_sample_duration": 1.0,
+          "union_sample_coverage_ns": 4445500
+        }
+      },
+      "shaders": {
+        "gg2_copyfloat16float16 (23)": {
+          "rows": 14,
+          "summed_sample_duration_ns": 4445500
+        }
+      },
+      "active_gpu_execution": {
+        "metric": "metal-gpu-intervals Active intervals, all channels, target process only",
+        "interval_count": 15,
+        "union_ns": 5855170,
+        "summed_duration_ns": 5855170,
+        "scope": "Source-isolated KV windows attribute this execution to KV update/evaluation; ordinary phase intervals have no operation-family labels."
+      }
+    }
+  ],
+  "gpu_execution_contained_in_worker_span": true,
+  "kv_source_attribution_complete": true,
+  "original_saved_gputraces_replayed": false
+}

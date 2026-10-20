@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2pro-cli-pilot-attribution",
+  "trace_name": "experiment7-m2pro-phase-prefill-20261020-r2.trace",
+  "trace_logical_bytes": 52288763,
+  "trace_readable": true,
+  "tool": "27.1 (27A9275)",
+  "recording_duration_seconds": 6.475527,
+  "shader_xml_sha256": "a205e059997dbe71079ee50728a0993c748718f1e26e01121165446a14d6fb15",
+  "toc_xml_sha256": "513b184dfa7a429954bf8fd2f3b662700fcbac83726c24948606fe131689d3e0",
+  "metric": "metal-shader-profiler-intervals Sample Duration; raw integer nanoseconds",
+  "denominator": "Sum of Sample Duration over all rows for the attached Python target",
+  "overlap_treatment": "Sum retains overlapping samples; union coverage is also reported. Family unions are not additive.",
+  "phase_specific_attribution_complete": true,
+  "limitations": [
+    "Sample Duration is an instrumented timeline metric, not exact dispatch time or clean request share.",
+    "Clock-aligned windows use synchronized worker boundaries; overlapping samples are retained in sums and unions reported separately.",
+    "The isolated KV probe evaluates synthetic inputs with real model/cache geometry; its cost is not the cache fraction of normal inference.",
+    "Original .gputrace files were not replayed; these are new explicitly bounded CLI diagnostics.",
+    "One-nanosecond timeline entries are retained verbatim; they do not establish precise physical kernel costs. Missing shader samples remain unmeasured even where execution intervals exist."
+  ],
+  "total_rows": 261,
+  "target_rows": 256,
+  "trace_target_rows": 256,
+  "attribution_usable": true,
+  "one_nanosecond_rows": 11,
+  "excluded_rows": 5,
+  "target_depth_counts": {
+    "0": 136,
+    "2": 10,
+    "1": 109,
+    "3": 1
+  },
+  "first_target_sample_ns": 3143107125,
+  "last_target_sample_end_ns": 4089848001,
+  "summed_sample_duration_ns": 921613018,
+  "union_sample_coverage_ns": 921306967,
+  "families": {
+    "attention": {
+      "rows": 26,
+      "summed_sample_duration_ns": 64723287,
+      "share_of_summed_target_sample_duration": 0.0702282690629268,
+      "union_sample_coverage_ns": 64723287
+    },
+    "copy_and_indexing_unassigned": {
+      "rows": 33,
+      "summed_sample_duration_ns": 386590,
+      "share_of_summed_target_sample_duration": 0.00041947107131683333,
+      "union_sample_coverage_ns": 381506
+    },
+    "elementwise_sampling_and_other": {
+      "rows": 84,
+      "summed_sample_duration_ns": 12283721,
+      "share_of_summed_target_sample_duration": 0.013328502050304156,
+      "union_sample_coverage_ns": 12283720
+    },
+    "normalization": {
+      "rows": 30,
+      "summed_sample_duration_ns": 681417,
+      "share_of_summed_target_sample_duration": 0.0007393743216417978,
+      "union_sample_coverage_ns": 681417
+    },
+    "quantized_matrix_and_dequantization": {
+      "rows": 83,
+      "summed_sample_duration_ns": 843538003,
+      "share_of_summed_target_sample_duration": 0.9152843834938104,
+      "union_sample_coverage_ns": 843538003
+    }
+  },
+  "shaders": {
+    "Cf2ISigmoidADf2IBroadcastACEf2IBroadcastCAFf2IMultiplyDEGf2IBroadcastFBHf2IBroadcastBFIf2OMultiplyGH_VV_f2f2_11160318154034397263_contiguous (27)": {
+      "rows": 15,
+      "summed_sample_duration_ns": 8048958
+    },
+    "affine_qmm_t_float16_t_gs_64_b_4_alN_true_batch_0 (26)": {
+      "rows": 63,
+      "summed_sample_duration_ns": 839783876
+    },
+    "affine_qmv_fast_float16_t_gs_64_b_4_batch_0 (28)": {
+      "rows": 20,
+      "summed_sample_duration_ns": 3754127
+    },
+    "argmax_float16 (39)": {
+      "rows": 5,
+      "summed_sample_duration_ns": 217502
+    },
+    "gg2_copyfloat16float16 (23)": {
+      "rows": 10,
+      "summed_sample_duration_ns": 25376
+    },
+    "gg3_copyfloat16float16 (22)": {
+      "rows": 13,
+      "summed_sample_duration_ns": 137377
+    },
+    "looped_logsumexp_float16 (37)": {
+      "rows": 1,
+      "summed_sample_duration_ns": 1
+    },
+    "rmsfloat16 (12)": {
+      "rows": 30,
+      "summed_sample_duration_ns": 681417
+    },
+    "rope_freqs_float16_ (21)": {
+      "rows": 30,
+      "summed_sample_duration_ns": 1053880
+    },
+    "rope_single_freqs_float16_ (29)": {
+      "rows": 2,
+      "summed_sample_duration_ns": 2
+    },
+    "scatterfloat16int64_sum_2_updc_true_nwork1_int (36)": {
+      "rows": 1,
+      "summed_sample_duration_ns": 1
+    },
+    "sdpa_vector_2pass_1_float16_t_64_64_nomask_qnt_nc_nosinks_64 (43)": {
+      "rows": 8,
+      "summed_sample_duration_ns": 178915
+    },
+    "sdpa_vector_2pass_2_float16_t_64 (44)": {
+      "rows": 3,
+      "summed_sample_duration_ns": 126
+    },
+    "sn_copyfloat16float16 (20)": {
+      "rows": 9,
+      "summed_sample_duration_ns": 223836
+    },
+    "steel_attention_float16_bq32_bk32_bd64_wm4_wn1_maskfloat16_align_Q_n_align_K_n_has_mask_n_do_causal_t_has_sinks_n (24)": {
+      "rows": 15,
+      "summed_sample_duration_ns": 64544246
+    },
+    "vsn_Subtractfloat16 (38)": {
+      "rows": 1,
+      "summed_sample_duration_ns": 42
+    },
+    "vvn_Addfloat16 (25)": {
+      "rows": 30,
+      "summed_sample_duration_ns": 2963336
+    }
+  },
+  "workload_phase": "prefill",
+  "clock_conversion": "(mach_absolute_time - run_epoch) * timebase_numerator / timebase_denominator; integer ns",
+  "gpu_execution_xml_sha256": "c69b9e15988d9bebc33287b34023feba17731a5415b2b482a79932e4f487912c",
+  "phase_windows": [
+    {
+      "name": "prefill_and_first_token",
+      "start_ns": 3088352291,
+      "end_ns": 4090114791,
+      "boundary_clipping": "Clip each sampled interval to the synchronized worker window",
+      "total_rows": 261,
+      "target_rows": 256,
+      "trace_target_rows": 256,
+      "attribution_usable": true,
+      "one_nanosecond_rows": 11,
+      "excluded_rows": 5,
+      "target_depth_counts": {
+        "0": 136,
+        "2": 10,
+        "1": 109,
+        "3": 1
+      },
+      "first_target_sample_ns": 3143107125,
+      "last_target_sample_end_ns": 4089848001,
+      "summed_sample_duration_ns": 921613018,
+      "union_sample_coverage_ns": 921306967,
+      "families": {
+        "attention": {
+          "rows": 26,
+          "summed_sample_duration_ns": 64723287,
+          "share_of_summed_target_sample_duration": 0.0702282690629268,
+          "union_sample_coverage_ns": 64723287
+        },
+        "copy_and_indexing_unassigned": {
+          "rows": 33,
+          "summed_sample_duration_ns": 386590,
+          "share_of_summed_target_sample_duration": 0.00041947107131683333,
+          "union_sample_coverage_ns": 381506
+        },
+        "elementwise_sampling_and_other": {
+          "rows": 84,
+          "summed_sample_duration_ns": 12283721,
+          "share_of_summed_target_sample_duration": 0.013328502050304156,
+          "union_sample_coverage_ns": 12283720
+        },
+        "normalization": {
+          "rows": 30,
+          "summed_sample_duration_ns": 681417,
+          "share_of_summed_target_sample_duration": 0.0007393743216417978,
+          "union_sample_coverage_ns": 681417
+        },
+        "quantized_matrix_and_dequantization": {
+          "rows": 83,
+          "summed_sample_duration_ns": 843538003,
+          "share_of_summed_target_sample_duration": 0.9152843834938104,
+          "union_sample_coverage_ns": 843538003
+        }
+      },
+      "shaders": {
+        "Cf2ISigmoidADf2IBroadcastACEf2IBroadcastCAFf2IMultiplyDEGf2IBroadcastFBHf2IBroadcastBFIf2OMultiplyGH_VV_f2f2_11160318154034397263_contiguous (27)": {
+          "rows": 15,
+          "summed_sample_duration_ns": 8048958
+        },
+        "affine_qmm_t_float16_t_gs_64_b_4_alN_true_batch_0 (26)": {
+          "rows": 63,
+          "summed_sample_duration_ns": 839783876
+        },
+        "affine_qmv_fast_float16_t_gs_64_b_4_batch_0 (28)": {
+          "rows": 20,
+          "summed_sample_duration_ns": 3754127
+        },
+        "argmax_float16 (39)": {
+          "rows": 5,
+          "summed_sample_duration_ns": 217502
+        },
+        "gg2_copyfloat16float16 (23)": {
+          "rows": 10,
+          "summed_sample_duration_ns": 25376
+        },
+        "gg3_copyfloat16float16 (22)": {
+          "rows": 13,
+          "summed_sample_duration_ns": 137377
+        },
+        "looped_logsumexp_float16 (37)": {
+          "rows": 1,
+          "summed_sample_duration_ns": 1
+        },
+        "rmsfloat16 (12)": {
+          "rows": 30,
+          "summed_sample_duration_ns": 681417
+        },
+        "rope_freqs_float16_ (21)": {
+          "rows": 30,
+          "summed_sample_duration_ns": 1053880
+        },
+        "rope_single_freqs_float16_ (29)": {
+          "rows": 2,
+          "summed_sample_duration_ns": 2
+        },
+        "scatterfloat16int64_sum_2_updc_true_nwork1_int (36)": {
+          "rows": 1,
+          "summed_sample_duration_ns": 1
+        },
+        "sdpa_vector_2pass_1_float16_t_64_64_nomask_qnt_nc_nosinks_64 (43)": {
+          "rows": 8,
+          "summed_sample_duration_ns": 178915
+        },
+        "sdpa_vector_2pass_2_float16_t_64 (44)": {
+          "rows": 3,
+          "summed_sample_duration_ns": 126
+        },
+        "sn_copyfloat16float16 (20)": {
+          "rows": 9,
+          "summed_sample_duration_ns": 223836
+        },
+        "steel_attention_float16_bq32_bk32_bd64_wm4_wn1_maskfloat16_align_Q_n_align_K_n_has_mask_n_do_causal_t_has_sinks_n (24)": {
+          "rows": 15,
+          "summed_sample_duration_ns": 64544246
+        },
+        "vsn_Subtractfloat16 (38)": {
+          "rows": 1,
+          "summed_sample_duration_ns": 42
+        },
+        "vvn_Addfloat16 (25)": {
+          "rows": 30,
+          "summed_sample_duration_ns": 2963336
+        }
+      },
+      "active_gpu_execution": {
+        "metric": "metal-gpu-intervals Active intervals, all channels, target process only",
+        "interval_count": 38,
+        "union_ns": 942018246,
+        "summed_duration_ns": 942018246,
+        "scope": "Source-isolated KV windows attribute this execution to KV update/evaluation; ordinary phase intervals have no operation-family labels."
+      }
+    }
+  ],
+  "gpu_execution_contained_in_worker_span": true,
+  "kv_source_attribution_complete": false,
+  "original_saved_gputraces_replayed": false
+}

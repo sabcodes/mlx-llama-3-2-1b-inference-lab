@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment-7-m2-phase-diagnostic",
+  "phase": "prefill",
+  "classification": "instrumented diagnostic; not clean latency",
+  "started_at_utc": "2026-10-20T07:16:53.311918+00:00",
+  "actual_prompt_tokens": 2047,
+  "chat_template_date": "04 Oct 2026",
+  "prompt_token_ids_sha256": "3b5ced7d78e300764339378f4769c0bc8bb25d050cfd8a7f0e1d77ae977a5a56",
+  "windows": [
+    {
+      "name": "prefill_and_first_token",
+      "start_mach_absolute": 1644505066489,
+      "end_mach_absolute": 1644529108789
+    }
+  ],
+  "mlx_peak_memory_bytes": 1542109292,
+  "cache_offsets_at_phase_end": [
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047,
+    2047
+  ],
+  "generated_tokens": 128,
+  "output_token_ids_sha256": "57adb9401e384308c61e6a5ac3d4f2ada687ce0a7e07cd198017ca453027059d",
+  "output_matches_clean_m2": true,
+  "limitations": [
+    "The unchanged generator is paused only at synchronized capture boundaries; no clean-latency comparison is made.",
+    "Prefill includes last-prompt-token and first-output sampling; no decode model call crosses its end boundary.",
+    "Decode primes four yielded outputs and one evaluated lookahead outside capture; 32 new single-token model calls are inside."
+  ],
+  "completed_at_utc": "2026-10-20T07:17:07.746081+00:00"
+}

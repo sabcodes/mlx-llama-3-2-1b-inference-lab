@@ -222,7 +222,7 @@ publish the validated clean phase result with GPU attribution still pending.
 
 All 40 measurements and four warmups completed. All four input and output
 hashes match the original M2 run; summary recomputation passed. The same phase
-crossover repeats. The new OS and battery provenance are explicit, so timing
+crossover repeats. The new OS and AC-power provenance are explicit, so timing
 shifts are not treated as optimization-arm gains. `.venv` is fully local.
 
 ### Correct the temporary-space guard before completing the pilot
@@ -269,3 +269,78 @@ target isolation, interval overlap and label classification passed. Obsidian
 read-back and unresolved-link checks passed; publication receipt recorded there.
 The clean confirmation and pilot are complete. The original separate-phase M2
 GPU/KV attribution task remains in progress with its CLI limitation recorded.
+
+## Remaining M2 work authorized 2026-10-20
+
+User asked to complete separate prefill/decode GPU attribution, isolate KV
+updates, and record the final conclusion with Obsidian synchronization.
+
+- [x] Verify Xcode 27.1, existing local model/environment and clean repository.
+- [x] Inspect pinned generate_step and KVCache implementations before instrumentation.
+- [x] Prepare a phase worker with no queued work crossing the measured boundaries.
+- [x] Verify the diagnostic's token sequence against unchanged generate_step.
+- [x] Prepare isolated KV update probes with evaluated inputs and real cache geometry;
+  cover initial allocation, ordinary append and allocation-boundary growth.
+- [x] Run separate short Instruments recordings; preserve target-only sample-duration
+  metrics, overlap unions, exact boundaries and source/model/tool provenance.
+- [x] Validate saved evidence and record a scoped M2 conclusion without inferred speedups.
+- [ ] Update repository context, Obsidian and GitHub after the staged-content gate.
+
+Recordings remain under benchmarks/results/. Existing captures are preserved.
+Based on the saved 137 MB pilot, three short phase/KV recordings are expected
+to retain roughly 400-600 MB; propose a 1 GB additional retained-output ceiling
+and 2 GB emergency observed working-output ceiling. Xcode-managed cache and
+unobserved temporary growth remain unknown. No installations, model downloads,
+new environment or alternate checkout are needed. Free space is about 43 GiB.
+The run awaits agreement on this concrete extension of the earlier pilot budget;
+source preparation and correctness checks can proceed in the meantime.
+
+This is an instrumented diagnostic protocol extension. A synchronized phase
+worker and isolated KV probe do not replace the completed clean timing run.
+Any changed scheduling must be disclosed and token identity checked. Isolated
+KV costs cannot be divided by ordinary phase time to claim a request fraction.
+
+### Recording extension approved
+
+User approved the proposed three-recording budget: expected 400-600 MB,
+1 GB additional retained output ceiling, 2 GB observed working-output emergency
+stop, project-local results folder; unknown Xcode cache growth disclosed.
+
+Boundary implementation uses the unchanged generate_step: prefill stops before
+its third model call (the first decode lookahead), after synchronizing the
+first output. Decode primes four outputs plus its queued lookahead outside the
+capture, then records 32 new single-token model calls. Both complete 128 outputs
+after recording and must match the saved clean M2 hash. The isolated KV worker
+uses the actual cache class, fp16 geometry (16 layers, 8 KV heads, dimension64),
+and evaluated synthetic inputs; allocation, append and growth are separate
+clock-stamped intervals. It is a source-attributed isolated diagnostic, not an
+estimate of the cache fraction in normal phase/request latency.
+
+### First recording validation and boundary correction
+
+The first three traces saved (115,273,949 bytes), but prefill had no target
+shader samples despite GPU execution intervals. Decode execution extended about
+6 ms beyond the worker's default-stream synchronization. The pinned generator
+uses a dedicated generation_stream, so explicitly synchronize that stream as
+well as the default stream. Retain/exclude the first captures from final phase
+claims. The initial source snapshot is preserved as an ignored partial artifact.
+
+Repeat the same three bounded diagnostics within the approved cumulative budget,
+adding a two-second idle settling interval before work and a two-second idle
+drain after synchronized completion to allow collector data to flush. These
+idle intervals are excluded by Mach-clock windows. Do not assume this fixes
+missing samples; validate exports and GPU execution containment before accepting.
+
+### Corrected M2 phase/KV validation: passed
+
+Both final phase captures contain all target GPU execution inside synchronized
+worker spans. Full 128-token outputs match clean M2. Isolated cache allocation,
+append and growth pass numerical checks and have source-attributed Active GPU
+intervals. Shader samples are absent for ordinary append and retained as
+unmeasured; no zero-cost inference is made. Quantized matrix/dequantization is
+91.53%/88.49% of sampled prefill/decode duration. The diagnostic is complete
+under the new contract; publication and Obsidian completion receipt remain.
+
+Accepted three recordings: 119,452,563 logical bytes. Including the excluded
+initial set: 234,726,512 bytes; observed combined peak: 254,133,611 bytes. No
+storage ceiling was exceeded. Raw data and initial/intermediate JSON stay local.

@@ -1,5 +1,10 @@
 # Experiment 7 analysis: runtime profiling
 
+Current completion update (2026-10-20): see
+[separate M2 phase and isolated KV diagnostic](experiment7-m2pro-phase-and-kv-analysis-20261020.md).
+Pending states below describe the historical checkpoint.
+
+
 Date: 2026-10-04
 
 ## Decision

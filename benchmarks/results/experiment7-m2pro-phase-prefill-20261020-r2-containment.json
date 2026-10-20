@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "phase": "prefill",
+  "source_gpu_json": "benchmarks/results/experiment7-m2pro-phase-prefill-20261020-r2-gpu.json",
+  "target_active_gpu_rows": 38,
+  "first_active_gpu_ns": 3129987250,
+  "last_active_gpu_end_ns": 4089870416,
+  "gpu_activity_contained_in_worker_span": true,
+  "active_gpu_interval_union_ns": 942018246
+}
