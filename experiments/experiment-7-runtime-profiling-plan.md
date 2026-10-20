@@ -244,7 +244,7 @@ claim that the recorded GPU data was valid. Validate the resulting export.
 - [x] Save reproducible, sanitized Sample Duration aggregation with interval unions.
 - [x] Independently recheck 40 clean runs, four warmups, summaries, hashes and timing identities.
 - [x] Correct the draft power-source error: recorded AC power, not battery.
-- [ ] Synchronize Obsidian, pass staged-content gate, commit/push and verify remote.
+- [x] Synchronize Obsidian, pass staged-content gate, commit/push and verify remote.
 
 Final recording: 137,245,510 logical bytes; combined retained pilot recordings:
 247,936,324 bytes; observed combined peak: 383,709,630 bytes. Xcode cache and
@@ -258,3 +258,14 @@ The authorized pilot is complete. Original separate-phase M2 GPU attribution
 remains pending, as does independent KV-update attribution. The saved capture
 reader rejects `.gputrace`; a larger profiling campaign is outside this pilot.
 Keep the broader M2 task in progress with this precise remaining scope.
+
+### Resumed publication checkpoint: passed
+
+Published the 19 intended sanitized files at commit
+`090c2d2dd65aca35488c137d22f412d2f75e358b`; remote main was verified equal.
+The staged-content gate reported zero findings. Independent saved-data checks,
+three prompt-date tests, and analyzer checks for XML reference resolution,
+target isolation, interval overlap and label classification passed. Obsidian
+read-back and unresolved-link checks passed; publication receipt recorded there.
+The clean confirmation and pilot are complete. The original separate-phase M2
+GPU/KV attribution task remains in progress with its CLI limitation recorded.
