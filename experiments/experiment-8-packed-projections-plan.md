@@ -19,7 +19,7 @@ of the historical M4 speculative-decoding reference design.
 - [x] Separate natural-EOS and forced-output workload identities and new controls.
 - [x] Specify request/packing memory, startup, tail and rejection rules.
 - [x] Save the proposal in Obsidian and update repository navigation/context.
-- [ ] Validate links and scope; pass staged-content gate; publish and verify GitHub.
+- [x] Validate links and scope; pass staged-content gate; publish and verify GitHub.
 
 ## Ordered execution checklist (future work; not started)
 
@@ -89,3 +89,15 @@ second full-size draft already lost in Experiment 6. Custom Metal code and
 cross-runtime/model changes would add variables before this simpler hypothesis
 is tested. The proposal makes no claim that any alternative is permanently
 unhelpful and does not inherit another machine's experiment sequence.
+
+## Design publication checkpoint: passed
+
+Published the specification, plan and repository navigation/context changes at
+`e78e23bd9e6d70decb7594ee5809f9d4b7ad19e3`; remote main was verified equal.
+All local document links, source-derived dimensions and the approximately
+342 MiB naive packing estimate were checked. The staged-content security gate
+reported zero findings across the four intended Markdown files. Obsidian
+experiment/task/project/decision/evidence/board/index/daily/operation notes were
+updated and read back with no unresolved links. Design is Done; execution stays
+planned. All unchecked execution items above are intentional future work.
+No runtime implementation, benchmark, installation or model allocation ran.
