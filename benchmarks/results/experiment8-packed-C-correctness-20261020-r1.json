@@ -1,0 +1,5423 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment8-packed-projections",
+  "arm": "C",
+  "stage": "correctness",
+  "started_at_utc": "2026-10-21T02:48:26.539103+00:00",
+  "status": "stopped",
+  "workload_id": "exp8-packed-correctness-v1",
+  "environment": {
+    "python": "3.14.4",
+    "os": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "mlx": "0.32.2",
+    "mlx_lm": "0.31.3",
+    "device": {
+      "device_name": "Apple M2 Pro",
+      "max_recommended_working_set_size": 12713115648,
+      "memory_size": 17179869184,
+      "architecture": "applegpu_g14s",
+      "max_buffer_length": 9534832640,
+      "resource_limit": 499000
+    }
+  },
+  "state_start": {
+    "swap_used_bytes": 4998886850,
+    "power_config": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         2\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         10\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10",
+    "supply": "Now drawing from 'Battery Power'",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "process_rss_bytes": 100679680,
+    "process_peak_rss_bytes": 100679680
+  },
+  "settings": {
+    "date": "04 Oct 2026",
+    "prefill_step_size": 2048,
+    "greedy": true,
+    "fresh_primary_cache": true,
+    "concurrency": 1,
+    "numerical_shapes": [
+      1,
+      2,
+      9,
+      10,
+      11,
+      12,
+      13,
+      17,
+      18,
+      19,
+      31,
+      32,
+      33,
+      63,
+      64,
+      65,
+      2046,
+      2047,
+      2048,
+      2049,
+      4095
+    ],
+    "numerical_seed": 20261020
+  },
+  "checks": {
+    "natural-64-qa": {
+      "prompt_sha256": "d8285b8f777ce2f31f82c87d67cb468d553d45dac1eeee95acfbc3541541306d",
+      "generation": {
+        "output_token_ids": [
+          40,
+          1541,
+          956,
+          617,
+          904,
+          8554,
+          13,
+          1115,
+          10652,
+          1120,
+          3940,
+          13,
+          19418,
+          499,
+          1093,
+          311,
+          3493,
+          279,
+          2038,
+          30,
+          128009
+        ],
+        "generated_tokens": 21,
+        "response_token_count": 21,
+        "visible_non_eos_count": 20,
+        "eos_position_zero_based": 20,
+        "finish_reason": "stop",
+        "generated_text": "I don't have any notes. This conversation just started. Would you like to provide the information?",
+        "generated_text_sha256": "bdbc8c143a1ba9311ac32e59d303d5fe06a62563733bdaf14026ece6d77440d5",
+        "time_to_first_token_seconds": 0.16515245899790898,
+        "request_seconds": 0.3677676669904031,
+        "decode_seconds": 0.2026152079924941,
+        "decode_tokens_per_second": 98.70927359382077,
+        "api_decode_tokens_per_second": 109.3883653220459,
+        "prefill_tokens_per_second": 584.748440286114,
+        "mlx_peak_memory_gb": 0.841582488,
+        "mlx_active_memory_gb": 0.70389556,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 703895560,
+          "cached_bytes": 17512196,
+          "peak_bytes": 841582488,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 83,
+            "shapes": [
+              [
+                1,
+                8,
+                83,
+                64
+              ],
+              [
+                1,
+                8,
+                83,
+                64
+              ]
+            ],
+            "bytes": 524288
+          }
+        ],
+        "expected_cache_offset": 83,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "task_semantics": "unmeasured; token equivalence assessed separately"
+      }
+    },
+    "natural-64-rewrite": {
+      "prompt_sha256": "b6134913e884e72a05a178c655c65df11dc7a0824ee46b5708c827d07ad2a49a",
+      "generation": {
+        "output_token_ids": [
+          8586,
+          596,
+          264,
+          32828,
+          2373,
+          1473,
+          1,
+          12978,
+          264,
+          4333,
+          704,
+          0,
+          3494,
+          3673,
+          555,
+          279,
+          23383,
+          4245,
+          2457,
+          311,
+          6106,
+          264,
+          11113,
+          12185,
+          3217,
+          382,
+          1687,
+          15763,
+          701,
+          1520,
+          304,
+          10494,
+          1057,
+          3637,
+          4401,
+          39511,
+          13,
+          9930,
+          499,
+          369,
+          12185,
+          449,
+          603,
+          9135,
+          128009
+        ],
+        "generated_tokens": 45,
+        "response_token_count": 45,
+        "visible_non_eos_count": 44,
+        "eos_position_zero_based": 44,
+        "finish_reason": "stop",
+        "generated_text": "Here's a revised version:\n\n\"Help a friend out! Return items by the receipt due date to ensure a smooth shopping experience.\n\nWe appreciate your help in keeping our store running smoothly. Thank you for shopping with us!\"",
+        "generated_text_sha256": "7748cecd5dc34eb12d0e61f8cbb512b5e5da17b6038ecab300f185c92f8064e8",
+        "time_to_first_token_seconds": 0.1073827079962939,
+        "request_seconds": 0.31596512500254903,
+        "decode_seconds": 0.20858241700625513,
+        "decode_tokens_per_second": 210.9477904778546,
+        "api_decode_tokens_per_second": 224.474963161588,
+        "prefill_tokens_per_second": 1560.0069593678709,
+        "mlx_peak_memory_gb": 0.813423008,
+        "mlx_active_memory_gb": 0.70389556,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 703895560,
+          "cached_bytes": 15875724,
+          "peak_bytes": 813423008,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 109,
+            "shapes": [
+              [
+                1,
+                8,
+                109,
+                64
+              ],
+              [
+                1,
+                8,
+                109,
+                64
+              ]
+            ],
+            "bytes": 524288
+          }
+        ],
+        "expected_cache_offset": 109,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "task_semantics": "unmeasured; token equivalence assessed separately"
+      }
+    },
+    "natural-64-context_question": {
+      "prompt_sha256": "103e6a96657ab493912658edaa116e580c98d7255ddcaded2559e100cf6dc11f",
+      "generation": {
+        "output_token_ids": [
+          40,
+          1541,
+          956,
+          617,
+          904,
+          8554,
+          311,
+          8464,
+          311,
+          13,
+          1115,
+          10652,
+          1120,
+          3940,
+          13,
+          1442,
+          499,
+          4265,
+          1093,
+          311,
+          3493,
+          279,
+          8554,
+          11,
+          358,
+          4265,
+          387,
+          6380,
+          311,
+          1520,
+          499,
+          449,
+          279,
+          2038,
+          389,
+          994,
+          15613,
+          649,
+          1005,
+          279,
+          6574,
+          3130,
+          369,
+          11594,
+          4007,
+          13,
+          128009
+        ],
+        "generated_tokens": 47,
+        "response_token_count": 47,
+        "visible_non_eos_count": 46,
+        "eos_position_zero_based": 46,
+        "finish_reason": "stop",
+        "generated_text": "I don't have any notes to refer to. This conversation just started. If you'd like to provide the notes, I'd be happy to help you with the information on when visitors can use the meeting room for quiet study.",
+        "generated_text_sha256": "3f0b6cdea75073309d63553b01f3da6650615b4917460ac3f2232f333ac6fea1",
+        "time_to_first_token_seconds": 0.09726474998751655,
+        "request_seconds": 0.3182763749937294,
+        "decode_seconds": 0.22101162500621285,
+        "decode_tokens_per_second": 208.13384815711342,
+        "api_decode_tokens_per_second": 222.06376738631639,
+        "prefill_tokens_per_second": 1496.6249265702806,
+        "mlx_peak_memory_gb": 0.818551224,
+        "mlx_active_memory_gb": 0.70389556,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 703895560,
+          "cached_bytes": 15822476,
+          "peak_bytes": 818551224,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 108,
+            "shapes": [
+              [
+                1,
+                8,
+                108,
+                64
+              ],
+              [
+                1,
+                8,
+                108,
+                64
+              ]
+            ],
+            "bytes": 524288
+          }
+        ],
+        "expected_cache_offset": 108,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "task_semantics": "unmeasured; token equivalence assessed separately"
+      }
+    },
+    "natural-64-extraction": {
+      "prompt_sha256": "ccc97f39aa237f7bda6f72a0468c2bb8bc360822ef0104f9a41c356c758a8e8d",
+      "generation": {
+        "output_token_ids": [
+          31140,
+          11,
+          358,
+          1541,
+          956,
+          617,
+          904,
+          8554,
+          311,
+          8819,
+          505,
+          13,
+          1115,
+          10652,
+          1120,
+          3940,
+          13,
+          5321,
+          3493,
+          279,
+          8554,
+          11,
+          323,
+          358,
+          3358,
+          387,
+          6380,
+          311,
+          1520,
+          13,
+          128009
+        ],
+        "generated_tokens": 31,
+        "response_token_count": 31,
+        "visible_non_eos_count": 30,
+        "eos_position_zero_based": 30,
+        "finish_reason": "stop",
+        "generated_text": "Unfortunately, I don't have any notes to extract from. This conversation just started. Please provide the notes, and I'll be happy to help.",
+        "generated_text_sha256": "c6cf2771e7318151bd90fdd290814792723ba52f12340f2b47e84f5552871db3",
+        "time_to_first_token_seconds": 0.0991023340029642,
+        "request_seconds": 0.24591187499754597,
+        "decode_seconds": 0.14680954099458177,
+        "decode_tokens_per_second": 204.3463919085967,
+        "api_decode_tokens_per_second": 225.06606832044494,
+        "prefill_tokens_per_second": 1503.7624623954478,
+        "mlx_peak_memory_gb": 0.823990704,
+        "mlx_active_memory_gb": 0.70389556,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 703895560,
+          "cached_bytes": 15822476,
+          "peak_bytes": 823990704,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 93,
+            "shapes": [
+              [
+                1,
+                8,
+                93,
+                64
+              ],
+              [
+                1,
+                8,
+                93,
+                64
+              ]
+            ],
+            "bytes": 524288
+          }
+        ],
+        "expected_cache_offset": 93,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "complete_json_object": false,
+        "semantic_schema": "unmeasured: baseline wording declares no fixed keys"
+      }
+    },
+    "natural-64-summarization": {
+      "prompt_sha256": "3bfe3a3745c801f7aad4add1236645b35b8e413dc16112b03b63f1a42b4a3498",
+      "generation": {
+        "output_token_ids": [
+          8586,
+          527,
+          2380,
+          64694,
+          34164,
+          29385,
+          4954,
+          279,
+          8554,
+          1473,
+          6806,
+          69940,
+          649,
+          17636,
+          6603,
+          627,
+          6806,
+          2435,
+          649,
+          1005,
+          4007,
+          12920,
+          627,
+          6806,
+          2435,
+          649,
+          9604,
+          5403,
+          5315,
+          13,
+          128009
+        ],
+        "generated_tokens": 31,
+        "response_token_count": 31,
+        "visible_non_eos_count": 30,
+        "eos_position_zero_based": 30,
+        "finish_reason": "stop",
+        "generated_text": "Here are three concise bullets summarizing the notes:\n\n• Visitors can borrow books.\n• They can use study tables.\n• They can attend reading groups.",
+        "generated_text_sha256": "b03d8ca38bf4423794e16e5235b0793d3d2d80680fa0665d2e38bd1656b464f7",
+        "time_to_first_token_seconds": 0.10085187500226311,
+        "request_seconds": 0.2498143330012681,
+        "decode_seconds": 0.14896245799900498,
+        "decode_tokens_per_second": 201.39302481300618,
+        "api_decode_tokens_per_second": 220.7998171303566,
+        "prefill_tokens_per_second": 1582.298040829035,
+        "mlx_peak_memory_gb": 0.836016568,
+        "mlx_active_memory_gb": 0.70389556,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 703895560,
+          "cached_bytes": 15822476,
+          "peak_bytes": 836016568,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 95,
+            "shapes": [
+              [
+                1,
+                8,
+                95,
+                64
+              ],
+              [
+                1,
+                8,
+                95,
+                64
+              ]
+            ],
+            "bytes": 524288
+          }
+        ],
+        "expected_cache_offset": 95,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "exactly_three_bullets": false
+      }
+    },
+    "forced-64-128": {
+      "prompt_sha256": "3bfe3a3745c801f7aad4add1236645b35b8e413dc16112b03b63f1a42b4a3498",
+      "generation": {
+        "output_token_ids": [
+          8586,
+          527,
+          2380,
+          64694,
+          34164,
+          29385,
+          4954,
+          279,
+          8554,
+          1473,
+          6806,
+          69940,
+          649,
+          17636,
+          6603,
+          627,
+          6806,
+          2435,
+          649,
+          1005,
+          4007,
+          12920,
+          627,
+          6806,
+          2435,
+          649,
+          9604,
+          5403,
+          5315,
+          13,
+          4815,
+          10267,
+          757,
+          1440,
+          422,
+          499,
+          4265,
+          1093,
+          757,
+          311,
+          923,
+          4205,
+          775,
+          0,
+          4815,
+          90489,
+          25,
+          358,
+          9855,
+          279,
+          8554,
+          527,
+          505,
+          264,
+          6875,
+          477,
+          4528,
+          15244,
+          13,
+          1442,
+          499,
+          617,
+          810,
+          2317,
+          11,
+          358,
+          649,
+          1456,
+          311,
+          3493,
+          264,
+          810,
+          11944,
+          12399,
+          6266,
+          4815,
+          2746,
+          499,
+          4265,
+          1093,
+          757,
+          311,
+          9407,
+          389,
+          279,
+          3585,
+          11,
+          1618,
+          596,
+          264,
+          3284,
+          14800,
+          1473,
+          9,
+          79047,
+          287,
+          6603,
+          25,
+          69940,
+          649,
+          17636,
+          6603,
+          505,
+          279,
+          6875,
+          596,
+          4526,
+          627,
+          9,
+          19723,
+          12920,
+          25,
+          69940,
+          649,
+          1005,
+          4007,
+          12920,
+          369,
+          3495,
+          323,
+          4007,
+          627,
+          9,
+          18242,
+          5315,
+          25,
+          69940,
+          649
+        ],
+        "generated_tokens": 128,
+        "response_token_count": 128,
+        "visible_non_eos_count": 128,
+        "eos_position_zero_based": null,
+        "finish_reason": "length",
+        "generated_text": "Here are three concise bullets summarizing the notes:\n\n• Visitors can borrow books.\n• They can use study tables.\n• They can attend reading groups. \n\nLet me know if you'd like me to add anything else! \n\n(Note: I assume the notes are from a library or similar institution. If you have more context, I can try to provide a more detailed summary.) \n\nIf you'd like me to expand on the points, here's a possible expansion:\n\n* Borrowing books: Visitors can borrow books from the library's collection.\n* Study tables: Visitors can use study tables for research and study.\n* Reading groups: Visitors can",
+        "generated_text_sha256": "1112f919cd9c5e039b97b7bca7451f682b57734bc75694c924e0ef45af232810",
+        "time_to_first_token_seconds": 0.10086062501068227,
+        "request_seconds": 0.6938257090077968,
+        "decode_seconds": 0.5929650839971146,
+        "decode_tokens_per_second": 214.17787223474696,
+        "api_decode_tokens_per_second": 220.17507489315895,
+        "prefill_tokens_per_second": 1558.955621183049,
+        "mlx_peak_memory_gb": 0.798726584,
+        "mlx_active_memory_gb": 0.703895584,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 703895584,
+          "cached_bytes": 15823052,
+          "peak_bytes": 798726584,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          },
+          {
+            "type": "KVCache",
+            "offset": 192,
+            "shapes": [
+              [
+                1,
+                8,
+                192,
+                64
+              ],
+              [
+                1,
+                8,
+                192,
+                64
+              ]
+            ],
+            "bytes": 524288
+          }
+        ],
+        "expected_cache_offset": 192,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "forced_output": true
+      }
+    },
+    "natural-512-qa": {
+      "prompt_sha256": "1b28b19e1258331bc51c96e5fbe94c4ab9b87b1b77dc2b7b0ad228600a56abb1",
+      "generation": {
+        "output_token_ids": [
+          791,
+          6875,
+          34350,
+          520,
+          220,
+          21,
+          389,
+          73095,
+          13,
+          128009
+        ],
+        "generated_tokens": 10,
+        "response_token_count": 10,
+        "visible_non_eos_count": 9,
+        "eos_position_zero_based": 9,
+        "finish_reason": "stop",
+        "generated_text": "The library closes at 6 on weekdays.",
+        "generated_text_sha256": "0e1f485f4c4ff0740b789acacb382dff7858a052ad65d15956fae0ee823a150f",
+        "time_to_first_token_seconds": 0.305351500006509,
+        "request_seconds": 0.38272737500665244,
+        "decode_seconds": 0.07737587500014342,
+        "decode_tokens_per_second": 116.31532438222273,
+        "api_decode_tokens_per_second": 146.56372264070617,
+        "prefill_tokens_per_second": 2105.7224166099536,
+        "mlx_peak_memory_gb": 1.102258336,
+        "mlx_active_memory_gb": 0.720672776,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 720672776,
+          "cached_bytes": 66001474,
+          "peak_bytes": 1102258336,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 522,
+            "shapes": [
+              [
+                1,
+                8,
+                522,
+                64
+              ],
+              [
+                1,
+                8,
+                522,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          }
+        ],
+        "expected_cache_offset": 522,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "task_semantics": "unmeasured; token equivalence assessed separately"
+      }
+    },
+    "natural-512-rewrite": {
+      "prompt_sha256": "0830622c4c5d91de1f9cfbacf75c285cc41b142bb9fe0cba1fefc569911589a6",
+      "generation": {
+        "output_token_ids": [
+          334,
+          14262,
+          311,
+          5751,
+          11896,
+          0,
+          57277,
+          1687,
+          2351,
+          12304,
+          311,
+          617,
+          499,
+          4034,
+          603,
+          0,
+          5751,
+          6875,
+          374,
+          264,
+          34076,
+          4029,
+          19240,
+          1405,
+          499,
+          649,
+          17636,
+          6603,
+          11,
+          1005,
+          4007,
+          12920,
+          11,
+          323,
+          9604,
+          5403,
+          5315,
+          13,
+          5751,
+          11919,
+          5687,
+          527,
+          1618,
+          311,
+          1520,
+          11,
+          323,
+          584,
+          2351,
+          2744,
+          6380,
+          311,
+          3449,
+          502,
+          1274,
+          382,
+          334,
+          3923,
+          596,
+          1561,
+          30,
+          57277,
+          9,
+          1226,
+          3077,
+          3779,
+          264,
+          502,
+          15438,
+          20846,
+          430,
+          13912,
+          499,
+          16369,
+          922,
+          14827,
+          7620,
+          323,
+          2532,
+          9013,
+          627,
+          9,
+          5751,
+          6574,
+          3130,
+          374,
+          2561,
+          369,
+          11594,
+          4007,
+          994,
+          912,
+          1567,
+          374,
+          13847,
+          627,
+          9,
+          1226,
+          2351,
+          2744,
+          3411,
+          369,
+          502,
+          15671,
+          311,
+          17636,
+          11,
+          779,
+          4587,
+          1935,
+          264,
+          1427,
+          520,
+          1057,
+          5684,
+          1715,
+          1376,
+          323,
+          4284,
+          264,
+          2363,
+          311,
+          603,
+          2268,
+          334,
+          8140,
+          8471,
+          57277
+        ],
+        "generated_tokens": 128,
+        "response_token_count": 128,
+        "visible_non_eos_count": 128,
+        "eos_position_zero_based": null,
+        "finish_reason": "length",
+        "generated_text": "**Welcome to Our Library!**\n\nWe're excited to have you visit us! Our library is a vibrant community hub where you can borrow books, use study tables, and attend reading groups. Our friendly staff are here to help, and we're always happy to meet new people.\n\n**What's New?**\n\n* We've added a new monthly newsletter that keeps you informed about upcoming programs and service updates.\n* Our meeting room is available for quiet study when no event is scheduled.\n* We're always looking for new titles to borrow, so please take a look at our paper request form and suggest a book to us!\n\n**Our Services**\n\n",
+        "generated_text_sha256": "6adc0cbeff71421b68c1c391433e76e0495c1d30fb6b0c622a38c4f19a188c3e",
+        "time_to_first_token_seconds": 0.2961867499980144,
+        "request_seconds": 0.9267625409993343,
+        "decode_seconds": 0.6305757910013199,
+        "decode_tokens_per_second": 201.40322830714916,
+        "api_decode_tokens_per_second": 206.03794454121575,
+        "prefill_tokens_per_second": 2095.592575653226,
+        "mlx_peak_memory_gb": 1.22907052,
+        "mlx_active_memory_gb": 0.720672776,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 720672776,
+          "cached_bytes": 79527372,
+          "peak_bytes": 1229070520,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          }
+        ],
+        "expected_cache_offset": 638,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "task_semantics": "unmeasured; token equivalence assessed separately"
+      }
+    },
+    "natural-512-context_question": {
+      "prompt_sha256": "8938df2fb1f3734280ba9b4a82391415446a453604537dee7b8558514553fd47",
+      "generation": {
+        "output_token_ids": [
+          791,
+          6574,
+          3130,
+          374,
+          2561,
+          369,
+          11594,
+          4007,
+          994,
+          912,
+          1567,
+          374,
+          13847,
+          13,
+          128009
+        ],
+        "generated_tokens": 15,
+        "response_token_count": 15,
+        "visible_non_eos_count": 14,
+        "eos_position_zero_based": 14,
+        "finish_reason": "stop",
+        "generated_text": "The meeting room is available for quiet study when no event is scheduled.",
+        "generated_text_sha256": "ceaf4ddc1f328085655211ca2d439548248a7a5e6ea52337c9091b8663aa9b35",
+        "time_to_first_token_seconds": 0.29497887499746867,
+        "request_seconds": 0.37324504199204966,
+        "decode_seconds": 0.078266166994581,
+        "decode_tokens_per_second": 178.87678083135634,
+        "api_decode_tokens_per_second": 216.22699717242534,
+        "prefill_tokens_per_second": 2145.5751042294737,
+        "mlx_peak_memory_gb": 1.22956204,
+        "mlx_active_memory_gb": 0.720672776,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 720672776,
+          "cached_bytes": 80293312,
+          "peak_bytes": 1229562040,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 526,
+            "shapes": [
+              [
+                1,
+                8,
+                526,
+                64
+              ],
+              [
+                1,
+                8,
+                526,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          }
+        ],
+        "expected_cache_offset": 526,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "task_semantics": "unmeasured; token equivalence assessed separately"
+      }
+    },
+    "natural-512-extraction": {
+      "prompt_sha256": "b148af2764eb724c3808bca153378e3ed2915f0c96db82430f1fd9336344f474",
+      "generation": {
+        "output_token_ids": [
+          517,
+          220,
+          330,
+          79089,
+          52398,
+          1489,
+          794,
+          330,
+          24,
+          761,
+          220,
+          330,
+          79089,
+          37394,
+          1489,
+          794,
+          330,
+          21,
+          761,
+          220,
+          330,
+          10547,
+          11271,
+          794,
+          2330,
+          262,
+          330,
+          33,
+          7924,
+          6603,
+          761,
+          262,
+          330,
+          10464,
+          4007,
+          12920,
+          761,
+          262,
+          330,
+          99368,
+          5403,
+          5315,
+          761,
+          262,
+          330,
+          27312,
+          2254,
+          3925,
+          4526,
+          761,
+          262,
+          330,
+          27264,
+          5687,
+          4860,
+          761,
+          262,
+          330,
+          99368,
+          5403,
+          5315,
+          761,
+          262,
+          330,
+          10464,
+          6574,
+          3130,
+          369,
+          11594,
+          4007,
+          761,
+          262,
+          330,
+          50,
+          3884,
+          502,
+          15671,
+          1555,
+          5684,
+          1715,
+          1376,
+          761,
+          262,
+          330,
+          99368,
+          5315,
+          3449,
+          15438,
+          761,
+          262,
+          330,
+          4387,
+          2930,
+          761,
+          262,
+          330,
+          861,
+          14827,
+          7620,
+          323,
+          2532,
+          9013,
+          304,
+          15438,
+          20846,
+          702,
+          220,
+          5243,
+          92,
+          128009
+        ],
+        "generated_tokens": 110,
+        "response_token_count": 110,
+        "visible_non_eos_count": 109,
+        "eos_position_zero_based": 109,
+        "finish_reason": "stop",
+        "generated_text": "{\n  \"weekdayOpeningTime\": \"9\",\n  \"weekdayClosingTime\": \"6\",\n  \"availableServices\": [\n    \"Borrow books\",\n    \"Use study tables\",\n    \"Attend reading groups\",\n    \"Visit local history collection\",\n    \"Ask staff questions\",\n    \"Attend reading groups\",\n    \"Use meeting room for quiet study\",\n    \"Suggest new titles through paper request form\",\n    \"Attend groups meet monthly\",\n    \"Update online\",\n    \"List upcoming programs and service updates in monthly newsletter\"\n  ]\n}",
+        "generated_text_sha256": "46fb2fa49159acd745ba905d2cfd62219fd34216841a5bde15736d4e12cf08e1",
+        "time_to_first_token_seconds": 0.30439087499689776,
+        "request_seconds": 0.8587135830020998,
+        "decode_seconds": 0.554322708005202,
+        "decode_tokens_per_second": 196.6363607802571,
+        "api_decode_tokens_per_second": 201.60385026882454,
+        "prefill_tokens_per_second": 2134.949374296657,
+        "mlx_peak_memory_gb": 1.23005356,
+        "mlx_active_memory_gb": 0.720672776,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 720672776,
+          "cached_bytes": 66001474,
+          "peak_bytes": 1230053560,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 622,
+            "shapes": [
+              [
+                1,
+                8,
+                622,
+                64
+              ],
+              [
+                1,
+                8,
+                622,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          }
+        ],
+        "expected_cache_offset": 622,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "complete_json_object": true,
+        "semantic_schema": "unmeasured: baseline wording declares no fixed keys"
+      }
+    },
+    "natural-512-summarization": {
+      "prompt_sha256": "f99aa504fc495bae4e5250b91f9063ee3639c169879fc6e4ed597f4aefe107c3",
+      "generation": {
+        "output_token_ids": [
+          8586,
+          527,
+          2380,
+          64694,
+          34164,
+          29385,
+          4954,
+          279,
+          8554,
+          1473,
+          9,
+          362,
+          586,
+          6875,
+          27149,
+          505,
+          220,
+          24,
+          309,
+          311,
+          220,
+          21,
+          5298,
+          11,
+          449,
+          29865,
+          4207,
+          11911,
+          389,
+          279,
+          1938,
+          627,
+          9,
+          578,
+          6875,
+          6209,
+          5370,
+          3600,
+          11,
+          2737,
+          53675,
+          6603,
+          11,
+          1701,
+          4007,
+          12920,
+          11,
+          24096,
+          5403,
+          5315,
+          11,
+          323,
+          6574,
+          304,
+          279,
+          6574,
+          3130,
+          627,
+          9,
+          578,
+          6875,
+          5825,
+          9013,
+          389,
+          1202,
+          7640,
+          11,
+          2737,
+          264,
+          15438,
+          20846,
+          323,
+          2930,
+          9013,
+          13,
+          128009
+        ],
+        "generated_tokens": 76,
+        "response_token_count": 76,
+        "visible_non_eos_count": 75,
+        "eos_position_zero_based": 75,
+        "finish_reason": "stop",
+        "generated_text": "Here are three concise bullets summarizing the notes:\n\n* A public library operates from 9am to 6pm, with varying hours depending on the day.\n* The library offers various services, including borrowing books, using study tables, attending reading groups, and meeting in the meeting room.\n* The library provides updates on its activities, including a monthly newsletter and online updates.",
+        "generated_text_sha256": "e96ad79742978dc3e66d35271317dc476839637b813d12153a34080006e79225",
+        "time_to_first_token_seconds": 0.29213529100525193,
+        "request_seconds": 0.6730607500066981,
+        "decode_seconds": 0.38092545900144614,
+        "decode_tokens_per_second": 196.88891416342764,
+        "api_decode_tokens_per_second": 204.8093366120859,
+        "prefill_tokens_per_second": 2142.7295964270966,
+        "mlx_peak_memory_gb": 1.22907052,
+        "mlx_active_memory_gb": 0.720672776,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 720672776,
+          "cached_bytes": 89699776,
+          "peak_bytes": 1229070520,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 586,
+            "shapes": [
+              [
+                1,
+                8,
+                586,
+                64
+              ],
+              [
+                1,
+                8,
+                586,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          }
+        ],
+        "expected_cache_offset": 586,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "exactly_three_bullets": false
+      }
+    },
+    "forced-512-128": {
+      "prompt_sha256": "f99aa504fc495bae4e5250b91f9063ee3639c169879fc6e4ed597f4aefe107c3",
+      "generation": {
+        "output_token_ids": [
+          8586,
+          527,
+          2380,
+          64694,
+          34164,
+          29385,
+          4954,
+          279,
+          8554,
+          1473,
+          9,
+          362,
+          586,
+          6875,
+          27149,
+          505,
+          220,
+          24,
+          309,
+          311,
+          220,
+          21,
+          5298,
+          11,
+          449,
+          29865,
+          4207,
+          11911,
+          389,
+          279,
+          1938,
+          627,
+          9,
+          578,
+          6875,
+          6209,
+          5370,
+          3600,
+          11,
+          2737,
+          53675,
+          6603,
+          11,
+          1701,
+          4007,
+          12920,
+          11,
+          24096,
+          5403,
+          5315,
+          11,
+          323,
+          6574,
+          304,
+          279,
+          6574,
+          3130,
+          627,
+          9,
+          578,
+          6875,
+          5825,
+          9013,
+          389,
+          1202,
+          7640,
+          11,
+          2737,
+          264,
+          15438,
+          20846,
+          323,
+          2930,
+          9013,
+          13,
+          17381,
+          527,
+          2561,
+          311,
+          1520,
+          15613,
+          323,
+          4320,
+          4860,
+          13,
+          4815,
+          9290,
+          25,
+          358,
+          3077,
+          8774,
+          279,
+          4113,
+          1495,
+          35539,
+          11,
+          719,
+          75826,
+          433,
+          311,
+          5052,
+          279,
+          2380,
+          1481,
+          23180,
+          3645,
+          13,
+          6914,
+          757,
+          1440,
+          422,
+          499,
+          4265,
+          1093,
+          757,
+          311,
+          1304,
+          904,
+          4442,
+          0,
+          4815,
+          8586,
+          527,
+          279,
+          2380,
+          34164,
+          1578,
+          11
+        ],
+        "generated_tokens": 128,
+        "response_token_count": 128,
+        "visible_non_eos_count": 128,
+        "eos_position_zero_based": null,
+        "finish_reason": "length",
+        "generated_text": "Here are three concise bullets summarizing the notes:\n\n* A public library operates from 9am to 6pm, with varying hours depending on the day.\n* The library offers various services, including borrowing books, using study tables, attending reading groups, and meeting in the meeting room.\n* The library provides updates on its activities, including a monthly newsletter and online updates. Staff are available to help visitors and answer questions. \n\nNote: I've kept the original text intact, but condensed it to fit the three-bullet format. Let me know if you'd like me to make any changes! \n\nHere are the three bullets again,",
+        "generated_text_sha256": "3acba3b2e4643d6982789a6815ac880b20bf2a4467bcda131d0f2e7dd033a95a",
+        "time_to_first_token_seconds": 0.2988528340065386,
+        "request_seconds": 0.9368356670020148,
+        "decode_seconds": 0.6379828329954762,
+        "decode_tokens_per_second": 199.06491747388526,
+        "api_decode_tokens_per_second": 205.2287089836308,
+        "prefill_tokens_per_second": 2137.421536258671,
+        "mlx_peak_memory_gb": 1.229070544,
+        "mlx_active_memory_gb": 0.7206728,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 720672800,
+          "cached_bytes": 85556236,
+          "peak_bytes": 1229070544,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          },
+          {
+            "type": "KVCache",
+            "offset": 638,
+            "shapes": [
+              [
+                1,
+                8,
+                638,
+                64
+              ],
+              [
+                1,
+                8,
+                638,
+                64
+              ]
+            ],
+            "bytes": 1572864
+          }
+        ],
+        "expected_cache_offset": 638,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "forced_output": true
+      }
+    },
+    "natural-2048-qa": {
+      "prompt_sha256": "45b4194f4016d66f0475baa946c6fb630fee8488b1cee8cb15205ae5c69fabda",
+      "generation": {
+        "output_token_ids": [
+          791,
+          6875,
+          34350,
+          520,
+          220,
+          21,
+          389,
+          73095,
+          13,
+          128009
+        ],
+        "generated_tokens": 10,
+        "response_token_count": 10,
+        "visible_non_eos_count": 9,
+        "eos_position_zero_based": 9,
+        "finish_reason": "stop",
+        "generated_text": "The library closes at 6 on weekdays.",
+        "generated_text_sha256": "0e1f485f4c4ff0740b789acacb382dff7858a052ad65d15956fae0ee823a150f",
+        "time_to_first_token_seconds": 1.014091165998252,
+        "request_seconds": 1.0885869999910938,
+        "decode_seconds": 0.07449583399284165,
+        "decode_tokens_per_second": 120.81212488828322,
+        "api_decode_tokens_per_second": 155.16907041983296,
+        "prefill_tokens_per_second": 2159.2750937459073,
+        "mlx_peak_memory_gb": 1.54230588,
+        "mlx_active_memory_gb": 0.771004424,
+        "process_peak_rss_gb": 1.147928576,
+        "memory": {
+          "active_bytes": 771004424,
+          "cached_bytes": 195247686,
+          "peak_bytes": 1542305880,
+          "process_peak_rss_bytes": 1147928576
+        },
+        "cache": [
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          },
+          {
+            "type": "KVCache",
+            "offset": 2058,
+            "shapes": [
+              [
+                1,
+                8,
+                2058,
+                64
+              ],
+              [
+                1,
+                8,
+                2058,
+                64
+              ]
+            ],
+            "bytes": 4718592
+          }
+        ],
+        "expected_cache_offset": 2058,
+        "token_margin": "unmeasured; no extra GPU reduction inside primary timing"
+      },
+      "quality": {
+        "task_semantics": "unmeasured; token equivalence assessed separately"
+      }
+    }
+  },
+  "cases": [],
+  "events": [
+    {
+      "time": "2026-10-21T02:49:03.073101+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-64-qa",
+        "tokens": 21
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:03.432709+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-64-rewrite",
+        "tokens": 45
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:03.804466+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-64-context_question",
+        "tokens": 47
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:04.099059+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-64-extraction",
+        "tokens": 31
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:04.393256+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-64-summarization",
+        "tokens": 31
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:05.143233+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "forced-64-128",
+        "tokens": 128
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:05.572615+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-512-qa",
+        "tokens": 10
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:06.548242+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-512-rewrite",
+        "tokens": 128
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:06.971172+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-512-context_question",
+        "tokens": 15
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:07.871670+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-512-extraction",
+        "tokens": 110
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:08.594523+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "natural-512-summarization",
+        "tokens": 76
+      }
+    },
+    {
+      "time": "2026-10-21T02:49:09.580806+00:00",
+      "kind": "whole_model_pass",
+      "data": {
+        "id": "forced-512-128",
+        "tokens": 128
+      }
+    }
+  ],
+  "manifest": {
+    "mlx_lm.models.llama": "8b46ac7f11c7134c1d83f12ec6e05b3d64a30f18aa7468798437b2e413f80cdb",
+    "mlx_lm.generate": "270778ad53eaca55a8533d82e6752660fe5d2605c4aa0879b48a50a91f69345f",
+    "mlx.nn.layers.quantized": "1797a3571484ad3134224354b7f130c0931f495691aa8e54eb55329d674bb00b",
+    "models/Llama-3.2-1B-Instruct-4bit/model.safetensors": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd",
+    "models/Llama-3.2-1B-Instruct-4bit/config.json": "73bfb89e5a43c76ada2d7a9609862139578a71cfbb43e30bf5d4571026dd3741",
+    "models/Llama-3.2-1B-Instruct-4bit/tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+    "models/Llama-3.2-1B-Instruct-4bit/tokenizer_config.json": "022d5ae3df4737998ab97d8f31ac2bcb4c06dd8ebe5a8aba2b4aceef1e5ea7d3",
+    "experiments/experiment-8-packed-projections-plan.md": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+    "experiments/experiment-8-packed-projections-spec.md": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+    "benchmarks/run_experiment8_packed.py": "d0a8ca3a953a23bf2ab94d0fb52dbdf4f3f87cd98fedd4f4fb01c456870af3b0",
+    "benchmarks/run_baseline.py": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+    "benchmarks/experiment8_packing.py": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+    "benchmarks/fixtures/experiment2-sessions.json": "5be818be30762e37a43b5bb61ec9dcacc107478894a300c8d764a00d83873bcd"
+  },
+  "memory_preload": {
+    "active_bytes": 8,
+    "cached_bytes": 0,
+    "peak_bytes": 8,
+    "process_peak_rss_bytes": 104628224
+  },
+  "load_seconds": 0.7874808329943335,
+  "memory_loaded": {
+    "active_bytes": 695243528,
+    "cached_bytes": 1972,
+    "peak_bytes": 695243528,
+    "process_peak_rss_bytes": 1147928576
+  },
+  "parameter_bytes_before": 695242752,
+  "parameter_bytes_after": 695242752,
+  "memory_settled": {
+    "active_bytes": 695243528,
+    "cached_bytes": 0,
+    "peak_bytes": 695243528,
+    "process_peak_rss_bytes": 1147928576
+  },
+  "state_last": {
+    "swap_used_bytes": 4998886850,
+    "power_config": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         2\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         10\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10",
+    "supply": "Now drawing from 'Battery Power'",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "process_rss_bytes": 867598336,
+    "process_peak_rss_bytes": 1147928576
+  },
+  "failure": {
+    "type": "RuntimeError",
+    "message": "capacity_stop: system swap grew during arm"
+  },
+  "terminated_at_utc": "2026-10-21T02:49:10.714091+00:00",
+  "later_stages": "not run after hard gate failure",
+  "state_end": {
+    "swap_used_bytes": 5089263616,
+    "power_config": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         2\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         10\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10",
+    "supply": "Now drawing from 'Battery Power'",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "process_rss_bytes": 868155392,
+    "process_peak_rss_bytes": 1147928576
+  }
+}

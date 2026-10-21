@@ -1,0 +1,127 @@
+{
+  "experiment": "experiment8-packed-projections-offline-analysis",
+  "correctness_validation": {
+    "C": {
+      "errors": [],
+      "absolute_quality_pass": false
+    },
+    "G": {
+      "errors": [],
+      "absolute_quality_pass": false
+    }
+  },
+  "screen": {
+    "stage": "screen",
+    "candidates": [
+      {
+        "arm": "G",
+        "stage": "screen",
+        "eligible": false,
+        "errors": [],
+        "per_fixture_median_change_percent": {
+          "forced-64-128": {
+            "request_seconds": -1.0706504468563138,
+            "time_to_first_token_seconds": -3.5184922759505244,
+            "mlx_peak_memory_gb": 1.7285168904877413
+          },
+          "forced-512-128": {
+            "request_seconds": 2.1738728945963626,
+            "time_to_first_token_seconds": -0.14522271599194392,
+            "mlx_peak_memory_gb": 10.007130135938747
+          },
+          "forced-2048-128": {
+            "request_seconds": -0.7601882399919213,
+            "time_to_first_token_seconds": -1.7357528627760077,
+            "mlx_peak_memory_gb": 11.546607813319643
+          },
+          "forced-4096-128": {
+            "request_seconds": -0.11639467883952648,
+            "time_to_first_token_seconds": -0.05775194356674174,
+            "mlx_peak_memory_gb": 12.179967417567639
+          }
+        },
+        "by_length": {
+          "64": {
+            "observations_per_arm": 5,
+            "median_change_percent": {
+              "request_seconds": -1.0706504468563138,
+              "time_to_first_token_seconds": -3.5184922759505244,
+              "mlx_peak_memory_gb": 1.7285168904877413
+            },
+            "nearest_rank_p95_change_percent": {
+              "request_seconds": 0.466948705389858,
+              "time_to_first_token_seconds": -3.0563201997100498
+            }
+          },
+          "512": {
+            "observations_per_arm": 5,
+            "median_change_percent": {
+              "request_seconds": 2.1738728945963626,
+              "time_to_first_token_seconds": -0.14522271599194392,
+              "mlx_peak_memory_gb": 10.007130135938747
+            },
+            "nearest_rank_p95_change_percent": {
+              "request_seconds": 6.253713401651972,
+              "time_to_first_token_seconds": 12.1505020687102
+            }
+          },
+          "2048": {
+            "observations_per_arm": 5,
+            "median_change_percent": {
+              "request_seconds": -0.7601882399919213,
+              "time_to_first_token_seconds": -1.7357528627760077,
+              "mlx_peak_memory_gb": 11.546607813319643
+            },
+            "nearest_rank_p95_change_percent": {
+              "request_seconds": -3.803274707388604,
+              "time_to_first_token_seconds": -4.453355988560492
+            }
+          },
+          "4096": {
+            "observations_per_arm": 5,
+            "median_change_percent": {
+              "request_seconds": -0.11639467883952648,
+              "time_to_first_token_seconds": -0.05775194356674174,
+              "mlx_peak_memory_gb": 12.179967417567639
+            },
+            "nearest_rank_p95_change_percent": {
+              "request_seconds": -4.976248414773754,
+              "time_to_first_token_seconds": -6.973196503937917
+            }
+          }
+        },
+        "extra_startup_peak_bytes": 27787528,
+        "prerequisite_errors": [
+          "Stage-0 C: absolute task quality failed or unmeasured",
+          "Stage-0 G: absolute task quality failed or unmeasured"
+        ],
+        "gates": {
+          "matched_raw_output_cache_and_prompts": true,
+          "request_memory_at_most_105_percent": false,
+          "extra_startup_peak_at_most_512_mib": true,
+          "short_request_improvement_at_least_5_percent": false,
+          "all_lengths_request_and_ttft_regression_at_most_5_percent": true,
+          "stage0_correctness_and_absolute_quality": false
+        },
+        "mechanism_screen_pass": false,
+        "selection_key": [
+          0.5516112238700244,
+          -0.05775194356674174,
+          1,
+          2
+        ]
+      }
+    ],
+    "missing_arms": [
+      "Q",
+      "QG"
+    ],
+    "unresolved_arms": [
+      "Q",
+      "QG"
+    ],
+    "finalist": null,
+    "selection_frozen": false,
+    "selection_rule": "mean short request change; worst long request/TTFT regression; family count; Q/G/QG rank"
+  }
+}

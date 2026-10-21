@@ -1,0 +1,42 @@
+{
+  "reason": "Lossless archival of task-generated intermediate evidence to remain inside the predeclared 10 MB retained-output allowance; no user preexisting files touched.",
+  "archives": [
+    {
+      "original_path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r2.json",
+      "archive_path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r2.json.gz",
+      "uncompressed_sha256": "42457e44c976ccf083209d47f65b717b2c302fd9865c69acc1991db189806a70",
+      "uncompressed_bytes": 1230086,
+      "archive_sha256": "6dc2d496e77731ae11dc0558810a48960b786fd5119f116342fbec9943d6d828",
+      "retained_bytes": 62975,
+      "lossless_verified": true
+    },
+    {
+      "original_path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r1.partial.json",
+      "archive_path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r1.partial.json.gz",
+      "uncompressed_sha256": "f0abe6bb27dc359eda0cb4dbda5d1bdd1db8b27999765c5348fc3f97a48d733b",
+      "uncompressed_bytes": 111252,
+      "archive_sha256": "4291ebfd2bfc40bba667e7a8a6bc33175d7e93c92d74de31af3ca5091c573f87",
+      "retained_bytes": 9530,
+      "lossless_verified": true
+    },
+    {
+      "original_path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r2.json",
+      "archive_path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r2.json.gz",
+      "uncompressed_sha256": "280285de2116b5383f2964b173f235f200021474f1819ae3178c5b034d537c47",
+      "uncompressed_bytes": 5064,
+      "archive_sha256": "2fb4650e87df5264e17e8c85647633042ca17811b5089275838b673e58df685a",
+      "retained_bytes": 1779,
+      "lossless_verified": true
+    },
+    {
+      "original_path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json",
+      "archive_path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json.gz",
+      "uncompressed_sha256": "d25ed695816052786be329d7575aa540dcb0df0fb796bde51ae861e1ecefa84e",
+      "uncompressed_bytes": 2220890,
+      "archive_sha256": "cbc707e2e2f4e36ec3dcbcd4f47adcce2ec8f67d29b15bbc6db1e4373108479b",
+      "retained_bytes": 61028,
+      "lossless_verified": true,
+      "classification": "rejected arm, preserved exact raw evidence"
+    }
+  ]
+}

@@ -38,7 +38,7 @@ The baseline protocol is documented in
 | 5: KV-cache quantization | Reject all tested arms under the approved gates. |
 | 6: speculative decoding | Reject the full-1B Mixed-3/6 draft pairing. |
 | 7: runtime profiling | Complete: separate M2 phase rankings and isolated KV costs validated. Quantized matrix work dominates sampled prefill/decode; no custom-kernel win established. |
-| 8: packed quantized projections | [Proposed local M2 study](experiments/experiment-8-packed-projections-spec.md): group Q/K/V and gate/up using existing 4-bit matmul. No implementation or runs. |
+| 8: packed quantized projections | Reject tested arms: Q/QG fail exact tokens; G passes correctness but fails the bounded speed/memory screen. |
 
 ## Local setup
 
@@ -70,7 +70,8 @@ and a fixed chat-template date for repeatable prompts. GPU percentages are
 reported replay shader-cost shares, not request-time savings. The
 [historical M4 speculative-decoding design](research/experiment-8-and-followups-review.md)
 is reference material, separate from the local packed-projection proposal.
-No local Experiment 8 measurements have been run.
+Local Experiment 8 is complete at its declared elimination gates; see the
+[results](benchmarks/results/experiment8-packed-projections-analysis.md).
 
 Arno's M4 Pro / 24 GB results and the local M2 Pro / 16 GB results remain
 separate hardware datasets.
@@ -83,8 +84,12 @@ sample shares, not clean request fractions or measured speedups. The original
 `.gputrace` files remain unreplayed; new validated CLI evidence closes the
 diagnostic under the documented October 20 contract.
 
-The next proposed local experiment has a [specification](experiments/experiment-8-packed-projections-spec.md)
-and [ordered plan](experiments/experiment-8-packed-projections-plan.md). It tests
-whether grouping same-input projections helps the existing M2/1B deployment,
-with exact-output checks and a >=10% full-request performance gate. Proposal
-publication does not start implementation or benchmarks.
+Experiment 8 followed its [specification](experiments/experiment-8-packed-projections-spec.md)
+and [ordered plan](experiments/experiment-8-packed-projections-plan.md). QKV
+packing and combined packing fail exact output preservation. Gate/up packing
+passes 65 generation/history cases but achieves no >=5% short-request screen
+benefit and raises request peak memory about 10–12% at longer lengths. No
+finalist remains, so full confirmation is intentionally skipped. The
+[analysis and limitations](benchmarks/results/experiment8-packed-projections-analysis.md)
+include the exposed first-token tie, control-validator limitations, independent
+audits and the next research questions. Selected runtime settings are unchanged.

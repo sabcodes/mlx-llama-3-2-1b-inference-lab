@@ -1,0 +1,43 @@
+{
+  "mode": "staged_text_and_exact_decompressed_archive_content",
+  "ordinary_gate_utf8_crash_on_gzip": true,
+  "policy_changed": false,
+  "network_used": false,
+  "text_gate": {
+    "mode": "check-diff",
+    "findings": [],
+    "staged_only": false
+  },
+  "archives": [
+    {
+      "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r1.partial.json.gz",
+      "staged_container_sha256": "4291ebfd2bfc40bba667e7a8a6bc33175d7e93c92d74de31af3ca5091c573f87",
+      "logical_sha256": "f0abe6bb27dc359eda0cb4dbda5d1bdd1db8b27999765c5348fc3f97a48d733b",
+      "logical_bytes": 111252
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r2.json.gz",
+      "staged_container_sha256": "6dc2d496e77731ae11dc0558810a48960b786fd5119f116342fbec9943d6d828",
+      "logical_sha256": "42457e44c976ccf083209d47f65b717b2c302fd9865c69acc1991db189806a70",
+      "logical_bytes": 1230086
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r2.json.gz",
+      "staged_container_sha256": "2fb4650e87df5264e17e8c85647633042ca17811b5089275838b673e58df685a",
+      "logical_sha256": "280285de2116b5383f2964b173f235f200021474f1819ae3178c5b034d537c47",
+      "logical_bytes": 5064
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json.gz",
+      "staged_container_sha256": "cbc707e2e2f4e36ec3dcbcd4f47adcce2ec8f67d29b15bbc6db1e4373108479b",
+      "logical_sha256": "d25ed695816052786be329d7575aa540dcb0df0fb796bde51ae861e1ecefa84e",
+      "logical_bytes": 2220890
+    }
+  ],
+  "archive_findings": [],
+  "text_files_checked": 40,
+  "archive_files_checked": 4,
+  "limitations": "Uses existing local gate detectors; not a repository/history or comprehensive security audit.",
+  "index_only": true,
+  "text_command_semantics": "security-hook --cached -- <all staged non-gzip paths>; stock staged_only field is false only because args include explicit paths."
+}

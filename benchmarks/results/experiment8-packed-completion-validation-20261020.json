@@ -1,0 +1,71 @@
+{
+  "experiment": "experiment8-packed-projections",
+  "decision": "reject_tested_arms",
+  "completed_local_date": "2026-10-20",
+  "generated_at_utc": "2026-10-21T03:17:56.597028+00:00",
+  "stage2": "skipped_no_eligible_finalist",
+  "gpu_workers_remaining": false,
+  "focused_cpu_tests": {
+    "count": 51,
+    "result": "pass",
+    "command": "PYTHONDONTWRITEBYTECODE=1 ./.venv/bin/python -B -m unittest discover -s benchmarks -p 'test*experiment8*.py' -q"
+  },
+  "json_and_gzip_artifacts_parsed": [
+    "experiment8-adversarial-method-review-20261020-addendum.json",
+    "experiment8-adversarial-method-review-20261020-final.json",
+    "experiment8-adversarial-method-review-20261020-prelaunch.json",
+    "experiment8-packed-C-correctness-20261020-r1.json",
+    "experiment8-packed-C-correctness-20261020-r1.partial.json.gz",
+    "experiment8-packed-C-correctness-20261020-r2.json.gz",
+    "experiment8-packed-C-correctness-20261020-r3.json",
+    "experiment8-packed-C-screen-20261020-r3.json",
+    "experiment8-packed-G-correctness-20261020-r3.json",
+    "experiment8-packed-G-correctness-independent-audit-20261020-r3.json",
+    "experiment8-packed-G-screen-20261020-r3.json",
+    "experiment8-packed-Q-correctness-20261020-r2.json.gz",
+    "experiment8-packed-Q-correctness-20261020-r3.json.gz",
+    "experiment8-packed-Q-correctness-independent-audit-20261020-r3.json",
+    "experiment8-packed-QG-correctness-20261020-r3.json",
+    "experiment8-packed-final-independent-data-audit-20261020-r3.json",
+    "experiment8-packed-first-token-margin-20261020-r1.json",
+    "experiment8-packed-intermediate-archive-20261020.json",
+    "experiment8-packed-research-review-20261020.json",
+    "experiment8-packed-screen-analysis-20261020-final.json",
+    "experiment8-packed-screen-analysis-20261020-r3.json",
+    "experiment8-packed-screen-execution-20261020-r3.json",
+    "experiment8-packed-screen-order-20261020.json",
+    "experiment8-packed-stopped-control-audit-20261020.json"
+  ],
+  "frozen_source_hashes": "pass",
+  "local_document_links": "pass",
+  "output_bytes_before_this_receipt": 8960607,
+  "retained_output_budget_bytes": 10000000,
+  "runtime_packages": {
+    "mlx": "0.32.2",
+    "mlx-lm": "0.31.3",
+    "transformers": "5.17.0",
+    "tokenizers": "0.23.2",
+    "safetensors": "0.8.0",
+    "numpy": "2.5.3",
+    "huggingface-hub": "1.33.0"
+  },
+  "narrative_sha256": "38fb61075f78a81a9ef3f74dfd611445cd4d4e08e415b32e85d70b4f7bc65598",
+  "independent_audits": [
+    "experiment8-adversarial-method-review-20261020-final.json",
+    "experiment8-packed-final-independent-data-audit-20261020-r3.json"
+  ],
+  "narrative_precision_edits_after_review": [
+    "200 measurements per arm",
+    "AC low-power mode enabled",
+    "swap growth observed at recorded checks",
+    "gate definitions versus analyzer implementation chronology"
+  ],
+  "publication": "ready_after_staged_security_gate",
+  "staged_security_gate": {
+    "text_files": 40,
+    "gzip_archives": 4,
+    "findings": 0,
+    "archive_handling": "Stock gate --text diff crashes decoding gzip; unchanged detectors applied to exact decompressed staged bytes, with container/logical hashes. Text scope uses --cached -- explicit paths. No policy/configuration changes."
+  },
+  "retained_output_bytes_before_receipt_refresh": 8965283
+}

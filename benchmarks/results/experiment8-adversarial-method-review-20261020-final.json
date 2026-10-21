@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment8",
+  "review_type": "independent_final_adversarial_methods_audit",
+  "status": "pass_bounded_rejection_is_supported",
+  "errors": [],
+  "input_hashes": {
+    "experiment8-packed-C-correctness-20261020-r3.json": {
+      "logical_sha256": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48",
+      "retained_container_sha256": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48"
+    },
+    "experiment8-packed-Q-correctness-20261020-r3.json.gz": {
+      "logical_sha256": "d25ed695816052786be329d7575aa540dcb0df0fb796bde51ae861e1ecefa84e",
+      "retained_container_sha256": "cbc707e2e2f4e36ec3dcbcd4f47adcce2ec8f67d29b15bbc6db1e4373108479b"
+    },
+    "experiment8-packed-G-correctness-20261020-r3.json": {
+      "logical_sha256": "5c4ddeeb1b7fb03574478b63a6d5f8fcb5f10fd5ee0fd61c35ee2c1ed5e1cb83",
+      "retained_container_sha256": "5c4ddeeb1b7fb03574478b63a6d5f8fcb5f10fd5ee0fd61c35ee2c1ed5e1cb83"
+    },
+    "experiment8-packed-QG-correctness-20261020-r3.json": {
+      "logical_sha256": "92b693255d0367400691b4bcb70c84c8f2a269257f69f82418a1714aadcca952",
+      "retained_container_sha256": "92b693255d0367400691b4bcb70c84c8f2a269257f69f82418a1714aadcca952"
+    },
+    "experiment8-packed-C-screen-20261020-r3.json": {
+      "logical_sha256": "d50e4ded00e61cbb0b35c7f839039180fe8202b2e2566670d5b32d3394fcf1d8",
+      "retained_container_sha256": "d50e4ded00e61cbb0b35c7f839039180fe8202b2e2566670d5b32d3394fcf1d8"
+    },
+    "experiment8-packed-G-screen-20261020-r3.json": {
+      "logical_sha256": "8764b26d09591f10f864ba549b38ef776540ae04b1025d7c3cd1e05aa1a6a885",
+      "retained_container_sha256": "8764b26d09591f10f864ba549b38ef776540ae04b1025d7c3cd1e05aa1a6a885"
+    },
+    "experiment8-packed-screen-execution-20261020-r3.json": {
+      "logical_sha256": "81e5c9453ab2048e5815e07d4370abae6bede6b22286fcefa10d3d05573b1eaf",
+      "retained_container_sha256": "81e5c9453ab2048e5815e07d4370abae6bede6b22286fcefa10d3d05573b1eaf"
+    },
+    "experiment8-packed-first-token-margin-20261020-r1.json": {
+      "logical_sha256": "c11c17ffb3c1a24fccf751888fcc6407ac9f9049b3b2b5a09e8355f91981fee9",
+      "retained_container_sha256": "c11c17ffb3c1a24fccf751888fcc6407ac9f9049b3b2b5a09e8355f91981fee9"
+    }
+  },
+  "verified_frozen_source_snapshots": {
+    "benchmarks/results/experiment8-source-experiment-8-packed-projections-plan-20baac73bc5d.md": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+    "benchmarks/results/experiment8-source-experiment-8-packed-projections-spec-1f873a027282.md": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+    "benchmarks/results/experiment8-source-run_experiment8_packed-f493e12eee6f.py": "f493e12eee6f5a9f21b07e1d445cd88b1e34d72df5cef975a32b61066a0213e4",
+    "benchmarks/results/experiment8-source-run_baseline-b784784362f5.py": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+    "benchmarks/results/experiment8-source-experiment8_packing-75307991d64a.py": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2"
+  },
+  "stage0": {
+    "C": {
+      "worker_status": "pass",
+      "recorded_checks": 65,
+      "numeric_checks": 0,
+      "numeric_allclose_and_finite": true,
+      "maximum_absolute_projection_difference": null,
+      "absolute_quality_pass": false,
+      "failure": null
+    },
+    "Q": {
+      "worker_status": "rejected",
+      "recorded_checks": 3,
+      "numeric_checks": 4032,
+      "numeric_allclose_and_finite": true,
+      "maximum_absolute_projection_difference": 0.015625,
+      "absolute_quality_pass": null,
+      "failure": {
+        "type": "AssertionError",
+        "message": "whole_model_mismatch: natural-64-context_question"
+      }
+    },
+    "G": {
+      "worker_status": "pass",
+      "recorded_checks": 65,
+      "numeric_checks": 2688,
+      "numeric_allclose_and_finite": true,
+      "maximum_absolute_projection_difference": 0.03125,
+      "absolute_quality_pass": false,
+      "failure": null
+    },
+    "QG": {
+      "worker_status": "rejected",
+      "recorded_checks": 3,
+      "numeric_checks": 6720,
+      "numeric_allclose_and_finite": true,
+      "maximum_absolute_projection_difference": 0.03125,
+      "absolute_quality_pass": null,
+      "failure": {
+        "type": "AssertionError",
+        "message": "whole_model_mismatch: natural-64-context_question"
+      }
+    }
+  },
+  "screen_raw_recomputation": [
+    {
+      "target": 64,
+      "actual_prompt_tokens": 64,
+      "observations_per_arm": 5,
+      "request_seconds": {
+        "control_median": 0.7697657079988858,
+        "candidate_median": 0.761524208006449,
+        "candidate_change_percent": -1.0706504468563138
+      },
+      "time_to_first_token_seconds": {
+        "control_median": 0.13752933399518952,
+        "candidate_median": 0.13269037500140257,
+        "candidate_change_percent": -3.5184922759505244
+      },
+      "mlx_peak_memory_gb": {
+        "control_median": 0.836016592,
+        "candidate_median": 0.85046728,
+        "candidate_change_percent": 1.7285168904877413
+      }
+    },
+    {
+      "target": 512,
+      "actual_prompt_tokens": 510,
+      "observations_per_arm": 5,
+      "request_seconds": {
+        "control_median": 1.040916792000644,
+        "candidate_median": 1.063544999997248,
+        "candidate_change_percent": 2.1738728945963626
+      },
+      "time_to_first_token_seconds": {
+        "control_median": 0.3779539579991251,
+        "candidate_median": 0.37740508299611975,
+        "candidate_change_percent": -0.14522271599194392
+      },
+      "mlx_peak_memory_gb": {
+        "control_median": 1.229070536,
+        "candidate_median": 1.352065224,
+        "candidate_change_percent": 10.007130135938747
+      }
+    },
+    {
+      "target": 2048,
+      "actual_prompt_tokens": 2047,
+      "observations_per_arm": 5,
+      "request_seconds": {
+        "control_median": 2.0552913330029696,
+        "candidate_median": 2.0396672499919077,
+        "candidate_change_percent": -0.7601882399919213
+      },
+      "time_to_first_token_seconds": {
+        "control_median": 1.2594055000081426,
+        "candidate_median": 1.2375453329877928,
+        "candidate_change_percent": -1.7357528627760077
+      },
+      "mlx_peak_memory_gb": {
+        "control_median": 1.542109292,
+        "candidate_median": 1.720170604,
+        "candidate_change_percent": 11.546607813319643
+      }
+    },
+    {
+      "target": 4096,
+      "actual_prompt_tokens": 4096,
+      "observations_per_arm": 5,
+      "request_seconds": {
+        "control_median": 3.5074627499998314,
+        "candidate_median": 3.503380249996553,
+        "candidate_change_percent": -0.11639467883952648
+      },
+      "time_to_first_token_seconds": {
+        "control_median": 2.5341848750103964,
+        "candidate_median": 2.5327213339915033,
+        "candidate_change_percent": -0.05775194356674174
+      },
+      "mlx_peak_memory_gb": {
+        "control_median": 1.634637936,
+        "candidate_median": 1.833736304,
+        "candidate_change_percent": 12.179967417567639
+      }
+    }
+  ],
+  "screen_gates": {
+    "short_request_improvement_at_least_5_percent": false,
+    "all_request_and_ttft_regressions_at_most_5_percent": true,
+    "request_peak_memory_at_most_105_percent": false,
+    "packing_extra_bytes": 27787528,
+    "packing_extra_at_most_512_mib": true,
+    "absolute_quality": false
+  },
+  "capacity_and_counts": {
+    "C": {
+      "swap_start_bytes": 1888810434,
+      "swap_end_bytes": 1888810434,
+      "process_peak_rss_bytes": 1159200768,
+      "active_low_power_mode": "AC Power lowpowermode 1",
+      "screen_cold_requests": 1,
+      "warmups": 4,
+      "measured_requests": 20
+    },
+    "G": {
+      "swap_start_bytes": 1888810434,
+      "swap_end_bytes": 1888810434,
+      "process_peak_rss_bytes": 1157185536,
+      "active_low_power_mode": "AC Power lowpowermode 1",
+      "screen_cold_requests": 1,
+      "warmups": 4,
+      "measured_requests": 20
+    }
+  },
+  "first_token_margin": {
+    "C": {
+      "first_token": 40,
+      "top_two": [
+        {
+          "token_id": 40,
+          "log_probability": -1.46875,
+          "decoded_label": "I"
+        },
+        {
+          "token_id": 11439,
+          "log_probability": -1.46875,
+          "decoded_label": "According"
+        }
+      ],
+      "margin": 0.0
+    },
+    "Q": {
+      "first_token": 11439,
+      "top_two": [
+        {
+          "token_id": 11439,
+          "log_probability": -1.46875,
+          "decoded_label": "According"
+        },
+        {
+          "token_id": 40,
+          "log_probability": -1.484375,
+          "decoded_label": "I"
+        }
+      ],
+      "margin": 0.015625
+    }
+  },
+  "decision": {
+    "finalist": null,
+    "full_stage_required": false,
+    "full_stage_artifacts_present": false,
+    "outcome": "Reject tested candidates under frozen local contract; preserve unchanged deployment.",
+    "reason": "Q/QG violate exact tokens; G misses the short-request benefit threshold and exceeds request peak-memory allowance. Shared task-quality limitations also block promotion."
+  },
+  "precision_and_scope": [
+    "Five timing observations per forced summarization length support the preregistered screening decision, not a precise effect estimate, statistical equivalence claim, production tail claim, or general proof of no useful packing speedup.",
+    "C/G pass all 65 relative token/cache checks, including fresh/reuse history policies, but absolute task quality does not pass.",
+    "Numerical allclose passes do not imply identical greedy decisions. First-token log-probability observations are consistent with finite-precision near-tie sensitivity, but do not prove a complete causal decomposition or error bound.",
+    "Logical projection-call reduction and weight-byte preservation are established; Metal dispatch count, bandwidth reduction, and the mechanism of extra transient activation memory are unmeasured.",
+    "Measured request peaks include the common resident model; settled active bytes are equal. Extra G request peak is not evidence of retained duplicate weight parameters.",
+    "Primary timings include streaming and final generation-stream/default synchronization, while model load/packing and cache-object setup are outside the request boundary. Cold request and packing are separately recorded.",
+    "Screens ran sequentially C then G on AC low-power mode 1. Stable recorded power/swap/RSS and idle gaps do not establish constant clocks or continuous absence of background interference. No reversed-order full confirmation is warranted after failed screening.",
+    "Shared quality failures include non-JSON short extraction, three valid summary bullets plus extra introductory prose, and museum Monday/Mondays validator false negatives. Frozen flags remain unchanged; broad semantic quality is unmeasured.",
+    "Reuse cached_token_history_sha256 covers provided suffix plus outputs; complete rendered prompt identity is separately present in the history entry. It is not a numerical hash proving complete KV byte identity.",
+    "Only the specified C/Q/G/QG existing-API hypothesis was executed. Custom kernels, alternate layouts, larger models, other runtimes and relaxed semantic equivalence remain separate research questions; available avenues are not exhausted."
+  ],
+  "shared_control_quality_failure_keys": [
+    "natural-64-extraction",
+    "natural-64-summarization",
+    "natural-512-summarization",
+    "natural-4096-summarization",
+    "history-museum-fresh-0",
+    "history-museum-reuse-0"
+  ],
+  "testing": {
+    "source_test_method_count": 51,
+    "breakdown": {
+      "worker_and_diagnostic": 23,
+      "packing_source": 3,
+      "analyzer": 25
+    },
+    "execution_result": "51 passing tests reported by root; this reviewer independently ran 23 worker/diagnostic tests previously and counted all 51 source test methods.",
+    "new_gpu_work_by_reviewer": false
+  },
+  "retained_experiment8_bytes_before_this_report": 8915603,
+  "final_narrative_review": {
+    "path": "benchmarks/results/experiment8-packed-projections-analysis.md",
+    "reviewed_sha256": "c9b17b227df652403dced1047a76cd9905713e3970e50268937fff35eee10212",
+    "review_status": "no_blocking_numeric_or_classification_findings",
+    "independently_matched": [
+      "C/Q/G/QG dispositions",
+      "13440 numerical records",
+      "480 component-partition byte checks",
+      "all four request and peak-memory median changes",
+      "65-case inventory",
+      "Q first-token margin values",
+      "no finalist and no full-stage implication"
+    ],
+    "minor_precision_recommendations": [
+      "State AC low-power mode enabled (lowpowermode 1).",
+      "Describe swap as no growth observed at recorded checks rather than continuously established absence.",
+      "Refer to frozen fail-closed gate definitions before performance; claim analyzer implementation chronology only if supported by separate evidence."
+    ],
+    "frozen_contract_note": "Raw capture manifests validated against immutable frozen plan/spec/executable snapshots; live Markdown outcome updates intentionally differ and do not invalidate raw measurements."
+  }
+}

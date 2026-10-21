@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment8",
+  "review_type": "adversarial_cpu_audit_addendum",
+  "inputs": {
+    "benchmarks/results/experiment8-packed-C-correctness-20261020-r2.json": "42457e44c976ccf083209d47f65b717b2c302fd9865c69acc1991db189806a70",
+    "benchmarks/results/experiment8-packed-Q-correctness-20261020-r2.json": "280285de2116b5383f2964b173f235f200021474f1819ae3178c5b034d537c47"
+  },
+  "control_r2": {
+    "status": "pass",
+    "absolute_quality_pass": false,
+    "scope": "Completed equivalence reference, not an absolute task-quality pass."
+  },
+  "candidate_q_r2": {
+    "status": "rejected",
+    "failure": {
+      "type": "ValueError",
+      "message": "matched_control_contract_mismatch: settings"
+    },
+    "packing_present": false,
+    "completed_checks": 0,
+    "classification": "invalid_harness_setup_before_packed_evaluation",
+    "interpretation": "Tuple-versus-JSON-list settings comparison rejected an equivalent serialized contract; no packed numerical/model correctness result can be inferred."
+  },
+  "quality_findings": [
+    {
+      "case": "natural-64-extraction",
+      "recorded_quality": {
+        "complete_json_object": false,
+        "semantic_schema": "unmeasured: baseline wording declares no fixed keys"
+      },
+      "generated_text_sha256": "c6cf2771e7318151bd90fdd290814792723ba52f12340f2b47e84f5552871db3",
+      "recorded_gate_unchanged": true,
+      "classification": "non_json_control_output",
+      "interpretation": "Control declined extraction and requested notes; output is not a JSON object. This evidence does not by itself establish whether the short rendered prompt supplied sufficient notes."
+    },
+    {
+      "case": "natural-64-summarization",
+      "recorded_quality": {
+        "exactly_three_bullets": false
+      },
+      "generated_text_sha256": "b03d8ca38bf4423794e16e5235b0793d3d2d80680fa0665d2e38bd1656b464f7",
+      "recorded_gate_unchanged": true,
+      "classification": "strict_format_failure_due_to_introductory_prose",
+      "bullet_count": 3,
+      "non_bullet_lines": [
+        "Here are three concise bullets summarizing the notes:"
+      ],
+      "interpretation": "Exactly three bullets are present; failure concerns extra introductory prose, not missing/excess bullets."
+    },
+    {
+      "case": "natural-512-summarization",
+      "recorded_quality": {
+        "exactly_three_bullets": false
+      },
+      "generated_text_sha256": "e96ad79742978dc3e66d35271317dc476839637b813d12153a34080006e79225",
+      "recorded_gate_unchanged": true,
+      "classification": "strict_format_failure_due_to_introductory_prose",
+      "bullet_count": 3,
+      "non_bullet_lines": [
+        "Here are three concise bullets summarizing the notes:"
+      ],
+      "interpretation": "Exactly three bullets are present; failure concerns extra introductory prose, not missing/excess bullets."
+    },
+    {
+      "case": "natural-4096-summarization",
+      "recorded_quality": {
+        "exactly_three_bullets": false
+      },
+      "generated_text_sha256": "6fb72e2327c911505af5b059cb491078b3606f698fd8afab7dea0455d4d4797c",
+      "recorded_gate_unchanged": true,
+      "classification": "strict_format_failure_due_to_introductory_prose",
+      "bullet_count": 3,
+      "non_bullet_lines": [
+        "Here are three concise bullets summarizing the notes:"
+      ],
+      "interpretation": "Exactly three bullets are present; failure concerns extra introductory prose, not missing/excess bullets."
+    },
+    {
+      "case": "history-museum-fresh-0",
+      "recorded_quality": {
+        "required_fact": false,
+        "expected": "Monday",
+        "alternatives": [
+          "Monday"
+        ]
+      },
+      "generated_text_sha256": "21d2d3691e34f4b15963eac34f0b1fa59a55ecb3547a2f807fc42382620ef288",
+      "recorded_gate_unchanged": true,
+      "classification": "validator_false_negative_for_plural_weekday",
+      "interpretation": "Expected Monday; output says Mondays. The answer identifies the correct closed weekday. Frozen token-boundary validator does not declare this plural alternative."
+    },
+    {
+      "case": "history-museum-reuse-0",
+      "recorded_quality": {
+        "required_fact": false,
+        "expected": "Monday",
+        "alternatives": [
+          "Monday"
+        ]
+      },
+      "generated_text_sha256": "21d2d3691e34f4b15963eac34f0b1fa59a55ecb3547a2f807fc42382620ef288",
+      "recorded_gate_unchanged": true,
+      "classification": "validator_false_negative_for_plural_weekday",
+      "interpretation": "Expected Monday; output says Mondays. The answer identifies the correct closed weekday. Frozen token-boundary validator does not declare this plural alternative."
+    }
+  ],
+  "preregistration_disposition": "Preserve recorded failures and raw outputs; retain distinct diagnostic classifications. Do not silently loosen frozen quality gates or treat the invalid Q setup as evidence against packing.",
+  "cpu_regression_tests": {
+    "path": "benchmarks/test_experiment8_worker.py",
+    "count": 19,
+    "result": "pass",
+    "added": "Nested tuple/list JSON contract normalization preserves digest, while changed values/order/greedy setting differ."
+  },
+  "gpu_work_performed": false,
+  "worker_modified": false
+}

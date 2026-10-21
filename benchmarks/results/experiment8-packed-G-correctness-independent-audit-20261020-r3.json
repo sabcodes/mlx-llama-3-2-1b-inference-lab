@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "review_type": "independent_adversarial_saved_data_and_source_audit",
+  "reviewer": "research_review_subagent",
+  "audited_at_utc": "2026-10-21T03:07:32.749582+00:00",
+  "inputs": [
+    {
+      "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json",
+      "sha256": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-G-correctness-20261020-r3.json",
+      "sha256": "5c4ddeeb1b7fb03574478b63a6d5f8fcb5f10fd5ee0fd61c35ee2c1ed5e1cb83"
+    }
+  ],
+  "verdict": "G_preserves_all_declared_test_outputs_diagnostic_screen_allowed_absolute_quality_blocks_selection",
+  "matched_contract": {
+    "workload_id": true,
+    "settings": true,
+    "manifest": true,
+    "environment": true,
+    "frozen_sources": true
+  },
+  "source_snapshots": [
+    {
+      "source": "experiments/experiment-8-packed-projections-plan.md",
+      "snapshot": "benchmarks/results/experiment8-source-experiment-8-packed-projections-plan-20baac73bc5d.md",
+      "sha256": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+      "matches": true
+    },
+    {
+      "source": "experiments/experiment-8-packed-projections-spec.md",
+      "snapshot": "benchmarks/results/experiment8-source-experiment-8-packed-projections-spec-1f873a027282.md",
+      "sha256": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+      "matches": true
+    },
+    {
+      "source": "benchmarks/run_experiment8_packed.py",
+      "snapshot": "benchmarks/results/experiment8-source-run_experiment8_packed-f493e12eee6f.py",
+      "sha256": "f493e12eee6f5a9f21b07e1d445cd88b1e34d72df5cef975a32b61066a0213e4",
+      "matches": true
+    },
+    {
+      "source": "benchmarks/run_baseline.py",
+      "snapshot": "benchmarks/results/experiment8-source-run_baseline-b784784362f5.py",
+      "sha256": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+      "matches": true
+    },
+    {
+      "source": "benchmarks/experiment8_packing.py",
+      "snapshot": "benchmarks/results/experiment8-source-experiment8_packing-75307991d64a.py",
+      "sha256": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+      "matches": true
+    }
+  ],
+  "numerical_evidence": {
+    "expected_count": 2688,
+    "record_count": 2688,
+    "unique_grid_count": 2688,
+    "grid_complete": true,
+    "duplicate_count": 0,
+    "invalid_records": [],
+    "finite_and_allclose": true,
+    "atol": 0.01,
+    "rtol": 0.01,
+    "nonzero_difference_records": 960,
+    "max_abs": 0.03125,
+    "max_rms": 0.0003847578482236713,
+    "max_abs_example": {
+      "layer": 1,
+      "family": "G",
+      "rows": 9,
+      "input": "activation",
+      "dtype": "mlx.core.float16",
+      "component": 1,
+      "max_abs": 0.03125,
+      "rms": 0.00013215771468821913,
+      "finite": true,
+      "allclose": true,
+      "output_shape": [
+        1,
+        9,
+        8192
+      ],
+      "output_strides": null
+    },
+    "scope": "16 layers * 21 row counts * 4 input families * 2 gate/up components; saved flags and scalar consistency audited, raw tensors not re-evaluated."
+  },
+  "packing_evidence": {
+    "families": 16,
+    "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "component_byte_checks": 96,
+    "expected_component_byte_checks": 96,
+    "byte_grid_complete": true,
+    "all_saved_bitwise_and_metadata_pass": true,
+    "metadata_failure_layers": [],
+    "family_bytes_before": 301989888,
+    "family_bytes_after": 301989888,
+    "model_bytes_before": 695242752,
+    "model_bytes_after": 695242752,
+    "control_model_bytes": 695242752,
+    "saved_original_arrays_not_retained_and_tied_head_preserved": true
+  },
+  "whole_model_evidence": {
+    "C_status": "pass",
+    "G_status": "pass",
+    "G_completed_at_utc": "2026-10-21T03:03:57.851961+00:00",
+    "total_cases": 65,
+    "case_ids_identical": true,
+    "single_cases": 25,
+    "history_cases": 40,
+    "exact_fields_independently_compared": [
+      "output_token_ids",
+      "generated_tokens",
+      "response_token_count",
+      "visible_non_eos_count",
+      "eos_position_zero_based",
+      "finish_reason",
+      "cache",
+      "generated_text_sha256",
+      "expected_cache_offset",
+      "cache_finite",
+      "cached_token_history_sha256"
+    ],
+    "comparison_issues": [],
+    "finite_cache_flags_true": 65,
+    "single_cache_offset_metadata_consistent": 25,
+    "history_prompt_suffix_output_hashes_verified": 40,
+    "history_expected_offsets_recomputed": 40,
+    "history_prefix_reuse_counts_recomputed": 40,
+    "natural_cases": 20,
+    "forced_cases": 5,
+    "note": "Every saved G case equals its C counterpart in exact output/cache evidence. For single requests prompt token IDs are not retained, so expected offsets are checked against all layer states and C rather than independent re-tokenization. History offsets/hashes/prefixes are recomputed directly from retained token IDs."
+  },
+  "machine_gates": {
+    "swap_start_reported_bytes": 1888810434,
+    "swap_end_reported_bytes": 1888810434,
+    "swap_growth_reported_bytes": 0,
+    "swap_growth_observed": false,
+    "process_peak_rss_bytes": 1157808128,
+    "rss_limit_bytes": 8589934592,
+    "rss_within_limit": true,
+    "supply": "Now drawing from 'AC Power'",
+    "power_supply_and_config_stable": true,
+    "thermal_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "thermal_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "limits": "Endpoint state plus frozen worker capacity checks; no independent continuous telemetry was captured."
+  },
+  "quality": {
+    "absolute_quality_pass": false,
+    "same_quality_evidence_as_control": true,
+    "explicit_failures": {
+      "natural-64-extraction": {
+        "complete_json_object": false,
+        "semantic_schema": "unmeasured: baseline wording declares no fixed keys"
+      },
+      "natural-64-summarization": {
+        "exactly_three_bullets": false
+      },
+      "natural-512-summarization": {
+        "exactly_three_bullets": false
+      },
+      "natural-4096-summarization": {
+        "exactly_three_bullets": false
+      },
+      "history-museum-fresh-0": {
+        "required_fact": false,
+        "expected": "Monday",
+        "alternatives": [
+          "Monday"
+        ]
+      },
+      "history-museum-reuse-0": {
+        "required_fact": false,
+        "expected": "Monday",
+        "alternatives": [
+          "Monday"
+        ]
+      }
+    },
+    "interpretation": "Output preservation passes on this finite suite. Shared control format/fact failures and unmeasured semantic checks prevent an absolute-quality or final-selection claim. Harness status pass means suite completion, not passed task quality."
+  },
+  "gate_disposition": {
+    "numerical_saved_evidence": "pass",
+    "byte_saved_evidence": "pass",
+    "exact_output_and_cache_suite": "pass",
+    "capacity_saved_evidence": "pass",
+    "absolute_quality": "fail",
+    "clean_forced128_screen": "allowed_as_bounded_diagnostic",
+    "final_selection": "blocked_by_absolute_quality",
+    "speed_claim": "none",
+    "deployment_claim": "none"
+  },
+  "memory_limitations": "Correctness packing peak contains numerical diagnostic allocations; clean screen must acquire a fresh matched C and G and measure packing-only/request memory independently. Correctness timing fields are not speed evidence.",
+  "source_identity_limitations": "Five frozen governing source/spec snapshots hashed; manifests match. Large checkpoint weights were not reread while another arm was active. No GPU or tokenizer imports were performed by this auditor.",
+  "gpu_work_performed": false,
+  "tokenizer_imported": false,
+  "limitations": [
+    "Saved finite/allclose and byte identity checks were not rerun on original tensors.",
+    "The suite cannot prove equality for all prompts, sampling policies, cache lifecycles, or future runtime versions.",
+    "Public pinned API does not expose array strides, so layout/copy claims remain limited.",
+    "This audit does not cover active QG or any later timing screen."
+  ]
+}

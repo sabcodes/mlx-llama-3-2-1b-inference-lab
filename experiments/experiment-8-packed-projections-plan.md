@@ -1,7 +1,7 @@
 # Experiment 8 execution plan: packed quantized projections on M2
 
 Date: 2026-10-20
-Status: proposed; design published separately from execution. No runs/results.
+Status: completed 2026-10-20; tested arms rejected at predeclared gates.
 Specification: [experiment-8-packed-projections-spec.md](experiment-8-packed-projections-spec.md).
 
 ## Intent
@@ -21,28 +21,23 @@ of the historical M4 speculative-decoding reference design.
 - [x] Save the proposal in Obsidian and update repository navigation/context.
 - [x] Validate links and scope; pass staged-content gate; publish and verify GitHub.
 
-## Ordered execution checklist (future work; not started)
+## Ordered execution checklist (completion record)
 
-- [ ] 0. Recheck source/model hashes, versions, exact source shapes, local iCloud
-  availability, storage budget and stable power conditions. Record a run manifest.
-- [ ] 1. Add the minimum experiment-local row-packing adapter. Materialize once,
-  preserve all quantization fields and output splits, release old references,
-  leave embedding/output head and downstream operations unchanged.
-- [ ] 2. Prove byte identity and numerical behavior on all layers and declared
-  boundary shapes. Measure logical parameter bytes before/after and packing peak.
-- [ ] 3. Pass exact whole-model token/EOS/finish and history/cache correctness
-  checks for each arm. Stop each failing arm; retain failure evidence.
-- [ ] 4. Screen surviving C/Q/G/QG arms on the four summarization lengths,
-  forced 128 tokens, one warmup and five measurements. Freeze at most one finalist
-  using the specification's deterministic rule; stop if none survives.
-- [ ] 5. Run a new C/finalist diverse comparison: 20 fixtures, 10 measurements
-  each, normal EOS/cap 128, fresh cache and identical prompt hashes.
-- [ ] 6. Independently repeat with reversed arm order, same gates and fresh
-  processes. Do not aggregate away a failed capture or change gates post hoc.
-- [ ] 7. Audit completion, raw metrics, outputs, memory and startup. Classify
-  reject/inconclusive/select; record limitations and the exact scope of any win.
-- [ ] 8. Update analysis/context/Obsidian and publish intended sanitized artifacts.
-  A deployment/default change is separate from selecting a benchmark candidate.
+- [x] 0. Rechecked local model/runtime/source/device, storage, power and capacity;
+  final r3 captures retain immutable preregistration/source snapshots.
+- [x] 1. Added experiment-local row packing; no site-packages or checkpoint edits.
+- [x] 2. All 16 layers/families pass exact component bytes and numerical grids;
+  parameter bytes remain unchanged.
+- [x] 3. Evaluated whole-model/history/cache gates. G passes 65 cases; Q/QG
+  stop at their first exact-token mismatch, with rejected evidence preserved.
+- [x] 4. Screened the surviving C/G arms with four forced-128 fixtures and five
+  measurements each. Both short benefit and request-memory gates reject G.
+- [x] 5. Conditional full diverse comparison skipped: no eligible finalist.
+- [x] 6. Conditional reverse-order confirmation skipped: no eligible finalist.
+- [x] 7. Audited raw metrics, source, order, capacity and outcome independently.
+  All tested arms rejected; no general speed/quality claim or default change.
+- [ ] 8. Final publication/readback checkpoint; analysis, context and private
+  knowledge records updated. Deployment is a separate change.
 
 ## Measurement inventory
 
@@ -101,3 +96,62 @@ experiment/task/project/decision/evidence/board/index/daily/operation notes were
 updated and read back with no unresolved links. Design is Done; execution stays
 planned. All unchecked execution items above are intentional future work.
 No runtime implementation, benchmark, installation or model allocation ran.
+
+## Execution preregistration amendment (2026-10-20, before implementation)
+
+The user now authorizes implementation and execution in this project. Follow
+the existing ordered checklist, with adversarial method/source review before
+timing and a separate result audit after execution. First update this plan,
+then the specification, then implement the experiment-local adapter and runner.
+Reuse the local checkpoint/environment. Retained timing/check JSON and logs
+are bounded to 10 MB; no new model/runtime, exports, GPU traces, or external
+location. The model is downloaded; free space is approximately 32 GiB.
+
+Add source-derived dispatch-boundary tests (9/10/11, 12/13, 17/18/19) to
+the existing shapes. Validate Q and G families independently; QG must pass
+both and its own whole-model gate. Stop on the first hard failure per arm,
+preserve its exact failure, and skip later gates/timing for rejected arms.
+Do not reinterpret a control quality defect as an optimization regression:
+record control defects separately; candidate must preserve exact outputs and
+introduce no new required-fact/format defect. A known control defect is a
+limitation on selecting a useful deployment, not evidence of candidate quality.
+
+Record AC/battery/low-power and swap state at process boundaries and check
+swap/RSS between cases. Hold power mode fixed; stop timing on a changed state.
+Synchronized request end includes generation-stream lookahead completion.
+Cache inspection/materialization and output checks occur after that boundary
+and remain identical for every arm. Do not retain response logprob arrays.
+Screen order seed is 20261020; stage-2 order remains C/finalist then finalist/C.
+All source files and the frozen plan/spec are hashed in each result manifest.
+Unknown counters or unavailable measurements are explicit, never assumed zero.
+
+Unconventional ideas are evaluated in a cited research feasibility matrix;
+new mechanisms/weights/runtimes require a separately registered experiment.
+This experiment exhausts its declared C/Q/G/QG arms, not all possible inference
+optimizations. Any later scope extension requires new predeclared gates.
+
+Final preimplementation review details: input dtype follows the checkpoint
+embedding activation dtype; bounded random inputs use MLX seed 20261020 and
+uniform [-1,1]. Capture layer-normalized attention and MLP activations from
+the fixed 2,048-target summarization fixture; keep at most 65 rows per layer
+and tile those rows for larger diagnostic shapes. All shapes are sequential.
+Use fixed arm rank Q,G,QG as final selection tie-break; never promote a second
+finalist after confirmation failure. Record first differing token and preceding
+control/candidate top-two logprob margins if available. Before each timing
+process use the same 10-second idle interval and record power/thermal status;
+second full pair reverses fixture order. Shared control quality defects prevent
+an absolute quality-pass/selection claim, while equivalence remains reportable.
+
+## Execution outcome, 2026-10-20
+
+All declared arms are resolved. Q/QG pass numerical tolerance and exact packed
+bytes but fail the exact-token gate. G passes all 65 generation/history/cache
+cases, then fails the >=5% short-request screen benefit and <=105% request
+peak-memory gates. No finalist remains. Conditional full comparison and
+reverse-order confirmation are intentionally skipped, not unfinished work.
+No gate was loosened and no selected runtime setting changes.
+
+The [final analysis](../benchmarks/results/experiment8-packed-projections-analysis.md)
+records raw results, excluded swap/setup attempts, the first-token diagnostic,
+validator limitations and independent reviews. Immutable preregistration and
+source snapshots accompany r3 captures; this live document now includes outcome.

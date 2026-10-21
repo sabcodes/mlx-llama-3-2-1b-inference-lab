@@ -200,21 +200,32 @@ Evidence: `benchmarks/results/experiment7-m2pro-phase-and-kv-analysis-20261020.m
 and workload/provenance JSON, plus the historical October 19 review/confirmation.
 Specification and execution plan remain in `experiments/`.
 
-### Experiment 8: packed quantized projections (proposed)
+### Experiment 8: packed quantized projections
 
-The next local M2/1B question is whether packing same-input Q/K/V and gate/up
-projections into existing quantized matmuls reduces full-request time without
-changing weight values or greedy tokens. Arms are unchanged, QKV-only,
-gate/up-only and both. This follows the local Experiment 7 diagnosis; it is
-independent of the historical M4 3B/1B speculative-decoding reference proposal.
+Completed 2026-10-20; reject the tested arms and retain current settings.
+The plan and spec were refreshed before implementation. All 13,440 numerical
+comparisons and packed component bytes pass; parameters remain 695,242,752 bytes.
+QKV-only and combined arms fail exact tokens at the first token of the
+64-target context question. A separate diagnostic reproduces an exposed fp16
+tie in C and a 0.015625 logprob lead for the different Q token.
 
-Specification: `experiments/experiment-8-packed-projections-spec.md`.
-Execution plan: `experiments/experiment-8-packed-projections-plan.md`.
-Status: proposal only; no adapter, benchmark runs or speedup results. New matched
-controls, exact-output/cache gates, a bounded screen and two independent full
-captures are required. Promotion needs >=10% lower median request time at both
-short lengths, with tail, per-fixture, long-prompt and memory gates passing.
-No selected runtime setting changes. Implementation/execution is future work.
+Gate/up-only passes all 65 exact single/history/cache cases. Its clean
+four-length forced-128 screen (five repetitions per length/arm) changes median
+request time -1.07%/+2.17%/-0.76%/-0.12%. It misses the >=5% short-request
+screen benefit and raises request peak MLX memory 10.01–12.18% at the three
+longer lengths. No finalist remains; the conditional full suite and reversed
+confirmation were not run. These bounded results are elimination evidence.
+
+Absolute task quality remains incomplete: strict bullet/weekday validators
+produce false-negative flags and extraction lacks a semantic schema. Raw flags
+are preserved; no general quality or production deployment claim is made.
+An initial swap stop and tuple/list harness setup failure were excluded; final
+r3 captures share frozen source/spec snapshots and pass capacity/power checks.
+
+Evidence: `benchmarks/results/experiment8-packed-projections-analysis.md`,
+final correctness/screen JSON, independent audits and the execution research
+feasibility matrix. Plan/spec remain in `experiments/`; immutable pre-execution
+versions are retained with result source snapshots.
 
 ## Known evidence limitations
 
@@ -236,19 +247,19 @@ No selected runtime setting changes. Implementation/execution is future work.
 
 ## Next research choices
 
-1. Proposed local Experiment 8: test packed Q/K/V and gate/up projections using
-   the existing MLX quantized path. Follow its specification and ordered plan;
-   design/publication is complete separately from implementation/execution.
-2. If packing fails, retain the measured rejection and reconsider the next
-   mechanism from evidence; custom kernels still require a concrete correctness-
-   preserving candidate and measured full-request improvement.
-3. Extend the practical chat suite with real multi-turn histories and mechanically
-   separate fact, format, contradiction and structure gates.
-4. Confirm any future winner with the diverse benchmark and independent capture.
+1. Repair the practical quality contract with adequate supplied notes, explicit
+   JSON schemas, fact alternatives and requested-format semantics.
+2. If continuing the matrix path, preregister a new mechanism: phase-specific
+   packing/contiguous outputs or fused projection/activation. Do not rescue
+   rejected Experiment 8 arms post hoc.
+3. Consider a small stateless greedy-sampling seam or a separately controlled
+   newer-runtime study only when evidence justifies it. No upgrade is selected.
+4. Confirm any future winner on the full diverse workload in independent
+   captures; benchmark selection remains separate from production integration.
 
-The historical M4 3B-target/1B-draft design in
-`research/experiment-8-and-followups-review.md` remains reference-only, not the
-local Experiment 8 or a required continuation. No larger model is selected.
+The historical M4 3B-target/1B-draft design remains reference-only. The dated
+Experiment 8 execution research note maps conventional/unconventional options
+and explains why other hardware/runtime claims are not local measurements.
 
 ## Repository and privacy boundaries
 

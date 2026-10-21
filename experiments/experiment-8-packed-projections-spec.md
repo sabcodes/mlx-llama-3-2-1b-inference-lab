@@ -1,7 +1,7 @@
 # Experiment 8 (local M2): packed quantized projections
 
 Date: 2026-10-20
-Status: proposed; source/design review only. No implementation or runs.
+Status: completed 2026-10-20; tested arms rejected at predeclared gates.
 
 ## Question and hypothesis
 
@@ -84,7 +84,8 @@ tied output-head identity. Stop on incompatibility; do not install a substitute.
 2. Compare separate versus packed projections on zeros, ones, seeded bounded
    random inputs and captured model activations. Include single-token decode
    and prefill row counts around dispatch/chunk boundaries: 1/2/31/32/33,
-   63/64/65, 2,046/2,047/2,048/2,049 and 4,095. No nonfinite values; diagnostic
+   63/64/65, 2,046/2,047/2,048/2,049 and 4,095. Also test 9/10/11,
+   12/13 and 17/18/19 around pinned quantized dispatch transitions. No nonfinite values; diagnostic
    allclose tolerance is atol=1e-2, rtol=1e-2. Retain maximum/RMS differences.
    This tolerance never excuses a token mismatch.
 3. Compare complete greedy token IDs, output lengths, EOS position and finish
@@ -97,11 +98,13 @@ tied output-head identity. Stop on incompatibility; do not install a substitute.
    This does not mix cache reuse into the primary fresh-cache speed benchmark.
 
 Any packed-byte mismatch, numeric failure, token mismatch, invalid cache, crash
-or required-fact/format failure rejects the affected arm before speed selection.
+or new required-fact/format failure against a passing control rejects the affected
+arm before speed selection. Stop at the first hard failure and retain evidence;
+subsequent gates for that arm are explicitly skipped.
 Check required facts, complete JSON structure and requested item counts when
 reusing quality fixtures; do not repeat Experiment 5's permissive substring
-checks. If control itself fails a fixture, document it rather than calling the
-candidate correct. Numerical differences or failures may motivate a new design,
+checks. If control itself fails a fixture, document that shared limitation separately;
+exact output identity establishes preservation, not task-quality correctness. Numerical differences or failures may motivate a new design,
 but do not loosen gates after inspecting an arm's performance.
 
 ## Stage 1: bounded mechanism and request screen
@@ -175,8 +178,9 @@ checks, correctness failures, screen selection and independent confirmation.
 Update analysis, current context, Obsidian task/board/daily/decision/evidence
 notes and GitHub after the staged-content gate. Preserve rejected results.
 
-This request authorizes designing and publishing the proposal, not implementing
-or running the experiment. Current writes are small Markdown notes only.
+The original proposal was design-only. On 2026-10-20 the user authorized
+implementation and execution following the refreshed ordered plan. Retained
+outputs remain within the proposed 10 MB timing/check/log allowance.
 Execution is expected to need no retained model/runtime downloads or model
 exports. A naive combined packing can temporarily duplicate about 342 MiB of
 quantized parameters across 16 layers; layerwise construction should reduce
@@ -194,3 +198,67 @@ Checked 2026-10-20; installed pinned source governs execution, not current docs:
 - [Pinned MLX v0.32.2 quantized linear path](https://github.com/ml-explore/mlx/blob/v0.32.2/python/mlx/nn/layers/quantized.py).
 - [Quantized matmul API](https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.quantized_matmul.html): current documentation is 0.32.4; confirm against installed 0.32.2 stubs before implementing.
 - Model dimensions and quantization are pinned by the existing `models/Llama-3.2-1B-Instruct-4bit/config.json` and Experiment 7 source/model manifest; these local artifacts are not newly downloaded.
+
+## Execution measurement clarifications (frozen before implementation)
+
+Pinned generator source has one-token asynchronous lookahead. Synchronize
+`generation_stream` and the default stream before request start and at request
+end, including early-EOS closure; record end before post-request cache inspection.
+Never retain response logprobs across tokens or requests. Record emitted response
+token IDs including terminal EOS, terminal finish reason, actual emitted response
+count, and visible non-EOS count separately; the API generation count includes
+terminal EOS. Do not confuse them with evaluated lookahead model calls.
+
+Record KV offsets, shapes, types and state/token signatures as correctness
+evidence; compare arms under the same policy, not fresh versus reused caches
+against one another. Prefix reuse must trim the cache to the common exact
+rendered prefix and pass only its uncached suffix. Keep history construction
+and assistant responses identical to matched control.
+
+Record `pmset` power conditions, OS/device, swap bytes and process RSS at
+process/case boundaries. Compare low-power setting and external supply state,
+not fluctuating battery percentage. A changed power mode invalidates timing;
+swap growth or process RSS >8 GiB stops the arm. Unavailable swap/RSS data
+blocks promotion rather than being inferred as zero. Packing peak and retained
+parameter bytes are independent of request-reset MLX peaks; track both.
+
+Screen arm order is generated once using seed 20261020 and stored before
+measurements. Stop each arm after a hard correctness failure; stage-2 remains
+conditional on a surviving finalist. Cold/startup metrics are separate from
+warm measurements. Retain a frozen plan/spec SHA-256 alongside source hashes.
+No gate is relaxed after observing output or performance.
+
+### Final preimplementation numerical and disposition rules
+
+Numerical inputs use the embedding activation dtype, zeros, ones, uniform
+[-1,1] with seed 20261020, and real normalized attention/MLP activations
+from the fixed 2,048-target summarization fixture. Retain <=65 rows per layer
+and tile those for larger diagnostic shapes. Evaluate one input/shape/family
+at a time; save scalar max/RMS differences and first failure. Fixed final
+selection tie-break is Q, then G, then QG. A failed finalist ends confirmation.
+
+Quality validators: extraction must parse as one complete JSON object
+(optionally a single complete fenced JSON block), never a substring;
+summarization must contain exactly three nonempty bullet lines; history fact
+checks use fixture alternatives, with observed control wording limitations
+recorded separately. Any shared control failure leaves absolute quality
+unpassed and blocks selection; exact tokens alone establish equivalence.
+A ten-second idle interval precedes each timing process; record OS thermal
+status where available and reverse fixture order for confirmation pair two.
+Packing gate compares MLX peak bytes (extra <=512 MiB); also disclose RSS
+high-water and cached allocator bytes without confusing them with active
+allocation. Process RSS hard limit is 8*2**30 bytes.
+
+## Execution outcome, 2026-10-20
+
+All declared arms are resolved. Q/QG pass numerical tolerance and exact packed
+bytes but fail the exact-token gate. G passes all 65 generation/history/cache
+cases, then fails the >=5% short-request screen benefit and <=105% request
+peak-memory gates. No finalist remains. Conditional full comparison and
+reverse-order confirmation are intentionally skipped, not unfinished work.
+No gate was loosened and no selected runtime setting changes.
+
+The [final analysis](../benchmarks/results/experiment8-packed-projections-analysis.md)
+records raw results, excluded swap/setup attempts, the first-token diagnostic,
+validator limitations and independent reviews. Immutable preregistration and
+source snapshots accompany r3 captures; this live document now includes outcome.

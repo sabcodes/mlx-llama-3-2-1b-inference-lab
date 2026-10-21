@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "review_id": "experiment8-packed-stopped-control-audit-20261020",
+  "reviewer": "research_review_subagent",
+  "review_type": "independent_read_only_stopped_control_data_audit",
+  "audited_at_utc": "2026-10-21T02:55:03.732135+00:00",
+  "inputs": [
+    {
+      "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r1.json",
+      "sha256": "8fe2ef4118a4dbc9855d30d7e21a6ecb62dd8795618f6f85d4927d023f0808ab"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r1.partial.json",
+      "sha256": "f0abe6bb27dc359eda0cb4dbda5d1bdd1db8b27999765c5348fc3f97a48d733b"
+    }
+  ],
+  "verdict": "environment_capacity_stop_no_packed_projection_benchmark_conclusion",
+  "run_identity": {
+    "arm": "C",
+    "stage": "correctness",
+    "status": "stopped",
+    "workload_id": "exp8-packed-correctness-v1",
+    "started_at_utc": "2026-10-21T02:48:26.539103+00:00",
+    "terminated_at_utc": "2026-10-21T02:49:10.714091+00:00"
+  },
+  "completed_at_utc_present": false,
+  "failure": {
+    "type": "RuntimeError",
+    "message": "capacity_stop: system swap grew during arm"
+  },
+  "stop_accounting": {
+    "final_output_records": 13,
+    "partial_output_records": 12,
+    "capacity_passed_progress_events": 12,
+    "last_capacity_passed_case": "forced-512-128",
+    "last_generated_case": "natural-2048-qa",
+    "last_generated_case_capacity_passed": false,
+    "explanation": "The worker records a generation in checks before running capacity_check. Twelve output records reached progress events; the thirteenth output, natural-2048-qa, exists only in the final checks because the following capacity check stopped the run.",
+    "partial_status": "running",
+    "partial_prefix_matches_final": true,
+    "partial_manifest_matches_final": true,
+    "partial_is_stale_checkpoint_not_live_run": true,
+    "timing_stage_cases": 0,
+    "candidate_arms_in_these_inputs": [],
+    "full_correctness_suite_completed": false,
+    "history_scenarios_reached": false,
+    "forced_256_case_reached": false,
+    "stage_1_or_2_completed": false
+  },
+  "capacity_evidence": {
+    "system_swap_start_reported_bytes": 4998886850,
+    "system_swap_end_reported_bytes": 5089263616,
+    "system_swap_growth_reported_bytes": 90376766,
+    "system_swap_growth_mib": 86.19000053405762,
+    "last_passed_swap_reported_bytes": 4998886850,
+    "process_peak_rss_bytes": 1147928576,
+    "rss_hard_ceiling_bytes": 8589934592,
+    "rss_ceiling_exceeded": false,
+    "supply_start": "Now drawing from 'Battery Power'",
+    "supply_end": "Now drawing from 'Battery Power'",
+    "interpretation": "The declared no-system-swap-growth gate was violated even though this process remained below its RSS ceiling. System-wide swap does not attribute the increase to this process or to packing; arm C performs no packing. Values are conversions of reported vm.swapusage counters, not direct page-level swap accounting."
+  },
+  "internal_data_consistency": {
+    "cache_layer_count_and_recorded_offset_mismatches": [],
+    "output_id_and_reported_count_mismatches": [],
+    "generated_text_sha256_mismatches": [],
+    "limits": "These checks validate internal recorded consistency only, not regenerated inference, numerical parity, finite cache state, or candidate equivalence."
+  },
+  "source_identity": {
+    "artifact_hashes_recomputed": 13,
+    "matching_artifacts": 12,
+    "artifacts": [
+      {
+        "artifact": "mlx_lm.models.llama",
+        "recorded_sha256": "8b46ac7f11c7134c1d83f12ec6e05b3d64a30f18aa7468798437b2e413f80cdb",
+        "audit_current_sha256": "8b46ac7f11c7134c1d83f12ec6e05b3d64a30f18aa7468798437b2e413f80cdb",
+        "matches": true
+      },
+      {
+        "artifact": "mlx_lm.generate",
+        "recorded_sha256": "270778ad53eaca55a8533d82e6752660fe5d2605c4aa0879b48a50a91f69345f",
+        "audit_current_sha256": "270778ad53eaca55a8533d82e6752660fe5d2605c4aa0879b48a50a91f69345f",
+        "matches": true
+      },
+      {
+        "artifact": "mlx.nn.layers.quantized",
+        "recorded_sha256": "1797a3571484ad3134224354b7f130c0931f495691aa8e54eb55329d674bb00b",
+        "audit_current_sha256": "1797a3571484ad3134224354b7f130c0931f495691aa8e54eb55329d674bb00b",
+        "matches": true
+      },
+      {
+        "artifact": "models/Llama-3.2-1B-Instruct-4bit/model.safetensors",
+        "recorded_sha256": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd",
+        "audit_current_sha256": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd",
+        "matches": true
+      },
+      {
+        "artifact": "models/Llama-3.2-1B-Instruct-4bit/config.json",
+        "recorded_sha256": "73bfb89e5a43c76ada2d7a9609862139578a71cfbb43e30bf5d4571026dd3741",
+        "audit_current_sha256": "73bfb89e5a43c76ada2d7a9609862139578a71cfbb43e30bf5d4571026dd3741",
+        "matches": true
+      },
+      {
+        "artifact": "models/Llama-3.2-1B-Instruct-4bit/tokenizer.json",
+        "recorded_sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+        "audit_current_sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+        "matches": true
+      },
+      {
+        "artifact": "models/Llama-3.2-1B-Instruct-4bit/tokenizer_config.json",
+        "recorded_sha256": "022d5ae3df4737998ab97d8f31ac2bcb4c06dd8ebe5a8aba2b4aceef1e5ea7d3",
+        "audit_current_sha256": "022d5ae3df4737998ab97d8f31ac2bcb4c06dd8ebe5a8aba2b4aceef1e5ea7d3",
+        "matches": true
+      },
+      {
+        "artifact": "experiments/experiment-8-packed-projections-plan.md",
+        "recorded_sha256": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+        "audit_current_sha256": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+        "matches": true
+      },
+      {
+        "artifact": "experiments/experiment-8-packed-projections-spec.md",
+        "recorded_sha256": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+        "audit_current_sha256": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+        "matches": true
+      },
+      {
+        "artifact": "benchmarks/run_experiment8_packed.py",
+        "recorded_sha256": "d0a8ca3a953a23bf2ab94d0fb52dbdf4f3f87cd98fedd4f4fb01c456870af3b0",
+        "audit_current_sha256": "05c046abb7ff5441aeff1871137cb13d21eeb54189d0111b14b5d83af4f09a23",
+        "matches": false
+      },
+      {
+        "artifact": "benchmarks/run_baseline.py",
+        "recorded_sha256": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+        "audit_current_sha256": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+        "matches": true
+      },
+      {
+        "artifact": "benchmarks/experiment8_packing.py",
+        "recorded_sha256": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+        "audit_current_sha256": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+        "matches": true
+      },
+      {
+        "artifact": "benchmarks/fixtures/experiment2-sessions.json",
+        "recorded_sha256": "5be818be30762e37a43b5bb61ec9dcacc107478894a300c8d764a00d83873bcd",
+        "audit_current_sha256": "5be818be30762e37a43b5bb61ec9dcacc107478894a300c8d764a00d83873bcd",
+        "matches": true
+      }
+    ],
+    "original_runner_sha256": "d0a8ca3a953a23bf2ab94d0fb52dbdf4f3f87cd98fedd4f4fb01c456870af3b0",
+    "original_runner_source_snapshot_available": false,
+    "snapshot_reconstruction": "Two identified post-run edits were reversed in memory, but the resulting SHA256 did not match the run manifest; no guessed source snapshot was saved. Current runner contains additional later repairs and is not byte-identical to r1. Parent tool history is additional provenance, not a standalone exact source artifact.",
+    "reproduction_requirement": "Preserve an exact launched-source snapshot for future captures and use a new run identity after source changes. Do not relabel r1 as a result of the repaired runner."
+  },
+  "quality_audit": {
+    "explicit_control_quality_failures": {
+      "natural-64-extraction": {
+        "complete_json_object": false,
+        "semantic_schema": "unmeasured: baseline wording declares no fixed keys"
+      },
+      "natural-64-summarization": {
+        "exactly_three_bullets": false
+      },
+      "natural-512-summarization": {
+        "exactly_three_bullets": false
+      }
+    },
+    "absolute_quality_pass_field_present": false,
+    "auditor_derived_absolute_quality_pass": false,
+    "summary_failure_interpretation": "Both saved natural summaries contain three bullet items plus an introductory line. The declared validator requires exactly three nonempty bullet lines, so these are formatting failures under the frozen contract; it would be inaccurate to say they contain fewer than three bullet items.",
+    "extraction_failure_interpretation": "natural-64-extraction returned prose instead of a complete JSON object. natural-512-extraction parses as an object, but schema/factual completeness is unmeasured and cannot be inferred from JSON validity.",
+    "unmeasured_semantics": [
+      "qa",
+      "rewrite",
+      "context_question",
+      "extraction semantic schema and factual completeness"
+    ],
+    "short_fixture_observation": "The saved 64-target QA/context/extraction outputs say notes are unavailable. The length-fitting baseline fixture builder does not enforce retention of each task-required fact, so short-fixture adequacy needs a separate CPU token/message audit before attributing these outputs solely to model ability.",
+    "cpu_fixture_reconstruction_status": "A tokenizer-only reconstruction was attempted and interrupted before producing reconstructed fixtures. No claim of independently confirmed missing prompt facts is made.",
+    "known_validator_limitations": "Control progress labels whole_model_pass do not establish task-quality success. This run stopped before final quality aggregation, and exact candidate token identity, if later measured, would establish output preservation only.",
+    "selection_allowed": false
+  },
+  "permitted_conclusions": [
+    "The control correctness attempt was launched and stopped at its declared capacity gate.",
+    "The final file preserves thirteen output records, while twelve records passed the subsequent capacity checks recorded as events.",
+    "Saved control outputs expose declared formatting failures and unmeasured semantic quality.",
+    "Most model/runtime/spec artifacts match the run manifest; the current worker source differs from the launched worker."
+  ],
+  "prohibited_conclusions": [
+    "No packed projection speedup, slowdown, equivalence, memory improvement, or candidate rejection can be inferred.",
+    "No screen finalist, full benchmark, confirmation, promotion, or deployment decision was established.",
+    "Single correctness-request timing fields are not repeated matched benchmark evidence.",
+    "The system-wide swap increase does not prove the control process caused memory pressure or that the model cannot fit."
+  ],
+  "follow_up": [
+    "Retain r1 as a stopped attempt and use a fresh unique control run after environmental readiness.",
+    "Freeze the exact current runner and all governing source/spec hashes for the next capture.",
+    "Keep task-quality failure separate from incomplete execution and token-equivalence evidence; shared control failures block selection under the specification.",
+    "Do not loosen the swap, quality, or latency gates in response to these observations."
+  ],
+  "gpu_runs_performed_by_auditor": false,
+  "other_files_edited_by_auditor": [],
+  "limitations": [
+    "No inference was rerun.",
+    "No external causal attribution of system swap is available.",
+    "The original runner exact source snapshot could not be reconstructed from inspected artifacts.",
+    "The new run, if any, is outside this r1 audit."
+  ]
+}

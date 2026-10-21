@@ -1,0 +1,907 @@
+{
+  "schema_version": 1,
+  "reviewer": "research_review_subagent",
+  "review_type": "final_adversarial_raw_data_audit",
+  "audited_at_utc": "2026-10-21T03:16:15.481395+00:00",
+  "inputs": [
+    {
+      "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json",
+      "container_sha256": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48",
+      "logical_json_sha256": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-G-correctness-20261020-r3.json",
+      "container_sha256": "5c4ddeeb1b7fb03574478b63a6d5f8fcb5f10fd5ee0fd61c35ee2c1ed5e1cb83",
+      "logical_json_sha256": "5c4ddeeb1b7fb03574478b63a6d5f8fcb5f10fd5ee0fd61c35ee2c1ed5e1cb83"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-QG-correctness-20261020-r3.json",
+      "container_sha256": "92b693255d0367400691b4bcb70c84c8f2a269257f69f82418a1714aadcca952",
+      "logical_json_sha256": "92b693255d0367400691b4bcb70c84c8f2a269257f69f82418a1714aadcca952"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-C-screen-20261020-r3.json",
+      "container_sha256": "d50e4ded00e61cbb0b35c7f839039180fe8202b2e2566670d5b32d3394fcf1d8",
+      "logical_json_sha256": "d50e4ded00e61cbb0b35c7f839039180fe8202b2e2566670d5b32d3394fcf1d8"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-G-screen-20261020-r3.json",
+      "container_sha256": "8764b26d09591f10f864ba549b38ef776540ae04b1025d7c3cd1e05aa1a6a885",
+      "logical_json_sha256": "8764b26d09591f10f864ba549b38ef776540ae04b1025d7c3cd1e05aa1a6a885"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-first-token-margin-20261020-r1.json",
+      "container_sha256": "c11c17ffb3c1a24fccf751888fcc6407ac9f9049b3b2b5a09e8355f91981fee9",
+      "logical_json_sha256": "c11c17ffb3c1a24fccf751888fcc6407ac9f9049b3b2b5a09e8355f91981fee9"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-screen-execution-20261020-r3.json",
+      "container_sha256": "81e5c9453ab2048e5815e07d4370abae6bede6b22286fcefa10d3d05573b1eaf",
+      "logical_json_sha256": "81e5c9453ab2048e5815e07d4370abae6bede6b22286fcefa10d3d05573b1eaf"
+    }
+  ],
+  "verdict": "reject_all_arms_for_declared_selection_no_default_change",
+  "analyzer_summaries_used": false,
+  "QG": {
+    "status": "rejected",
+    "failure": {
+      "type": "AssertionError",
+      "message": "whole_model_mismatch: natural-64-context_question"
+    },
+    "family_count": 32,
+    "numerical_records": 6720,
+    "complete_unique_numerical_grid": true,
+    "all_finite_allclose": true,
+    "atol": 0.01,
+    "rtol": 0.01,
+    "component_byte_checks": 240,
+    "all_bitwise_flags_pass": true,
+    "parameter_bytes_before": 695242752,
+    "parameter_bytes_after": 695242752,
+    "comparisons": [
+      {
+        "case": "natural-64-qa",
+        "prompt_hash_matches": true,
+        "different_fields": [],
+        "first_token_difference": null
+      },
+      {
+        "case": "natural-64-rewrite",
+        "prompt_hash_matches": true,
+        "different_fields": [],
+        "first_token_difference": null
+      },
+      {
+        "case": "natural-64-context_question",
+        "prompt_hash_matches": true,
+        "different_fields": [
+          "output_token_ids",
+          "generated_tokens",
+          "response_token_count",
+          "visible_non_eos_count",
+          "eos_position_zero_based",
+          "cache",
+          "generated_text_sha256",
+          "expected_cache_offset",
+          "cached_token_history_sha256"
+        ],
+        "first_token_difference": {
+          "index": 0,
+          "control_token": 40,
+          "candidate_token": 11439
+        }
+      }
+    ],
+    "outcome": "exact first-token failure rejects QG despite numerical tolerance"
+  },
+  "G_correctness_rechecked": {
+    "cases": 65,
+    "single": 25,
+    "history": 40,
+    "exact_compared_fields": [
+      "output_token_ids",
+      "generated_tokens",
+      "response_token_count",
+      "visible_non_eos_count",
+      "eos_position_zero_based",
+      "finish_reason",
+      "cache",
+      "generated_text_sha256",
+      "expected_cache_offset",
+      "cached_token_history_sha256"
+    ],
+    "all_match_control": true,
+    "cache_finite_flags_all_true": true,
+    "absolute_quality_pass": false,
+    "quality_evidence_same_as_control": true
+  },
+  "screen": {
+    "workload_id": "exp8-packed-screen-v1",
+    "C_status": "pass",
+    "G_status": "pass",
+    "measured_requests_per_arm": 20,
+    "warmups_per_arm": 4,
+    "additional_cold_requests_per_arm": 1,
+    "exact_comparison_pairs_with_warmups": 24,
+    "forced128_and_cache_contracts_pass": true,
+    "rows": [
+      {
+        "case": "forced-64-128",
+        "target": 64,
+        "actual_prompt_tokens": 64,
+        "C": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              0.7643218329903902,
+              0.7712750829959987,
+              0.7585956249968149,
+              0.7709523329976946,
+              0.7697657079988858
+            ],
+            "median": 0.7697657079988858,
+            "nearest_rank_p95": 0.7712750829959987
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              0.1154142079903977,
+              0.1367232909979066,
+              0.13752933399518952,
+              0.1428324159933254,
+              0.14214054099284112
+            ],
+            "median": 0.13752933399518952,
+            "nearest_rank_p95": 0.1428324159933254
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.6489076249999925,
+              0.6345517919980921,
+              0.6210662910016254,
+              0.6281199170043692,
+              0.6276251670060446
+            ],
+            "median": 0.6281199170043692,
+            "nearest_rank_p95": 0.6489076249999925
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              836016592,
+              836016592,
+              836016592,
+              836016592,
+              836016592
+            ],
+            "median": 836016592,
+            "nearest_rank_p95": 836016592
+          }
+        },
+        "G": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              0.7710648749925895,
+              0.761524208006449,
+              0.7519839580054395,
+              0.7560069580067648,
+              0.7748765420110431
+            ],
+            "median": 0.761524208006449,
+            "nearest_rank_p95": 0.7748765420110431
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              0.12048858399793971,
+              0.13424670801032335,
+              0.12928416700742673,
+              0.13269037500140257,
+              0.13846700001158752
+            ],
+            "median": 0.13269037500140257,
+            "nearest_rank_p95": 0.13846700001158752
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.6505762909946498,
+              0.6272774999961257,
+              0.6226997909980128,
+              0.6233165830053622,
+              0.6364095419994555
+            ],
+            "median": 0.6272774999961257,
+            "nearest_rank_p95": 0.6505762909946498
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              850467280,
+              850467280,
+              850467280,
+              850467280,
+              850467280
+            ],
+            "median": 850467280,
+            "nearest_rank_p95": 850467280
+          }
+        },
+        "change_percent": {
+          "request_seconds": {
+            "median": -1.0706504468563138,
+            "nearest_rank_p95": 0.466948705389858
+          },
+          "time_to_first_token_seconds": {
+            "median": -3.5184922759505244,
+            "nearest_rank_p95": -3.0563201997100498
+          },
+          "decode_seconds": {
+            "median": -0.1341172259369139,
+            "nearest_rank_p95": 0.25715000569721536
+          },
+          "peak_bytes": {
+            "median": 1.7285168904877413,
+            "nearest_rank_p95": 1.7285168904877413
+          }
+        },
+        "gates": {
+          "short_benefit_ge_5_percent": false,
+          "median_request_regression_le_5_percent": true,
+          "median_ttft_regression_le_5_percent": true,
+          "request_peak_le_105_percent": true,
+          "diagnostic_p95_request_regression_le_10_percent": true,
+          "diagnostic_p95_ttft_regression_le_10_percent": true
+        }
+      },
+      {
+        "case": "forced-512-128",
+        "target": 512,
+        "actual_prompt_tokens": 510,
+        "C": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              1.0737613749952288,
+              1.0142497920023743,
+              1.0392637079930864,
+              1.047746249998454,
+              1.040916792000644
+            ],
+            "median": 1.040916792000644,
+            "nearest_rank_p95": 1.0737613749952288
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              0.4111212089919718,
+              0.3524069170089206,
+              0.3731214579893276,
+              0.3779539579991251,
+              0.3820102499885252
+            ],
+            "median": 0.3779539579991251,
+            "nearest_rank_p95": 0.4111212089919718
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.662640166003257,
+              0.6618428749934537,
+              0.6661422500037588,
+              0.6697922919993289,
+              0.6589065420121187
+            ],
+            "median": 0.662640166003257,
+            "nearest_rank_p95": 0.6697922919993289
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              1229070536,
+              1229070536,
+              1229070536,
+              1229070536,
+              1229070536
+            ],
+            "median": 1229070536,
+            "nearest_rank_p95": 1229070536
+          }
+        },
+        "G": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              1.063544999997248,
+              1.0245188749977387,
+              1.1139979579893406,
+              1.140911334005068,
+              1.0531825829966692
+            ],
+            "median": 1.063544999997248,
+            "nearest_rank_p95": 1.140911334005068
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              0.4021182919968851,
+              0.36695624999993015,
+              0.37740508299611975,
+              0.4610744999954477,
+              0.3772380830050679
+            ],
+            "median": 0.37740508299611975,
+            "nearest_rank_p95": 0.4610744999954477
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.6614267080003629,
+              0.6575626249978086,
+              0.7365928749932209,
+              0.6798368340096204,
+              0.6759444999916013
+            ],
+            "median": 0.6759444999916013,
+            "nearest_rank_p95": 0.7365928749932209
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              1352065224,
+              1352065224,
+              1352065224,
+              1352065224,
+              1352065224
+            ],
+            "median": 1352065224,
+            "nearest_rank_p95": 1352065224
+          }
+        },
+        "change_percent": {
+          "request_seconds": {
+            "median": 2.1738728945963626,
+            "nearest_rank_p95": 6.253713401651972
+          },
+          "time_to_first_token_seconds": {
+            "median": -0.14522271599194392,
+            "nearest_rank_p95": 12.1505020687102
+          },
+          "decode_seconds": {
+            "median": 2.0077765687809057,
+            "nearest_rank_p95": 9.973328118556335
+          },
+          "peak_bytes": {
+            "median": 10.007130135938747,
+            "nearest_rank_p95": 10.007130135938747
+          }
+        },
+        "gates": {
+          "short_benefit_ge_5_percent": false,
+          "median_request_regression_le_5_percent": true,
+          "median_ttft_regression_le_5_percent": true,
+          "request_peak_le_105_percent": false,
+          "diagnostic_p95_request_regression_le_10_percent": true,
+          "diagnostic_p95_ttft_regression_le_10_percent": false
+        }
+      },
+      {
+        "case": "forced-2048-128",
+        "target": 2048,
+        "actual_prompt_tokens": 2047,
+        "C": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              2.155011334005394,
+              2.027473750000354,
+              2.0552913330029696,
+              2.022400875008316,
+              2.0901667089929106
+            ],
+            "median": 2.0552913330029696,
+            "nearest_rank_p95": 2.155011334005394
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              1.3328356669953791,
+              1.2287393750011688,
+              1.2594055000081426,
+              1.216652500006603,
+              1.2788754999928642
+            ],
+            "median": 1.2594055000081426,
+            "nearest_rank_p95": 1.3328356669953791
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.8221756670100149,
+              0.7987343749991851,
+              0.7958858329948271,
+              0.8057483750017127,
+              0.8112912090000464
+            ],
+            "median": 0.8057483750017127,
+            "nearest_rank_p95": 0.8221756670100149
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              1542109292,
+              1542109292,
+              1542109292,
+              1542109292,
+              1542109292
+            ],
+            "median": 1542109292,
+            "nearest_rank_p95": 1542109292
+          }
+        },
+        "G": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              2.073050332997809,
+              2.0396672499919077,
+              2.047659375006333,
+              2.0235112920054235,
+              2.0347944170061965
+            ],
+            "median": 2.0396672499919077,
+            "nearest_rank_p95": 2.073050332997809
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              1.2734797500015702,
+              1.2375453329877928,
+              1.2503668340068543,
+              1.2272879170050146,
+              1.2303162919997703
+            ],
+            "median": 1.2375453329877928,
+            "nearest_rank_p95": 1.2734797500015702
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.799570582996239,
+              0.802121917004115,
+              0.7972925409994787,
+              0.7962233750004089,
+              0.8044781250064261
+            ],
+            "median": 0.799570582996239,
+            "nearest_rank_p95": 0.8044781250064261
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              1720170604,
+              1720170604,
+              1720170604,
+              1720170604,
+              1720170604
+            ],
+            "median": 1720170604,
+            "nearest_rank_p95": 1720170604
+          }
+        },
+        "change_percent": {
+          "request_seconds": {
+            "median": -0.7601882399919213,
+            "nearest_rank_p95": -3.803274707388604
+          },
+          "time_to_first_token_seconds": {
+            "median": -1.7357528627760077,
+            "nearest_rank_p95": -4.453355988560492
+          },
+          "decode_seconds": {
+            "median": -0.7667147954794951,
+            "nearest_rank_p95": -2.1525256357864397
+          },
+          "peak_bytes": {
+            "median": 11.546607813319621,
+            "nearest_rank_p95": 11.546607813319621
+          }
+        },
+        "gates": {
+          "short_benefit_ge_5_percent": null,
+          "median_request_regression_le_5_percent": true,
+          "median_ttft_regression_le_5_percent": true,
+          "request_peak_le_105_percent": false,
+          "diagnostic_p95_request_regression_le_10_percent": true,
+          "diagnostic_p95_ttft_regression_le_10_percent": true
+        }
+      },
+      {
+        "case": "forced-4096-128",
+        "target": 4096,
+        "actual_prompt_tokens": 4096,
+        "C": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              3.4930109590059146,
+              3.481020749997697,
+              3.5074627499998314,
+              3.650038665989996,
+              3.721746958006406
+            ],
+            "median": 3.5074627499998314,
+            "nearest_rank_p95": 3.721746958006406
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              2.5341848750103964,
+              2.5110355420038104,
+              2.5209399579907767,
+              2.62251520800055,
+              2.7490017079981044
+            ],
+            "median": 2.5341848750103964,
+            "nearest_rank_p95": 2.7490017079981044
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.9588260839955183,
+              0.9699852079938864,
+              0.9865227920090547,
+              1.0275234579894459,
+              0.9727452500083018
+            ],
+            "median": 0.9727452500083018,
+            "nearest_rank_p95": 1.0275234579894459
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              1634637936,
+              1634637936,
+              1634605168,
+              1634637936,
+              1634637936
+            ],
+            "median": 1634637936,
+            "nearest_rank_p95": 1634637936
+          }
+        },
+        "G": {
+          "request_seconds": {
+            "n": 5,
+            "raw": [
+              3.536543584006722,
+              3.481375207993551,
+              3.503380249996553,
+              3.511882582999533,
+              3.4676210420002462
+            ],
+            "median": 3.503380249996553,
+            "nearest_rank_p95": 3.536543584006722
+          },
+          "time_to_first_token_seconds": {
+            "n": 5,
+            "raw": [
+              2.557308417002787,
+              2.506619291001698,
+              2.5327213339915033,
+              2.5547615000104997,
+              2.5034017090074485
+            ],
+            "median": 2.5327213339915033,
+            "nearest_rank_p95": 2.557308417002787
+          },
+          "decode_seconds": {
+            "n": 5,
+            "raw": [
+              0.9792351670039352,
+              0.9747559169918532,
+              0.9706589160050498,
+              0.9571210829890333,
+              0.9642193329927977
+            ],
+            "median": 0.9706589160050498,
+            "nearest_rank_p95": 0.9792351670039352
+          },
+          "peak_bytes": {
+            "n": 5,
+            "raw": [
+              1833719920,
+              1833736304,
+              1833736304,
+              1833736304,
+              1833736304
+            ],
+            "median": 1833736304,
+            "nearest_rank_p95": 1833736304
+          }
+        },
+        "change_percent": {
+          "request_seconds": {
+            "median": -0.11639467883952648,
+            "nearest_rank_p95": -4.976248414773754
+          },
+          "time_to_first_token_seconds": {
+            "median": -0.05775194356674174,
+            "nearest_rank_p95": -6.973196503937917
+          },
+          "decode_seconds": {
+            "median": -0.2144789710599171,
+            "nearest_rank_p95": -4.69948307360265
+          },
+          "peak_bytes": {
+            "median": 12.179967417567639,
+            "nearest_rank_p95": 12.179967417567639
+          }
+        },
+        "gates": {
+          "short_benefit_ge_5_percent": null,
+          "median_request_regression_le_5_percent": true,
+          "median_ttft_regression_le_5_percent": true,
+          "request_peak_le_105_percent": false,
+          "diagnostic_p95_request_regression_le_10_percent": true,
+          "diagnostic_p95_ttft_regression_le_10_percent": true
+        }
+      }
+    ],
+    "benefit_gate_pass": false,
+    "request_memory_gate_failed_targets": [
+      512,
+      2048,
+      4096
+    ],
+    "verdict": "reject G without full benchmark or confirmation",
+    "gate_interpretation": "No short target reaches >=5% median request improvement. This alone stops Stage 1. Median request MLX peak exceeds the specification 105% ceiling at 512/2048/4096, separately blocking selection. p95 values are diagnostic, not a completed Stage 2 tail evaluation."
+  },
+  "startup": {
+    "C_load_seconds": 0.966172792002908,
+    "G_load_seconds": 0.8823168329981854,
+    "G_packing_seconds": 0.1371390840067761,
+    "C_cold_first_request_seconds": 0.2545763329981128,
+    "G_cold_first_request_seconds": 0.2717960000009043,
+    "extra_G_packing_peak_bytes": 27787528,
+    "extra_G_packing_peak_mib": 26.50025177001953,
+    "packing_peak_within_512_mib": true,
+    "logical_parameter_bytes_equal": true,
+    "limits": "One cold load, packing, and first request per process; descriptive observations, not repeated startup estimates. Correctness packing durations include diagnostics and are not deployment startup estimates."
+  },
+  "order": {
+    "frozen_at_utc": "2026-10-21T03:07:39.578434+00:00",
+    "freeze_before_timing": true,
+    "seed": 20261020,
+    "saved_original": [
+      "C",
+      "Q",
+      "QG",
+      "G"
+    ],
+    "eligible": [
+      "C",
+      "G"
+    ],
+    "observed": [
+      "C",
+      "G"
+    ],
+    "nonoverlap": true,
+    "seconds_between_processes": 29.661715,
+    "declared_idle_seconds": 10,
+    "limits": "Clocks establish order/non-overlap, not continuous idle/background-load proof. One C then G block cannot exclude drift or establish causal sub-percent effects.",
+    "candidate_only_shuffle_example_with_C_first": [
+      "C",
+      "Q",
+      "QG",
+      "G"
+    ],
+    "candidate_only_example_matches_saved": true,
+    "seed_reconstruction_limit": "The execution manifest records seed and frozen order but not the initial population or shuffle algorithm. Shuffling the candidate list Q/G/QG and prepending C reproduces it; shuffling another initial population need not. Recorded frozen order and observed C/G process order are independently verified; no randomization violation is inferred."
+  },
+  "machine_states": {
+    "QG_correctness": {
+      "start": "2026-10-21T03:04:06.106080+00:00",
+      "end": "2026-10-21T03:06:37.590279+00:00",
+      "swap_delta_bytes": 0,
+      "power_unchanged": true,
+      "supply": "Now drawing from 'AC Power'",
+      "process_peak_rss_bytes": 1164066816,
+      "rss_le_8_gib": true,
+      "thermal_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+      "thermal_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "C_screen": {
+      "start": "2026-10-21T03:08:00.575464+00:00",
+      "end": "2026-10-21T03:09:39.374101+00:00",
+      "swap_delta_bytes": 0,
+      "power_unchanged": true,
+      "supply": "Now drawing from 'AC Power'",
+      "process_peak_rss_bytes": 1159200768,
+      "rss_le_8_gib": true,
+      "thermal_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+      "thermal_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "G_screen": {
+      "start": "2026-10-21T03:10:09.035816+00:00",
+      "end": "2026-10-21T03:11:47.875780+00:00",
+      "swap_delta_bytes": 0,
+      "power_unchanged": true,
+      "supply": "Now drawing from 'AC Power'",
+      "process_peak_rss_bytes": 1157185536,
+      "rss_le_8_gib": true,
+      "thermal_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+      "thermal_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "margin": {
+      "start": "2026-10-21T03:07:08.800353+00:00",
+      "end": "2026-10-21T03:07:12.969233+00:00",
+      "swap_delta_bytes": 0,
+      "power_unchanged": true,
+      "supply": "Now drawing from 'AC Power'",
+      "process_peak_rss_bytes": 1165901824,
+      "rss_le_8_gib": true,
+      "thermal_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+      "thermal_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "source_identity": {
+    "matched_contracts": {
+      "settings": true,
+      "environment": true,
+      "manifest": true,
+      "frozen_sources": true
+    },
+    "frozen_snapshots": [
+      {
+        "source": "experiments/experiment-8-packed-projections-plan.md",
+        "path": "benchmarks/results/experiment8-source-experiment-8-packed-projections-plan-20baac73bc5d.md",
+        "matches_all_r3_manifests": true
+      },
+      {
+        "source": "experiments/experiment-8-packed-projections-spec.md",
+        "path": "benchmarks/results/experiment8-source-experiment-8-packed-projections-spec-1f873a027282.md",
+        "matches_all_r3_manifests": true
+      },
+      {
+        "source": "benchmarks/run_experiment8_packed.py",
+        "path": "benchmarks/results/experiment8-source-run_experiment8_packed-f493e12eee6f.py",
+        "matches_all_r3_manifests": true
+      },
+      {
+        "source": "benchmarks/run_baseline.py",
+        "path": "benchmarks/results/experiment8-source-run_baseline-b784784362f5.py",
+        "matches_all_r3_manifests": true
+      },
+      {
+        "source": "benchmarks/experiment8_packing.py",
+        "path": "benchmarks/results/experiment8-source-experiment8_packing-75307991d64a.py",
+        "matches_all_r3_manifests": true
+      }
+    ],
+    "screen_execution_reference_container_hashes": [
+      {
+        "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json",
+        "matches": true
+      },
+      {
+        "path": "benchmarks/results/experiment8-packed-G-correctness-20261020-r3.json",
+        "matches": true
+      },
+      {
+        "path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json.gz",
+        "matches": true
+      },
+      {
+        "path": "benchmarks/results/experiment8-packed-QG-correctness-20261020-r3.json",
+        "matches": true
+      }
+    ],
+    "scope": "Direct snapshot/container hashing and manifest comparison; no model tensor load or GPU execution."
+  },
+  "first_token_diagnostic": {
+    "status": "pass",
+    "reference_hashes": [
+      {
+        "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json",
+        "logical_hash_match": true,
+        "container_hash_match": true
+      },
+      {
+        "path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json.gz",
+        "logical_hash_match": true,
+        "container_hash_match": true
+      }
+    ],
+    "source_current_hash_matches": true,
+    "fixture_hash_valid": true,
+    "fixture_hash_matches_rejected_case": true,
+    "fixture_actual_tokens": 61,
+    "fixture_user_message": "Staff help visitors. Staff help visitors.\n\nUsing the notes, when can visitors use the meeting room for quiet study?",
+    "values": {
+      "C": {
+        "first_token": 40,
+        "dtype": "mlx.core.float16",
+        "top_two": [
+          {
+            "token_id": 40,
+            "log_probability": -1.46875,
+            "decoded_label": "I"
+          },
+          {
+            "token_id": 11439,
+            "log_probability": -1.46875,
+            "decoded_label": "According"
+          }
+        ],
+        "recomputed_margin": 0.0,
+        "saved_margin_matches": true,
+        "lookahead_offsets_valid": true,
+        "consumed_responses": 1,
+        "generation_cap": 128
+      },
+      "Q": {
+        "first_token": 11439,
+        "dtype": "mlx.core.float16",
+        "top_two": [
+          {
+            "token_id": 11439,
+            "log_probability": -1.46875,
+            "decoded_label": "According"
+          },
+          {
+            "token_id": 40,
+            "log_probability": -1.484375,
+            "decoded_label": "I"
+          }
+        ],
+        "recomputed_margin": 0.015625,
+        "saved_margin_matches": true,
+        "lookahead_offsets_valid": true,
+        "consumed_responses": 1,
+        "generation_cap": 128
+      }
+    },
+    "parameter_bytes_equal": true,
+    "first_token_divergence_reproduced": true,
+    "interpretation": "Exposed float16 C log probabilities tie at -1.46875 for I/According. Q exposes According -1.46875 vs I -1.484375, a 0.015625 lead. This supports numerical sensitivity but does not expose unrounded logits, prove sampler tie-breaking, reproduce a full generation, or relax exact-token gates. Argpartition ties may have ambiguous membership. The retained 61-token prompt contains only repeated Staff help visitors notes and lacks meeting-room availability facts, limiting task-quality interpretation."
+  },
+  "global_gates": {
+    "Q": "reject_exact_output",
+    "QG": "reject_exact_output",
+    "G": "reject_short_request_benefit_and_request_memory",
+    "absolute_quality": "shared control failures independently block final selection",
+    "full_diverse_capture": "not run: no eligible finalist",
+    "independent_confirmation": "not run: no eligible finalist",
+    "default_change": "none"
+  },
+  "issues": [],
+  "gpu_work_performed": false,
+  "tokenizer_imported": false,
+  "limitations": [
+    "Nearest-rank p95 with five repetitions is their maximum, a coarse tail estimate.",
+    "Forced-output screen and natural-EOS workloads must not be pooled.",
+    "No small latency difference proves a general speedup/slowdown.",
+    "Saved numerical/byte/finite flags were not re-evaluated from live tensors.",
+    "Finite declared tests and bounded alternatives are not exhaustive exploration."
+  ],
+  "narrative_review": {
+    "path": "benchmarks/results/experiment8-packed-projections-analysis.md",
+    "reviewed_sha256": "c9b17b227df652403dced1047a76cd9905713e3970e50268937fff35eee10212",
+    "verdict": "no_material_data_or_interpretation_blocker",
+    "checked": [
+      "Arm rejection dispositions match raw correctness evidence.",
+      "13440 numerical and 480 byte checks equal the sum across Q/G/QG.",
+      "65 cases decompose into 25 single and 40 history.",
+      "Request/memory median changes and startup bytes match raw data.",
+      "512 TTFT diagnostic p95 regression is 12.150502 percent.",
+      "Float16 tie/lead interpretation correctly avoids unrounded-logit or kernel-causality claims.",
+      "Shared control quality limitations are separate from preservation and selection.",
+      "No full benchmark, confirmation, deployment, or universal inference claim is made."
+    ],
+    "minor_clarity_suggestion": "Opening phrase full 200-request comparison is clearer as 200 measured requests per arm, since each full C/finalist pair would contain 400 measured requests."
+  }
+}

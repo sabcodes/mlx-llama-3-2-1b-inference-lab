@@ -1,0 +1,5189 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment8-first-token-margin-diagnostic",
+  "started_at_utc": "2026-10-21T03:07:08.800353+00:00",
+  "status": "pass",
+  "case_id": "natural-64-context_question",
+  "references": {
+    "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48",
+    "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json.gz": "d25ed695816052786be329d7575aa540dcb0df0fb796bde51ae861e1ecefa84e"
+  },
+  "reference_container_sha256": {
+    "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48",
+    "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json.gz": "cbc707e2e2f4e36ec3dcbcd4f47adcce2ec8f67d29b15bbc6db1e4373108479b"
+  },
+  "reference_hash_semantics": "references hashes original decompressed JSON bytes; container hashes identify retained plain/gzip files.",
+  "reference_manifest": {
+    "mlx_lm.models.llama": "8b46ac7f11c7134c1d83f12ec6e05b3d64a30f18aa7468798437b2e413f80cdb",
+    "mlx_lm.generate": "270778ad53eaca55a8533d82e6752660fe5d2605c4aa0879b48a50a91f69345f",
+    "mlx.nn.layers.quantized": "1797a3571484ad3134224354b7f130c0931f495691aa8e54eb55329d674bb00b",
+    "models/Llama-3.2-1B-Instruct-4bit/model.safetensors": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd",
+    "models/Llama-3.2-1B-Instruct-4bit/config.json": "73bfb89e5a43c76ada2d7a9609862139578a71cfbb43e30bf5d4571026dd3741",
+    "models/Llama-3.2-1B-Instruct-4bit/tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+    "models/Llama-3.2-1B-Instruct-4bit/tokenizer_config.json": "022d5ae3df4737998ab97d8f31ac2bcb4c06dd8ebe5a8aba2b4aceef1e5ea7d3",
+    "experiments/experiment-8-packed-projections-plan.md": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+    "experiments/experiment-8-packed-projections-spec.md": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+    "benchmarks/run_experiment8_packed.py": "f493e12eee6f5a9f21b07e1d445cd88b1e34d72df5cef975a32b61066a0213e4",
+    "benchmarks/run_baseline.py": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+    "benchmarks/experiment8_packing.py": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+    "benchmarks/fixtures/experiment2-sessions.json": "5be818be30762e37a43b5bb61ec9dcacc107478894a300c8d764a00d83873bcd"
+  },
+  "existing_source_snapshot_hashes": {
+    "benchmarks/results/experiment8-source-experiment-8-packed-projections-plan-20baac73bc5d.md": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+    "benchmarks/results/experiment8-source-experiment-8-packed-projections-spec-1f873a027282.md": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+    "benchmarks/results/experiment8-source-experiment8_packing-75307991d64a.py": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+    "benchmarks/results/experiment8-source-run_baseline-b784784362f5.py": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+    "benchmarks/results/experiment8-source-run_experiment8_packed-05c046abb7ff.py": "05c046abb7ff5441aeff1871137cb13d21eeb54189d0111b14b5d83af4f09a23",
+    "benchmarks/results/experiment8-source-run_experiment8_packed-f493e12eee6f.py": "f493e12eee6f5a9f21b07e1d445cd88b1e34d72df5cef975a32b61066a0213e4"
+  },
+  "source_manifest": {
+    "benchmarks/diagnose_experiment8_first_token.py": "e9b1cc586ddf2ad15b59869db88ae1aa3e9d17c9d19b5588945b7a34ebe735ee",
+    "benchmarks/experiment8_packing.py": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+    "benchmarks/run_baseline.py": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+    "benchmarks/run_experiment8_packed.py": "f493e12eee6f5a9f21b07e1d445cd88b1e34d72df5cef975a32b61066a0213e4",
+    "mlx_lm.models.llama": "8b46ac7f11c7134c1d83f12ec6e05b3d64a30f18aa7468798437b2e413f80cdb",
+    "mlx_lm.generate": "270778ad53eaca55a8533d82e6752660fe5d2605c4aa0879b48a50a91f69345f",
+    "mlx.nn.layers.quantized": "1797a3571484ad3134224354b7f130c0931f495691aa8e54eb55329d674bb00b",
+    "models/Llama-3.2-1B-Instruct-4bit/model.safetensors": "35e396644bca888eec399f9c0f843ec7fa78b8f8c5e06841661be62b4edf96dd",
+    "models/Llama-3.2-1B-Instruct-4bit/config.json": "73bfb89e5a43c76ada2d7a9609862139578a71cfbb43e30bf5d4571026dd3741",
+    "models/Llama-3.2-1B-Instruct-4bit/tokenizer.json": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+    "models/Llama-3.2-1B-Instruct-4bit/tokenizer_config.json": "022d5ae3df4737998ab97d8f31ac2bcb4c06dd8ebe5a8aba2b4aceef1e5ea7d3",
+    "benchmarks/fixtures/experiment2-sessions.json": "5be818be30762e37a43b5bb61ec9dcacc107478894a300c8d764a00d83873bcd"
+  },
+  "settings": {
+    "date": "04 Oct 2026",
+    "prefill_step_size": 2048,
+    "greedy": true,
+    "fresh_cache_per_arm": true,
+    "max_tokens": 128,
+    "consumed_responses": 1
+  },
+  "interpretation": "Diagnostic only: no full generation, latency result, gate relaxation, or selected deployment change.",
+  "state_start": {
+    "swap_used_bytes": 1888810434,
+    "power_config": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         2\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         10\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10",
+    "supply": "Now drawing from 'AC Power'",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "process_rss_bytes": 114933760,
+    "process_peak_rss_bytes": 114933760
+  },
+  "fixture": {
+    "prompt_token_ids": [
+      128000,
+      128006,
+      9125,
+      128007,
+      271,
+      38766,
+      1303,
+      33025,
+      2696,
+      25,
+      6790,
+      220,
+      2366,
+      18,
+      198,
+      15724,
+      2696,
+      25,
+      220,
+      2371,
+      5020,
+      220,
+      2366,
+      21,
+      271,
+      3513,
+      64694,
+      13,
+      128009,
+      128006,
+      882,
+      128007,
+      271,
+      34311,
+      1520,
+      15613,
+      13,
+      17381,
+      1520,
+      15613,
+      382,
+      16834,
+      279,
+      8554,
+      11,
+      994,
+      649,
+      15613,
+      1005,
+      279,
+      6574,
+      3130,
+      369,
+      11594,
+      4007,
+      30,
+      128009,
+      128006,
+      78191,
+      128007,
+      271
+    ],
+    "prompt_sha256": "103e6a96657ab493912658edaa116e580c98d7255ddcaded2559e100cf6dc11f",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Be concise."
+      },
+      {
+        "role": "user",
+        "content": "Staff help visitors. Staff help visitors.\n\nUsing the notes, when can visitors use the meeting room for quiet study?"
+      }
+    ],
+    "actual_prompt_tokens": 61
+  },
+  "C": {
+    "observed_first_token_id": 40,
+    "observed_first_token_label": "I",
+    "observed_first_response_text": "I",
+    "top_two": [
+      {
+        "token_id": 40,
+        "log_probability": -1.46875,
+        "decoded_label": "I"
+      },
+      {
+        "token_id": 11439,
+        "log_probability": -1.46875,
+        "decoded_label": "According"
+      }
+    ],
+    "top_two_log_probability_margin": 0.0,
+    "declared_reference_token_log_probabilities": [
+      {
+        "token_id": 40,
+        "decoded_label": "I",
+        "log_probability": -1.46875
+      },
+      {
+        "token_id": 11439,
+        "decoded_label": "According",
+        "log_probability": -1.46875
+      }
+    ],
+    "logprob_dtype": "mlx.core.float16",
+    "cache_offsets_after_original_lookahead": [
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62
+    ],
+    "expected_cache_offset": 62,
+    "request_cap": 128,
+    "responses_consumed": 1,
+    "note": "Top two use argpartition; tied candidate membership need not establish the sampler tie-break. Values are exposed log probabilities, not unrounded logits."
+  },
+  "state_after_control": {
+    "swap_used_bytes": 1888810434,
+    "power_config": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         2\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         10\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10",
+    "supply": "Now drawing from 'AC Power'",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "process_rss_bytes": 1084899328,
+    "process_peak_rss_bytes": 1165901824
+  },
+  "packing": [
+    {
+      "layer": 0,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 1,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 2,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 3,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 4,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 5,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 6,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 7,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 8,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 9,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 10,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 11,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 12,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 13,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 14,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    },
+    {
+      "layer": 15,
+      "family": "Q",
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine",
+      "transpose": true,
+      "input_dims": 2048,
+      "output_dims": [
+        2048,
+        512,
+        512
+      ],
+      "split_indices": [
+        2048,
+        2560
+      ],
+      "source_parameter_bytes": 3538944,
+      "packed_parameter_bytes": 3538944,
+      "components": {
+        "weight": {
+          "shape": [
+            3072,
+            256
+          ],
+          "dtype": "mlx.core.uint32",
+          "nbytes": 3145728,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "scales": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        },
+        "biases": {
+          "shape": [
+            3072,
+            32
+          ],
+          "dtype": "mlx.core.float16",
+          "nbytes": 196608,
+          "strides": null,
+          "contiguity": "mx.contiguous(..., allow_col_major=False) requested and evaluated",
+          "layout_observation": "strides unavailable in pinned public MLX API"
+        }
+      },
+      "partitions": [
+        {
+          "partition": 0,
+          "start": 0,
+          "end": 2048,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 2097152,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  2048,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 131072,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 1,
+          "start": 2048,
+          "end": 2560,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        },
+        {
+          "partition": 2,
+          "start": 2560,
+          "end": 3072,
+          "components": {
+            "weight": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  256
+                ],
+                "dtype": "mlx.core.uint32",
+                "nbytes": 524288,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "scales": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            },
+            "biases": {
+              "bitwise_equal": true,
+              "source": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "not exposed by pinned public MLX API",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              },
+              "packed_slice": {
+                "shape": [
+                  512,
+                  32
+                ],
+                "dtype": "mlx.core.float16",
+                "nbytes": 32768,
+                "strides": null,
+                "contiguity": "row slice of materialized mx.contiguous result",
+                "layout_observation": "strides unavailable in pinned public MLX API"
+              }
+            }
+          }
+        }
+      ],
+      "whole_model_parameter_bytes_before": 695242752,
+      "whole_model_parameter_bytes_after": 695242752,
+      "original_projection_arrays_retained_in_model": false,
+      "tied_head_preserved": true
+    }
+  ],
+  "parameter_bytes": {
+    "before": 695242752,
+    "after": 695242752
+  },
+  "Q": {
+    "observed_first_token_id": 11439,
+    "observed_first_token_label": "According",
+    "observed_first_response_text": "According",
+    "top_two": [
+      {
+        "token_id": 11439,
+        "log_probability": -1.46875,
+        "decoded_label": "According"
+      },
+      {
+        "token_id": 40,
+        "log_probability": -1.484375,
+        "decoded_label": "I"
+      }
+    ],
+    "top_two_log_probability_margin": 0.015625,
+    "declared_reference_token_log_probabilities": [
+      {
+        "token_id": 40,
+        "decoded_label": "I",
+        "log_probability": -1.484375
+      },
+      {
+        "token_id": 11439,
+        "decoded_label": "According",
+        "log_probability": -1.46875
+      }
+    ],
+    "logprob_dtype": "mlx.core.float16",
+    "cache_offsets_after_original_lookahead": [
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62,
+      62
+    ],
+    "expected_cache_offset": 62,
+    "request_cap": 128,
+    "responses_consumed": 1,
+    "note": "Top two use argpartition; tied candidate membership need not establish the sampler tie-break. Values are exposed log probabilities, not unrounded logits."
+  },
+  "candidate_first_token_reproduced": true,
+  "state_end": {
+    "swap_used_bytes": 1888810434,
+    "power_config": "Battery Power:\n Sleep On Power Button 1\n lowpowermode         0\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         2\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n tcpkeepalive         1\n disksleep            10\nAC Power:\n Sleep On Power Button 1\n lowpowermode         1\n standby              1\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n hibernatefile        /var/vm/sleepimage\n displaysleep         10\n womp                 1\n networkoversleep     0\n sleep                1\n tcpkeepalive         1\n disksleep            10",
+    "supply": "Now drawing from 'AC Power'",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+    "process_rss_bytes": 1028849664,
+    "process_peak_rss_bytes": 1165901824
+  },
+  "completed_at_utc": "2026-10-21T03:07:12.969233+00:00"
+}

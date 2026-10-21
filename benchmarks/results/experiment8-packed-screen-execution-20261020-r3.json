@@ -1,0 +1,27 @@
+{
+  "frozen_at_utc": "2026-10-21T03:07:39.578434+00:00",
+  "seed": 20261020,
+  "original_order": [
+    "C",
+    "Q",
+    "QG",
+    "G"
+  ],
+  "actual_eligible_order": [
+    "C",
+    "G"
+  ],
+  "omissions": {
+    "Q": "exact-token hard failure before timing",
+    "QG": "exact-token hard failure before timing"
+  },
+  "correctness_sources": {
+    "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48",
+    "benchmarks/results/experiment8-packed-G-correctness-20261020-r3.json": "5c4ddeeb1b7fb03574478b63a6d5f8fcb5f10fd5ee0fd61c35ee2c1ed5e1cb83",
+    "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json.gz": "cbc707e2e2f4e36ec3dcbcd4f47adcce2ec8f67d29b15bbc6db1e4373108479b",
+    "benchmarks/results/experiment8-packed-QG-correctness-20261020-r3.json": "92b693255d0367400691b4bcb70c84c8f2a269257f69f82418a1714aadcca952"
+  },
+  "cooldown_seconds_before_each_process": 10,
+  "primary_timing_without_telemetry": true,
+  "absolute_quality_limitation": "Existing incomplete/strict quality checks block promotion; screen remains diagnostic mechanism evidence."
+}

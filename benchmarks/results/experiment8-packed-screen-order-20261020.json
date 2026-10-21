@@ -1,0 +1,11 @@
+{
+  "seed": 20261020,
+  "order": [
+    "C",
+    "Q",
+    "QG",
+    "G"
+  ],
+  "rule": "Control first to supply matched raw outputs; seeded candidate order; hard-failed arms omitted without replacements.",
+  "status": "frozen before any candidate or timing results"
+}

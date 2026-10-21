@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "review_id": "experiment8-packed-research-review-20261020",
+  "checked_date": "2026-10-20",
+  "review_type": "pre_implementation_adversarial_research",
+  "reviewer": "research_review_subagent",
+  "scope": "M2 Pro 16 GB Llama 3.2 1B affine-4 group-64 packed same-input projections",
+  "documents_reviewed": [
+    "experiments/experiment-8-packed-projections-plan.md",
+    "experiments/experiment-8-packed-projections-spec.md"
+  ],
+  "pinned_versions": {
+    "mlx": "0.32.2",
+    "mlx_lm": "0.31.3"
+  },
+  "current_official_versions_checked": {
+    "mlx": "0.32.4",
+    "mlx_lm": "0.32.2"
+  },
+  "verdict": "proceed_conditionally_with_predeclared_arms_after_required_checks",
+  "implementation_reviewed": false,
+  "gpu_runs_performed": false,
+  "data_or_analysis_validated": false,
+  "report": "research/experiment-8-packed-projections-execution-research.md",
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "required_before_timing",
+      "title": "Cover shape-dependent quantized dispatch boundaries",
+      "evidence": "Pinned Metal dispatch uses M/K/N/device-dependent qmv-to-qmm limits including 10, 12, and 18; packing changes N.",
+      "requested_action": "Add exact device thresholds plus/minus one or rows 9/10/11, 11/12/13, 17/18/19 to all-layer numerical checks before timing.",
+      "source": "https://raw.githubusercontent.com/ml-explore/mlx/v0.32.2/mlx/backend/metal/quantized.cpp",
+      "status": "pending_implementation_verification"
+    },
+    {
+      "id": "R2",
+      "severity": "required_before_timing",
+      "title": "Check split-output strides and hidden copies",
+      "evidence": "Quantized matmul requires contiguous final matrix dimensions; slices of packed outputs can have larger row strides.",
+      "requested_action": "Inspect packed arrays, output split shapes/strides, downstream behavior, and retained bytes; do not claim dispatch savings from source call counts.",
+      "source": "https://raw.githubusercontent.com/ml-explore/mlx/v0.32.2/mlx/backend/metal/quantized.cpp",
+      "status": "pending_implementation_verification"
+    },
+    {
+      "id": "R3",
+      "severity": "required_implementation_constraint",
+      "title": "Avoid constructor allocations and repeated shared projection",
+      "evidence": "Installed QuantizedLinear constructor creates and quantizes random dense weights; Llama attention separately calls three projections.",
+      "requested_action": "Use minimal packed module state, execute the shared projection once, retain exact downstream operations, and materialize/release layerwise.",
+      "source": "https://github.com/ml-explore/mlx/blob/v0.32.2/python/mlx/nn/layers/quantized.py",
+      "status": "pending_implementation_verification"
+    },
+    {
+      "id": "R4",
+      "severity": "required_analysis_constraint",
+      "title": "Use full dependent requests as selection evidence",
+      "evidence": "Contributor issue reports opposite conclusions from independently enqueued versus dependency-chained microbenchmarks.",
+      "requested_action": "Keep microbenchmarks diagnostic; select only with preregistered full-request correctness, latency, tail, and memory gates.",
+      "source": "https://github.com/ml-explore/mlx/issues/4265",
+      "status": "pending_run_review"
+    },
+    {
+      "id": "R5",
+      "severity": "scope_constraint",
+      "title": "Keep current releases and alternatives separate from pinned packing experiment",
+      "evidence": "Current releases are MLX 0.32.4 and MLX-LM 0.32.2; project pins are 0.32.2 and 0.31.3. Batch, M5, long-context, and cross-runtime evidence differs from the target workload.",
+      "requested_action": "Preserve pinned environment and preregister alternative experiments with matched controls; do not import external headline gains.",
+      "sources": [
+        "https://github.com/ml-explore/mlx/releases/tag/v0.32.4",
+        "https://github.com/ml-explore/mlx-lm/releases",
+        "https://github.com/ml-explore/mlx-lm/pull/1922"
+      ],
+      "status": "documented_constraint"
+    }
+  ],
+  "limitations": [
+    "Static/source and primary-literature review only; no implementation, model weights, numerical outputs, or timing results validated.",
+    "Web sources and latest releases may differ from the installed wheel; local pinned artifacts govern execution.",
+    "Contributor reports and research headline gains were not independently reproduced and use different hardware/workloads.",
+    "Finite feasibility register does not establish exhaustive exploration of every possible method.",
+    "Final approval requires independent implementation and raw-data/analysis review after execution."
+  ]
+}

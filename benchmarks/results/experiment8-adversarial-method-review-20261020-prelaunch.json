@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "experiment": "experiment8",
+  "reviewer": "method_review",
+  "review_type": "adversarial_static_prelaunch",
+  "gpu_work_performed": false,
+  "files": [
+    "benchmarks/run_experiment8_packed.py",
+    "benchmarks/experiment8_packing.py"
+  ],
+  "findings": [
+    {
+      "priority": "P1",
+      "area": "quality",
+      "detail": "Worker pass currently ignores quality booleans. Preserve worker completion status separately; compute absolute_quality_pass and block selection when false or required semantics remain unmeasured."
+    },
+    {
+      "priority": "P1",
+      "area": "cache",
+      "detail": "Validate every cache offset equals initial offset plus input suffix token count plus output response token count; record initial/expected offsets and finite cache-state evidence outside timing."
+    },
+    {
+      "priority": "P1",
+      "area": "control_identity",
+      "detail": "Require expected arm C, identical stage/workload/settings/model/runtime/source manifest before candidate inference. Missing matched timing case must fail rather than silently skip comparison."
+    },
+    {
+      "priority": "P2",
+      "area": "capacity",
+      "detail": "Call capacity_check after histories and immediately before status pass. History loop currently performs no capacity checks; final machine_state merely records changed power/swap/RSS."
+    },
+    {
+      "priority": "P2",
+      "area": "quality_fact_matching",
+      "detail": "History validator imports Experiment 2 substring matcher, contrary to amendment about fixture alternatives; normalize token sequences with word boundaries and explicit alternatives, disclose remaining semantic limitations."
+    },
+    {
+      "priority": "P2",
+      "area": "warmup",
+      "detail": "Candidate warmup is not compared against matched control. Compare it too and require forced cases emit cap outputs with no EOS and length finish."
+    }
+  ],
+  "cache_offset_formula": "initial_offset + len(input_suffix_tokens) + len(output_response_token_ids)",
+  "packing_review": "No blocker found in row ordering, preserving affine parameters, wrapper downstream operations, source-contract guard, releasing source projection module references, and unchanged tied head."
+}

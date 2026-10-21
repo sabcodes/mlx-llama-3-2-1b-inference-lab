@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "review_type": "independent_adversarial_saved_data_and_source_audit",
+  "reviewer": "research_review_subagent",
+  "audited_at_utc": "2026-10-21T03:03:00.444261+00:00",
+  "inputs": [
+    {
+      "path": "benchmarks/results/experiment8-packed-C-correctness-20261020-r3.json",
+      "sha256": "c2f77c3b444315c72ead47fa455eaa887a8d11d6190ae0301b5c5900d765fc48"
+    },
+    {
+      "path": "benchmarks/results/experiment8-packed-Q-correctness-20261020-r3.json",
+      "sha256": "d25ed695816052786be329d7575aa540dcb0df0fb796bde51ae861e1ecefa84e"
+    }
+  ],
+  "verdict": "Q_rejected_by_exact_whole_model_output_gate_no_speed_conclusion",
+  "matched_contract": {
+    "workload_id": true,
+    "settings": true,
+    "manifest": true,
+    "environment": true,
+    "frozen_sources": true
+  },
+  "source_snapshots": [
+    {
+      "source": "experiments/experiment-8-packed-projections-plan.md",
+      "snapshot": "benchmarks/results/experiment8-source-experiment-8-packed-projections-plan-20baac73bc5d.md",
+      "sha256": "20baac73bc5d13966add43e83eab26ed8b5556e2efdfedc4033391037af47970",
+      "matches_both_run_manifests": true
+    },
+    {
+      "source": "experiments/experiment-8-packed-projections-spec.md",
+      "snapshot": "benchmarks/results/experiment8-source-experiment-8-packed-projections-spec-1f873a027282.md",
+      "sha256": "1f873a027282eb1eeafd3d06679a39c82f16bf4578c2ee05ab3ae777f1bb8783",
+      "matches_both_run_manifests": true
+    },
+    {
+      "source": "benchmarks/run_experiment8_packed.py",
+      "snapshot": "benchmarks/results/experiment8-source-run_experiment8_packed-f493e12eee6f.py",
+      "sha256": "f493e12eee6f5a9f21b07e1d445cd88b1e34d72df5cef975a32b61066a0213e4",
+      "matches_both_run_manifests": true
+    },
+    {
+      "source": "benchmarks/run_baseline.py",
+      "snapshot": "benchmarks/results/experiment8-source-run_baseline-b784784362f5.py",
+      "sha256": "b784784362f5646f5c08c16421d5905499ab455e33697b6f02e96b748e625352",
+      "matches_both_run_manifests": true
+    },
+    {
+      "source": "benchmarks/experiment8_packing.py",
+      "snapshot": "benchmarks/results/experiment8-source-experiment8_packing-75307991d64a.py",
+      "sha256": "75307991d64a822f4e08abd4cf1c38efa43af007308244948fe6f72659cb44b2",
+      "matches_both_run_manifests": true
+    }
+  ],
+  "source_identity_scope": "All five frozen governing source/spec snapshots were independently hashed against both manifests. Both manifests identify the same installed sources and checkpoint hashes. This audit did not reread the large checkpoint or load model arrays while another arm was running.",
+  "numerical_evidence": {
+    "grid": "16 layers * 21 row counts * 4 input families * 3 Q/K/V components",
+    "expected_count": 4032,
+    "record_count": 4032,
+    "unique_grid_entries": 4032,
+    "missing_grid_entries": [],
+    "unexpected_grid_entries": [],
+    "duplicate_entries": [],
+    "invalid_flags_or_scalar_or_shape_records": [],
+    "all_saved_finite": true,
+    "all_saved_allclose": true,
+    "atol": 0.01,
+    "rtol": 0.01,
+    "nonzero_max_difference_records": 1872,
+    "max_abs": 0.015625,
+    "max_rms": 0.0015250424621626735,
+    "max_abs_example": {
+      "layer": 0,
+      "family": "Q",
+      "rows": 17,
+      "input": "activation",
+      "dtype": "mlx.core.float16",
+      "component": 0,
+      "max_abs": 0.015625,
+      "rms": 0.0007727001793682575,
+      "finite": true,
+      "allclose": true,
+      "output_shape": [
+        1,
+        17,
+        2048
+      ],
+      "output_strides": null
+    },
+    "dtype_values": [
+      "mlx.core.float16"
+    ],
+    "strides_exposed": false,
+    "limits": "Audit verifies completeness, scalar consistency, saved finite/allclose flags and the frozen verifier code; raw tensors were not retained, so flags cannot be independently recalculated without another GPU run. Passing allclose does not establish exact logits or tokens."
+  },
+  "packing_evidence": {
+    "packed_layer_count": 16,
+    "layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "component_partition_checks_expected": 144,
+    "component_partition_checks_recorded": 144,
+    "byte_grid_complete": true,
+    "all_saved_bitwise_and_shape_metadata_pass": true,
+    "partition_ranges_correct": true,
+    "invalid_packing_metadata_layers": [],
+    "packed_family_source_bytes_sum": 56623104,
+    "packed_family_target_bytes_sum": 56623104,
+    "model_parameter_bytes_C_before": 695242752,
+    "model_parameter_bytes_C_after": 695242752,
+    "model_parameter_bytes_Q_before": 695242752,
+    "model_parameter_bytes_Q_after": 695242752,
+    "all_saved_original_projection_retention_flags_false": true,
+    "all_saved_tied_head_preserved": true,
+    "limits": "Byte equality is source-generated uint8-view equality evidence, not independent re-reading of live tensors. Retention flags concern arrays in the model tree, not an exhaustive process heap proof. Pinned public MLX does not expose output strides; contiguity is requested rather than directly measured."
+  },
+  "whole_model_evidence": {
+    "control_status": "pass",
+    "control_saved_checks": 65,
+    "control_completed_at_utc": "2026-10-21T02:58:35.855976+00:00",
+    "candidate_status": "rejected",
+    "candidate_saved_checks": 3,
+    "candidate_failure": {
+      "type": "AssertionError",
+      "message": "whole_model_mismatch: natural-64-context_question"
+    },
+    "candidate_events": {
+      "packed_bytes_verified": 16,
+      "numeric_family_pass": 16,
+      "whole_model_pass": 2
+    },
+    "comparisons": [
+      {
+        "case": "natural-64-qa",
+        "prompt_hash_matches": true,
+        "recomputed": {
+          "passed": true,
+          "different_fields": [],
+          "first_token_difference": null
+        },
+        "saved_comparison_matches": true
+      },
+      {
+        "case": "natural-64-rewrite",
+        "prompt_hash_matches": true,
+        "recomputed": {
+          "passed": true,
+          "different_fields": [],
+          "first_token_difference": null
+        },
+        "saved_comparison_matches": true
+      },
+      {
+        "case": "natural-64-context_question",
+        "prompt_hash_matches": true,
+        "recomputed": {
+          "passed": false,
+          "different_fields": [
+            "output_token_ids",
+            "generated_tokens",
+            "response_token_count",
+            "eos_position_zero_based",
+            "cache",
+            "generated_text_sha256"
+          ],
+          "first_token_difference": {
+            "index": 0,
+            "control_token": 40,
+            "candidate_token": 11439
+          }
+        },
+        "saved_comparison_matches": true
+      }
+    ],
+    "first_failed_case": "natural-64-context_question",
+    "first_token_difference": {
+      "index": 0,
+      "control_token": 40,
+      "candidate_token": 11439
+    },
+    "gate_explanation": "Two initial cases match exactly. The third saved case uses the same prompt hash but differs at its first output token (C 40, Q 11439), output length, EOS position, cache signature and text hash. The exact-output gate independently rejects Q despite diagnostic allclose passing. Do not loosen tolerance or ignore this fixture after observing the result.",
+    "unfinished_scope": "Q stopped before the rest of natural/forced/history correctness and before screen/full/confirmation. No full-suite equivalence claim is supported."
+  },
+  "machine_state": {
+    "C": {
+      "swap_start_bytes": 1897199042,
+      "swap_end_bytes": 1888810434,
+      "swap_growth_bytes": -8388608,
+      "power_config_and_supply_stable": true,
+      "supply": "Now drawing from 'AC Power'",
+      "peak_rss_bytes": 1155563520,
+      "below_8_gib": true,
+      "thermal_report_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+      "thermal_report_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    },
+    "Q": {
+      "swap_start_bytes": 1888810434,
+      "swap_end_bytes": 1888810434,
+      "swap_growth_bytes": 0,
+      "power_config_and_supply_stable": true,
+      "supply": "Now drawing from 'AC Power'",
+      "peak_rss_bytes": 1161609216,
+      "below_8_gib": true,
+      "thermal_report_start": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded",
+      "thermal_report_end": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded"
+    }
+  },
+  "memory_interpretation": {
+    "Q_correctness_peak_bytes": 1143971269,
+    "C_loaded_peak_bytes": 695243528,
+    "difference_bytes": 448727741,
+    "difference_mib": 427.9401216506958,
+    "scope": "Q correctness-process packing peak includes numerical diagnostic allocations and cannot substitute for clean packing-only or per-request memory gates. Numerical diagnostic duration is not deployment startup cost."
+  },
+  "control_quality": {
+    "absolute_quality_pass": false,
+    "explicit_failed_checks": {
+      "natural-64-extraction": {
+        "complete_json_object": false,
+        "semantic_schema": "unmeasured: baseline wording declares no fixed keys"
+      },
+      "natural-64-summarization": {
+        "exactly_three_bullets": false
+      },
+      "natural-512-summarization": {
+        "exactly_three_bullets": false
+      },
+      "natural-4096-summarization": {
+        "exactly_three_bullets": false
+      },
+      "history-museum-fresh-0": {
+        "required_fact": false,
+        "expected": "Monday",
+        "alternatives": [
+          "Monday"
+        ]
+      },
+      "history-museum-reuse-0": {
+        "required_fact": false,
+        "expected": "Monday",
+        "alternatives": [
+          "Monday"
+        ]
+      }
+    },
+    "selection_blocked_independently": true,
+    "interpretation": "Control status pass indicates worker/suite completion. Its absolute quality remains false; unmeasured QA/rewrite/context and extraction semantics also remain limitations. Q token failure is separate from these shared control-quality defects."
+  },
+  "gate_disposition": {
+    "diagnostic_numerical_gate": "passed_saved_evidence",
+    "packed_byte_gate": "passed_saved_evidence",
+    "logical_parameter_bytes_gate": "passed_saved_evidence",
+    "whole_model_exact_output_gate": "failed",
+    "capacity_stop": "not_observed_in_Q_saved_states",
+    "performance_screen": "not_run",
+    "full_confirmation": "not_run",
+    "selection": "Q_ineligible",
+    "deployment": "not_authorized_by_this_evidence"
+  },
+  "no_speed_claims": true,
+  "gpu_work_performed_by_auditor": false,
+  "tokenizer_imported_by_auditor": false,
+  "limitations": [
+    "Static source and saved scalar/metadata review only; no numerical tensors re-evaluated.",
+    "No logit margins were captured, so accumulation changes causing the first-token divergence remain a hypothesis rather than a proven low-margin mechanism.",
+    "Endpoint system state does not expose every transient condition; capacity checks executed according to frozen worker.",
+    "This audit covers Q versus C r3 only; it makes no claim about the active G arm or QG."
+  ]
+}
