@@ -1,6 +1,6 @@
 # Project context and current status
 
-Last updated: 2026-10-19
+Last updated: 2026-10-20
 
 ## Experiment paper title
 
@@ -200,6 +200,22 @@ Evidence: `benchmarks/results/experiment7-m2pro-phase-and-kv-analysis-20261020.m
 and workload/provenance JSON, plus the historical October 19 review/confirmation.
 Specification and execution plan remain in `experiments/`.
 
+### Experiment 8: packed quantized projections (proposed)
+
+The next local M2/1B question is whether packing same-input Q/K/V and gate/up
+projections into existing quantized matmuls reduces full-request time without
+changing weight values or greedy tokens. Arms are unchanged, QKV-only,
+gate/up-only and both. This follows the local Experiment 7 diagnosis; it is
+independent of the historical M4 3B/1B speculative-decoding reference proposal.
+
+Specification: `experiments/experiment-8-packed-projections-spec.md`.
+Execution plan: `experiments/experiment-8-packed-projections-plan.md`.
+Status: proposal only; no adapter, benchmark runs or speedup results. New matched
+controls, exact-output/cache gates, a bounded screen and two independent full
+captures are required. Promotion needs >=10% lower median request time at both
+short lengths, with tail, per-fixture, long-prompt and memory gates passing.
+No selected runtime setting changes. Implementation/execution is future work.
+
 ## Known evidence limitations
 
 - The baseline is specific to one Mac, OS/runtime combination, model, and local
@@ -220,19 +236,19 @@ Specification and execution plan remain in `experiments/`.
 
 ## Next research choices
 
-1. Compare the reported 4-bit matrix bottleneck using existing MLX/runtime
-   paths; require a concrete mechanism and a measured 10% full-request gain
-   before selecting a custom-kernel implementation. Independent replay of the
-   original M2 captures is optional replication; the diagnostic is complete.
-2. Experiment 8 is a design-only M4 3B-target/1B-draft proposal in
-   `research/experiment-8-and-followups-review.md`; no arms have run. It needs
-   a fresh 3B baseline and corrected cross-model correctness checks. For the
-   selected M2/1B deployment, revisit speculation only with a genuinely smaller
-   compatible draft or a self-speculative mechanism.
-3. Extend the practical chat suite with actual multi-turn history cases and
-   mechanically separate fact, format, contradiction, and structure gates.
-4. Confirm any future winner with the full diverse benchmark and an independent
-   repeat capture.
+1. Proposed local Experiment 8: test packed Q/K/V and gate/up projections using
+   the existing MLX quantized path. Follow its specification and ordered plan;
+   design/publication is complete separately from implementation/execution.
+2. If packing fails, retain the measured rejection and reconsider the next
+   mechanism from evidence; custom kernels still require a concrete correctness-
+   preserving candidate and measured full-request improvement.
+3. Extend the practical chat suite with real multi-turn histories and mechanically
+   separate fact, format, contradiction and structure gates.
+4. Confirm any future winner with the diverse benchmark and independent capture.
+
+The historical M4 3B-target/1B-draft design in
+`research/experiment-8-and-followups-review.md` remains reference-only, not the
+local Experiment 8 or a required continuation. No larger model is selected.
 
 ## Repository and privacy boundaries
 

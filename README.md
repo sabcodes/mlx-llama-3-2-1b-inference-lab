@@ -38,6 +38,7 @@ The baseline protocol is documented in
 | 5: KV-cache quantization | Reject all tested arms under the approved gates. |
 | 6: speculative decoding | Reject the full-1B Mixed-3/6 draft pairing. |
 | 7: runtime profiling | Complete: separate M2 phase rankings and isolated KV costs validated. Quantized matrix work dominates sampled prefill/decode; no custom-kernel win established. |
+| 8: packed quantized projections | [Proposed local M2 study](experiments/experiment-8-packed-projections-spec.md): group Q/K/V and gate/up using existing 4-bit matmul. No implementation or runs. |
 
 ## Local setup
 
@@ -67,8 +68,9 @@ Experiment 7's [review and provenance](benchmarks/results/experiment7-review-202
 incorporate [Arno's M4 Pro / 24 GB evidence](benchmarks/results/experiment7-m4pro-runtime-profile-analysis.md)
 and a fixed chat-template date for repeatable prompts. GPU percentages are
 reported replay shader-cost shares, not request-time savings. The
-[Experiment 8 document](research/experiment-8-and-followups-review.md) is a
-proposal; no Experiment 8 measurements have been run.
+[historical M4 speculative-decoding design](research/experiment-8-and-followups-review.md)
+is reference material, separate from the local packed-projection proposal.
+No local Experiment 8 measurements have been run.
 
 Arno's M4 Pro / 24 GB results and the local M2 Pro / 16 GB results remain
 separate hardware datasets.
@@ -80,3 +82,9 @@ and 88.49% of decode summed shader Sample Duration. These are instrumented
 sample shares, not clean request fractions or measured speedups. The original
 `.gputrace` files remain unreplayed; new validated CLI evidence closes the
 diagnostic under the documented October 20 contract.
+
+The next proposed local experiment has a [specification](experiments/experiment-8-packed-projections-spec.md)
+and [ordered plan](experiments/experiment-8-packed-projections-plan.md). It tests
+whether grouping same-input projections helps the existing M2/1B deployment,
+with exact-output checks and a >=10% full-request performance gate. Proposal
+publication does not start implementation or benchmarks.
