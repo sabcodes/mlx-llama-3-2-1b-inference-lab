@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "repository": "https://github.com/sabcodes/mlx-llama-3-2-1b-inference-lab",
+  "purpose": "Map original research commit labels to equivalent metadata-redacted history. This is a publication migration, not a new experiment.",
+  "changes": [
+    "One historical model path made project-relative.",
+    "Four system boot-time values redacted.",
+    "Three timezone annotations removed."
+  ],
+  "preserved": [
+    "All benchmark code, generated outputs, numerical measurements and compressed evidence.",
+    "Commit topology, author/committer identities, timestamps and messages."
+  ],
+  "commit_map": {
+    "c47e337ddf81fc19577a8ee64e1a73c579a639d6": "7a417aa785e6e3934f98b2da2f01aa39aeaa59c2",
+    "34df7301b6482f58bb2277d28fc42b52f3af3561": "d01488ab996ba4d48c4fafca9b4d26b6f22bd1cf",
+    "2410ac0c35cbc2cfcd32dbe51ec61833ca38adf4": "99054224869e5f74a4007c6add82f92cafe30d95",
+    "424d69fefa40b7ab772a9402e1c0c314c7ce19d9": "b5a66cbd8936c5698e3eff63f0d3eec6e1094e7a",
+    "ddebc5b9d7b615a0bfd46ca36138580763747e91": "c27b849849d4e63d4d30e5a5c3ac77c6c784be91",
+    "ced0224def2a67a5ba7153255426fe94c8c0c665": "1f0b84d52902b14147e17f609982a0cd5a11d47c",
+    "d34e5a4efa3b66eb7e46bc18e4f87ce7119148c5": "ac1e658d8a73ce9194aff7176d31b3c6825bdaad",
+    "a3585431da4b8b685e3e7c4b0a61652e7ca7325f": "71ab7da2a231a6a616502bc2395093bf449cc755",
+    "bbab229aa4cf3abba90cbb35a23bdd077d0ed938": "8c171518536cfcd1ac7b0c73e3ec33ed1c6fef66",
+    "1de18115d4f5323c07e4cac850feea1065ef3dee": "d255fe5b0e098acc528f4dd885183a793b96b50b",
+    "260062d79710e45bc4f956048a2440143f991cc6": "faf8f168beba3823a400a26b9b7a6d43a145911f",
+    "949c03b1fe768ac66e1d921d4a20147d9563f7ee": "b63427b51f0aceb4e932699482321028682fd949",
+    "9f69d9ccf6a218dd74ee4589c459be5d4c229f14": "e768d5738bb788808742a6cc98b4025f21522316",
+    "090c2d2dd65aca35488c137d22f412d2f75e358b": "34b1c7d708297ae016ef1af91a529e5c4d447ddf",
+    "63257a6c89fa6fa85e38819b6977a642bb093082": "fbbac8026e6b60ee52aef6067d97189650d3a95b",
+    "cc104a459e41625812256fbf5da3bc1663f695dc": "109f7f798220809341d41f20f6751fb44eeaad33",
+    "174b33b03931a46c3dcf007aa0876b7d74725269": "1c81527512c0d6cfbb5f66fdf1493498e31cdfe0",
+    "e78e23bd9e6d70decb7594ee5809f9d4b7ad19e3": "77ae955da77e9e19a372b6bf074f50f5fe8ac16b",
+    "31f7b7bc84ff610450ac11e592ca05e5d471b60b": "038a5b28c2c95c1a2f0a2af254556fb8254f573c",
+    "57625714e73f2e54bc0fb78412bb5dde6f60643c": "18633ad8914d3866f2201ed98a889dd70274267b",
+    "5407a7caaf1dfcf713b15631b0f97083f5d96dee": "e2ced4d1559aa538980e1367cac3434663fca8b4"
+  },
+  "clean_evidence_revision": "18633ad8914d3866f2201ed98a889dd70274267b",
+  "clean_branch_tips_before_publication_note": {
+    "main": "e2ced4d1559aa538980e1367cac3434663fca8b4",
+    "ArnoFeatures": "d255fe5b0e098acc528f4dd885183a793b96b50b"
+  }
+}

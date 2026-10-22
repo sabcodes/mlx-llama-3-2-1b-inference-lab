@@ -295,12 +295,11 @@ no custom Metal kernel is implemented in this repository.
 
 ## Local setup
 
-V1 is now the historical archive. The active baseline checkpoint and shared
-Obsidian vault were moved to the sibling `Metal Inference Engine` folder, where
-a separate environment reproduces V1 package versions. The original V1
-environment remains here; the layout and command below describe V1 reproduction
-and require restoring its model path before use. V2 does not require this
-archive to stay downloaded.
+This is a completed research archive. To reproduce a capture, provide your own
+local environment and model checkpoint using the versions, workload and settings
+recorded with that experiment. The primary runtime is MLX 0.32.2 and MLX-LM
+0.31.3; the baseline uses Python 3.14.4. Treat a different machine or software
+version as a new condition requiring its own matched control.
 
 The repository expects, but intentionally does not contain:
 
@@ -329,3 +328,15 @@ including excluded attempts and rejected-arm correctness results, are retained
 as gzip archives with verified recovery and
 provenance. Their analyses distinguish accepted gate evidence from excluded
 execution attempts.
+
+## Publication provenance
+
+The public study is hosted at
+[mlx-llama-3-2-1b-inference-lab](https://github.com/sabcodes/mlx-llama-3-2-1b-inference-lab).
+Before publication, eight metadata instances were removed from the research
+history: a local model path, four system boot-time values, and three timezone
+annotations. Executable code, generated outputs, numerical measurements and
+compressed evidence are unchanged. Historical records can retain their original
+commit labels; the [commit map](research/publication-history-map-20261022.json)
+resolves those labels to the cleaned revisions in this repository. This migration
+does not represent a rerun or a new experimental result.
